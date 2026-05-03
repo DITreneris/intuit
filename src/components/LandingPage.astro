@@ -2,6 +2,7 @@
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import Hero from './sections/Hero.astro';
+import TrustedBy from './sections/TrustedBy.astro';
 import Problem from './sections/Problem.astro';
 import ChaosVsSystem from './sections/ChaosVsSystem.astro';
 import Solution from './sections/Solution.astro';
@@ -24,6 +25,7 @@ const { messages, lang } = Astro.props;
   <Header messages={messages} lang={lang} />
   <main id="main" tabindex="-1">
     <Hero messages={messages} />
+    <TrustedBy messages={messages} />
     <Problem messages={messages} />
     <ChaosVsSystem messages={messages} />
     <Solution messages={messages} />

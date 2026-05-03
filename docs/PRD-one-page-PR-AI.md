@@ -1,6 +1,6 @@
 ﻿# PRD: vieno puslapio svetainė — pasitikėjimu grįsta korporatyvinė komunikacijos sistema
 
-**Dokumento versija:** 1.2  
+**Dokumento versija:** 1.5  
 **Data:** 2026-05-03  
 **Produktas:** Vieno puslapio (one-page) rinkodaros svetainė B2B sprendimų priėmėjams (CEO, CMO)  
 **Pagrindinė kalba:** lietuvių  
@@ -79,19 +79,20 @@ Trumpas mapping vadovams:
 | # | Sekcija | Tikslas | Privalomas turinys |
 |---|---------|---------|---------------------|
 | 1 | **Hero** | 2 s aiškumas; pozicionavimas + CTA | LT/EN antraštės, vienas primary CTA, vienas secondary |
+| 1b | **Klientų juosta (trusted by)** | Socialinis įrodymas iškart po hero | Horizontaliai slenkanti logotipų eilė (`#clients`); placeholderiai iki tikrų assetų |
 | 2 | **Problema (reality check)** | Atpažinimas; „tai apie mus“ | 3–4 punktai: fragmentacija, PR kaip reakcija, marketing ≠ reputacija, ad hoc įrankiai be proceso |
 | 3 | **Chaos vs system (vizualinė metafora)** | Before/after; tiltas į sprendimą | Viena aiški vizualinė schema ar palyginimas (žr. §5.2), ne teksto perkrova |
 | 4 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
-| 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai: Audit → System design → Implementation → Optimization (schema > ilgas tekstas) |
+| 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai (LT: Apžvalga → Planas → Paleidimas → Tobulinimas; EN: Review → Plan → Rollout → Improve); schema > ilgas tekstas |
 | 6 | **Proof** | Pasitikėjimas | Case(s): Before/After, skaičiai; jei nėra — framework demo / simuliacija (aiškiai pažymėta) |
-| 7 | **Pasiūlymas (offers)** | Konversija | 3 paketai: Starter / System / Scale — **rezultatai**, ne feature sąrašai |
+| 7 | **Pasiūlymas (offers)** | Konversija | 3 paketai (LT: Startas / Įgyvendinimas / Mastelis; EN: Starter / Delivery / Scale) — **rezultatai**, trumpi punktai, ne ilgas feature sąrašas |
 | 8 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |
 | 9 | **Final CTA** | Uždarymas | Viena stipri žinutė + primary CTA |
 
 ### 4.2 Konversijos funnel (privaloma logika)
 
 ```
-Hero (aiškus „kas“ + CTA) → Problema (atpažinimas) → Chaos vs system (metafora)
+Hero (aiškus „kas“ + CTA) → Klientų juosta → Problema (atpažinimas) → Chaos vs system (metafora)
     → Sprendimas (sistema) → Procesas (kaip) → Proof (kodėl tikėti) → Offers (ką pirkti) → Trust → CTA
 ```
 
@@ -107,8 +108,8 @@ Hero (aiškus „kas“ + CTA) → Problema (atpažinimas) → Chaos vs system (
 
 | Tipas | Pavyzdžiai (galutinius tekstus patvirtinti) |
 |-------|---------------------------------------------|
-| Primary | „Gauti konsultaciją“ / „Book a strategy call“ (ar ekvivalentas) |
-| Secondary | „Pamatyti, kaip veikia“ / „See how it works“ (veda į procesą / demo / anchor) |
+| Primary | „Gauti komunikacijos įžvalgą“ / „Get a communications insight“ (veda į kontaktą) |
+| Secondary | „4 žingsniai“ / „Four steps“ (veda į `#process`) |
 
 Vienas primary visame fold’e; secondary ne konkuruoja vizualiai su primary.
 
@@ -119,6 +120,7 @@ Vienas primary visame fold’e; secondary ne konkuruoja vizualiai su primary.
 ### 5.1 Tonas ir copy
 
 - Aiškus, confident, **ne** agentūriniai klichė („kūrybiški sprendimai“, „unikali patirtis“ be įrodymų).
+- **UI etiketės ir CTA:** trumpi žodžiai; vengti perteklinės „sistemos“ terminologijos viešame puslapyje, jei tas pats pasakoma paprasčiau.
 - AI ir kitos priemonės: **tik kontroliuojamoje darbo eigoje**; vedanti žinutė — **pasitikėjimas, skaidrumas, atsakomybė**, ne „AI-driven“ etiketė.
 
 ### 5.2 Vizualinė kryptis (kad ne „PowerPoint“)
@@ -129,8 +131,10 @@ Vienas primary visame fold’e; secondary ne konkuruoja vizualiai su primary.
 | Layout | Viena horizontali **flow** nuotaika, tinklelis (grid), didelis tarpai |
 | Tekstas | Minimalus; diagramos ir schema vietoj bullet perkrovos |
 | Spalva | Light mode kaip default („trust“); dark — tik jei brand reikalauja |
-| Problema / sprendimas | Before/after: chaos vs system (viena aiški vizualinė metafora) |
+| Problema / sprendimas | Before/after: chaos vs tvarka (viena aiški vizualinė metafora) |
 | Procesas | Linija / 4 žingsniai — **schematiškai**, ne ilgas paragrafas |
+| Sekcijų kortelės | Kur tinka: **linijinė ikona virš antraštės** (inline SVG, 24×24), tada trumpas pavadinimas ir body — mažiau teksto, daugiau skaitomumo |
+| Hero fonas | Pasirinktinai: subtilus brand **chevron** raštas (`logo-pattern-light`, žema opacity, blend) — ne konkuruoja su diagrama |
 
 ### 5.3 Prieinamumas ir technika (minimaliai)
 

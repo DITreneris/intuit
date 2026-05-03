@@ -22,6 +22,9 @@ export default {
         /** Hero diagram SVG — sinchronizuota su theme (žr. global.css :root) */
         diagramStrokeAi: '#c7d2fe',
         diagramLineSoft: '#9ca3af',
+        /** Diagramų akcentai — kontrolės žiedas, feedback loop (DS v1.1+) */
+        diagramElectric: '#2563eb',
+        diagramLoop: '#475569',
       },
       fontFamily: {
         sans: [
@@ -52,6 +55,9 @@ export default {
         /** Hero diagram wrapper — accent / 6% */
         'diagram-radial':
           'radial-gradient(circle at 30% 15%, rgb(30 58 138 / 0.06), transparent 55%)',
+        /** Švelnus „glow“ tik diagramos kortelei (pasitikėjimo tonas, ne hype) */
+        'diagram-glow':
+          'radial-gradient(ellipse 85% 70% at 52% 0%, rgb(37 99 235 / 0.07), transparent 52%)',
       },
     },
   },

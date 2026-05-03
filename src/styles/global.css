@@ -20,6 +20,10 @@
     --ds-ai-soft: theme('colors.aiSoft');
     --ds-diagram-stroke-ai: theme('colors.diagramStrokeAi');
     --ds-diagram-line-soft: theme('colors.diagramLineSoft');
+    --ds-diagram-electric: theme('colors.diagramElectric');
+    --ds-diagram-loop: theme('colors.diagramLoop');
+    --ds-success-soft: theme('colors.successSoft');
+    --ds-accent-teal: theme('colors.accentTeal');
   }
 
   html {
@@ -104,5 +108,16 @@
   /** Offers — highlighted tier (accent border + lift) */
   .card-featured {
     @apply flex flex-col rounded-xl border border-accent bg-surface p-6 shadow-soft md:-translate-y-1 md:ring-1 md:ring-accent/20;
+  }
+
+  /** Hero diagram — subtilus feedback loop judesys (išjungia prefers-reduced-motion bazėje) */
+  .hero-diagram-dash-animate {
+    animation: hero-diagram-dash 14s linear infinite;
+  }
+
+  @keyframes hero-diagram-dash {
+    to {
+      stroke-dashoffset: -96;
+    }
   }
 }

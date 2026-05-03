@@ -1,12 +1,12 @@
 # 67_Intuit — vieno puslapio landing
 
-Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md): LT pagrindinis, EN (`en/`), šviesi tema, greitas hero, brand iš `INTUIT LOGO/`. **Numatytasis hostingas:** [GitHub Pages](https://pages.github.com/) (`https://ditreneris.github.io/intuit/`); statiniai keliai naudoja Astro `base` (`/intuit`).
+Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema, hero su diagrama ir pasirinktiniu brand raštu, logotipai iš `public/brand/`. **Numatytasis hostingas:** [GitHub Pages](https://pages.github.com/) (`https://ditreneris.github.io/intuit/`); statiniai keliai naudoja Astro `base` (`/intuit`).
 
 ## Dokumentacija
 
 - **[AGENTS.md](AGENTS.md)** — Cursor agentams: ką skaityti pirmiausia, pagrindiniai keliai, nuoroda į taisykles.
 - **[docs/README.md](docs/README.md)** — dokumentų rodyklė ir valdymo taisyklės (PRD, BRAND, DS, changelog, darbo planas).
-- **[docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)** — Design System v1.1 (tokenai, CTA komponentai, checklist).
+- **[docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)** — Design System v1.3 (tokenai, CTA, sekcijų ikonų šablonas, checklist).
 - **[CHANGELOG.md](CHANGELOG.md)** — versijų istorija (Keep a Changelog).
 - **[todo.md](todo.md)** — vykdymo planas ir checklist.
 - **Cursor taisyklės:** [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc) (stackas, i18n, Tailwind, `intuit-sitemap`, komponentai).
@@ -69,7 +69,7 @@ Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 
 ## Brand
 
-- Logotipai: `public/brand/` (kopijuoti iš `INTUIT LOGO/jpg/`).
+- `public/brand/`: `logo-light.jpg`, `logo-dark.jpg`, `logo-pattern-light.jpg`, `logo-pattern-dark.jpg` (šaltiniai ir pastabos — [docs/BRAND.md](docs/BRAND.md)).
 - Šriftas: **Inter** (`@fontsource/inter`). Larsseit žr. [docs/BRAND.md](docs/BRAND.md).
 
 ## Sitemap

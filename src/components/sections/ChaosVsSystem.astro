@@ -15,51 +15,65 @@ const c = messages.chaosVsSystem;
       {c.chaosTitle} / {c.systemTitle}
     </h2>
     <div class="grid gap-6 md:grid-cols-2">
-      <div class="card-muted p-6">
+      <div class="card-muted border-danger/25 bg-dangerSoft/50 p-6 ring-1 ring-danger/10">
         <div class="mb-4 flex items-center justify-between gap-3">
-          <span class="text-xs font-semibold uppercase tracking-wide text-muted">{c.chaosTitle}</span>
-          <span class="rounded-full bg-dangerSoft px-2 py-0.5 text-2xs font-semibold uppercase text-danger">
+          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-danger">
+            <span class="flex h-8 w-8 items-center justify-center rounded-lg border border-danger/20 bg-white/60 text-danger" aria-hidden="true">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M4 18 8 6l4 8 4-8 4 12" />
+              </svg>
+            </span>
+            {c.chaosTitle}
+          </span>
+          <span class="rounded-full bg-danger/10 px-2 py-0.5 text-2xs font-semibold uppercase text-danger">
             {c.chaosBadge}
           </span>
         </div>
-        <svg viewBox="0 0 400 220" class="h-auto w-full text-muted" aria-hidden="true">
+        <svg viewBox="0 0 400 220" class="h-auto w-full text-danger/85" aria-hidden="true">
           <path
             d="M20 140 C80 40 140 200 200 90 C260 -10 320 180 380 60"
             fill="none"
             stroke="currentColor"
-            stroke-width="3"
+            stroke-width="3.5"
             stroke-linecap="round"></path>
-          <circle cx="80" cy="95" r="5" fill="currentColor" opacity="0.35"></circle>
-          <circle cx="200" cy="90" r="5" fill="currentColor" opacity="0.35"></circle>
-          <circle cx="320" cy="120" r="5" fill="currentColor" opacity="0.35"></circle>
+          <circle cx="80" cy="95" r="5.5" fill="currentColor" opacity="0.45"></circle>
+          <circle cx="200" cy="90" r="5.5" fill="currentColor" opacity="0.45"></circle>
+          <circle cx="320" cy="120" r="5.5" fill="currentColor" opacity="0.45"></circle>
         </svg>
         <p class="mt-4 text-sm text-muted">{c.chaosCaption}</p>
       </div>
 
-      <div class="card border-accent/25 p-6 shadow-soft md:-translate-y-0.5">
+      <div class="card border-accentTeal/30 bg-successSoft/40 p-6 shadow-soft ring-1 ring-accent/15 md:-translate-y-0.5">
         <div class="mb-4 flex items-center justify-between gap-3">
-          <span class="text-xs font-semibold uppercase tracking-wide text-muted">{c.systemTitle}</span>
-          <span class="rounded-full bg-successSoft px-2 py-0.5 text-2xs font-semibold uppercase text-accentTeal">
+          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-accentTeal">
+            <span class="flex h-8 w-8 items-center justify-center rounded-lg border border-accent/15 bg-white/70 text-accent" aria-hidden="true">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round" />
+              </svg>
+            </span>
+            {c.systemTitle}
+          </span>
+          <span class="rounded-full bg-white/80 px-2 py-0.5 text-2xs font-semibold uppercase text-accentTeal">
             {c.systemBadge}
           </span>
         </div>
         <svg viewBox="0 0 400 220" class="h-auto w-full text-accent" aria-hidden="true">
-          <path d="M30 150 H370" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M30 110 H370" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M30 70 H370" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M40 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M110 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M180 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M250 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <path d="M320 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
-          <circle cx="110" cy="110" r="7" fill="currentColor"></circle>
-          <circle cx="180" cy="85" r="7" fill="currentColor"></circle>
-          <circle cx="250" cy="130" r="7" fill="currentColor"></circle>
+          <path d="M30 150 H370" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M30 110 H370" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M30 70 H370" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M40 150 V70" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M110 150 V70" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M180 150 V70" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M250 150 V70" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <path d="M320 150 V70" stroke="currentColor" stroke-width="2" opacity="0.22"></path>
+          <circle cx="110" cy="110" r="7" fill="currentColor" opacity="0.95"></circle>
+          <circle cx="180" cy="85" r="7" fill="currentColor" opacity="0.95"></circle>
+          <circle cx="250" cy="130" r="7" fill="currentColor" opacity="0.95"></circle>
           <path
             d="M110 110 L180 85 L250 130"
             fill="none"
             stroke="currentColor"
-            stroke-width="3"
+            stroke-width="3.5"
             stroke-linecap="round"
             stroke-linejoin="round"></path>
         </svg>

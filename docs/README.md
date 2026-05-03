@@ -6,9 +6,9 @@
 
 | Dokumentas | Paskirtis | Atnaujinti, kai… |
 |--------------|-----------|-------------------|
-| [PRD-one-page-PR-AI.md](PRD-one-page-PR-AI.md) | Produkto reikalavimai: sekcijos, funnel, LT/EN, a11y, vizualas | Keičiasi pozicionavimas, sekcijų eilė ar konversijos logika |
+| [PRD-one-page-PR-AI.md](PRD-one-page-PR-AI.md) | Produkto reikalavimai: sekcijos, funnel, LT/EN, CTA, a11y, vizualas (versija faile, pvz. v1.5) | Keičiasi pozicionavimas, sekcijų eilė, copy ar konversijos logika |
 | [BRAND.md](BRAND.md) | Logotipų keliai, Larsseit / Inter, UI gairės | Keičiasi brand failai, šriftų licencija ar naudojimas webui |
-| [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) | DS v1.1: Tailwind tokenai, CTA komponentai, `--ds-*`, anti-patterns, checklist | Keičiasi vizualinė sistema, nauji UI primitive ar tokenai |
+| [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) | DS v1.3: Tailwind tokenai, CTA, sekcijų ikonų šablonas, `--ds-*`, anti-patterns, checklist | Keičiasi vizualinė sistema, nauji UI primitive ar tokenai |
 | [README.md](README.md) *(šis failas)* | Dokumentų valdymas: kas kur gyvena | Pridedate naują doc tipą ar taisykles |
 
 ## Repozitorijoje ne `docs/`

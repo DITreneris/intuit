@@ -10,7 +10,7 @@ alwaysApply: false
 ## Šaltiniai ir kalbos
 
 - **Produkto tiesa:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (įskaitant pasitikėjimo pirmumo pozicionavimą v1.1+).
-- **Design System v1.1:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, checklist.
+- **Design System v1.3:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, sekcijų ikonų šablonas (inline SVG virš antraštės), checklist.
 - **Publikus copy:** [src/i18n/lt.ts](src/i18n/lt.ts) (LT), [src/i18n/en.ts](src/i18n/en.ts) (EN); bendras tipas — [src/i18n/types.ts](src/i18n/types.ts) (`SiteMessages` iš LT formos).
 - **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`en/` po `base`). Antrinė kalba — **adaptacija**, ne žodis į žodį.
 
@@ -27,7 +27,7 @@ alwaysApply: false
 
 - **Shell:** `Layout.astro` — `<html lang>`, meta, skip nuoroda (`messages.a11y.skipToMain` → `#main`).
 - **Puslapis:** [src/components/LandingPage.astro](src/components/LandingPage.astro) — `<main id="main" tabindex="-1">`, sekcijų eilė pagal PRD funnel.
-- **Sekcijos:** [src/components/sections/](src/components/sections/) — `Hero` (importuoja [HeroSystemDiagram.astro](src/components/HeroSystemDiagram.astro)), `Problem`, `ChaosVsSystem`, `Solution`, `Process`, `Proof`, `Offers`, `About`, `FinalCta`.
+- **Sekcijos:** [src/components/sections/](src/components/sections/) — `Hero` ([HeroSystemDiagram.astro](src/components/HeroSystemDiagram.astro) + pasirinktinis `logo-pattern-light` fonas), `TrustedBy` (`#clients`, slenkanti logotipų juosta), `Problem`, `ChaosVsSystem`, `Solution`, `Process`, `Proof`, `Offers`, `About`, `FinalCta`.
 - **Antraštė / koja:** [Header.astro](src/components/Header.astro), [Footer.astro](src/components/Footer.astro).
 - **UI primitives:** [src/components/ui/](src/components/ui/) — `ButtonPrimary.astro` (`size`, `variant`), `ButtonSecondary.astro`; primary CTA visur per juos (Hero, Header, Offers, FinalCta).
 - **ChaosVsSystem:** tekstai iš `messages.chaosVsSystem` (ne atskiras `lang` prop).
@@ -39,7 +39,7 @@ alwaysApply: false
 - **Semantika:** vienas `<h1>` (Hero); sekcijos `<h2>`; prasmingos nuorodos.
 - **CTA:** vienas aiškus primary; secondary silpnesnis — ne konkuruoja vizualiai. Nauji primary mygtukai — `ButtonPrimary`, ne dubliuoti rankines `pill` klases.
 - **Pasitikėjimas pirmiau:** vedanti žinutė — patikimumas, kontrolė, skaidrumas; AI / kitos priemonės tik **aiškiai valdomoje** eigoje, ne „AI-driven“ etiketė.
-- **Tonas:** outcome-first, be agentūrinių klichė.
+- **Tonas:** outcome-first, be agentūrinių klichė; viešame copy vengti perteklinės „sistemos“ terminologijos — trumpesnės etiketės ir CTA (`src/i18n/`, PRD §5.1).
 - **Brand / šriftas:** žr. [docs/BRAND.md](docs/BRAND.md); web — Inter; Larsseit tik su webfont licencija.
 
 ## Prieinamumas

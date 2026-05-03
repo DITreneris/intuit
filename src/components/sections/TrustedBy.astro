@@ -1,0 +1,66 @@
+---
+/**
+ * Klientų logotipai: vėliau keiskite `t.slots` į duomenis su `src` + `alt`,
+ * arba čia map’inkite į `<img class="max-h-10 w-auto object-contain" … />`.
+ */
+import type { SiteMessages } from '../../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+const t = messages.trustedBy;
+---
+
+<section
+  id="clients"
+  aria-labelledby="trusted-by-heading"
+  class="scroll-mt-28 border-b border-line bg-paper"
+>
+  <div class="mx-auto max-w-content px-4 py-10 md:px-6 md:py-12">
+    <div class="mb-6 text-center">
+      <h2 id="trusted-by-heading" class="text-sm font-semibold uppercase tracking-[0.18em] text-muted">
+        {t.title}
+      </h2>
+      <p class="mt-2 text-2xs text-muted/90 md:text-xs">{t.hint}</p>
+    </div>
+
+    <div class="relative">
+      <div
+        class="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-paper to-transparent md:w-12"
+        aria-hidden="true"
+      />
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-paper to-transparent md:w-12"
+        aria-hidden="true"
+      />
+
+      <div
+        class="trusted-by-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain py-1 [-ms-overflow-style:none] [scrollbar-width:thin] md:gap-6 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-line [&::-webkit-scrollbar-track]:bg-transparent"
+        role="list"
+        tabindex="0"
+        aria-label={t.hint}
+      >
+        {
+          t.slots.map((label) => (
+            <div
+              role="listitem"
+              class="flex h-14 min-w-[8.5rem] shrink-0 snap-start items-center justify-center rounded-xl border border-dashed border-line/90 bg-surface px-3 shadow-softSm md:h-16 md:min-w-[10.5rem]"
+            >
+              <span class="text-center text-2xs font-semibold uppercase tracking-wide text-muted">{label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trusted-by-scroll:focus-visible {
+    outline: 2px solid theme('colors.accent');
+    outline-offset: 4px;
+    border-radius: 0.5rem;
+  }
+</style>
