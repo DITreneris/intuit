@@ -12,14 +12,15 @@ alwaysApply: false
 - **Produkto tiesa:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (įskaitant pasitikėjimo pirmumo pozicionavimą v1.1+).
 - **Design System v1.1:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, checklist.
 - **Publikus copy:** [src/i18n/lt.ts](src/i18n/lt.ts) (LT), [src/i18n/en.ts](src/i18n/en.ts) (EN); bendras tipas — [src/i18n/types.ts](src/i18n/types.ts) (`SiteMessages` iš LT formos).
-- **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro) (`/`); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`/en/`). Antrinė kalba — **adaptacija**, ne žodis į žodį.
+- **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`en/` po `base`). Antrinė kalba — **adaptacija**, ne žodis į žodį.
 
 ## Stackas (dabartinė būsena)
 
-- **Astro 4**, `output: 'static'`, TypeScript strict (`tsconfig.json` → `astro/tsconfigs/strict`).
+- **Astro 4**, `output: 'static'`, `site` + **`base`** ([astro.config.mjs](astro.config.mjs)): numatytai GitHub Pages `https://ditreneris.github.io` + `/intuit`; Vercel — `ASTRO_BASE=/` ir savo `PUBLIC_SITE_URL`.
+- TypeScript strict (`tsconfig.json` → `astro/tsconfigs/strict`).
 - **Tailwind 3** per `@astrojs/tailwind` (`applyBaseStyles: false`); dizaino tokenai — [tailwind.config.mjs](tailwind.config.mjs): `ink`, `paper`, `warm`, `surface`, `muted`, `muted2`, `line`, `accent`, `accentTeal`, `aiSoft`, `successSoft`, `danger` / `dangerSoft`, `diagramStrokeAi`, `diagramLineSoft`, šešėliai `soft` / `softSm` / `elevated`, `fontSize` `2xs`, `max-w-content` (1180px), `max-w-measure`, `bg-hero-premium`, `bg-diagram-radial`.
 - **Globalūs stiliai:** [src/styles/global.css](src/styles/global.css) — Inter importai, `@layer base` `:root` `--ds-*` (SVG diagramos); `@layer components`: `.card`, `.card-muted`, `.card-featured`; `.skip-to-main`; `:focus-visible` (`theme('colors.accent')` ir kt.).
-- **Sitemap:** ne `@astrojs/sitemap` — custom integracija **`intuit-sitemap`** [astro.config.mjs](astro.config.mjs) (`astro:build:done` → `dist/sitemap.xml` su `/` ir `/en/`). Kanoninis `site` iš `PUBLIC_SITE_URL` / `SITE_URL` arba numatytasis URL faile.
+- **Sitemap:** ne `@astrojs/sitemap` — custom integracija **`intuit-sitemap`** [astro.config.mjs](astro.config.mjs) (`astro:build:done` → `dist/sitemap.xml`; URL su `site` + `base`). Deploy: žr. [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml).
 - **SEO head:** [src/layouts/Layout.astro](src/layouts/Layout.astro) — canonical, `hreflang`, OG, `<link rel="sitemap" …>`.
 
 ## Komponentų struktūra

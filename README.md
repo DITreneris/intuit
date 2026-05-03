@@ -1,6 +1,6 @@
 # 67_Intuit — vieno puslapio landing
 
-Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md): LT pagrindinis (`/`), EN (`/en/`), šviesi tema, greitas hero, brand iš `INTUIT LOGO/`.
+Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md): LT pagrindinis, EN (`en/`), šviesi tema, greitas hero, brand iš `INTUIT LOGO/`. **Numatytasis hostingas:** [GitHub Pages](https://pages.github.com/) (`https://ditreneris.github.io/intuit/`); statiniai keliai naudoja Astro `base` (`/intuit`).
 
 ## Dokumentacija
 
@@ -23,6 +23,8 @@ npm install
 npm run dev
 ```
 
+Lokalus dev su numatytuoju GitHub Pages `base`: atidarykite **`http://localhost:4321/intuit/`** (ne šaknį `/`).
+
 Build:
 
 ```bash
@@ -35,22 +37,30 @@ npm run preview
 Žr. [.env.example](.env.example).
 
 - `PUBLIC_CONTACT_EMAIL` — rodomas `mailto:` kontaktinėje sekcijoje.
-- `PUBLIC_SITE_URL` — kanoninis URL (OG, `hreflang`). Jei nenurodysite, naudojamas numatytasis iš `astro.config.mjs`.
+- `PUBLIC_SITE_URL` — kanoninis **domenas** (pvz. `https://ditreneris.github.io`), be repo kelio; OG, `hreflang`, sitemap.
+- `ASTRO_BASE` — Astro `base`: GitHub projektui **`/intuit`** (numatytasis faile); Vercel šakninei URL reikės **`/`**.
 
-## Vercel
+## GitHub Pages
+
+1. Repozitorijoje: **Settings → Pages → Build and deployment → Source: GitHub Actions** (vieną kartą).
+2. Push į `master` arba `main` paleidžia [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml): `npm ci` → `npm run build` → įkelia `dist`.
+3. Workflow jau nustato `PUBLIC_SITE_URL=https://ditreneris.github.io` ir `ASTRO_BASE=/intuit` (sutampa su [`astro.config.mjs`](astro.config.mjs) numatytaisiais).
+
+Po sėkmingo deploy: **`https://ditreneris.github.io/intuit/`**, **`…/intuit/en/`**, **`…/intuit/sitemap.xml`**.
+
+### Production checklist (GitHub Pages)
+
+- Pirmame deploy palaukite Actions žalios varnelės; kartais reikia atnaujinti puslapį po 1–2 min.
+- Patikrinkite kalbos jungiklį, hero paveikslus, **`/intuit/sitemap.xml`**.
+- **SVG logotipas** (iš `INTUIT LOGO/ai/`) — pasirinktinai vėliau vietoj JPG geresniam masteliui ir LCP; iki tol galioja `public/brand/*.jpg`.
+
+## Vercel (vėliau)
 
 1. Importuokite repo į [Vercel](https://vercel.com).
-2. Framework: **Other** arba autodetect; **Build Command** `npm run build`; **Output** `dist`.
-3. Nustatykite `PUBLIC_SITE_URL` ir `PUBLIC_CONTACT_EMAIL` (Production / Preview).
+2. **Build Command** `npm run build`; **Output** `dist`.
+3. Aplinkos kintamieji: **`PUBLIC_SITE_URL`** = pilnas jūsų domenas (pvz. `https://xxx.vercel.app`), **`ASTRO_BASE=/`** (privaloma — kitaip liktų `/intuit` prefiksas iš numatytojo).
 
 Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
-
-### Production checklist (prieš viešą domeną)
-
-- **PUBLIC_SITE_URL** — pilnas kanoninis URL su `https://` (be gale `/` arba su — kaip naudosite pastoviai); įtakoja OG, `hreflang`, sitemap.
-- **PUBLIC_CONTACT_EMAIL** — `mailto:` adresas; jei nenustatyta, naudojamas el. paštas iš `finalCta.contactEmail` (i18n).
-- Po deploy: atidaryti `/` ir `/en/`, patikrinti primary CTA ir **`/sitemap.xml`** (URL turi sutapti su `PUBLIC_SITE_URL`).
-- **SVG logotipas** (iš `INTUIT LOGO/ai/`) — pasirinktinai vėliau vietoj JPG geresniam masteliui ir LCP; iki tol galioja `public/brand/*.jpg`.
 
 ## Turinys ir kalbos
 
@@ -64,7 +74,7 @@ Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 
 ## Sitemap
 
-Build metu [`astro.config.mjs`](astro.config.mjs) integracija **`intuit-sitemap`** įrašo `dist/sitemap.xml` su `/` ir `/en/` URL pagal tą patį kanoninį `site` kaip ir OG (`PUBLIC_SITE_URL` / `SITE_URL` arba numatytasis `astro.config.mjs`). Po deploy tikrinkite, kad `https://<jūsų-domenas>/sitemap.xml` grąžina XML.
+Build metu [`astro.config.mjs`](astro.config.mjs) integracija **`intuit-sitemap`** įrašo `dist/sitemap.xml` su LT ir EN URL pagal `site` + `base` (GitHub Pages: `…/intuit/` ir `…/intuit/en/`). Po deploy tikrinkite pilną sitemap URL savo domene.
 
 Alternatyva ateityje: oficiali `@astrojs/sitemap` integracija po Astro versijos atnaujinimo.
 

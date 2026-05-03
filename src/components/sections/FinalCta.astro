@@ -8,6 +8,10 @@ interface Props {
 
 const { messages } = Astro.props;
 
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
 const email =
   (import.meta.env.PUBLIC_CONTACT_EMAIL as string | undefined)?.trim() ||
   messages.finalCta.contactEmail;
@@ -31,7 +35,7 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
       <div class="rounded-xl border border-white/15 bg-white/10 p-6 backdrop-blur">
         <img
-          src="/brand/logo-dark.jpg"
+          src={`${basePath}brand/logo-dark.jpg`}
           alt=""
           width="280"
           height="76"

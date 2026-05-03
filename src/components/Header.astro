@@ -20,7 +20,10 @@ const links = [
   { href: '#contact', label: messages.nav.contact },
 ] as const;
 
-const otherHref = lang === 'lt' ? '/en/' : '/';
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const otherHref = lang === 'lt' ? `${basePath}en/` : basePath;
 const otherLabel = lang === 'lt' ? messages.nav.langShortEn : messages.nav.langShortLt;
 
 const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
@@ -32,7 +35,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
   <div class="mx-auto flex max-w-content items-center justify-between gap-3 px-4 py-3 md:gap-4 md:px-6">
     <a href="#hero" class="flex min-w-0 items-center gap-3">
       <img
-        src="/brand/logo-light.jpg"
+        src={`${basePath}brand/logo-light.jpg`}
         alt={messages.hero.logoAlt}
         width="132"
         height="36"

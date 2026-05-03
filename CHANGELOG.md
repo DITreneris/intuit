@@ -5,6 +5,11 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ## [Unreleased]
 
+### Added
+
+- GitHub Pages: [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) (build `dist`, `actions/deploy-pages`).
+- Astro [`astro.config.mjs`](astro.config.mjs): numatytasis `site` → `https://ditreneris.github.io`, `base` → `/intuit`; aplinkos kintamasis **`ASTRO_BASE`** Vercel šakninei (`/`).
+
 ### Fixed
 
 - [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) v1.2: §4.1 lentelė ir §4.2 funnel sinchronizuoti su kodo sekcija **Chaos vs system** (`ChaosVsSystem.astro`).
