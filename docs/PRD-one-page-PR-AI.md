@@ -1,6 +1,6 @@
 ﻿# PRD: vieno puslapio svetainė — pasitikėjimu grįsta korporatyvinė komunikacijos sistema
 
-**Dokumento versija:** 1.1  
+**Dokumento versija:** 1.2  
 **Data:** 2026-05-03  
 **Produktas:** Vieno puslapio (one-page) rinkodaros svetainė B2B sprendimų priėmėjams (CEO, CMO)  
 **Pagrindinė kalba:** lietuvių  
@@ -80,18 +80,19 @@ Trumpas mapping vadovams:
 |---|---------|---------|---------------------|
 | 1 | **Hero** | 2 s aiškumas; pozicionavimas + CTA | LT/EN antraštės, vienas primary CTA, vienas secondary |
 | 2 | **Problema (reality check)** | Atpažinimas; „tai apie mus“ | 3–4 punktai: fragmentacija, PR kaip reakcija, marketing ≠ reputacija, ad hoc įrankiai be proceso |
-| 3 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
-| 4 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai: Audit → System design → Implementation → Optimization (schema > ilgas tekstas) |
-| 5 | **Proof** | Pasitikėjimas | Case(s): Before/After, skaičiai; jei nėra — framework demo / simuliacija (aiškiai pažymėta) |
-| 6 | **Pasiūlymas (offers)** | Konversija | 3 paketai: Starter / System / Scale — **rezultatai**, ne feature sąrašai |
-| 7 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |
-| 8 | **Final CTA** | Uždarymas | Viena stipri žinutė + primary CTA |
+| 3 | **Chaos vs system (vizualinė metafora)** | Before/after; tiltas į sprendimą | Viena aiški vizualinė schema ar palyginimas (žr. §5.2), ne teksto perkrova |
+| 4 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
+| 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai: Audit → System design → Implementation → Optimization (schema > ilgas tekstas) |
+| 6 | **Proof** | Pasitikėjimas | Case(s): Before/After, skaičiai; jei nėra — framework demo / simuliacija (aiškiai pažymėta) |
+| 7 | **Pasiūlymas (offers)** | Konversija | 3 paketai: Starter / System / Scale — **rezultatai**, ne feature sąrašai |
+| 8 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |
+| 9 | **Final CTA** | Uždarymas | Viena stipri žinutė + primary CTA |
 
 ### 4.2 Konversijos funnel (privaloma logika)
 
 ```
-Hero (aiškus „kas“ + CTA) → Problema (atpažinimas) → Sprendimas (sistema)
-    → Procesas (kaip) → Proof (kodėl tikėti) → Offers (ką pirkti) → Trust → CTA
+Hero (aiškus „kas“ + CTA) → Problema (atpažinimas) → Chaos vs system (metafora)
+    → Sprendimas (sistema) → Procesas (kaip) → Proof (kodėl tikėti) → Offers (ką pirkti) → Trust → CTA
 ```
 
 **Taisyklė:** Proof ir Offers negali būti prieš aiškų „sistema + procesas“, jei auditorija šalta — kitaip bounce iš Offers.

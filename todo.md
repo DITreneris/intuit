@@ -1,4 +1,4 @@
-# 67_Intuit — detalus darb? planas (todo)
+# 67_Intuit — detalus darbo planas (todo)
 
 **Paskutinis atnaujinimas:** 2026-05-03  
 **Stack:** Astro + statinis build + Vercel  
@@ -49,7 +49,7 @@
 | PRD | Yra `docs/PRD-one-page-PR-AI.md` (UTF-8 patikrinkite redaktoriuje). |
 | Brand | Yra `INTUIT LOGO/` ir `public/brand/` assetai. |
 | Deploy | Vercel (`vercel.json`, build ? `dist`); žr. README ir `.env.example` (`PUBLIC_SITE_URL`, `PUBLIC_CONTACT_EMAIL`). |
-| Sitemap | Build generuoja `dist/sitemap.xml` (`astro.config.mjs` — `intuit-sitemap`). |
+| Sitemap | Build generuoja `dist/sitemap.xml` (`astro.config.mjs` ? `intuit-sitemap`). |
 
 ---
 
@@ -57,7 +57,7 @@
 
 **Tikslas:** vienodas AI/žmogaus darbas; PRD ir brand kaip šaltiniai.
 
-- [ ] **0.1** `.cursor/rules/` arba `AGENTS.md`: LT pirmin? / EN antrin?; vienas H1; CTA hierarchija; AI = sistema; tonas pagal PRD (ne agent?ros kliš?).
+- [ ] **0.1** `.cursor/rules/` arba `AGENTS.md`: LT pirmin? / EN antrin?; vienas H1; CTA hierarchija; AI = sistema; tonas pagal PRD (ne agent?ros kliš?s).
 - [ ] **0.2** README: projektas, nuorodos ? PRD ir `INTUIT LOGO`, `npm run dev`, deploy santrauka.
 - [ ] **0.3** `.editorconfig`: `charset = utf-8`, `insert_final_newline = true`.
 - [ ] **0.4** Brand ? projektas (po Astro init): kopijuoti ? `public/brand/` arba `src/assets/brand/` tik reikalingus: **SVG iš .ai eksportas**, `jpg` variantai; šriftus tik po licencijos patvirtinimo.
@@ -69,15 +69,15 @@
 
 ## Faza 1 — Astro + Vercel: MVP karkasas (light, greitas hero)
 
-**Tikslas:** vienas statinis puslapis, greitas LCP, šviesi tema, 8 PRD sekcijos.
+**Tikslas:** vienas statinis puslapis, greitas LCP, šviesi tema, PRD sekcij? eil? (?skaitant Chaos vs System).
 
 ### 1.1 Astro projektas
 
 - [ ] `npm create astro@latest` — minimal template arba „Empty“ + TypeScript (strict pagal pageidavim?).
 - [ ] `output: 'static'` (`astro.config.mjs`) — vienas landing = papras?iausias Vercel hosting.
 - [ ] Integracija: `@astrojs/tailwind` (arba Tailwind v4 pagal Astro docs 2026) — greitas layout ir PRD grid.
-- [ ] `@astrojs/sitemap` — URL kai bus domenas.
-- [ ] `astro.config` ? `site: 'https://...'` kai žinomas domenas.
+- [ ] Sitemap: repo naudoja custom **`intuit-sitemap`** (`astro.config.mjs`), ne `@astrojs/sitemap`.
+- [ ] `astro.config` ? `site` / `PUBLIC_SITE_URL` kai žinomas domenas.
 
 ### 1.2 Vercel
 
@@ -94,13 +94,13 @@
 
 ### 1.4 Strukt?ra ir komponentai
 
-- [ ] Viena `src/pages/index.astro` arba `src/pages/lt/index.astro` (jei v?liau locale maršrutai — dabar gali b?ti vienas URL su LT+EN inline pagal PRD).
-- [ ] Sekcijos komponentai: `Hero`, `Problem`, `Solution`, `Process`, `Proof`, `Offers`, `About`, `FinalCta`.
-- [ ] `Layout.astro`: meta LT, Open Graph, favicon iš logo eksporto (simple `/` favicon optional).
+- [ ] Maršrutai: LT `/`, EN `/en/` (`src/pages/`).
+- [ ] Sekcijos komponentai: `Hero`, `Problem`, `ChaosVsSystem`, `Solution`, `Process`, `Proof`, `Offers`, `About`, `FinalCta`.
+- [ ] `Layout.astro`: meta, Open Graph, favicon iš logo eksporto (simple `/` favicon optional).
 
 ### 1.5 Navigacija ir CTA
 
-- [ ] Anchor menu: `#hero`, `#problem`, … — sutampa su PRD funnel.
+- [ ] Anchor menu: `#hero`, `#problem`, … — sutampa su PRD funnel (Chaos vs System gali b?ti be atskiros nav eilut?s).
 - [ ] Vienas **primary** CTA komponentas (pvz. „Gauti konsultacij?“) + secondary („Kaip veikia“ ? `#process`).
 
 ### 1.6 Prieinamumas
@@ -114,7 +114,7 @@
 
 ## Faza 2 — Minimal LT turinys (skeletas)
 
-- [ ] **2.1–2.7** pagal PRD ir ankstesn? todo: Hero 2 s testas; Problema 3–4; sistema trimis blokais; procesas 4 žingsniai; Proof placeholder aiškiai pažym?tas; 3 paketai; Apie; final CTA.
+- [ ] **2.1–2.7** pagal PRD ir ankstesn? todo: Hero 2 s testas; Problema 3–4; chaos vs system; sistema trimis blokais; procesas 4 žingsniai; Proof placeholder aiškiai pažym?tas; 3 paketai; Apie; final CTA.
 
 **Iš?jimo kriterijus:** visa istorija LT nuo pradžios iki galo.
 
@@ -142,7 +142,7 @@
 ## Faza 6 — Pilnas MVP
 
 - [ ] Tikras Proof arba s?žiningas framework demo su dizainu.
-- [ ] Chaos vs system + proceso linija (diagrama).
+- [ ] Chaos vs system + proceso linija (diagrama) — patobulinti jei reikia.
 - [ ] Lighthouse: fonts/images optimizuoti; form/booking integracija; backlog A/B.
 
 ---
@@ -150,7 +150,7 @@
 ## Prioritet? eil?
 
 1. Faza 0 (rules, README, brand keliai, UTF-8)  
-2. Faza 1 (Astro static + Vercel + greitas hero + 8 sekcij? karkasas)  
+2. Faza 1 (Astro static + Vercel + greitas hero + sekcij? karkasas)  
 3. Fazos 2–4 turinys ir kalbos  
 4. Faza 5 deploy  
 5. Faza 6 produktinis užbaigtumas  
