@@ -1,0 +1,31 @@
+---
+/**
+ * Primary CTA — vienodas stilius visame landinge (Hero, Header, Offers).
+ * `onDark` — šviesus blokas ant `bg-ink` (FinalCta).
+ */
+interface Props {
+  href: string;
+  size?: 'md' | 'sm';
+  variant?: 'default' | 'onDark';
+  class?: string;
+}
+
+const { href, size = 'md', variant = 'default', class: className = '' } = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center rounded-full font-semibold transition';
+
+const sizeClasses = {
+  md: 'px-5 py-3 text-sm shadow-softSm',
+  sm: 'px-4 py-2 text-sm shadow-softSm',
+} as const;
+
+const variantClasses = {
+  default: 'bg-accent text-white hover:bg-accent/90',
+  onDark: 'bg-white text-accent shadow-softSm hover:bg-paper',
+} as const;
+---
+
+<a href={href} class:list={[base, sizeClasses[size], variantClasses[variant], className]}>
+  <slot />
+</a>

@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import type { SiteMessages } from '../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+  lang: 'lt' | 'en';
+}
+
+const { messages, lang } = Astro.props;
+const siteBase = Astro.site ?? new URL('https://67-intuit.vercel.app');
+const canonicalURL = new URL(Astro.url.pathname, siteBase);
+const ogImage = new URL('/brand/logo-light.jpg', siteBase).href;
+const hrefLt = new URL('/', siteBase).href;
+const hrefEn = new URL('/en/', siteBase).href;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{messages.meta.title}</title>
+    <meta name="description" content={messages.meta.description} />
+    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="alternate" hreflang="lt" href={hrefLt} />
+    <link rel="alternate" hreflang="en" href={hrefEn} />
+    <link rel="alternate" hreflang="x-default" href={hrefLt} />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href={new URL('/sitemap.xml', siteBase).href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={messages.meta.title} />
+    <meta property="og:description" content={messages.meta.description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={messages.meta.ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={messages.meta.title} />
+    <meta name="twitter:description" content={messages.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body class="min-h-dvh bg-warm text-ink">
+    <a class="skip-to-main" href="#main">{messages.a11y.skipToMain}</a>
+    <slot />
+  </body>
+</html>

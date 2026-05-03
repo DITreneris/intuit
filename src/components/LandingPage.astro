@@ -1,0 +1,37 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import Hero from './sections/Hero.astro';
+import Problem from './sections/Problem.astro';
+import ChaosVsSystem from './sections/ChaosVsSystem.astro';
+import Solution from './sections/Solution.astro';
+import Process from './sections/Process.astro';
+import Proof from './sections/Proof.astro';
+import Offers from './sections/Offers.astro';
+import About from './sections/About.astro';
+import FinalCta from './sections/FinalCta.astro';
+import type { SiteMessages } from '../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+  lang: 'lt' | 'en';
+}
+
+const { messages, lang } = Astro.props;
+---
+
+<div>
+  <Header messages={messages} lang={lang} />
+  <main id="main" tabindex="-1">
+    <Hero messages={messages} />
+    <Problem messages={messages} />
+    <ChaosVsSystem messages={messages} />
+    <Solution messages={messages} />
+    <Process messages={messages} />
+    <Proof messages={messages} />
+    <Offers messages={messages} />
+    <About messages={messages} />
+    <FinalCta messages={messages} />
+  </main>
+  <Footer messages={messages} />
+</div>

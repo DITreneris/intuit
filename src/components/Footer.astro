@@ -1,0 +1,21 @@
+---
+import type { SiteMessages } from '../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<footer class="border-t border-line bg-surface">
+  <div class="mx-auto flex max-w-content flex-col gap-4 px-4 py-10 text-sm text-muted md:flex-row md:items-start md:justify-between md:px-6">
+    <div class="space-y-1">
+      <p>{messages.footer.rights}</p>
+      <p class="max-w-xl text-xs leading-relaxed text-muted/90">{messages.footer.legalLine}</p>
+    </div>
+    <a class="underline-offset-4 hover:text-ink hover:underline" href="#contact">
+      {messages.nav.contact}
+    </a>
+  </div>
+</footer>

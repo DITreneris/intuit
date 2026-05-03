@@ -1,0 +1,51 @@
+---
+description: 67_Intuit vieno puslapio landing — turinio ir architektūros taisyklės (sinchronizuota su kodu)
+globs:
+  - "**/*.{astro,ts,tsx,json,css,md}"
+alwaysApply: false
+---
+
+# INTUIT landing
+
+## Šaltiniai ir kalbos
+
+- **Produkto tiesa:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (įskaitant pasitikėjimo pirmumo pozicionavimą v1.1+).
+- **Design System v1.1:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, checklist.
+- **Publikus copy:** [src/i18n/lt.ts](src/i18n/lt.ts) (LT), [src/i18n/en.ts](src/i18n/en.ts) (EN); bendras tipas — [src/i18n/types.ts](src/i18n/types.ts) (`SiteMessages` iš LT formos).
+- **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro) (`/`); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`/en/`). Antrinė kalba — **adaptacija**, ne žodis į žodį.
+
+## Stackas (dabartinė būsena)
+
+- **Astro 4**, `output: 'static'`, TypeScript strict (`tsconfig.json` → `astro/tsconfigs/strict`).
+- **Tailwind 3** per `@astrojs/tailwind` (`applyBaseStyles: false`); dizaino tokenai — [tailwind.config.mjs](tailwind.config.mjs): `ink`, `paper`, `warm`, `surface`, `muted`, `muted2`, `line`, `accent`, `accentTeal`, `aiSoft`, `successSoft`, `danger` / `dangerSoft`, `diagramStrokeAi`, `diagramLineSoft`, šešėliai `soft` / `softSm` / `elevated`, `fontSize` `2xs`, `max-w-content` (1180px), `max-w-measure`, `bg-hero-premium`, `bg-diagram-radial`.
+- **Globalūs stiliai:** [src/styles/global.css](src/styles/global.css) — Inter importai, `@layer base` `:root` `--ds-*` (SVG diagramos); `@layer components`: `.card`, `.card-muted`, `.card-featured`; `.skip-to-main`; `:focus-visible` (`theme('colors.accent')` ir kt.).
+- **Sitemap:** ne `@astrojs/sitemap` — custom integracija **`intuit-sitemap`** [astro.config.mjs](astro.config.mjs) (`astro:build:done` → `dist/sitemap.xml` su `/` ir `/en/`). Kanoninis `site` iš `PUBLIC_SITE_URL` / `SITE_URL` arba numatytasis URL faile.
+- **SEO head:** [src/layouts/Layout.astro](src/layouts/Layout.astro) — canonical, `hreflang`, OG, `<link rel="sitemap" …>`.
+
+## Komponentų struktūra
+
+- **Shell:** `Layout.astro` — `<html lang>`, meta, skip nuoroda (`messages.a11y.skipToMain` → `#main`).
+- **Puslapis:** [src/components/LandingPage.astro](src/components/LandingPage.astro) — `<main id="main" tabindex="-1">`, sekcijų eilė pagal PRD funnel.
+- **Sekcijos:** [src/components/sections/](src/components/sections/) — `Hero` (importuoja [HeroSystemDiagram.astro](src/components/HeroSystemDiagram.astro)), `Problem`, `ChaosVsSystem`, `Solution`, `Process`, `Proof`, `Offers`, `About`, `FinalCta`.
+- **Antraštė / koja:** [Header.astro](src/components/Header.astro), [Footer.astro](src/components/Footer.astro).
+- **UI primitives:** [src/components/ui/](src/components/ui/) — `ButtonPrimary.astro` (`size`, `variant`), `ButtonSecondary.astro`; primary CTA visur per juos (Hero, Header, Offers, FinalCta).
+- **ChaosVsSystem:** tekstai iš `messages.chaosVsSystem` (ne atskiras `lang` prop).
+- **FinalCta:** tik `messages`; įmonė (`companyName`), kontaktas (`contactName`, `contactRole`, `contactPhone`, `contactEmail`, `addressLine` su Maps nuoroda); `mailto:` iš `PUBLIC_CONTACT_EMAIL` arba `contactEmail` + `URLSearchParams` (`subject`, `body` iš `finalCta`).
+- **Footer:** `rights`, `legalLine` (įm. / PVM kodai).
+
+## Turinio ir UX taisyklės
+
+- **Semantika:** vienas `<h1>` (Hero); sekcijos `<h2>`; prasmingos nuorodos.
+- **CTA:** vienas aiškus primary; secondary silpnesnis — ne konkuruoja vizualiai. Nauji primary mygtukai — `ButtonPrimary`, ne dubliuoti rankines `pill` klases.
+- **Pasitikėjimas pirmiau:** vedanti žinutė — patikimumas, kontrolė, skaidrumas; AI / kitos priemonės tik **aiškiai valdomoje** eigoje, ne „AI-driven“ etiketė.
+- **Tonas:** outcome-first, be agentūrinių klichė.
+- **Brand / šriftas:** žr. [docs/BRAND.md](docs/BRAND.md); web — Inter; Larsseit tik su webfont licencija.
+
+## Prieinamumas
+
+- `prefers-reduced-motion` — [global.css](src/styles/global.css) `@layer base`.
+- Skip link ir matomas `:focus-visible` — nepašalinti be PRD pagrindo.
+
+## Redagavimo pastaba
+
+- Ilgi `.md` su lietuviškomis raidėmis saugokite **UTF-8**; jei IDE sugadina simbolius, naudokite redaktoriaus „Save with Encoding“ arba išorinį UTF-8 įrašymą.

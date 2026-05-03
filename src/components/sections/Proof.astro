@@ -1,0 +1,42 @@
+---
+import type { SiteMessages } from '../../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section id="proof" class="scroll-mt-28 border-b border-line bg-paper">
+  <div class="mx-auto max-w-content space-y-10 px-4 py-16 md:px-6 md:py-20">
+    <div class="max-w-3xl space-y-4">
+      <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.proof.title}</h2>
+      <p class="text-lg text-muted">{messages.proof.body}</p>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      {messages.proof.metrics.map((m) => (
+        <div class="card-muted p-6">
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl font-semibold">{m.value}</span>
+            <span class="text-sm font-medium text-muted">{m.label}</span>
+          </div>
+          <p class="mt-3 text-sm text-muted">{m.hint}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="rounded-xl border border-dashed border-accent/25 bg-aiSoft/40 p-6 md:p-8">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted">{messages.proof.demoLabel}</p>
+          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{messages.proof.demoNote}</p>
+        </div>
+        <div class="rounded-lg bg-surface px-4 py-3 text-xs font-medium text-muted shadow-inner">
+          {messages.proof.metricsIntro}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

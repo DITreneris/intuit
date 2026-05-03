@@ -1,0 +1,80 @@
+---
+import ButtonPrimary from '../ui/ButtonPrimary.astro';
+import type { SiteMessages } from '../../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+
+const email =
+  (import.meta.env.PUBLIC_CONTACT_EMAIL as string | undefined)?.trim() ||
+  messages.finalCta.contactEmail;
+const params = new URLSearchParams();
+params.set('subject', messages.finalCta.cta);
+params.set('body', messages.finalCta.mailBodyTemplate);
+const mailHref = `mailto:${email}?${params.toString()}`;
+
+const telHref = `tel:${messages.finalCta.contactPhone.replace(/\s+/g, '')}`;
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(messages.finalCta.addressLine)}`;
+---
+
+<section id="contact" class="scroll-mt-28 bg-ink text-white">
+  <div class="mx-auto max-w-content space-y-8 px-4 py-16 md:px-6 md:py-20">
+    <div class="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.finalCta.title}</h2>
+        <p class="max-w-measure text-lg text-white/70">{messages.finalCta.subtitle}</p>
+        <p class="text-sm text-white/55">{messages.finalCta.footnote}</p>
+      </div>
+
+      <div class="rounded-xl border border-white/15 bg-white/10 p-6 backdrop-blur">
+        <img
+          src="/brand/logo-dark.jpg"
+          alt=""
+          width="280"
+          height="76"
+          class="mb-4 h-9 w-auto opacity-95"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <p class="mb-6 text-xs font-medium uppercase tracking-wide text-white/55">
+          {messages.finalCta.companyName}
+        </p>
+
+        <div class="mb-6 space-y-2 text-sm">
+          <p class="font-semibold text-white">
+            {messages.finalCta.contactName}
+            <span class="font-normal text-white/65"> · {messages.finalCta.contactRole}</span>
+          </p>
+          <a
+            href={mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
+          >
+            {messages.finalCta.addressLine}
+          </a>
+          <a
+            href={telHref}
+            class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
+          >
+            {messages.finalCta.contactPhone}
+          </a>
+          <a
+            href={mailHref}
+            class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
+          >
+            {email}
+          </a>
+        </div>
+
+        <ButtonPrimary href={mailHref} variant="onDark" class="w-full">
+          {messages.finalCta.cta}
+        </ButtonPrimary>
+      </div>
+    </div>
+  </div>
+</section>

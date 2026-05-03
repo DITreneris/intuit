@@ -1,0 +1,70 @@
+---
+import type { SiteMessages } from '../../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+const c = messages.chaosVsSystem;
+---
+
+<section aria-labelledby="chaos-system-heading" class="border-b border-line bg-warm">
+  <div class="mx-auto max-w-content px-4 py-16 md:px-6 md:py-20">
+    <h2 id="chaos-system-heading" class="sr-only">
+      {c.chaosTitle} / {c.systemTitle}
+    </h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="card-muted p-6">
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <span class="text-xs font-semibold uppercase tracking-wide text-muted">{c.chaosTitle}</span>
+          <span class="rounded-full bg-dangerSoft px-2 py-0.5 text-2xs font-semibold uppercase text-danger">
+            {c.chaosBadge}
+          </span>
+        </div>
+        <svg viewBox="0 0 400 220" class="h-auto w-full text-muted" aria-hidden="true">
+          <path
+            d="M20 140 C80 40 140 200 200 90 C260 -10 320 180 380 60"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"></path>
+          <circle cx="80" cy="95" r="5" fill="currentColor" opacity="0.35"></circle>
+          <circle cx="200" cy="90" r="5" fill="currentColor" opacity="0.35"></circle>
+          <circle cx="320" cy="120" r="5" fill="currentColor" opacity="0.35"></circle>
+        </svg>
+        <p class="mt-4 text-sm text-muted">{c.chaosCaption}</p>
+      </div>
+
+      <div class="card border-accent/25 p-6 shadow-soft md:-translate-y-0.5">
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <span class="text-xs font-semibold uppercase tracking-wide text-muted">{c.systemTitle}</span>
+          <span class="rounded-full bg-successSoft px-2 py-0.5 text-2xs font-semibold uppercase text-accentTeal">
+            {c.systemBadge}
+          </span>
+        </div>
+        <svg viewBox="0 0 400 220" class="h-auto w-full text-accent" aria-hidden="true">
+          <path d="M30 150 H370" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M30 110 H370" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M30 70 H370" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M40 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M110 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M180 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M250 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <path d="M320 150 V70" stroke="currentColor" stroke-width="2" opacity="0.15"></path>
+          <circle cx="110" cy="110" r="7" fill="currentColor"></circle>
+          <circle cx="180" cy="85" r="7" fill="currentColor"></circle>
+          <circle cx="250" cy="130" r="7" fill="currentColor"></circle>
+          <path
+            d="M110 110 L180 85 L250 130"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        <p class="mt-4 text-sm text-muted">{c.systemCaption}</p>
+      </div>
+    </div>
+  </div>
+</section>

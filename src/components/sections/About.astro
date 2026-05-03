@@ -1,0 +1,20 @@
+---
+import type { SiteMessages } from '../../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section id="about" class="scroll-mt-28 border-b border-line bg-paper">
+  <div class="mx-auto max-w-content space-y-8 px-4 py-16 md:px-6 md:py-20">
+    <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.about.title}</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      {messages.about.paragraphs.map((p) => (
+        <p class="text-sm leading-relaxed text-muted md:text-base">{p}</p>
+      ))}
+    </div>
+  </div>
+</section>

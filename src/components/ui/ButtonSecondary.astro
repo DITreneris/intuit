@@ -1,0 +1,24 @@
+---
+/**
+ * Antrinis CTA — outline + surface, silpnesnis už primary.
+ */
+interface Props {
+  href: string;
+  size?: 'md' | 'sm';
+  class?: string;
+}
+
+const { href, size = 'md', class: className = '' } = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center rounded-full border border-line bg-surface font-semibold text-ink transition hover:border-ink';
+
+const sizeClasses = {
+  md: 'px-5 py-3 text-sm',
+  sm: 'px-4 py-2 text-sm',
+} as const;
+---
+
+<a href={href} class:list={[base, sizeClasses[size], className]}>
+  <slot />
+</a>

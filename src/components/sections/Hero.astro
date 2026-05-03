@@ -1,0 +1,29 @@
+---
+import HeroSystemDiagram from '../HeroSystemDiagram.astro';
+import ButtonPrimary from '../ui/ButtonPrimary.astro';
+import ButtonSecondary from '../ui/ButtonSecondary.astro';
+import type { SiteMessages } from '../../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section id="hero" class="scroll-mt-28 border-b border-line bg-hero-premium">
+  <div class="mx-auto grid max-w-content gap-10 px-4 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:px-6 md:py-20">
+    <div class="space-y-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">{messages.hero.eyebrow}</p>
+      <h1 class="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+        {messages.hero.title}
+      </h1>
+      <p class="max-w-measure text-lg text-muted">{messages.hero.subtitle}</p>
+      <div class="flex flex-wrap gap-3">
+        <ButtonPrimary href="#contact">{messages.hero.ctaPrimary}</ButtonPrimary>
+        <ButtonSecondary href="#process">{messages.hero.ctaSecondary}</ButtonSecondary>
+      </div>
+    </div>
+    <HeroSystemDiagram messages={messages} />
+  </div>
+</section>

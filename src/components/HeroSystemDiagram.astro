@@ -1,0 +1,98 @@
+---
+import type { SiteMessages } from '../i18n/types';
+
+interface Props {
+  messages: SiteMessages;
+}
+
+const { messages } = Astro.props;
+const d = messages.hero.diagram;
+---
+
+<div class="relative overflow-hidden rounded-xl border border-line bg-surface p-5 shadow-softSm md:p-6">
+  <div class="pointer-events-none absolute inset-0 bg-diagram-radial" aria-hidden="true" />
+  <!-- Desktop -->
+  <svg
+    class="relative hidden h-auto w-full max-h-[220px] md:block"
+    viewBox="0 0 520 200"
+    role="img"
+    aria-label={d.ariaLabel}
+  >
+    <title>{d.ariaLabel}</title>
+
+    <rect x="12" y="52" width="104" height="52" rx="12" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1"></rect>
+    <rect x="142" y="52" width="112" height="52" rx="12" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1"></rect>
+    <rect x="272" y="52" width="104" height="52" rx="12" fill="var(--ds-ai-soft)" stroke="var(--ds-diagram-stroke-ai)" stroke-width="1"></rect>
+    <rect x="394" y="52" width="114" height="52" rx="12" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1"></rect>
+
+    <text x="64" y="80" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerInputs}
+    </text>
+    <text x="198" y="80" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerStrategy}
+    </text>
+    <text x="324" y="80" text-anchor="middle" fill="var(--ds-accent)" font-size="11" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerAi}
+    </text>
+    <text x="451" y="80" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerOutputs}
+    </text>
+
+    <path d="M116 78 H142" fill="none" stroke="var(--ds-accent)" stroke-width="2" stroke-opacity="0.45" stroke-linecap="round"></path>
+    <path d="M254 78 H272" fill="none" stroke="var(--ds-accent)" stroke-width="2" stroke-opacity="0.45" stroke-linecap="round"></path>
+    <path d="M376 78 H394" fill="none" stroke="var(--ds-accent)" stroke-width="2" stroke-opacity="0.45" stroke-linecap="round"></path>
+
+    <path
+      d="M451 118 C451 158 64 158 64 118"
+      fill="none"
+      stroke="var(--ds-diagram-line-soft)"
+      stroke-width="1.5"
+      stroke-dasharray="4 4"
+      opacity="0.9"></path>
+    <polygon points="64,128 58,118 70,118" fill="var(--ds-diagram-line-soft)" opacity="0.9"></polygon>
+    <text x="260" y="188" text-anchor="middle" fill="var(--ds-muted)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.loop}
+    </text>
+  </svg>
+
+  <!-- Mobile -->
+  <svg
+    class="relative h-auto w-full max-h-[320px] md:hidden"
+    viewBox="0 0 280 320"
+    role="img"
+    aria-label={d.ariaLabel}
+  >
+    <title>{d.ariaLabel}</title>
+    <rect x="40" y="16" width="200" height="44" rx="12" fill="var(--ds-surface)" stroke="var(--ds-line)"></rect>
+    <rect x="40" y="84" width="200" height="44" rx="12" fill="var(--ds-surface)" stroke="var(--ds-line)"></rect>
+    <rect x="40" y="152" width="200" height="44" rx="12" fill="var(--ds-ai-soft)" stroke="var(--ds-diagram-stroke-ai)"></rect>
+    <rect x="40" y="220" width="200" height="44" rx="12" fill="var(--ds-surface)" stroke="var(--ds-line)"></rect>
+
+    <text x="140" y="42" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerInputs}
+    </text>
+    <text x="140" y="110" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerStrategy}
+    </text>
+    <text x="140" y="178" text-anchor="middle" fill="var(--ds-accent)" font-size="11" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerAi}
+    </text>
+    <text x="140" y="246" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.layerOutputs}
+    </text>
+
+    <path d="M140 60 V84" stroke="var(--ds-accent)" stroke-width="2" stroke-opacity="0.35"></path>
+    <path d="M140 128 V152" stroke="var(--ds-accent)" stroke-width="2" stroke-opacity="0.35"></path>
+    <path d="M140 196 V220" stroke="var(--ds-accent)" stroke-width="2" stroke-opacity="0.35"></path>
+
+    <path
+      d="M235 242 C252 288 28 288 45 242"
+      fill="none"
+      stroke="var(--ds-diagram-line-soft)"
+      stroke-width="1.5"
+      stroke-dasharray="4 4"></path>
+    <text x="140" y="308" text-anchor="middle" fill="var(--ds-muted)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      {d.loop}
+    </text>
+  </svg>
+</div>
