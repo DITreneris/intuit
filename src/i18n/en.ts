@@ -44,7 +44,7 @@ export const en = {
       diagramLoopLabel: 'Iteration: metrics → narrative',
       nodeHint1: 'Reach',
       nodeHint2: 'One aligned message',
-      nodeHint3: 'Execution on plan',
+      nodeHint3: 'According to plan',
       nodeHint4: 'Visible KPIs',
       layerInputs: 'Channels',
       layerStrategy: 'Narrative',
@@ -170,12 +170,12 @@ export const en = {
     title: 'Who it’s for',
     paragraphs: [
       'Leaders who need clarity and control—not another slide deck.',
-      'B2B tech and services where reputation and growth both matter.',
+      'Manufacturing, construction, technology, and services firms where reputation and growth opportunities both matter.',
     ],
   },
   finalCta: {
     title: 'A conversation and clear next steps',
-    subtitle: 'Short call to confirm fit and define next steps.',
+    subtitle: 'A 15-minute call to check fit and agree what we’d do next.',
     cta: 'Book a consultation',
     contactPhotoAlt: 'Nerijus Mikalajūnas, Managing Director, Intuit Communications',
     companyName: 'Intuit Communications, MB',

@@ -45,7 +45,7 @@ export const lt = {
       diagramLoopLabel: 'Iteracija: rodikliai → žinutė',
       nodeHint1: 'Pasiekiamumas',
       nodeHint2: 'Vieninga žinutė',
-      nodeHint3: 'Vykdymas pagal planą',
+      nodeHint3: 'Pagal planą',
       nodeHint4: 'Matomi KPI',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
@@ -177,12 +177,12 @@ export const lt = {
     title: 'Kam skirta',
     paragraphs: [
       'Vadovams, kuriems reikia aiškumo ir kontrolės — ne tik pristatymų.',
-      'B2B technologijos ir paslaugos, kur svarbi reputacija ir augimas.',
+      'Gamybos, statybos, technologijų ir paslaugų verslams, kuriems svarbu reputacija ir augimo galimybės.',
     ],
   },
   finalCta: {
     title: 'Pokalbis ir kiti žingsniai',
-    subtitle: 'Trumpai — ar tinkame vieni kitiems ir kokie tolimesni žingsniai.',
+    subtitle: '15 min. pokalbis pasitikrinti, ar tinkame vieni kitiems ir ką darytume toliau.',
     cta: 'Užsisakyti konsultaciją',
     /** Kontaktų kortelės nuotrauka (`public/brand/contact-nerijus.*`) */
     contactPhotoAlt: 'Nerijus Mikalajūnas, Intuit Communications direktorius',
