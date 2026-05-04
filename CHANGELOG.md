@@ -7,6 +7,10 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
+- **Hero `subtitle` (LT/EN):** LT — „Profesionalios konsultacijos: nuo viešųjų ryšių iki rinkodaros ar krizių valdymo. Reikia pagalbos? Pasikalbam.“; EN — „Professional consulting: from public relations to marketing and crisis support. Need help? Let's talk.“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)).
+
+- **Offers paketų punktai (LT/EN):** Įgyvendinimas — „Kampanijų organizavimas ir viešųjų ryšių ciklai“ / „Campaign operations and PR cycles“; Mastelis — „Turinio automatizavimas ir kokybės kontrolė“ / „Content automation and quality control“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)).
+
 - **Copy (LT):** „vadovybei“ → „vadovams“ kur tinka žmonėms, ne institucijai — `hero.diagram.nodeHint4` „Vadovams matomi“, `chaosVsSystem.systemCaption`, `proof.title`, `methodologyIllustrationAlt`; EN `nodeHint4` → „Leaders can act“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md)).
 
 - **FinalCta portretas** ([`src/components/sections/FinalCta.astro`](src/components/sections/FinalCta.astro), [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)): asimetriškam 1:1 šaltiniui — `overflow-hidden` + `scale` / `origin` kad sumažėtų kairysis „tuščias“ laukas; rekomenduojama vėliau pakeisti `contact-nerijus` failus su centruota kompozicija.
