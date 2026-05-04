@@ -19,6 +19,7 @@ Trumpa orientacija, kad AI pakeitimai atitiktų **dabartinį** kodą ir dokument
 | UI primitives (CTA) | `src/components/ui/*.astro` |
 | Globalūs stiliai | `src/styles/global.css` + `tailwind.config.mjs` |
 | Build / site URL / sitemap | `astro.config.mjs` (`intuit-sitemap` hook) |
+| Mobile UI/UX auditas (metodika, backlog) | [docs/MOBILE-AUDIT.md](docs/MOBILE-AUDIT.md) |
 | Dokumentų rodyklė | [docs/README.md](docs/README.md) |
 
 ## Agentų „taisyklių“ failas

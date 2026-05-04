@@ -31,12 +31,15 @@ const meta = variant === 'light' ? wordmarkMeta.logoWordmarkLight : wordmarkMeta
 const stem = variant === 'light' ? 'logo-wordmark-light' : 'logo-wordmark-dark';
 const webpSrc = `${basePath}brand/${stem}.webp`;
 const jpgSrc = `${basePath}brand/${stem}.jpg`;
+/** Light UI: PNG su alpha (šriftas ant permatomo — nesikerta su `bg-warm` / `bg-paper`). Dark: JPG fallback. */
+const rasterFallbackSrc =
+  variant === 'light' ? `${basePath}brand/${stem}.png` : jpgSrc;
 ---
 
 <picture class:list={[className]}>
   <source srcset={webpSrc} type="image/webp" />
   <img
-    src={jpgSrc}
+    src={rasterFallbackSrc}
     width={meta.width}
     height={meta.height}
     alt={decorative ? '' : alt}

@@ -1,7 +1,7 @@
 ---
 /**
  * Du atskiri SVG (desktop / mobile) — bet koks mazgo keitimas turi būti atliktas abiejuose.
- * v3: vientisa spine linija, be SVG feedback kilpos (iteracija — HTML caption / diagramLoopLabel).
+ * v4: flow segmentai tik tarp kortelių, paskutinis sluoksnis, solid; iteracija — HTML; anchor = fill + šešėlis.
  * Antraštė, caption ir kilpos etiketė — HTML (LT/EN iš messages.hero.diagram).
  */
 import type { SiteMessages } from '../i18n/types';
@@ -24,29 +24,29 @@ const d = messages.hero.diagram;
   <div class="pointer-events-none absolute inset-0 rounded-xl bg-diagram-radial opacity-80 md:opacity-100" aria-hidden="true"></div>
   <div class="pointer-events-none absolute inset-0 hidden rounded-xl bg-diagram-glow md:block" aria-hidden="true"></div>
 
-  <div class="relative z-10 mx-auto max-w-[620px] space-y-1.5 px-0 text-center">
+  <div class="relative z-10 mx-auto max-w-[620px] space-y-2 px-0 text-center">
     <p
       id="hero-diagram-strip"
-      class="text-xs font-semibold uppercase tracking-[0.06em] text-ink md:text-2xs"
+      class="text-sm font-semibold uppercase tracking-[0.06em] text-ink md:text-base"
     >
       {d.systemStrip}
     </p>
     <p
       id="hero-diagram-caption"
-      class="text-xs leading-snug text-muted md:text-2xs md:leading-relaxed"
+      class="text-sm leading-snug text-muted md:leading-relaxed"
     >
       {d.diagramCaption}
     </p>
     <p
       id="hero-diagram-loop-label"
-      class="inline-flex flex-wrap items-center justify-center gap-1.5 text-2xs font-medium uppercase tracking-[0.12em] text-muted2"
+      class="inline-flex flex-wrap items-center justify-center gap-1.5 text-xs font-medium uppercase tracking-[0.12em] text-muted2"
     >
       <span class="text-accent/90" aria-hidden="true">↺</span>
       <span>{d.diagramLoopLabel}</span>
     </p>
   </div>
 
-  <!-- Desktop: v3 — vientisa spine linija po kortelėmis; ikonos 24×24, stroke 1.5; be SVG kilpos -->
+  <!-- Desktop: v4 — tarpų flow segmentai (paskutinis sluoksnis); ikonos ~24×24 su scale; be dash animacijos -->
   <svg
     class="relative z-10 mx-auto mt-3 hidden h-auto w-full max-h-[360px] md:mt-4 md:block"
     viewBox="0 0 612 200"
@@ -65,19 +65,17 @@ const d = messages.hero.diagram;
       >
         <path d="M0,0 L11,5.5 L0,11 z" fill="var(--ds-accent)"></path>
       </marker>
+      <filter
+        id="hero-diagram-anchor-d"
+        x="-25%"
+        y="-25%"
+        width="150%"
+        height="150%"
+        color-interpolation-filters="sRGB"
+      >
+        <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.1"></feDropShadow>
+      </filter>
     </defs>
-
-    <!-- Vientisa vykdymo linija (piešiama prieš fill — matoma tik tarpų ruožuose ir galuose) -->
-    <path
-      class="hero-diagram-flow-spine"
-      d="M 78 68 L 534 68"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="3"
-      stroke-linecap="round"
-      opacity="0.96"
-      marker-end="url(#hero-flow-arrow)"
-    ></path>
 
     <!-- Anchor tint už „Žinutė“ -->
     <rect
@@ -87,7 +85,7 @@ const d = messages.hero.diagram;
       height="88"
       rx="15"
       fill="var(--ds-accent)"
-      opacity="0.10"></rect>
+      opacity="0.15"></rect>
 
     <!-- 1 Kanalai -->
     <g>
@@ -114,7 +112,11 @@ const d = messages.hero.diagram;
       >
         1
       </text>
-      <g transform="translate(66 34)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(66 34) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M12 20h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a9 9 0 0 1 14 0"
           fill="none"
@@ -159,8 +161,9 @@ const d = messages.hero.diagram;
         rx="13"
         fill="var(--ds-surface)"
         stroke="var(--ds-accent)"
-        stroke-width="1.75"
-        opacity="0.99"></rect>
+        stroke-width="1.15"
+        opacity="0.99"
+        filter="url(#hero-diagram-anchor-d)"></rect>
       <rect x="158" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.18"></rect>
       <text
         x="170"
@@ -174,7 +177,11 @@ const d = messages.hero.diagram;
       >
         2
       </text>
-      <g transform="translate(226 34)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(226 34) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
           fill="none"
@@ -234,7 +241,11 @@ const d = messages.hero.diagram;
       >
         3
       </text>
-      <g transform="translate(386 34)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(386 34) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M4 16 L9 11 L13 14 L20 6"
           fill="none"
@@ -294,7 +305,11 @@ const d = messages.hero.diagram;
       >
         4
       </text>
-      <g transform="translate(522 34)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(522 34) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M6 17V9M11 17V5M16 17v-6"
           fill="none"
@@ -328,9 +343,32 @@ const d = messages.hero.diagram;
         {d.nodeHint4}
       </text>
     </g>
+
+    <!-- Flow tik tarpų ruožuose, virš kortelių fill (solid, storesnis) -->
+    <path
+      d="M 142 68 L 150 68"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="4"
+      stroke-linecap="round"
+      marker-end="url(#hero-flow-arrow)"></path>
+    <path
+      d="M 326 68 L 334 68"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="4"
+      stroke-linecap="round"
+      marker-end="url(#hero-flow-arrow)"></path>
+    <path
+      d="M 462 68 L 470 68"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="4"
+      stroke-linecap="round"
+      marker-end="url(#hero-flow-arrow)"></path>
   </svg>
 
-  <!-- Mobile: v3 — vertikali spine; ikonos 24×24 / 1.5; be SVG kilpos -->
+  <!-- Mobile: v4 — vertikalūs tarpų segmentai pabaigoje; ikonos su scale -->
   <svg
     class="relative z-10 mx-auto mt-3 h-auto w-full max-h-[min(72vh,480px)] md:hidden"
     viewBox="0 0 300 372"
@@ -349,18 +387,17 @@ const d = messages.hero.diagram;
       >
         <path d="M0,0 L11,5.5 L0,11 z" fill="var(--ds-accent)"></path>
       </marker>
+      <filter
+        id="hero-diagram-anchor-m"
+        x="-25%"
+        y="-25%"
+        width="150%"
+        height="150%"
+        color-interpolation-filters="sRGB"
+      >
+        <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.1"></feDropShadow>
+      </filter>
     </defs>
-
-    <path
-      class="hero-diagram-flow-spine-m"
-      d="M 150 42 L 150 338"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="3"
-      stroke-linecap="round"
-      opacity="0.96"
-      marker-end="url(#hero-flow-arrow-m)"
-    ></path>
 
     <rect
       x="14"
@@ -369,7 +406,7 @@ const d = messages.hero.diagram;
       height="100"
       rx="16"
       fill="var(--ds-accent)"
-      opacity="0.10"></rect>
+      opacity="0.15"></rect>
 
     <!-- 1 Kanalai -->
     <g>
@@ -396,7 +433,11 @@ const d = messages.hero.diagram;
       >
         1
       </text>
-      <g transform="translate(138 16)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(138 16) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M12 20h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a9 9 0 0 1 14 0"
           fill="none"
@@ -441,8 +482,9 @@ const d = messages.hero.diagram;
         rx="13"
         fill="var(--ds-surface)"
         stroke="var(--ds-accent)"
-        stroke-width="1.75"
-        opacity="0.99"></rect>
+        stroke-width="1.15"
+        opacity="0.99"
+        filter="url(#hero-diagram-anchor-m)"></rect>
       <rect x="28" y="101" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.18"></rect>
       <text
         x="40"
@@ -456,7 +498,11 @@ const d = messages.hero.diagram;
       >
         2
       </text>
-      <g transform="translate(138 104)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(138 104) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
           fill="none"
@@ -516,7 +562,11 @@ const d = messages.hero.diagram;
       >
         3
       </text>
-      <g transform="translate(138 202)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(138 202) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M4 16 L9 11 L13 14 L20 6"
           fill="none"
@@ -576,7 +626,11 @@ const d = messages.hero.diagram;
       >
         4
       </text>
-      <g transform="translate(138 286)" class="text-muted" aria-hidden="true">
+      <g
+        transform="translate(138 286) translate(12 12) scale(1.15) translate(-12 -12)"
+        class="text-muted"
+        aria-hidden="true"
+      >
         <path
           d="M6 17V9M11 17V5M16 17v-6"
           fill="none"
@@ -610,31 +664,28 @@ const d = messages.hero.diagram;
         {d.nodeHint4}
       </text>
     </g>
+
+    <!-- Vertikalūs flow segmentai tik tarp kortelių -->
+    <path
+      d="M 150 84 L 150 92"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="4"
+      stroke-linecap="round"
+      marker-end="url(#hero-flow-arrow-m)"></path>
+    <path
+      d="M 150 184 L 150 192"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="4"
+      stroke-linecap="round"
+      marker-end="url(#hero-flow-arrow-m)"></path>
+    <path
+      d="M 150 268 L 150 276"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="4"
+      stroke-linecap="round"
+      marker-end="url(#hero-flow-arrow-m)"></path>
   </svg>
 </div>
-
-<style>
-  @keyframes hero-diagram-dash {
-    to {
-      stroke-dashoffset: -42;
-    }
-  }
-
-  .hero-diagram-flow-spine {
-    stroke-dasharray: 10 8;
-    animation: hero-diagram-dash 3.5s linear infinite;
-  }
-
-  .hero-diagram-flow-spine-m {
-    stroke-dasharray: 9 8;
-    animation: hero-diagram-dash 3.5s linear infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-diagram-flow-spine,
-    .hero-diagram-flow-spine-m {
-      animation: none;
-      stroke-dasharray: none;
-    }
-  }
-</style>

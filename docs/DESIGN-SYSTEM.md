@@ -71,7 +71,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
 - **Proof metrikos:** skaičiaus reikšmė (`m.value`) — **`tabular-nums`**, kad skaitmenys nesijudintų keičiant turinį.
-- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — šiuo metu įdėta į [`Proof.astro`](../src/components/sections/Proof.astro) po metrikų:** antraštė ir caption — **`text-2xs`**; matomos HTML legendos nėra. SVG viduje `<text>` etiketes laikyti **mikro skale** (`font-size` 10–11, atitinka `text-2xs`), **ne** įvedinėti vidutinio body dydžio šrifto.
+- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — įdėta į [`Proof.astro`](../src/components/sections/Proof.astro) po metrikų:** matomas HTML blokas virš SVG — **strip** `text-sm` / `md:text-base`, **caption** `text-sm`, **kilpos etiketė** `text-xs` (aiški trijų lygių hierarchija). SVG viduje `<text>` lieka **mikro skale** (`font-size` 10–11). Matomos HTML legendos nėra.
 - **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido.
 
 ## Prekės ženklas (raster + SVG)
@@ -109,12 +109,12 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 
 ## Hero diagrama (product vizualinė kalba)
 
-- **Hierarchija:** pagrindinis signalas — **viena vientisa spine linija** (`accent`, storesnis stroke; desktop — horizontaliai per žingsnių centrus; mobile — vertikaliai per centrą), piešiama **po** mazgais DOM tvarka, kad būtų matoma tarpų ruožuose; subtili **juostinė animacija** ant spine (`stroke-dashoffset`; išjungiama `prefers-reduced-motion`).
-- **Forward (1→4):** ta pati spine + rodyklės markeris gale; tarpinių „connector“ segmentų atskirai nėra.
-- **Feedback (rodikliai → žinutė):** **ne** atskiras SVG kelias — iteracija aiškinama **`hero.diagram.diagramLoopLabel`** + caption + `svgDesc`; galimas mažas dekoratyvus ženklas HTML šalia etiketės (pvz. ↺), ne ilga punktyrinė diagramos linija.
-- **Mazgų kortelės:** antriniai žingsniai — `surface` / `line`; **žingsnis 2 („Žinutė“)** — `accent` kontūras + švelnus **tint** už kortelės (`accent` fill žema opacity); ikonos — **24×24 loginė erdvė**, `stroke-width` **1.5**, be papildomo ikonos „mini-kortelės“ rėmo.
+- **Forward (1→4):** **solidūs** `accent` jungikliai tik **tarpų** ruožuose tarp kortelių (desktop — horizontalūs segmentai, mobile — vertikalūs), piešiami **paskutiniu** SVG sluoksniu virš kortelių `fill`, storesnis stroke (~4) ir `marker-end` kiekviename tarpe — matomas „stuburas“, ne foninis tapetas; **be** punktyrinės animacijos ant linijos.
+- **Hierarchija:** pagal skyrių „Tipografija“ — matomas HTML blokas su trimis aiškiais šrifto lygiais; SVG viduje tekstas lieka mikro skale.
+- **Feedback (rodikliai → žinutė):** **ne** atskiras SVG kelias — iteracija aiškinama **`hero.diagram.diagramLoopLabel`** + caption + `svgDesc`; dekoratyvus ↺ HTML.
+- **Mazgų kortelės:** antriniai žingsniai — `surface` / `line`; **žingsnis 2 („Žinutė“)** — plonesnis `accent` kontūras (~1.15), švelnus **SVG drop-shadow** filtras, **tint** už kortelės (`accent` fill ~0.15 opacity); ikonos — 24×24 loginė erdvė, `stroke-width` **1.5**, ~**1.15** centrinis **scale** be mini-kortelės rėmo.
 - **Matoma legenda:** nenaudoti — aiškinimas caption + `hero.diagram.svgDesc` (ekrano skaityklėms).
-- **Konteineris:** `bg-diagram-radial` visada; `bg-diagram-glow` tik **md+**; mobile radial šiek tiek prislopinta (`opacity-80`); išorėje `overflow-visible` ir horizontalus padding, kad SVG nesikirstų su apvaliais kampais; išorinis blokas — **vienas** aiškus kontūras (be `shadow-soft` + `ring` dubliavimo su `border` — žr. dabartinę implementaciją).
+- **Konteineris:** `bg-diagram-radial` visada; `bg-diagram-glow` tik **md+**; mobile radial šiek tiek prislopinta (`opacity-80`); išorėje `overflow-visible` ir horizontalus padding; išorinis blokas — vienas aiškus kontūras (`border`, be `shadow-soft`/`ring` dubliavimo).
 
 Žr. implementaciją: [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro).
 
