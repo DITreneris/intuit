@@ -41,7 +41,7 @@ export const lt = {
       nodeHint1: 'Pasiekiamumas',
       nodeHint2: 'Vienas pasakojimas',
       nodeHint3: 'Pagal planą',
-      nodeHint4: 'Vadovybei matomas',
+      nodeHint4: 'Vadovams matomi',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
       layerAi: 'Vykdymas',
@@ -92,7 +92,7 @@ export const lt = {
     chaosBadge: 'Reaktyviai',
     systemBadge: 'Ritmingai',
     chaosCaption: 'Nėra vienos linijos — tik kampanijos ir įvykiai.',
-    systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma vadovybei.',
+    systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma vadovams.',
   },
   solution: {
     title: 'Trys kryptys, vienas planas',
@@ -125,7 +125,7 @@ export const lt = {
     ],
   },
   proof: {
-    title: 'Rodikliai, kuriuos pristatote vadovybei',
+    title: 'Rodikliai, kuriuos pristatote vadovams',
     body:
       'Konkrečius prieš / po skaičius pridėsime gavę jūsų sutikimą. Kol renkame — skaidrus metodikos pavyzdys, be dirbtinių KPI.',
     metrics: [
@@ -135,7 +135,7 @@ export const lt = {
     ],
     demoLabel: 'Pavyzdys',
     methodologyIllustrationAlt:
-      'Pavyzdinė vadovybės suvestinė — komunikacija, kanalai, temos ir strategija viename vaizde',
+      'Pavyzdinė vadovų suvestinė — komunikacija, kanalai, temos ir strategija viename vaizde',
   },
   offers: {
     title: 'Pasirinkite gylį',

@@ -149,7 +149,7 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `solution.pillars[1].points[1]` (v2) | „Užklausos ir tęsinys“ | „Užklausos ir tęstinumas“ |
 | `solution.pillars[2].points[1]` | „Įrankiai ten, kur aiški atsakomybė“ | „Dirbtinio intelekto įrankiai ir inovacijos“ |
 | `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
-| `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovybei“ |
+| `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovams“ |
 | `proof.body` | „...**prieš/po** skaičiai...“ | „...**prieš / po** skaičius...“ + sakinio perfrazavimas |
 | `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta (dubliavo `proof.body`); demobloku lieka `demoLabel` + iliustracija. |
 | `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |

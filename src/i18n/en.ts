@@ -40,7 +40,7 @@ export const en = {
       nodeHint1: 'Reach',
       nodeHint2: 'One story',
       nodeHint3: 'On plan',
-      nodeHint4: 'Exec-ready',
+      nodeHint4: 'Leaders can act',
       layerInputs: 'Channels',
       layerStrategy: 'Narrative',
       layerAi: 'Execution',

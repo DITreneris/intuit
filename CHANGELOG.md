@@ -7,6 +7,8 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
+- **Copy (LT):** „vadovybei“ → „vadovams“ kur tinka žmonėms, ne institucijai — `hero.diagram.nodeHint4` „Vadovams matomi“, `chaosVsSystem.systemCaption`, `proof.title`, `methodologyIllustrationAlt`; EN `nodeHint4` → „Leaders can act“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md)).
+
 - **FinalCta portretas** ([`src/components/sections/FinalCta.astro`](src/components/sections/FinalCta.astro), [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)): asimetriškam 1:1 šaltiniui — `overflow-hidden` + `scale` / `origin` kad sumažėtų kairysis „tuščias“ laukas; rekomenduojama vėliau pakeisti `contact-nerijus` failus su centruota kompozicija.
 
 - **Offers — Mastelis / Scale paketas:** LT ženkliukas „Pagal apimtį“, tag „Šablonai ir kokybė“, CTA „Aptarti plėtrą“; EN „By scope“, „Playbooks and quality“, „Discuss growth“ — mažiau „mastelio“ / „scale“ kartojimo prieš pavadinimą ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md)).
