@@ -14,175 +14,279 @@ const d = messages.hero.diagram;
 >
   <div class="pointer-events-none absolute inset-0 bg-diagram-radial" aria-hidden="true"></div>
   <div class="pointer-events-none absolute inset-0 bg-diagram-glow" aria-hidden="true"></div>
-  <!-- Desktop -->
+  <!-- Desktop: pipeline + system strip + vienas grįžtamasis ryšys -->
   <svg
-    class="relative hidden h-auto w-full max-h-[280px] md:block"
-    viewBox="0 0 600 248"
+    class="relative hidden h-auto w-full max-h-[300px] md:block"
+    viewBox="0 0 600 278"
     role="img"
     aria-label={d.ariaLabel}
   >
     <title>{d.ariaLabel}</title>
 
-    <!-- Control highlight (layer 3) — outer ring -->
-    <rect
-      x="274"
-      y="42"
-      width="132"
-      height="66"
-      rx="16"
-      fill="none"
-      stroke="var(--ds-diagram-electric)"
-      stroke-width="2"
-      opacity="0.55"></rect>
+    <defs>
+      <marker
+        id="hero-flow-arrow"
+        markerUnits="strokeWidth"
+        markerWidth="5"
+        markerHeight="5"
+        refX="4"
+        refY="2.5"
+        orient="auto"
+      >
+        <path d="M0,0 L5,2.5 L0,5 z" fill="var(--ds-accent)"></path>
+      </marker>
+      <marker
+        id="hero-feedback-arrow"
+        markerUnits="strokeWidth"
+        markerWidth="4"
+        markerHeight="4"
+        refX="3.5"
+        refY="2"
+        orient="auto"
+      >
+        <path d="M0,0 L4,2 L0,4 z" fill="var(--ds-muted2)"></path>
+      </marker>
+    </defs>
 
-    <!-- Nodes -->
-    <rect x="16" y="48" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
+    <!-- Kontrolė kaip sistema (overlay), ne vienas žingsnis -->
+    <text
+      x="300"
+      y="18"
+      text-anchor="middle"
+      fill="var(--ds-muted2)"
+      font-size="10"
+      font-weight="600"
+      letter-spacing="0.08em"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.systemStrip}</text>
+    <line
+      x1="20"
+      y1="26"
+      x2="580"
+      y2="26"
+      stroke="var(--ds-line)"
+      stroke-width="1"
+      opacity="0.85"></line>
+
+    <!-- Keturi vienodi mazgai -->
+    <rect x="16" y="40" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
     ></rect>
-    <rect x="148" y="48" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
+    <rect x="148" y="40" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
     ></rect>
-    <rect x="280" y="48" width="118" height="54" rx="13" fill="var(--ds-ai-soft)" stroke="var(--ds-diagram-stroke-ai)" stroke-width="2"
+    <rect x="280" y="40" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
     ></rect>
-    <rect x="412" y="48" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
+    <rect x="412" y="40" width="118" height="54" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
     ></rect>
 
-    <text x="75" y="82" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="75" y="74" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerInputs}
     </text>
-    <text x="207" y="82" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="207" y="74" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerStrategy}
     </text>
-    <text x="339" y="82" text-anchor="middle" fill="var(--ds-accent)" font-size="11" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="339" y="74" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerAi}
     </text>
-    <text x="471" y="82" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="471" y="74" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerOutputs}
     </text>
 
-    <!-- Control micro-badge -->
-    <rect x="302" y="22" width="74" height="20" rx="6" fill="var(--ds-accent)"></rect>
-    <text
-      x="339"
-      y="36"
-      text-anchor="middle"
-      fill="var(--ds-surface)"
-      font-size="9"
-      font-weight="600"
-      font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      letter-spacing="0.04em">{d.controlBadge}</text>
+    <!-- Pirmyn: vienodos rodyklės -->
+    <path
+      d="M134 67 H148"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+      marker-end="url(#hero-flow-arrow)"></path>
+    <path
+      d="M266 67 H280"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+      marker-end="url(#hero-flow-arrow)"></path>
+    <path
+      d="M398 67 H412"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+      marker-end="url(#hero-flow-arrow)"></path>
 
-    <!-- Forward flow connectors -->
-    <path d="M134 75 H148" fill="none" stroke="var(--ds-accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"></path>
-    <path d="M266 75 H280" fill="none" stroke="var(--ds-accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"></path>
-    <path d="M398 75 H412" fill="none" stroke="var(--ds-accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"></path>
-
-    <!-- KPI chip -->
-    <rect
-      x="418"
-      y="112"
-      width="108"
-      height="24"
-      rx="7"
-      fill="var(--ds-success-soft)"
-      stroke="var(--ds-accent-teal)"
-      stroke-width="1.25"></rect>
+    <!-- Narrative: įvestis / rezultatas -->
     <text
-      x="472"
-      y="128"
+      x="75"
+      y="108"
       text-anchor="middle"
-      fill="var(--ds-accent)"
+      fill="var(--ds-muted)"
       font-size="10"
       font-weight="600"
-      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.kpiLabel}</text>
+      letter-spacing="0.06em"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.startLabel}</text>
+    <text
+      x="471"
+      y="108"
+      text-anchor="middle"
+      fill="var(--ds-muted)"
+      font-size="10"
+      font-weight="600"
+      letter-spacing="0.06em"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.resultLabel}</text>
 
-    <!-- Feedback loop -->
+    <!-- Grįžtamasis ryšys: rodikliai → žinutė (viena aiški kilpa, solid) -->
     <path
-      class="hero-diagram-dash-animate"
-      d="M 471 108 C 471 188 75 188 75 108"
+      d="M 471 94 C 471 158 207 158 207 94"
       fill="none"
-      stroke="var(--ds-diagram-loop)"
-      stroke-width="2.75"
+      stroke="var(--ds-muted2)"
+      stroke-width="2"
       stroke-linecap="round"
-      stroke-dasharray="10 7"
-      opacity="0.92"></path>
-    <polygon points="75,112 69,100 81,100" fill="var(--ds-diagram-loop)" opacity="0.92"></polygon>
-
-    <text x="300" y="232" text-anchor="middle" fill="var(--ds-muted)" font-size="11" font-weight="500" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
-      {d.loop}
+      opacity="0.88"
+      marker-end="url(#hero-feedback-arrow)"></path>
+    <text
+      x="300"
+      y="168"
+      text-anchor="middle"
+      fill="var(--ds-muted)"
+      font-size="10"
+      font-weight="500"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    >
+      <tspan x="300" dy="0">{d.feedbackLabel}</tspan>
     </text>
   </svg>
 
   <!-- Mobile -->
-  <svg class="relative h-auto w-full max-h-[340px] md:hidden" viewBox="0 0 300 352" role="img" aria-label={d.ariaLabel}>
+  <svg class="relative h-auto w-full max-h-[420px] md:hidden" viewBox="0 0 300 392" role="img" aria-label={d.ariaLabel}>
     <title>{d.ariaLabel}</title>
 
-    <rect x="28" y="36" width="244" height="52" rx="14" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"></rect>
-    <rect x="28" y="100" width="244" height="52" rx="14" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"></rect>
+    <defs>
+      <marker
+        id="hero-flow-arrow-m"
+        markerUnits="strokeWidth"
+        markerWidth="5"
+        markerHeight="5"
+        refX="4"
+        refY="2.5"
+        orient="auto"
+      >
+        <path d="M0,0 L5,2.5 L0,5 z" fill="var(--ds-accent)"></path>
+      </marker>
+      <marker
+        id="hero-feedback-arrow-m"
+        markerUnits="strokeWidth"
+        markerWidth="4"
+        markerHeight="4"
+        refX="3.5"
+        refY="2"
+        orient="auto"
+      >
+        <path d="M0,0 L4,2 L0,4 z" fill="var(--ds-muted2)"></path>
+      </marker>
+    </defs>
 
-    <rect x="22" y="164" width="256" height="58" rx="15" fill="none" stroke="var(--ds-diagram-electric)" stroke-width="2" opacity="0.5"
+    <text
+      x="150"
+      y="16"
+      text-anchor="middle"
+      fill="var(--ds-muted2)"
+      font-size="9"
+      font-weight="600"
+      letter-spacing="0.06em"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.systemStrip}</text>
+    <line x1="16" y1="22" x2="284" y2="22" stroke="var(--ds-line)" stroke-width="1" opacity="0.85"></line>
+
+    <rect x="28" y="34" width="244" height="50" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
     ></rect>
-    <rect x="28" y="170" width="244" height="52" rx="14" fill="var(--ds-ai-soft)" stroke="var(--ds-diagram-stroke-ai)" stroke-width="2"
-    ></rect>
-
-    <rect x="28" y="236" width="244" height="52" rx="14" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"></rect>
-
-    <text x="150" y="68" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="150" y="64" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerInputs}
     </text>
+    <text
+      x="150"
+      y="100"
+      text-anchor="middle"
+      fill="var(--ds-muted)"
+      font-size="9"
+      font-weight="600"
+      letter-spacing="0.05em"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.startLabel}</text>
+
+    <path
+      d="M150 84 V94"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+      marker-end="url(#hero-flow-arrow-m)"></path>
+
+    <rect x="28" y="102" width="244" height="50" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
+    ></rect>
     <text x="150" y="132" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerStrategy}
     </text>
-    <text x="150" y="202" text-anchor="middle" fill="var(--ds-accent)" font-size="11" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+
+    <path
+      d="M150 152 V162"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+      marker-end="url(#hero-flow-arrow-m)"></path>
+
+    <rect x="28" y="170" width="244" height="50" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
+    ></rect>
+    <text x="150" y="200" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerAi}
     </text>
+
+    <path
+      d="M150 220 V230"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.9"
+      marker-end="url(#hero-flow-arrow-m)"></path>
+
+    <rect x="28" y="238" width="244" height="50" rx="13" fill="var(--ds-surface)" stroke="var(--ds-line)" stroke-width="1.25"
+    ></rect>
     <text x="150" y="268" text-anchor="middle" fill="var(--ds-muted2)" font-size="11" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
       {d.layerOutputs}
     </text>
-
-    <rect x="112" y="148" width="76" height="20" rx="6" fill="var(--ds-accent)"></rect>
     <text
       x="150"
-      y="162"
+      y="302"
       text-anchor="middle"
-      fill="var(--ds-surface)"
+      fill="var(--ds-muted)"
       font-size="9"
       font-weight="600"
-      font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      letter-spacing="0.04em">{d.controlBadge}</text>
+      letter-spacing="0.05em"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.resultLabel}</text>
 
-    <path d="M150 88 V100" fill="none" stroke="var(--ds-accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"></path>
-    <path d="M150 152 V170" fill="none" stroke="var(--ds-accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"></path>
-    <path d="M150 222 V236" fill="none" stroke="var(--ds-accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"></path>
+    <!-- Kilpa: nuo paskutinio mazgo prie antro (žinutė) -->
+    <path
+      d="M 150 288 C 260 335 40 335 150 152"
+      fill="none"
+      stroke="var(--ds-muted2)"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.88"
+      marker-end="url(#hero-feedback-arrow-m)"></path>
 
-    <rect
-      x="96"
-      y="296"
-      width="108"
-      height="24"
-      rx="7"
-      fill="var(--ds-success-soft)"
-      stroke="var(--ds-accent-teal)"
-      stroke-width="1.25"></rect>
     <text
       x="150"
-      y="312"
+      y="348"
       text-anchor="middle"
-      fill="var(--ds-accent)"
-      font-size="10"
-      font-weight="600"
-      font-family="Inter, ui-sans-serif, system-ui, sans-serif">{d.kpiLabel}</text>
-
-    <path
-      class="hero-diagram-dash-animate"
-      d="M 260 262 C 278 310 22 310 40 262"
-      fill="none"
-      stroke="var(--ds-diagram-loop)"
-      stroke-width="2.75"
-      stroke-linecap="round"
-      stroke-dasharray="10 7"
-      opacity="0.92"></path>
-
-    <text x="150" y="342" text-anchor="middle" fill="var(--ds-muted)" font-size="11" font-weight="500" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
-      {d.loop}
+      fill="var(--ds-muted)"
+      font-size="9"
+      font-weight="500"
+      font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    >
+      <tspan x="150" dy="0">{d.feedbackLabel}</tspan>
     </text>
   </svg>
 </div>

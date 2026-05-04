@@ -26,24 +26,25 @@ export const lt = {
     eyebrow: 'Korporatyvinė komunikacija',
     title: 'Mažiau chaoso. Daugiau aiškumo ir rezultatų.',
     subtitle: 'Vieninga komunikacija PR ir rinkodarai — nuo žinutės iki matomų rodiklių.',
-    ctaPrimary: 'Gauti komunikacijos įžvalgą',
+    ctaPrimary: 'Gauti konsultaciją',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
     diagram: {
       ariaLabel:
-        'Komunikacijos schema: kanalai, žinutė, darbas ir kontrolė, rezultatai ir grįžtamasis ryšys',
+        'Komunikacijos sistema: kanalai, žinutė, vykdymas, rodikliai; kontrolė ir matavimas visoje eigoje; grįžtamasis ryšys į žinutę',
+      systemStrip: 'Kontrolė ir matavimas',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
-      layerAi: 'Darbas ir kontrolė',
-      layerOutputs: 'Leidiniai ir rodikliai',
-      loop: 'Matavimas',
-      controlBadge: 'Kontrolė',
-      kpiLabel: 'Rodikliai',
+      layerAi: 'Vykdymas',
+      layerOutputs: 'Rodikliai',
+      startLabel: 'Įvestis',
+      resultLabel: 'Rezultatas',
+      feedbackLabel: 'Grįžtamasis ryšys į žinutę',
     },
   },
   trustedBy: {
     title: 'Klientai, kurie mumis pasitiki',
-    hint: 'Logotipų juosta — slenkite horizontaliai (pelė / touch).',
+    hint: 'Slinkite, kad pamatytumėte visus klientus.',
     /** Vėliau keiskite į tikrus `<img>` arba SVG; dabar — vietos žymės. */
     slots: [
       'Logotipas (1)',
@@ -67,7 +68,7 @@ export const lt = {
       },
       {
         signal: 'Atskirti kanalai',
-        detail: 'Rinkodara ir reputacija ne dirba kartu.',
+        detail: 'Rinkodara ir reputacija nedirba kartu.',
       },
       {
         signal: 'Įrankiai be taisyklių',
@@ -79,14 +80,14 @@ export const lt = {
   chaosVsSystem: {
     chaosTitle: 'Chaosas',
     systemTitle: 'Tvarka',
-    chaosBadge: 'Atsitiktinai',
+    chaosBadge: 'Reaktyviai',
     systemBadge: 'Ritmu',
     chaosCaption: 'Nėra vienos linijos — tik kampanijos ir įvykiai.',
     systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma vadovybei.',
   },
   solution: {
     title: 'Trys kryptys, vienas planas',
-    intro: 'Reputacija, augimas ir kasdienis darbas — susieti taip, kad būtų matoma eigą ir rezultatą.',
+    intro: 'Reputacija, augimas ir kasdienis darbas — susieti taip, kad eiga ir rezultatas būtų matomi.',
     pillars: [
       {
         name: 'Korporatyvinė komunikacija',
@@ -96,10 +97,10 @@ export const lt = {
       {
         name: 'Rinkodaros komunikacija',
         outcome: 'Augantis susidomėjimas',
-        points: ['Turinys ir kampanijos', 'Kontaktai ir sekimas'],
+        points: ['Turinys ir kampanijos', 'Užklausos ir tęsinys'],
       },
       {
-        name: 'Kasdienė operacija',
+        name: 'Kasdienė veikla',
         outcome: 'Augimas be chaoso',
         points: ['Patvirtinti šablonai ir ritualai', 'Įrankiai ten, kur aiški atsakomybė'],
       },
@@ -115,9 +116,9 @@ export const lt = {
     ],
   },
   proof: {
-    title: 'Rodikliai, kuriuos supras vadovybė',
+    title: 'Rodikliai, kuriuos pristatote vadovybei',
     body:
-      'Čia bus konkretūs prieš/po skaičiai su jūsų sutikimu. Kol renkame — skaidrus pavyzdys, be dirbtinių KPI.',
+      'Konkrečius prieš / po skaičius pridėsime gavę jūsų sutikimą. Kol renkame — skaidrus metodikos pavyzdys, be dirbtinių KPI.',
     metricsIntro: 'Tipinė kryptis po įvedimo (iliustracija):',
     metrics: [
       { label: 'Aiškumas', value: '↑', hint: 'viena žinutė' },
@@ -136,19 +137,19 @@ export const lt = {
         tag: 'Apžvalga ir planas',
         price: 'Pagal poreikį',
         bullets: ['Komunikacijos apžvalga', '90 dienų planas'],
-        cta: 'Rezervuoti apžvalgą',
+        cta: 'Gauti konsultaciją',
       },
       {
         name: 'Įgyvendinimas',
         tag: 'Kartu su komanda',
         price: 'Pagal projektą',
         bullets: ['Standartai ir turinys', 'Kampanijų ir PR ritmas'],
-        cta: 'Kalbėtis',
+        cta: 'Aptarti įgyvendinimą',
         highlighted: true,
       },
       {
         name: 'Mastelis',
-        tag: 'Daugiau automatizuota',
+        tag: 'Mastelis su sistema',
         price: 'Pagal mastelį',
         bullets: ['Darbo šablonų biblioteka', 'Turinio linija su kokybe'],
         cta: 'Aptarti mastelį',
@@ -164,8 +165,8 @@ export const lt = {
   },
   finalCta: {
     title: 'Pokalbis ir kiti žingsniai',
-    subtitle: 'Trumpai — ar tiksime vieni kitiems ir ką daryti toliau.',
-    cta: 'Gauti konsultaciją',
+    subtitle: 'Trumpai — ar tinkame vieni kitiems ir kokie tolimesni žingsniai.',
+    cta: 'Užsisakyti konsultaciją',
     companyName: 'Intuit Communications, MB',
     contactName: 'Nerijus Mikalajūnas',
     contactRole: 'direktorius',
@@ -174,7 +175,7 @@ export const lt = {
     addressLine: 'Gedimino pr. 49-25, LT-01110 Vilnius',
     footnote: 'Atsakome per 24 val. Pirmas pokalbis be įsipareigojimų.',
     mailBodyTemplate:
-      'Sveiki,\n\nTrumpa užklausa konsultacijai:\n\n• Įmonė / organizacija:\n• Tikslas dabar:\n',
+      'Sveiki,\n\nNorėčiau užsisakyti konsultaciją dėl komunikacijos:\n\n• Įmonė / organizacija:\n• Tikslas dabar:\n',
   },
   footer: {
     rights: '© Intuit Communications, MB. Visos teisės saugomos.',

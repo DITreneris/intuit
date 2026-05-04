@@ -26,24 +26,25 @@ export const en = {
     eyebrow: 'Corporate communications',
     title: 'Less chaos. More clarity and outcomes.',
     subtitle: 'One narrative for PR and marketing—from message to visible results.',
-    ctaPrimary: 'Get a communications insight',
+    ctaPrimary: 'Book a call',
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',
     diagram: {
       ariaLabel:
-        'Communications map: channels, narrative, work and control, outputs, and feedback',
+        'Communications system: channels, narrative, execution, and metrics; control and measurement across the flow; feedback that loops back into the narrative',
+      systemStrip: 'Control and measurement',
       layerInputs: 'Channels',
       layerStrategy: 'Narrative',
-      layerAi: 'Work & control',
-      layerOutputs: 'Shipped work & metrics',
-      loop: 'Measurement',
-      controlBadge: 'Control',
-      kpiLabel: 'Metrics',
+      layerAi: 'Execution',
+      layerOutputs: 'Metrics',
+      startLabel: 'Input',
+      resultLabel: 'Outcome',
+      feedbackLabel: 'Loop back to the narrative',
     },
   },
   trustedBy: {
     title: 'Clients who trust us',
-    hint: 'Logo row — scroll horizontally (mouse / touch).',
+    hint: 'Scroll to view all clients.',
     slots: ['Logo (1)', 'Logo (2)', 'Logo (3)', 'Logo (4)', 'Logo (5)', 'Logo (6)'],
   },
   problem: {
@@ -55,39 +56,39 @@ export const en = {
       },
       {
         signal: 'Reactive only',
-        detail: 'PR is only incident response—no steady rhythm.',
+        detail: 'PR shows up only for incidents—there is no steady rhythm.',
       },
       {
         signal: 'Split tracks',
-        detail: 'Marketing and reputation aren’t pulling together.',
+        detail: 'Marketing and reputation aren’t pulling in the same direction.',
       },
       {
         signal: 'Tools without rules',
-        detail: 'New tools without process—more noise and risk.',
+        detail: 'New tools without process—more noise, more risk.',
       },
     ],
-    caption: 'Common outcome: volatility and a hard-to-explain impact for leadership.',
+    caption: 'A common outcome: volatility and impact that’s hard to explain to the board.',
   },
   chaosVsSystem: {
     chaosTitle: 'Chaos',
     systemTitle: 'Order',
     chaosBadge: 'Reactive',
     systemBadge: 'Rhythm',
-    chaosCaption: 'No single line—only campaigns and incidents.',
-    systemCaption: 'One path: standards, metrics, repetition—visible to leadership.',
+    chaosCaption: 'No single line—just campaigns and incidents.',
+    systemCaption: 'One path: standards, metrics, and repetition—visible to leadership.',
   },
   solution: {
     title: 'Three directions, one plan',
-    intro: 'Reputation, growth, and day-to-day work—connected so flow and outcomes stay visible.',
+    intro: 'Reputation, growth, and day-to-day work—connected so the flow and the outcome stay visible.',
     pillars: [
       {
         name: 'Corporate communications',
         outcome: 'Reputation and trust',
-        points: ['Crisis and executive comms', 'Media and positioning'],
+        points: ['Crisis and executive comms', 'Media relations and positioning'],
       },
       {
         name: 'Marketing communications',
-        outcome: 'Growing demand',
+        outcome: 'Steady demand',
         points: ['Content and campaigns', 'Leads and nurturing'],
       },
       {
@@ -107,9 +108,9 @@ export const en = {
     ],
   },
   proof: {
-    title: 'Outcomes leadership can read',
+    title: 'Metrics leaders can act on',
     body:
-      'We’ll add concrete before/after numbers with your approval. Until then—a transparent sample, not vanity KPIs.',
+      'We add concrete before / after numbers once you’ve approved them. Until then—a transparent methodology sample, not vanity KPIs.',
     metricsIntro: 'Typical direction after rollout (illustrative):',
     metrics: [
       { label: 'Clarity', value: '↑', hint: 'one narrative' },
@@ -117,7 +118,7 @@ export const en = {
       { label: 'Control', value: '↑', hint: 'visible metrics' },
     ],
     demoLabel: 'Sample',
-    demoNote: 'Illustrative methodology—real figures only with consent.',
+    demoNote: 'Illustrative methodology—real figures only with your consent.',
   },
   offers: {
     title: 'Choose the depth',
@@ -125,22 +126,22 @@ export const en = {
     tiers: [
       {
         name: 'Starter',
-        tag: 'Review & plan',
+        tag: 'Review and plan',
         price: 'Custom',
         bullets: ['Communications review', '90-day plan'],
-        cta: 'Book the review',
+        cta: 'Book a call',
       },
       {
         name: 'Delivery',
         tag: 'With your team',
         price: 'Project-based',
-        bullets: ['Standards and content', 'Campaign & PR rhythm'],
-        cta: 'Talk to us',
+        bullets: ['Standards and content', 'Campaign and PR rhythm'],
+        cta: 'Plan the delivery',
         highlighted: true,
       },
       {
         name: 'Scale',
-        tag: 'More automated',
+        tag: 'Operating at scale',
         price: 'Scale-based',
         bullets: ['Workflow template library', 'Content line with QA'],
         cta: 'Discuss scale',
@@ -150,13 +151,13 @@ export const en = {
   about: {
     title: 'Who it’s for',
     paragraphs: [
-      'Leaders who need clarity and control—not another slide deck alone.',
+      'Leaders who need clarity and control—not another slide deck.',
       'B2B tech and services where reputation and growth both matter.',
     ],
   },
   finalCta: {
     title: 'A conversation and clear next steps',
-    subtitle: 'Short call—mutual fit and what to do next.',
+    subtitle: 'Short call to confirm fit and define next steps.',
     cta: 'Book a consultation',
     companyName: 'Intuit Communications, MB',
     contactName: 'Nerijus Mikalajūnas',
@@ -164,9 +165,9 @@ export const en = {
     contactPhone: '+370 685 20513',
     contactEmail: 'nerijus@intuit.lt',
     addressLine: 'Gedimino pr. 49-25, LT-01110 Vilnius',
-    footnote: 'We reply within 24 hours. First call is obligation-free.',
+    footnote: 'We reply within 24 hours. The first call is obligation-free.',
     mailBodyTemplate:
-      'Hello,\n\nA quick note for the consultation:\n\n• Company / organization:\n• Current goal:\n',
+      'Hello,\n\nI would like to book a consultation on communications:\n\n• Company / organization:\n• Current goal:\n',
   },
   footer: {
     rights: '© Intuit Communications, MB. All rights reserved.',

@@ -7,6 +7,7 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Added
 
+- [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — LT/EN copy glosarijus (v1.2): trumpas Hero/Header CTA (LT „Gauti konsultaciją“ / EN „Book a call“) ir ilgesnis `finalCta` + `mailto` subject; header nav be dublikuojančios „Kontaktas“ nuorodos; nuoroda iš [docs/README.md](docs/README.md).
 - `public/brand/`: `logo-pattern-light.jpg`, `logo-pattern-dark.jpg` (šaltinis `INTUIT LOGO/jpg/`); Hero — subtilus chevron fonas (`Hero.astro`, `mix-blend-multiply`).
 - Sekcijų kortelės su **linijinėmis ikonėlėmis virš antraštės** (inline SVG): `Solution`, `Process`, `Proof`, `Offers`, `About`; `Problem` — vertikalus blokas (ikona virš signalo); `ChaosVsSystem` — mažos ikonos prie etikečių.
 - Dokumentacija sinchronizuota su kodu: [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) **v1.4**; [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) **v1.3** (ikonų šablonas, i18n šaltinis lentelėje); [docs/BRAND.md](docs/BRAND.md) — pilnas `public/brand/` sąrašas ir JPG matmenys; [docs/README.md](docs/README.md), [README.md](README.md), [AGENTS.md](AGENTS.md), [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc).
@@ -28,11 +29,13 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
-- i18n LT/EN: trumpesnis viešas tonas, primary CTA „Gauti komunikacijos įžvalgą“ / „Get a communications insight“, secondary „4 žingsniai“ / „Four steps“; navigacija ir pasiūlymų paketai supaprastinti (žr. [PRD v1.4](docs/PRD-one-page-PR-AI.md)).
+- **Header, navigacija ir CTA sluoksniai** ([Header.astro](src/components/Header.astro), [src/i18n/lt.ts](src/i18n/lt.ts), [src/i18n/en.ts](src/i18n/en.ts)): kompaktiškesnė lipni juosta — mažesnis logotipas, `text-[11px]` nav, siauresni tarpai, primary CTA su `whitespace-nowrap`; iš desktop ir mobiliojo meniu pašalinta `#contact` nuoroda (į kontaktą veda primary CTA ir [Footer](src/components/Footer.astro)). **Trumpa** etiketė Hero / Header / Offers `Starter`: LT „**Gauti konsultaciją**“, EN „**Book a call**“; **ilgesnė** galiniame bloke ir `mailto:` `subject` (`finalCta.cta`): LT „**Užsisakyti konsultaciją**“, EN „**Book a consultation**“. Žr. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) v1.2.
+
+- **Copy: LT/EN editorial rewrite** pagal glosarijų ([src/i18n/lt.ts](src/i18n/lt.ts), [src/i18n/en.ts](src/i18n/en.ts)): gramatika ir tonas (`nedirba`, `solution.intro`, `finalCta.subtitle` „tinkame“); `chaosVsSystem` reaktyvumo linija (LT „Reaktyviai“ ↔ EN „Reactive“); `solution` pillarai („Kasdienė veikla“, „Užklausos ir tęsinys“); `proof` / `trustedBy`; EN (`Metrics leaders can act on`, `Loop back to the narrative`, `Operating at scale`); paketų antriniai CTA („Aptarti įgyvendinimą“ / „Plan the delivery“ ir kt.); `mailBodyTemplate` konsultacijos kontekstui; `SiteMessages` struktūra nepakitę.
 - **Landing v2** (evoliucija, funnel nepakitęs): [HeroSystemDiagram.astro](src/components/HeroSystemDiagram.astro) — storesnis flow, kontrolės žiedas, KPI chip, feedback loop su subtilia animacija; [Hero.astro](src/components/sections/Hero.astro) — platesnis diagramos stulpelis, mobile diagrama viršuje.
 - [Problem.astro](src/components/sections/Problem.astro): ikona virš signalo, pirmoji kortelė su `danger` hierarchija; i18n `problem.bullets` kaip `{ signal, detail }`.
 - [ChaosVsSystem.astro](src/components/sections/ChaosVsSystem.astro): stipresnis chaos / system vizualinis kontrastas (DS tokenai).
-- Hero CTA copy (outcome-first) LT/EN; [PRD §4.4](docs/PRD-one-page-PR-AI.md) **v1.3**; [docs/BRAND.md](docs/BRAND.md) — pastaba apie web spalvas ir diagramas.
+- Hero ir CTA kryptis pagal [PRD §4.4](docs/PRD-one-page-PR-AI.md) (outcome-first); [docs/BRAND.md](docs/BRAND.md) — web spalvos ir diagramos (konkretūs CTA tekstai — dabartinėje i18n / glosarijuje).
 - [Process.astro](src/components/sections/Process.astro) / [Solution.astro](src/components/sections/Solution.astro): vizualinis ryšys su diagramų kalba (connector, žiedai, outcome spalva).
 - FinalCta: įmonė, vadovas, adresas (Maps), tel., el. paštas; footnote „per 24 val.“; `mailto:` iš `PUBLIC_CONTACT_EMAIL` arba `finalCta.contactEmail`; pašalinta `missingEmailNotice` (i18n).
 - Footer: `rights` ir `legalLine` (Intuit Communications, MB, įm. / PVM kodai).
@@ -42,15 +45,15 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 - Footer: antrinė nuoroda rodo `nav.contact` („Kontaktas“ / „Contact“) ir veda į `#contact`; pašalintas `footer.privacy`.
 - Proof: iliustracinės metrikos `value` iš „+“ į „↑“ (LT/EN).
 - Offers: sąrašo ženklas „✓“ (`text-accent`) vietoj „/“.
-- LT pasiūlymų paketų pavadinimai: „Startas“, „Sistema“, „Mastelis“ (EN lieka Starter / System / Scale).
+- LT pasiūlymų paketų pavadinimai: „Startas“, „Įgyvendinimas“, „Mastelis“ (EN: Starter / Delivery / Scale).
 - `FinalCta.astro`: pašalintas `lang` prop (užtenka `messages`); `LandingPage` atitinkamai atnaujintas.
 - Hero: vietoj pakartoto logotipo — diagrama; CTA „pill“ stilius su `accent`; hero fonas `bg-hero-premium`.
 - `ChaosVsSystem.astro`: tekstai iš `SiteMessages`, props `messages` (ne `lang`).
 - `LandingPage.astro`: `ChaosVsSystem` gauna `messages`.
-- Header: anchor navigacija sutapdinta su `messages.nav` (įskaitant įrodymą, pasiūlymą, apie); kompaktesnis desktop meniu (`text-xs` / `lg:text-sm`); mobile meniu platesnis, su `overflow-y` ilgesniam sąrašui; lipnus fonas `bg-warm/90`; desktop CTA su `accent`.
+- Header (anksčiau prieš 2026-05 compact pass): anchor sąrašas pagal `messages.nav`; mobile meniu su `overflow-y`; lipnus fonas `bg-warm/90`; desktop CTA su `accent`.
 - Sekcijos: `max-w-content`, pakaitomis `bg-surface` / `bg-paper` / `bg-warm`, kortelės per `.card` / `.card-muted` kur tinkama; procesas — žingsnių ženkleliai `accent`; pasiūlymų vidurinis stulpelis paryškintas `accent`.
-- `Offers.astro`: filled CTA vizualiai tik išryškintam (System) paketui; kiti paketai — silpnesnis border CTA (`text-xs` / `md:text-sm`).
-- i18n LT/EN: Chaos/System ženkliukai (LT „Atsitiktinai“ / „Ritmu“; EN „Reactive“ / „Cadence“).
+- `Offers.astro`: filled CTA vizualiai tik išryškintam (**Delivery** / Įgyvendinimas) paketui; kiti paketai — silpnesnis border CTA (`text-xs` / `md:text-sm`).
+- i18n LT/EN: Chaos/System ženkliukai vėlesnėje redakcijoje — LT „Reaktyviai“ / „Ritmu“; EN „Reactive“ / „Rhythm“ (žr. `chaosVsSystem` glosarijuje).
 - `Layout`: `body` fonas `bg-warm`.
 - LT: pataisymas „Mastelis be chaoso“ (solution pillar).
 - README: sitemap aprašas (build hook vietoj išjungtos `@astrojs/sitemap` pastabos kaip vienintelės tiesos); **Production checklist** (`PUBLIC_SITE_URL`, `PUBLIC_CONTACT_EMAIL`, smoke, sitemap, pastaba apie SVG logotipą).
