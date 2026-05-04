@@ -5,9 +5,15 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ## [Unreleased]
 
+### Changed
+
+- **Hero diagrama** ([`src/components/HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro)): SVG prieinamumas — `title` + `desc` su unikaliais `id` (desktop / mobile), `aria-labelledby` ir `aria-describedby` (vietoj vieno ilgo `aria-label`); [`src/i18n/lt.ts`](src/i18n/lt.ts) / [`src/i18n/en.ts`](src/i18n/en.ts) — `hero.diagram.svgTitle` ir `svgDesc` (buvęs `ariaLabel` turinys). Subtilus mobiliojo feedback kilpos kelio pataisymas; mazgų etiketėms `dominant-baseline="central"`.
+
+- **EN adaptacija + agentų gairės:** [`src/i18n/en.ts`](src/i18n/en.ts) suderintas su LT „Verslo komunikacija“ ir atnaujintu hero (`meta`, `hero.eyebrow` / `title` / `subtitle`, `solution.pillars[0].name` — *Business communications*). [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) v1.4 — skiltis **Agentams** (LT pirminė, EN privaloma adaptacija, ne vertimas); [AGENTS.md](AGENTS.md) ir [`.cursor/rules/intuit-landing.mdc`](.cursor/rules/intuit-landing.mdc) — aiškus reikalavimas atnaujinti EN po LT pozicionavimo pakeitimų.
+
 ### Added
 
-- [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — LT/EN copy glosarijus (v1.2): trumpas Hero/Header CTA (LT „Gauti konsultaciją“ / EN „Book a call“) ir ilgesnis `finalCta` + `mailto` subject; header nav be dublikuojančios „Kontaktas“ nuorodos; nuoroda iš [docs/README.md](docs/README.md).
+- [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — LT/EN copy glosarijus (nuo v1.2; v1.4 — §**Agentams**): trumpas Hero/Header CTA ir ilgesnis `finalCta` + `mailto`; EN adaptacijos taisyklės Cursor agentams; nuoroda iš [docs/README.md](docs/README.md).
 - `public/brand/`: `logo-pattern-light.jpg`, `logo-pattern-dark.jpg` (šaltinis `INTUIT LOGO/jpg/`); Hero — subtilus chevron fonas (`Hero.astro`, `mix-blend-multiply`).
 - Sekcijų kortelės su **linijinėmis ikonėlėmis virš antraštės** (inline SVG): `Solution`, `Process`, `Proof`, `Offers`, `About`; `Problem` — vertikalus blokas (ikona virš signalo); `ChaosVsSystem` — mažos ikonos prie etikečių.
 - Dokumentacija sinchronizuota su kodu: [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) **v1.4**; [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) **v1.3** (ikonų šablonas, i18n šaltinis lentelėje); [docs/BRAND.md](docs/BRAND.md) — pilnas `public/brand/` sąrašas ir JPG matmenys; [docs/README.md](docs/README.md), [README.md](README.md), [AGENTS.md](AGENTS.md), [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc).
@@ -29,7 +35,7 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
-- **Header, navigacija ir CTA sluoksniai** ([Header.astro](src/components/Header.astro), [src/i18n/lt.ts](src/i18n/lt.ts), [src/i18n/en.ts](src/i18n/en.ts)): kompaktiškesnė lipni juosta — mažesnis logotipas, `text-[11px]` nav, siauresni tarpai, primary CTA su `whitespace-nowrap`; iš desktop ir mobiliojo meniu pašalinta `#contact` nuoroda (į kontaktą veda primary CTA ir [Footer](src/components/Footer.astro)). **Trumpa** etiketė Hero / Header / Offers `Starter`: LT „**Gauti konsultaciją**“, EN „**Book a call**“; **ilgesnė** galiniame bloke ir `mailto:` `subject` (`finalCta.cta`): LT „**Užsisakyti konsultaciją**“, EN „**Book a consultation**“. Žr. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) v1.2.
+- **Header, navigacija ir CTA sluoksniai** ([Header.astro](src/components/Header.astro), [src/i18n/lt.ts](src/i18n/lt.ts), [src/i18n/en.ts](src/i18n/en.ts)): kompaktiškesnė lipni juosta — mažesnis logotipas, `text-[11px]` nav, siauresni tarpai, primary CTA su `whitespace-nowrap`; iš desktop ir mobiliojo meniu pašalinta `#contact` nuoroda (į kontaktą veda primary CTA ir [Footer](src/components/Footer.astro)). **Trumpa** etiketė Hero / Header / Offers `Starter`: LT „**Gauti konsultaciją**“, EN „**Book a call**“; **ilgesnė** galiniame bloke ir `mailto:` `subject` (`finalCta.cta`): LT „**Užsisakyti konsultaciją**“, EN „**Book a consultation**“. Žr. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) (dabartinė versija faile).
 
 - **Copy: LT/EN editorial rewrite** pagal glosarijų ([src/i18n/lt.ts](src/i18n/lt.ts), [src/i18n/en.ts](src/i18n/en.ts)): gramatika ir tonas (`nedirba`, `solution.intro`, `finalCta.subtitle` „tinkame“); `chaosVsSystem` reaktyvumo linija (LT „Reaktyviai“ ↔ EN „Reactive“); `solution` pillarai („Kasdienė veikla“, „Užklausos ir tęsinys“); `proof` / `trustedBy`; EN (`Metrics leaders can act on`, `Loop back to the narrative`, `Operating at scale`); paketų antriniai CTA („Aptarti įgyvendinimą“ / „Plan the delivery“ ir kt.); `mailBodyTemplate` konsultacijos kontekstui; `SiteMessages` struktūra nepakitę.
 - **Landing v2** (evoliucija, funnel nepakitęs): [HeroSystemDiagram.astro](src/components/HeroSystemDiagram.astro) — storesnis flow, kontrolės žiedas, KPI chip, feedback loop su subtilia animacija; [Hero.astro](src/components/sections/Hero.astro) — platesnis diagramos stulpelis, mobile diagrama viršuje.

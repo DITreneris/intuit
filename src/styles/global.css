@@ -14,6 +14,7 @@
     --ds-accent: theme('colors.accent');
     --ds-ink: theme('colors.ink');
     --ds-surface: theme('colors.surface');
+    --ds-paper: theme('colors.paper');
     --ds-line: theme('colors.line');
     --ds-muted: theme('colors.muted');
     --ds-muted2: theme('colors.muted2');

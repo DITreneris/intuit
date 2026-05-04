@@ -8,12 +8,13 @@ Trumpa orientacija, kad AI pakeitimai atitiktų **dabartinį** kodą ir dokument
 2. [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — DS v1.3: tokenai, mygtukai (`src/components/ui/`), sekcijų ikonų šablonas, checklist.
 3. [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc) — stackas, failų struktūra, Tailwind tokenai, sitemap (`intuit-sitemap`), a11y.
 4. [README.md](README.md) — paleidimas, env, Vercel, sitemap patikra.
+5. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — redaguojant **viešą tekstą** LT/EN: §**Agentams** (LT pirminė kalba; EN — **adaptacija**, ne vertimas).
 
 ## Kur kas gyvena
 
 | Plotmė | Kelias |
 |--------|--------|
-| LT / EN tekstai | `src/i18n/lt.ts`, `src/i18n/en.ts` (struktūra turi atitikti `SiteMessages` iš `types.ts`) |
+| LT / EN tekstai | `src/i18n/lt.ts`, `src/i18n/en.ts` (struktūra turi atitikti `SiteMessages` iš `types.ts`). **LT — pirminė kalba; EN — adaptacija** (ne žodis į žodį): žr. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) §1 „Agentams“. |
 | Puslapio komponavimas | `src/components/LandingPage.astro` + `src/components/sections/*.astro` |
 | UI primitives (CTA) | `src/components/ui/*.astro` |
 | Globalūs stiliai | `src/styles/global.css` + `tailwind.config.mjs` |

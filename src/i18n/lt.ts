@@ -2,7 +2,7 @@ export const lt = {
   meta: {
     title: 'INTUIT — komunikacija, kuria galima pasitikėti',
     description:
-      'Korporatyvinė komunikacija vadovams: nuoseklumas, reputacija ir augimas — aiškiai, be chaoso.',
+      'Verslo komunikacija vadovams: nuoseklumas, reputacija ir augimas — aiškiai, be chaoso.',
     ogLocale: 'lt_LT',
   },
   nav: {
@@ -23,36 +23,33 @@ export const lt = {
     skipToMain: 'Praleisti į pagrindinį turinį',
   },
   hero: {
-    eyebrow: 'Korporatyvinė komunikacija',
-    title: 'Mažiau chaoso. Daugiau aiškumo ir rezultatų.',
-    subtitle: 'Vieninga komunikacija PR ir rinkodarai — nuo žinutės iki matomų rodiklių.',
+    eyebrow: 'Verslo komunikacija',
+    title: 'Mažiau chaoso. Geresni rezultatai.',
+    subtitle: 'Profesionali komunikacija — nuo viešųjų ryšių iki rinkodaros.',
     ctaPrimary: 'Gauti konsultaciją',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
     diagram: {
-      ariaLabel:
-        'Komunikacijos sistema: kanalai, žinutė, vykdymas, rodikliai; kontrolė ir matavimas visoje eigoje; grįžtamasis ryšys į žinutę',
-      systemStrip: 'Kontrolė ir matavimas',
+      svgTitle: 'Komunikacijos valdymo schema',
+      svgDesc:
+        'Valdomas komunikacijos rezultatas: kanalai, žinutė, vykdymas ir rodikliai; rodikliai grįžta į žinutę optimizacijos kilpa',
+      systemStrip: 'Valdomas rezultatas',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
       layerAi: 'Vykdymas',
       layerOutputs: 'Rodikliai',
-      startLabel: 'Įvestis',
-      resultLabel: 'Rezultatas',
-      feedbackLabel: 'Grįžtamasis ryšys į žinutę',
     },
   },
   trustedBy: {
     title: 'Klientai, kurie mumis pasitiki',
-    hint: 'Slinkite, kad pamatytumėte visus klientus.',
-    /** Vėliau keiskite į tikrus `<img>` arba SVG; dabar — vietos žymės. */
-    slots: [
-      'Logotipas (1)',
-      'Logotipas (2)',
-      'Logotipas (3)',
-      'Logotipas (4)',
-      'Logotipas (5)',
-      'Logotipas (6)',
+    hint: '←   →',
+    /** Slankiojančios juostos sritis (ekrano skaityklėms) */
+    scrollAriaLabel: 'Klientų logotipai — slinkite horizontaliai',
+    /** Failai: `public/clients/`; `src` be BASE_URL. */
+    logos: [
+      { src: 'clients/pigu.jpg', alt: 'Pigu.lt logotipas' },
+      { src: 'clients/pikas.jpg', alt: 'Pikas logotipas' },
+      { src: 'clients/sirin.jpg', alt: 'Sirin logotipas' },
     ],
   },
   problem: {
@@ -90,7 +87,7 @@ export const lt = {
     intro: 'Reputacija, augimas ir kasdienis darbas — susieti taip, kad eiga ir rezultatas būtų matomi.',
     pillars: [
       {
-        name: 'Korporatyvinė komunikacija',
+        name: 'Verslo komunikacija',
         outcome: 'Reputacija ir pasitikėjimas',
         points: ['Krizės ir vadovų komunikacija', 'Žiniasklaida ir pozicija'],
       },

@@ -12,7 +12,12 @@ alwaysApply: false
 - **Produkto tiesa:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (įskaitant pasitikėjimo pirmumo pozicionavimą v1.1+).
 - **Design System v1.3:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, sekcijų ikonų šablonas (inline SVG virš antraštės), checklist.
 - **Publikus copy:** [src/i18n/lt.ts](src/i18n/lt.ts) (LT), [src/i18n/en.ts](src/i18n/en.ts) (EN); bendras tipas — [src/i18n/types.ts](src/i18n/types.ts) (`SiteMessages` iš LT formos).
-- **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`en/` po `base`). Antrinė kalba — **adaptacija**, ne žodis į žodį.
+- **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`en/` po `base`).
+- **LT / EN copy (privaloma agentams):**
+  1. Pirminė viešo teksto kalba — **LT** (`src/i18n/lt.ts`).
+  2. **EN** (`src/i18n/en.ts`) — visada **adaptacija** į natūralų US B2B toną: ta pati prasmė ir pozicionavimas, **ne** žodis į žodį ir **ne** mechaniškas LT sakinių atkartojimas.
+  3. Keičiant LT hero, meta, `solution` stulpelius ar kitą pozicionavimą — **tame pačiame pakeitime** atnaujinti atitinkamus EN laukus.
+  4. Šaltinis: [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) §1 (įskaitant „Agentams“).
 
 ## Stackas (dabartinė būsena)
 

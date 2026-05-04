@@ -1,6 +1,6 @@
 # Copy glosarijus — LT / EN (US)
 
-**Versija:** 1.2  
+**Versija:** 1.4  
 **Data:** 2026-05-04  
 **Šaltinis:** [PRD-one-page-PR-AI.md](PRD-one-page-PR-AI.md) §5.1 (tonas), §4.4 (CTA hierarchija).  
 **Vienintelis tiesos šaltinis** redakcinėms LT ([src/i18n/lt.ts](../src/i18n/lt.ts)) ir EN ([src/i18n/en.ts](../src/i18n/en.ts)) atnaujinimui.
@@ -18,6 +18,12 @@
 | EN stilius | Trumpi sakiniai, aktyvi forma, ne žodis į žodį iš LT. |
 | Kabutės | LT „lietuviškos“, EN “straight” arba US "double" (paliekame egzistuojantį `’` apostrofą EN failuose). |
 | Brūkšniai | Ilgieji `—` su tarpais (LT/EN); EN — galima ir be tarpų pagal US stilių, bet **vienodai per visą failą**. |
+
+### Agentams (Cursor / AI)
+
+- **LT yra pirminė kalba** — naują ar pakeistą viešą tekstą įprastai rašykite pirma [src/i18n/lt.ts](../src/i18n/lt.ts).
+- **`en.ts` — privaloma adaptacija:** tas pats pozicionavimas ir išliekamoji **prasmė** kaip LT, bet natūralus **US English** B2B tonas; **draudžiama** žodis į žodį „versti“ pirminį LT sakinių tvarką mechaniškai atkartoti EN faile.
+- Pakeitus LT **meta**, **hero**, **solution** stulpelius ar kitą matomą pozicionavimą, **visada** patikrinkite ir atnaujinkite atitinkamus EN raktus tame pačiame PR žingsnyje.
 
 ---
 
@@ -142,8 +148,9 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `solution.pillars[1].points[1]` | „Kontaktai ir sekimas“ | „Užklausos ir tęsinys“ |
 | `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovybei“ |
 | `proof.body` | „...**prieš/po** skaičiai...“ | „...**prieš / po** skaičius...“ + sakinio perfrazavimas |
-| `trustedBy.hint` | „...slenkite horizontaliai (pelė / **touch**).“ | „Slinkite, kad pamatytumėte visus klientus.“ |
-| `hero.diagram.feedbackLabel` | „Grįžtamasis ryšys į žinutę“ | „Grįžtamasis ryšys į žinutę“ (paliekama — diagramos skaitomumas) |
+| `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
+| `trustedBy.scrollAriaLabel` | — | „Klientų logotipai — slinkite horizontaliai“ (slankiojančios srities `aria-label`) |
+| `hero.diagram.systemStrip` | „Kontrolė ir matavimas“ | „Valdomas rezultatas“ (diagrama — vertė, ne procesas) |
 
 ---
 
@@ -159,8 +166,9 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Plan the delivery“ / „Discuss scale“ |
 | `finalCta.cta` | „Request a communications review“ | „Book a consultation“ |
 | `finalCta.subtitle` | „Short call—mutual fit and what to do next.“ | „Short call to confirm fit and define next steps.“ |
-| `trustedBy.hint` | „Logo row — scroll horizontally (mouse / touch).“ | „Scroll to view all clients.“ |
-| `hero.diagram.feedbackLabel` | „Feedback to narrative“ | „Loop back to the narrative“ |
+| `trustedBy.hint` (visible) | … | „**←   →**“ (arrows only) |
+| `trustedBy.scrollAriaLabel` | — | „Client logos — scroll horizontally“ (`aria-label` on scroll region) |
+| `hero.diagram.systemStrip` | „Control and measurement“ | „Controlled outcomes“ |
 
 ---
 

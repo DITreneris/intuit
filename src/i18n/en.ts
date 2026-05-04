@@ -1,8 +1,8 @@
 export const en = {
   meta: {
-    title: 'INTUIT — corporate communications you can trust',
+    title: 'INTUIT — communications you can trust',
     description:
-      'Corporate communications for leaders: consistency, reputation, and growth—clearly, without chaos.',
+      'Business communications for leaders: consistency, reputation, and growth—clearly, without chaos.',
     ogLocale: 'en_US',
   },
   nav: {
@@ -23,29 +23,32 @@ export const en = {
     skipToMain: 'Skip to main content',
   },
   hero: {
-    eyebrow: 'Corporate communications',
-    title: 'Less chaos. More clarity and outcomes.',
-    subtitle: 'One narrative for PR and marketing—from message to visible results.',
+    eyebrow: 'Business communications',
+    title: 'Less chaos. Better results.',
+    subtitle: 'Professional communications—from public relations to marketing.',
     ctaPrimary: 'Book a call',
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',
     diagram: {
-      ariaLabel:
-        'Communications system: channels, narrative, execution, and metrics; control and measurement across the flow; feedback that loops back into the narrative',
-      systemStrip: 'Control and measurement',
+      svgTitle: 'Communications control diagram',
+      svgDesc:
+        'Controlled communications outcome: channels, narrative, execution, and metrics; metrics loop back into the narrative',
+      systemStrip: 'Controlled outcomes',
       layerInputs: 'Channels',
       layerStrategy: 'Narrative',
       layerAi: 'Execution',
       layerOutputs: 'Metrics',
-      startLabel: 'Input',
-      resultLabel: 'Outcome',
-      feedbackLabel: 'Loop back to the narrative',
     },
   },
   trustedBy: {
     title: 'Clients who trust us',
-    hint: 'Scroll to view all clients.',
-    slots: ['Logo (1)', 'Logo (2)', 'Logo (3)', 'Logo (4)', 'Logo (5)', 'Logo (6)'],
+    hint: '←   →',
+    scrollAriaLabel: 'Client logos — scroll horizontally',
+    logos: [
+      { src: 'clients/pigu.jpg', alt: 'Pigu.lt logo' },
+      { src: 'clients/pikas.jpg', alt: 'Pikas logo' },
+      { src: 'clients/sirin.jpg', alt: 'Sirin logo' },
+    ],
   },
   problem: {
     title: 'When everything runs in silos',
@@ -82,7 +85,7 @@ export const en = {
     intro: 'Reputation, growth, and day-to-day work—connected so the flow and the outcome stay visible.',
     pillars: [
       {
-        name: 'Corporate communications',
+        name: 'Business communications',
         outcome: 'Reputation and trust',
         points: ['Crisis and executive comms', 'Media relations and positioning'],
       },
