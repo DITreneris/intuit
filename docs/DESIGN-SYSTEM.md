@@ -109,7 +109,7 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 
 ## Hero diagrama (product vizualinė kalba)
 
-- **Forward (1→4):** **solidūs** `accent` jungikliai tik **tarpų** ruožuose tarp kortelių (desktop — horizontalūs segmentai, mobile — vertikalūs), piešiami **paskutiniu** SVG sluoksniu virš kortelių `fill`, storesnis stroke (~4) ir `marker-end` kiekviename tarpe — matomas „stuburas“, ne foninis tapetas; **be** punktyrinės animacijos ant linijos.
+- **Forward (1→4):** kortelės — SVG, jungtys — **HTML overlay** (`.hsd-connectors`) su CSS kintamaisiais (`--cx-start/--cx-end/--cy` desktop, `--cy-start/--cy-end/--cx` mobile). Linija — **1.5 px** ant `var(--ds-accent)` su **`opacity: 0.55`**; galvutė — plonas **chevron** iš `border-top + border-right` (be filled triangle). Per komponento prop `connectorVariant: 'chevron' | 'line'` (default `chevron`) galima išjungti chevron — tada kryptis aiški per kortelių numerius **1–4**. Tarpas nuo kortelės **≥ 6 px** kiekvienoje pusėje (desktop 28 vnt. tarpai viewBox, mobile 24 vnt.) — connectoriai **niekada** neliečia kortelės bordurai. **Be** punktyrinės animacijos.
 - **Hierarchija:** pagal skyrių „Tipografija“ — matomas HTML blokas su trimis aiškiais šrifto lygiais; SVG viduje tekstas lieka mikro skale.
 - **Feedback (rodikliai → žinutė):** **ne** atskiras SVG kelias — iteracija aiškinama **`hero.diagram.diagramLoopLabel`** + caption + `svgDesc`; dekoratyvus ↺ HTML.
 - **Mazgų kortelės:** antriniai žingsniai — `surface` / `line`; **žingsnis 2 („Žinutė“)** — plonesnis `accent` kontūras (~1.15), švelnus **SVG drop-shadow** filtras, **tint** už kortelės (`accent` fill ~0.15 opacity); ikonos — 24×24 loginė erdvė, `stroke-width` **1.5**, ~**1.15** centrinis **scale** be mini-kortelės rėmo.

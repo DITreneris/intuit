@@ -1,16 +1,19 @@
 ---
 /**
  * Du atskiri SVG (desktop / mobile) — bet koks mazgo keitimas turi būti atliktas abiejuose.
- * v4: flow segmentai tik tarp kortelių, paskutinis sluoksnis, solid; iteracija — HTML; anchor = fill + šešėlis.
+ * v5: kortelės SVG, jungtys — HTML overlay'us per .hsd-connectors (linija + chevron / line variant).
+ *      Geometrija perskirstyta, kad tarp kortelių liktų realus 8 px „kvėpavimo“ tarpas (per 28 vnt. desktop, 24 vnt. mobile).
+ *      Anchor karta („Žinutė“) lieka su tint + drop-shadow filtru, jokių filled triangle markerių.
  * Antraštė, caption ir kilpos etiketė — HTML (LT/EN iš messages.hero.diagram).
  */
 import type { SiteMessages } from '../i18n/types';
 
 interface Props {
   messages: SiteMessages;
+  connectorVariant?: 'chevron' | 'line';
 }
 
-const { messages } = Astro.props;
+const { messages, connectorVariant = 'chevron' } = Astro.props;
 const d = messages.hero.diagram;
 ---
 
@@ -46,646 +49,699 @@ const d = messages.hero.diagram;
     </p>
   </div>
 
-  <!-- Desktop: v4 — tarpų flow segmentai (paskutinis sluoksnis); ikonos ~24×24 su scale; be dash animacijos -->
-  <svg
-    class="relative z-10 mx-auto mt-3 hidden h-auto w-full max-h-[360px] md:mt-4 md:block"
-    viewBox="0 0 612 200"
-    aria-hidden="true"
+  {/*
+    Desktop stage: viewBox 612×200; tarpai 28 vnt., kortelės 110/172/110/110, anchor — 172.
+    Connector overlay'us — HTML elementai virš SVG, % koordinatės atitinka viewBox.
+  */}
+  <div
+    class="hsd-stage hsd-stage--desktop relative z-10 mx-auto mt-3 hidden w-full max-w-[612px] md:mt-4 md:block"
   >
-    <title>{d.svgTitle}</title>
-    <defs>
-      <marker
-        id="hero-flow-arrow"
-        markerUnits="userSpaceOnUse"
-        markerWidth="11"
-        markerHeight="11"
-        refX="10"
-        refY="5.5"
-        orient="auto"
-      >
-        <path d="M0,0 L11,5.5 L0,11 z" fill="var(--ds-accent)"></path>
-      </marker>
-      <filter
-        id="hero-diagram-anchor-d"
-        x="-25%"
-        y="-25%"
-        width="150%"
-        height="150%"
-        color-interpolation-filters="sRGB"
-      >
-        <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.1"></feDropShadow>
-      </filter>
-    </defs>
+    <svg
+      class="absolute inset-0 h-full w-full"
+      viewBox="0 0 612 200"
+      aria-hidden="true"
+    >
+      <title>{d.svgTitle}</title>
+      <defs>
+        <filter
+          id="hero-diagram-anchor-d"
+          x="-25%"
+          y="-25%"
+          width="150%"
+          height="150%"
+          color-interpolation-filters="sRGB"
+        >
+          <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.1"></feDropShadow>
+        </filter>
+      </defs>
 
-    <!-- Anchor tint už „Žinutė“ -->
-    <rect
-      x="146"
-      y="24"
-      width="184"
-      height="88"
-      rx="15"
-      fill="var(--ds-accent)"
-      opacity="0.15"></rect>
+      <!-- Anchor tint už „Žinutė“ (4 vnt. aura aplink kortelę x=151..323) -->
+      <rect
+        x="147"
+        y="24"
+        width="180"
+        height="88"
+        rx="15"
+        fill="var(--ds-accent)"
+        opacity="0.15"></rect>
 
-    <!-- 1 Kanalai -->
-    <g>
+      <!-- 1 Kanalai (x=13, w=110, cx=68) -->
+      <g>
+        <rect
+          x="13"
+          y="28"
+          width="110"
+          height="80"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-line)"
+          stroke-width="1"
+          opacity="0.96"></rect>
+        <rect x="21" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
+        <text
+          x="33"
+          y="45"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="11"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          1
+        </text>
+        <g
+          transform="translate(56 34) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 20h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a9 9 0 0 1 14 0"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="68"
+          y="82"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="11"
+          font-weight="600"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerInputs}
+        </text>
+        <text
+          x="68"
+          y="96"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="10"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint1}
+        </text>
+      </g>
+
+      <!-- 2 Žinutė — anchor (x=151, w=172, cx=237) -->
+      <g>
+        <rect
+          x="151"
+          y="28"
+          width="172"
+          height="80"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-accent)"
+          stroke-width="1.15"
+          opacity="0.99"
+          filter="url(#hero-diagram-anchor-d)"></rect>
+        <rect x="159" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.18"></rect>
+        <text
+          x="171"
+          y="45"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="11"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          2
+        </text>
+        <g
+          transform="translate(225 34) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="237"
+          y="82"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="11"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerStrategy}
+        </text>
+        <text
+          x="237"
+          y="96"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="10"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint2}
+        </text>
+      </g>
+
+      <!-- 3 Vykdymas (x=351, w=110, cx=406) -->
+      <g>
+        <rect
+          x="351"
+          y="28"
+          width="110"
+          height="80"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-line)"
+          stroke-width="1"
+          opacity="0.94"></rect>
+        <rect x="359" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
+        <text
+          x="371"
+          y="45"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="11"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          3
+        </text>
+        <g
+          transform="translate(394 34) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M4 16 L9 11 L13 14 L20 6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="406"
+          y="82"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="11"
+          font-weight="600"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerAi}
+        </text>
+        <text
+          x="406"
+          y="96"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="10"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint3}
+        </text>
+      </g>
+
+      <!-- 4 Rodikliai (x=489, w=110, cx=544) -->
+      <g>
+        <rect
+          x="489"
+          y="28"
+          width="110"
+          height="80"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-line)"
+          stroke-width="1"
+          opacity="0.94"></rect>
+        <rect x="497" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
+        <text
+          x="509"
+          y="45"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="11"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          4
+        </text>
+        <g
+          transform="translate(532 34) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 17V9M11 17V5M16 17v-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="544"
+          y="82"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="11"
+          font-weight="600"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerOutputs}
+        </text>
+        <text
+          x="544"
+          y="96"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="10"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint4}
+        </text>
+      </g>
+    </svg>
+
+    {/*
+      Desktop connector overlay (3 spans): linija + chevron arba tik linija.
+      Vertikalus centras: y=68 / 200 = 34%. Linijos po 12 viewBox vienetų, ~8 vnt. paddingo iš kiekvienos kortelės pusės.
+    */}
+    <div
+      class="hsd-connectors absolute inset-0"
+      data-variant={connectorVariant}
+      aria-hidden="true"
+    >
+      <span class="hsd-connector" style="--cx-start: 21.41%; --cx-end: 23.37%; --cy: 34%;"></span>
+      <span class="hsd-connector" style="--cx-start: 54.08%; --cx-end: 56.05%; --cy: 34%;"></span>
+      <span class="hsd-connector" style="--cx-start: 76.63%; --cx-end: 78.59%; --cy: 34%;"></span>
+    </div>
+  </div>
+
+  {/*
+    Mobile stage: viewBox 300×412 (pailgintas iš 372 → 412, kad gautųsi 24 vnt. tarpas tarp kortelių).
+    Vertikalūs connectoriai per HTML overlay; chevron rodo žemyn.
+  */}
+  <div
+    class="hsd-stage hsd-stage--mobile relative z-10 mx-auto mt-3 w-full max-h-[min(72vh,480px)] md:hidden"
+  >
+    <svg
+      class="absolute inset-0 h-full w-full"
+      viewBox="0 0 300 412"
+      aria-hidden="true"
+    >
+      <title>{d.svgTitle}</title>
+      <defs>
+        <filter
+          id="hero-diagram-anchor-m"
+          x="-25%"
+          y="-25%"
+          width="150%"
+          height="150%"
+          color-interpolation-filters="sRGB"
+        >
+          <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.1"></feDropShadow>
+        </filter>
+      </defs>
+
+      <!-- Anchor tint už „Žinutė“ (4 vnt. aura) -->
       <rect
         x="14"
-        y="28"
-        width="128"
-        height="80"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-line)"
-        stroke-width="1"
-        opacity="0.96"></rect>
-      <rect x="22" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
-      <text
-        x="34"
-        y="45"
-        dominant-baseline="central"
-        text-anchor="middle"
+        y="104"
+        width="272"
+        height="100"
+        rx="16"
         fill="var(--ds-accent)"
-        font-size="11"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        1
-      </text>
-      <g
-        transform="translate(66 34) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M12 20h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a9 9 0 0 1 14 0"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
+        opacity="0.15"></rect>
+
+      <!-- 1 Kanalai (y=8, h=76) -->
+      <g>
+        <rect
+          x="20"
+          y="8"
+          width="260"
+          height="76"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-line)"
+          stroke-width="1"
+          opacity="0.96"></rect>
+        <rect x="28" y="15" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
+        <text
+          x="40"
+          y="27"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="12"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          1
+        </text>
+        <g
+          transform="translate(138 16) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 20h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a9 9 0 0 1 14 0"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="150"
+          y="58"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="12"
+          font-weight="600"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerInputs}
+        </text>
+        <text
+          x="150"
+          y="72"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="11"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint1}
+        </text>
       </g>
-      <text
-        x="78"
-        y="82"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="11"
-        font-weight="600"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerInputs}
-      </text>
-      <text
-        x="78"
-        y="96"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="10"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint1}
-      </text>
-    </g>
 
-    <!-- 2 Žinutė — anchor -->
-    <g>
-      <rect
-        x="150"
-        y="28"
-        width="176"
-        height="80"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-accent)"
-        stroke-width="1.15"
-        opacity="0.99"
-        filter="url(#hero-diagram-anchor-d)"></rect>
-      <rect x="158" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.18"></rect>
-      <text
-        x="170"
-        y="45"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="11"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        2
-      </text>
-      <g
-        transform="translate(226 34) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
+      <!-- 2 Žinutė — anchor (y=108, h=92, delta +16 nuo v4) -->
+      <g>
+        <rect
+          x="18"
+          y="108"
+          width="264"
+          height="92"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-accent)"
+          stroke-width="1.15"
+          opacity="0.99"
+          filter="url(#hero-diagram-anchor-m)"></rect>
+        <rect x="28" y="117" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.18"></rect>
+        <text
+          x="40"
+          y="129"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="12"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          2
+        </text>
+        <g
+          transform="translate(138 120) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="150"
+          y="168"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="12"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerStrategy}
+        </text>
+        <text
+          x="150"
+          y="184"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="11"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint2}
+        </text>
       </g>
-      <text
-        x="238"
-        y="82"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="11"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerStrategy}
-      </text>
-      <text
-        x="238"
-        y="96"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="10"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint2}
-      </text>
-    </g>
 
-    <!-- 3 Vykdymas -->
-    <g>
-      <rect
-        x="334"
-        y="28"
-        width="128"
-        height="80"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-line)"
-        stroke-width="1"
-        opacity="0.94"></rect>
-      <rect x="342" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
-      <text
-        x="354"
-        y="45"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="11"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        3
-      </text>
-      <g
-        transform="translate(386 34) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M4 16 L9 11 L13 14 L20 6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
+      <!-- 3 Vykdymas (y=224, h=76, delta +32 nuo v4) -->
+      <g>
+        <rect
+          x="20"
+          y="224"
+          width="260"
+          height="76"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-line)"
+          stroke-width="1"
+          opacity="0.94"></rect>
+        <rect x="28" y="231" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
+        <text
+          x="40"
+          y="243"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="12"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          3
+        </text>
+        <g
+          transform="translate(138 234) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M4 16 L9 11 L13 14 L20 6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="150"
+          y="274"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="12"
+          font-weight="600"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerAi}
+        </text>
+        <text
+          x="150"
+          y="288"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="11"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint3}
+        </text>
       </g>
-      <text
-        x="398"
-        y="82"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="11"
-        font-weight="600"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerAi}
-      </text>
-      <text
-        x="398"
-        y="96"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="10"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint3}
-      </text>
-    </g>
 
-    <!-- 4 Rodikliai -->
-    <g>
-      <rect
-        x="470"
-        y="28"
-        width="128"
-        height="80"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-line)"
-        stroke-width="1"
-        opacity="0.94"></rect>
-      <rect x="478" y="33" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
-      <text
-        x="490"
-        y="45"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="11"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        4
-      </text>
-      <g
-        transform="translate(522 34) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M6 17V9M11 17V5M16 17v-6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
+      <!-- 4 Rodikliai (y=324, h=76, delta +48 nuo v4) -->
+      <g>
+        <rect
+          x="20"
+          y="324"
+          width="260"
+          height="76"
+          rx="13"
+          fill="var(--ds-surface)"
+          stroke="var(--ds-line)"
+          stroke-width="1"
+          opacity="0.94"></rect>
+        <rect x="28" y="331" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
+        <text
+          x="40"
+          y="343"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-accent)"
+          font-size="12"
+          font-weight="700"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          4
+        </text>
+        <g
+          transform="translate(138 334) translate(12 12) scale(1.15) translate(-12 -12)"
+          class="text-muted"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 17V9M11 17V5M16 17v-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+        <text
+          x="150"
+          y="374"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-ink)"
+          font-size="12"
+          font-weight="600"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.layerOutputs}
+        </text>
+        <text
+          x="150"
+          y="388"
+          dominant-baseline="central"
+          text-anchor="middle"
+          fill="var(--ds-muted)"
+          font-size="11"
+          font-weight="500"
+          font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        >
+          {d.nodeHint4}
+        </text>
       </g>
-      <text
-        x="534"
-        y="82"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="11"
-        font-weight="600"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerOutputs}
-      </text>
-      <text
-        x="534"
-        y="96"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="10"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint4}
-      </text>
-    </g>
+    </svg>
 
-    <!-- Flow tik tarpų ruožuose, virš kortelių fill (solid, storesnis) -->
-    <path
-      d="M 142 68 L 150 68"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="4"
-      stroke-linecap="round"
-      marker-end="url(#hero-flow-arrow)"></path>
-    <path
-      d="M 326 68 L 334 68"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="4"
-      stroke-linecap="round"
-      marker-end="url(#hero-flow-arrow)"></path>
-    <path
-      d="M 462 68 L 470 68"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="4"
-      stroke-linecap="round"
-      marker-end="url(#hero-flow-arrow)"></path>
-  </svg>
-
-  <!-- Mobile: v4 — vertikalūs tarpų segmentai pabaigoje; ikonos su scale -->
-  <svg
-    class="relative z-10 mx-auto mt-3 h-auto w-full max-h-[min(72vh,480px)] md:hidden"
-    viewBox="0 0 300 372"
-    aria-hidden="true"
-  >
-    <title>{d.svgTitle}</title>
-    <defs>
-      <marker
-        id="hero-flow-arrow-m"
-        markerUnits="userSpaceOnUse"
-        markerWidth="11"
-        markerHeight="11"
-        refX="10"
-        refY="5.5"
-        orient="auto"
-      >
-        <path d="M0,0 L11,5.5 L0,11 z" fill="var(--ds-accent)"></path>
-      </marker>
-      <filter
-        id="hero-diagram-anchor-m"
-        x="-25%"
-        y="-25%"
-        width="150%"
-        height="150%"
-        color-interpolation-filters="sRGB"
-      >
-        <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.1"></feDropShadow>
-      </filter>
-    </defs>
-
-    <rect
-      x="14"
-      y="88"
-      width="272"
-      height="100"
-      rx="16"
-      fill="var(--ds-accent)"
-      opacity="0.15"></rect>
-
-    <!-- 1 Kanalai -->
-    <g>
-      <rect
-        x="20"
-        y="8"
-        width="260"
-        height="76"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-line)"
-        stroke-width="1"
-        opacity="0.96"></rect>
-      <rect x="28" y="15" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
-      <text
-        x="40"
-        y="27"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="12"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        1
-      </text>
-      <g
-        transform="translate(138 16) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M12 20h.01M8.5 14.5a5 5 0 0 1 7 0M5 11a9 9 0 0 1 14 0"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </g>
-      <text
-        x="150"
-        y="58"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="12"
-        font-weight="600"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerInputs}
-      </text>
-      <text
-        x="150"
-        y="72"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="11"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint1}
-      </text>
-    </g>
-
-    <!-- 2 Žinutė — anchor -->
-    <g>
-      <rect
-        x="18"
-        y="92"
-        width="264"
-        height="92"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-accent)"
-        stroke-width="1.15"
-        opacity="0.99"
-        filter="url(#hero-diagram-anchor-m)"></rect>
-      <rect x="28" y="101" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.18"></rect>
-      <text
-        x="40"
-        y="113"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="12"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        2
-      </text>
-      <g
-        transform="translate(138 104) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </g>
-      <text
-        x="150"
-        y="152"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="12"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerStrategy}
-      </text>
-      <text
-        x="150"
-        y="168"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="11"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint2}
-      </text>
-    </g>
-
-    <!-- 3 Vykdymas -->
-    <g>
-      <rect
-        x="20"
-        y="192"
-        width="260"
-        height="76"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-line)"
-        stroke-width="1"
-        opacity="0.94"></rect>
-      <rect x="28" y="199" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
-      <text
-        x="40"
-        y="211"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="12"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        3
-      </text>
-      <g
-        transform="translate(138 202) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M4 16 L9 11 L13 14 L20 6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </g>
-      <text
-        x="150"
-        y="242"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="12"
-        font-weight="600"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerAi}
-      </text>
-      <text
-        x="150"
-        y="256"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="11"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint3}
-      </text>
-    </g>
-
-    <!-- 4 Rodikliai -->
-    <g>
-      <rect
-        x="20"
-        y="276"
-        width="260"
-        height="76"
-        rx="13"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-line)"
-        stroke-width="1"
-        opacity="0.94"></rect>
-      <rect x="28" y="283" width="24" height="24" rx="8" fill="var(--ds-accent)" opacity="0.12"></rect>
-      <text
-        x="40"
-        y="295"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-accent)"
-        font-size="12"
-        font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        4
-      </text>
-      <g
-        transform="translate(138 286) translate(12 12) scale(1.15) translate(-12 -12)"
-        class="text-muted"
-        aria-hidden="true"
-      >
-        <path
-          d="M6 17V9M11 17V5M16 17v-6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </g>
-      <text
-        x="150"
-        y="326"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-ink)"
-        font-size="12"
-        font-weight="600"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.layerOutputs}
-      </text>
-      <text
-        x="150"
-        y="340"
-        dominant-baseline="central"
-        text-anchor="middle"
-        fill="var(--ds-muted)"
-        font-size="11"
-        font-weight="500"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      >
-        {d.nodeHint4}
-      </text>
-    </g>
-
-    <!-- Vertikalūs flow segmentai tik tarp kortelių -->
-    <path
-      d="M 150 84 L 150 92"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="4"
-      stroke-linecap="round"
-      marker-end="url(#hero-flow-arrow-m)"></path>
-    <path
-      d="M 150 184 L 150 192"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="4"
-      stroke-linecap="round"
-      marker-end="url(#hero-flow-arrow-m)"></path>
-    <path
-      d="M 150 268 L 150 276"
-      fill="none"
-      stroke="var(--ds-accent)"
-      stroke-width="4"
-      stroke-linecap="round"
-      marker-end="url(#hero-flow-arrow-m)"></path>
-  </svg>
+    {/*
+      Mobile connector overlay (3 spans, vertical): linija + chevron į apačią arba tik linija.
+      Linijos po 12 viewBox vienetų, ~6 vnt. paddingo iš kiekvienos kortelės pusės.
+    */}
+    <div
+      class="hsd-connectors hsd-connectors--vertical absolute inset-0"
+      data-variant={connectorVariant}
+      aria-hidden="true"
+    >
+      <span class="hsd-connector" style="--cy-start: 21.84%; --cy-end: 24.76%; --cx: 50%;"></span>
+      <span class="hsd-connector" style="--cy-start: 50.00%; --cy-end: 52.91%; --cx: 50%;"></span>
+      <span class="hsd-connector" style="--cy-start: 74.27%; --cy-end: 77.18%; --cx: 50%;"></span>
+    </div>
+  </div>
 </div>
+
+<style>
+  .hsd-stage {
+    position: relative;
+  }
+  .hsd-stage--desktop {
+    aspect-ratio: 612 / 200;
+  }
+  .hsd-stage--mobile {
+    aspect-ratio: 300 / 412;
+  }
+  .hsd-stage > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hsd-connectors {
+    pointer-events: none;
+  }
+
+  .hsd-connector {
+    position: absolute;
+    background: var(--ds-accent);
+    border-radius: 2px;
+    opacity: 0.55;
+  }
+
+  /* Horizontal connector (desktop) */
+  .hsd-connectors:not(.hsd-connectors--vertical) .hsd-connector {
+    left: var(--cx-start);
+    right: calc(100% - var(--cx-end));
+    top: var(--cy);
+    height: 1.5px;
+    transform: translateY(-50%);
+  }
+
+  /* Vertical connector (mobile) */
+  .hsd-connectors--vertical .hsd-connector {
+    top: var(--cy-start);
+    bottom: calc(100% - var(--cy-end));
+    left: var(--cx);
+    width: 1.5px;
+    transform: translateX(-50%);
+  }
+
+  /* Chevron — horizontal (rotate 45°: kampas rodo į dešinę) */
+  .hsd-connectors[data-variant='chevron']:not(.hsd-connectors--vertical) .hsd-connector::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-top: 1.5px solid var(--ds-accent);
+    border-right: 1.5px solid var(--ds-accent);
+    transform: translate(1px, -50%) rotate(45deg);
+  }
+
+  /* Chevron — vertical (rotate 135°: kampas rodo žemyn) */
+  .hsd-connectors--vertical[data-variant='chevron'] .hsd-connector::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-top: 1.5px solid var(--ds-accent);
+    border-right: 1.5px solid var(--ds-accent);
+    transform: translate(-50%, 1px) rotate(135deg);
+  }
+
+  /* Line variant — be galvutės (kryptis per kortelių numerius 1–4) */
+  .hsd-connectors[data-variant='line'] .hsd-connector::after {
+    content: none;
+  }
+</style>
