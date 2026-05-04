@@ -2,7 +2,7 @@ export const lt = {
   meta: {
     title: 'INTUIT — komunikacija, kuria galima pasitikėti',
     description:
-      'Verslo komunikacija vadovams: nuoseklumas, reputacija ir augimas — aiškiai, be chaoso.',
+      'Profesionalios konsultacijos augančioms įmonėms: PR, rinkodara ir krizių komunikacija — aiškiau, be perteklinio chaoso.',
     ogLocale: 'lt_LT',
   },
   nav: {
@@ -24,19 +24,22 @@ export const lt = {
   },
   hero: {
     eyebrow: 'Verslo komunikacija',
-    title: 'Mažiau chaoso. Geresni rezultatai.',
-    subtitle: 'Profesionali komunikacija — nuo viešųjų ryšių iki rinkodaros.',
-    ctaPrimary: 'Gauti konsultaciją',
+    title: 'Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
+    subtitle:
+      'Profesionalios konsultacijos nuo viešųjų ryšių iki rinkodaros ir krizių valdymo. Pasikalbam?',
+    ctaPrimary: 'Užsukam pokalbį',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
     diagram: {
       svgTitle: 'Komunikacijos valdymo schema',
       svgDesc:
-        'Keturi žingsniai: kanalai, žinutė, vykdymas ir rodikliai. Nuoseklus vykdymas eina iš kairės į dešinę; punktyrinė linija rodo korekciją pagal rodiklius atgal į žinutę.',
+        'Keturi vienodo dydžio žingsniai iš kairės į dešinę: kanalai, žinutė, vykdymas, rodikliai. Vientisa linija — nuoseklus vykdymas. Punktyrinė ortogonalinė kilpa apačioje (stačiakampis kanalas) rodo korekciją iš rodiklių atgal į žinutę; po horizontalia atkarpa — etiketė „Korekcija → žinutė“. Dideliame ekrane linija lengvai juda punktyrinį šabloną; mažame — statiška.',
       systemStrip: 'Valdomas rezultatas',
       /** Trumpa matoma eilutė po antrašte — kilpos prasmė */
       diagramCaption:
-        'Rodikliai grąžina korekcijas į žinutę — uždara valdymo kilpa.',
+        'Vienas nuoseklus kelias; rodikliai grąžina korekcijas į žinutę — uždara valdymo kilpa.',
+      /** Trumpa etiketė ant feedback kilpos (savis paaiškinimas) */
+      loopPathLabel: 'Korekcija → žinutė',
       legendForward: 'Nuoseklus vykdymas',
       legendLoop: 'Korekcija pagal rodiklius',
       nodeHint1: 'Kur pasiekiate auditoriją',
@@ -50,7 +53,8 @@ export const lt = {
     },
   },
   trustedBy: {
-    title: 'Klientai, kurie mumis pasitiki',
+    /** Tekstas prieš INTUIT ženklą antraštėje (žodis INTUIT — inline logo). */
+    titleBefore: 'Klientai, kurie pasitiki',
     hint: '←   →',
     /** Slankiojančios juostos sritis (ekrano skaityklėms) */
     scrollAriaLabel: 'Klientų logotipai — slinkite horizontaliai',
@@ -106,12 +110,12 @@ export const lt = {
       {
         name: 'Rinkodaros komunikacija',
         outcome: 'Augantis susidomėjimas',
-        points: ['Turinys ir kampanijos', 'Užklausos ir tęsinys'],
+        points: ['Turinys ir kampanijos', 'Užklausos ir tęstinumas'],
       },
       {
         name: 'Kasdienė veikla',
         outcome: 'Augimas be chaoso',
-        points: ['Patvirtinti šablonai ir ritualai', 'Įrankiai ten, kur aiški atsakomybė'],
+        points: ['Patvirtinti šablonai ir ritualai', 'Dirbtinio intelekto įrankiai ir inovacijos'],
       },
     ],
   },
@@ -120,7 +124,7 @@ export const lt = {
     steps: [
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
       { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis.' },
-      { name: 'Paleidimas', detail: 'Komandos įsitraukia — su mokymais ir kontrole.' },
+      { name: 'Paleidimas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
       { name: 'Tobulinimas', detail: 'Matavimas, koregavimai, augimo žingsniai.' },
     ],
   },
@@ -136,6 +140,8 @@ export const lt = {
     ],
     demoLabel: 'Pavyzdys',
     demoNote: 'Metodikos iliustracija — tikri skaičiai tik su sutikimu.',
+    methodologyIllustrationAlt:
+      'Metodikos pavyzdžio infografika: komunikacijos sistema, žiniasklaidos dalis pagal prekės ženklą ir šalį, temos, tonas ir strateginė kryptis',
   },
   offers: {
     title: 'Pasirinkite gylį',
@@ -146,7 +152,7 @@ export const lt = {
         tag: 'Apžvalga ir planas',
         price: 'Pagal poreikį',
         bullets: ['Komunikacijos apžvalga', '90 dienų planas'],
-        cta: 'Gauti konsultaciją',
+        cta: 'Užsukam pokalbį',
       },
       {
         name: 'Įgyvendinimas',
@@ -176,6 +182,8 @@ export const lt = {
     title: 'Pokalbis ir kiti žingsniai',
     subtitle: 'Trumpai — ar tinkame vieni kitiems ir kokie tolimesni žingsniai.',
     cta: 'Užsisakyti konsultaciją',
+    /** Kontaktų kortelės nuotrauka (`public/brand/contact-nerijus.*`) */
+    contactPhotoAlt: 'Nerijus Mikalajūnas, Intuit Communications direktorius',
     companyName: 'Intuit Communications, MB',
     contactName: 'Nerijus Mikalajūnas',
     contactRole: 'direktorius',

@@ -6,6 +6,10 @@ interface Props {
 }
 
 const { messages } = Astro.props;
+
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 ---
 
 <section id="proof" class="scroll-mt-28 border-b border-line bg-paper">
@@ -29,14 +33,26 @@ const { messages } = Astro.props;
       ))}
     </div>
 
-    <div class="rounded-xl border border-dashed border-accent/25 bg-aiSoft/40 p-6 md:p-8">
-      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
+    <div class="rounded-xl border border-dashed border-accent/25 bg-aiSoft/40 p-6 shadow-softSm md:p-8">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+        <div class="max-w-xl shrink-0">
           <p class="text-xs font-semibold uppercase tracking-wide text-muted">{messages.proof.demoLabel}</p>
-          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{messages.proof.demoNote}</p>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{messages.proof.demoNote}</p>
         </div>
-        <div class="rounded-lg bg-surface px-4 py-3 text-xs font-medium text-muted shadow-inner">
-          {messages.proof.metricsIntro}
+        <div class="min-w-0 flex-1 overflow-hidden rounded-xl border border-line/60 bg-surface p-4 shadow-inner">
+          <p class="mb-3 text-xs font-medium text-muted">{messages.proof.metricsIntro}</p>
+          <picture>
+            <source srcset={`${basePath}illustration_method.webp`} type="image/webp" />
+            <img
+              src={`${basePath}illustration_method.png`}
+              alt={messages.proof.methodologyIllustrationAlt}
+              class="h-auto w-full"
+              width={2752}
+              height={1536}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
     </div>

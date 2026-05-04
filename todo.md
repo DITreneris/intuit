@@ -1,10 +1,10 @@
-# 67_Intuit ù darbo planas (todo)
+# 67_Intuit ‚Äî darbo planas (todo)
 
-**Atnaujinta:** 2026-05-03  
+**Atnaujinta:** 2026-05-04  
 **Stack:** Astro 4 + Tailwind 3 + statinis build  
-**PRD:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (v1.4 faile)  
-**DS:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) (v1.4)  
-**Brand ùaltinis:** `INTUIT LOGO/` ? publikuojami failai `public/brand/`
+**PRD:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (v1.5 faile)  
+**DS:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) (v1.5)  
+**Brand ≈°altinis:** `INTUIT LOGO/` ‚Üí publikuojami failai `public/brand/`
 
 ---
 
@@ -12,66 +12,66 @@
 
 | Kelias | Paskirtis |
 |--------|-----------|
-| `INTUIT LOGO/ai/INTUIT_LOGO.ai` | ùaltinis vektorius (eksportas ? SVG webui). |
-| `INTUIT LOGO/pdf/INTUIT_LOGO.pdf` | Perùi?ra / spauda. |
-| `INTUIT LOGO/jpg/*.jpg` | Raster; kopijos ? `public/brand/` (`logo-light`, `logo-dark`, `logo-pattern-*`). |
-| `INTUIT LOGO/_font/Larsseit/*.otf` | Larsseit ùeima ù web tik su licencija; dabar body naudoja **Inter**. |
+| `INTUIT LOGO/ai/INTUIT_LOGO.ai` | ≈°altinis vektorius (eksportas ‚Üí SVG webui). |
+| `INTUIT LOGO/pdf/INTUIT_LOGO.pdf` | Per≈æi≈´ra / spauda. |
+| `INTUIT LOGO/jpg/*.jpg` | Raster; kopijos ‚Üí `public/brand/` (`logo-light`, `logo-dark`, `logo-pattern-*`). |
+| `INTUIT LOGO/_font/Larsseit/*.otf` | Larsseit ≈°eima ‚Üí web tik su licencija; dabar body naudoja **Inter**. |
 
 ---
 
-## Repo b?sena (santrauka)
+## Repo b≈´sena (santrauka)
 
-| Sritis | B?sena |
+| Sritis | B≈´sena |
 |--------|--------|
-| Kodas | Astro 4, LT `/`, EN `/en/`, `src/i18n/`, sekcijos `src/components/sections/`, Hero diagrama (SVG), Chaos vs tvarka, ikonos virù korteli?, Hero chevron fonas. |
-| Dokumentai | PRD v1.4, DS v1.4, BRAND, README, AGENTS, Cursor taisykl?s, ùis `todo.md`. |
-| Deploy | GitHub Pages workflow + Vercel instrukcijos README; `intuit-sitemap` ? `dist/sitemap.xml`. |
+| Kodas | Astro 4, LT `/`, EN `/en/`, `src/i18n/`, sekcijos `src/components/sections/`, Hero diagrama (SVG), Chaos vs tvarka, ikonos vir≈° korteli≈≥, Hero chevron fonas. |
+| Dokumentai | PRD v1.5, DS v1.5, BRAND, README, AGENTS, Cursor taisyklƒós, ≈°is `todo.md`. |
+| Deploy | GitHub Pages workflow + Vercel instrukcijos README; `intuit-sitemap` ‚Üí `dist/sitemap.xml`. |
 
 ---
 
-## Faza 0 ù taisykl?s ir higiena
+## Faza 0 ‚Äî taisyklƒós ir higiena
 
-- [x] `AGENTS.md`, `.cursor/rules/intuit-landing.mdc` ù stackas, i18n, DS nuorodos.
-- [x] README ù paleidimas, env, sitemap, brand keliai.
-- [x] `.editorconfig` ù UTF-8 (jei repo turi fail? ù laikyti).
-- [x] Brand JPG ? `public/brand/` (ùr. BRAND.md).
+- [x] `AGENTS.md`, `.cursor/rules/intuit-landing.mdc` ‚Äî stackas, i18n, DS nuorodos.
+- [x] README ‚Äî paleidimas, env, sitemap, brand keliai.
+- [x] `.editorconfig` ‚Äî UTF-8 (jei repo turi failƒÖ ‚Äî laikyti).
+- [x] Brand JPG ‚Üí `public/brand/` (≈ær. BRAND.md).
 
 ---
 
-## Faza 1 ù karkasas
+## Faza 1 ‚Äî karkasas
 
 - [x] `output: 'static'`, Tailwind, custom sitemap hook.
-- [x] Marùrutai LT + EN.
+- [x] Mar≈°rutai LT + EN.
 - [x] Sekcijos pagal PRD funnel.
-- [x] Vienas primary CTA (`ButtonPrimary`) + secondary; copy sinchronizuotas su PRD ù4.4.
+- [x] Vienas primary CTA (`ButtonPrimary`) + secondary; copy sinchronizuotas su PRD ¬ß4.4.
 
 ---
 
-## Faza 2ù4 ù turinys ir kalbos
+## Faza 2‚Äì4 ‚Äî turinys ir kalbos
 
-- [x] LT / EN skeletas ir copy (trumpesnis vieùas tonas, ùr. i18n + PRD ù5.1).
-- [ ] Proof: tikri before/after skai?iai su kliento sutikimu (kol kas iliustracija + demo pastaba).
-- [ ] SEO / meta perùi?ra po kiekvienos didesn?s copy bangos.
+- [x] LT / EN skeletas ir copy (trumpesnis vie≈°as tonas, ≈ær. i18n + PRD ¬ß5.1).
+- [ ] Proof: tikri before/after skaiƒçiai su kliento sutikimu (kol kas iliustracija + demo pastaba).
+- [ ] SEO / meta per≈æi≈´ra po kiekvienos didesnƒós copy bangos.
 
 ---
 
-## Faza 5 ù ship
+## Faza 5 ‚Äî ship
 
-- [x] Build be klaid?; GitHub Actions deploy konfig?racija.
+- [x] Build be klaid≈≥; GitHub Actions deploy konfig≈´racija.
 - [ ] Production smoke: mobilusis, kalbos jungiklis, `mailto:`, `/sitemap.xml` ant tikro domeno.
 
 ---
 
-## Faza 6 ù tolesnis poliravimas
+## Faza 6 ‚Äî tolesnis poliravimas
 
-- [ ] SVG logotipas iù `.ai` (LCP) ù optional, dabar JPG su teisingais matmenimis.
-- [ ] Larsseit webfont ù tik po licencijos; iki tol Inter.
-- [ ] Lighthouse / paveiksl? optimizacija pagal real? hosting?.
+- [ ] SVG logotipas i≈° `.ai` (LCP) ‚Äî optional, dabar JPG su teisingais matmenimis.
+- [ ] Larsseit webfont ‚Äî tik po licencijos; iki tol Inter.
+- [ ] Lighthouse / paveiksl≈≥ optimizacija pagal real≈≥ hostingƒÖ.
 
 ---
 
-## Greita savait?s checklist
+## Greita savaitƒós checklist
 
-- [ ] Patvirtinti Larsseit **web** licencij? arba palikti Inter.
-- [ ] Po copy keitim?: sinchronizuoti PRD / DS tik jei kei?iasi elgsena (viena tiesa ù PRD + i18n).
+- [ ] Patvirtinti Larsseit **web** licencijƒÖ arba palikti Inter.
+- [ ] Po copy keitim≈≥: sinchronizuoti PRD / DS tik jei keiƒçiasi elgsena (viena tiesa ‚Äî PRD + i18n).
 - [ ] Deploy smoke: `PUBLIC_SITE_URL`, `PUBLIC_CONTACT_EMAIL`, OG, `sitemap.xml`.

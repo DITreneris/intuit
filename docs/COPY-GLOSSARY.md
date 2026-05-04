@@ -29,17 +29,17 @@
 
 ## 2. Pagrindinis CTA (trumpa etiketė viršuje / ilgesnis apačioje)
 
-**Trumpas tekstas** Hero ir Header (bei Offers `Starter` mygtukas) — mažiau perkrovos juostoje ir heroje; **ilgesnis** galinio bloko mygtukas ir `mailto:` `subject` išlieka profesionalesnis.
+**Trumpas tekstas** Hero ir Header (bei Offers `Starter` mygtukas) — draugiškesnis SME B2B tonas; **ilgesnis** galinio bloko mygtukas ir `mailto:` `subject` šiek tiek formalesnis (pirmas kontaktas → konsultacija).
 
 | Vieta | LT | EN (US) |
 |-------|----|---------|
-| Hero (`hero.ctaPrimary`) | **Gauti konsultaciją** | **Book a call** |
-| Header primary (= hero) | Gauti konsultaciją | Book a call |
-| Offers `Starter` (`tiers[0].cta`) | Gauti konsultaciją | Book a call |
+| Hero (`hero.ctaPrimary`) | **Užsukam pokalbį** | **Let’s talk** |
+| Header primary (= hero) | Užsukam pokalbį | Let’s talk |
+| Offers `Starter` (`tiers[0].cta`) | Užsukam pokalbį | Let’s talk |
 | Final CTA (`finalCta.cta`) ir `mailto:` subject | **Užsisakyti konsultaciją** | **Book a consultation** |
 | Secondary (`hero.ctaSecondary`) | 4 žingsniai | Four steps |
 
-**Komentaras:** konsultacinė pozicija išlieka; viršuje ir „Startas“ kortelėje — **trumpa** veiksmažodinė etiketė; apačioje ir el. laiške — **pilnesnis** pažadas. Paketo `Starter` bullet’uose toliau aišku, kas įeina (apžvalga, planas).
+**Komentaras:** viršuje — **trumpa** pokalbio etiketė; apačioje ir el. laiške — **pilnesnis** pažadas (konsultacija). Paketo `Starter` bullet’uose toliau aišku, kas įeina (apžvalga, planas).
 
 ---
 
@@ -49,7 +49,7 @@ Paraleli struktūra — visi veiksmažodžio inicijuoti, vienodas „svoris“:
 
 | Paketas | LT cta | EN cta |
 |---------|--------|--------|
-| Startas / Starter | **Gauti konsultaciją** | **Book a call** |
+| Startas / Starter | **Užsukam pokalbį** | **Let’s talk** |
 | Įgyvendinimas / Delivery (`highlighted`) | **Aptarti įgyvendinimą** | **Plan the delivery** |
 | Mastelis / Scale | **Aptarti mastelį** | **Discuss scale** |
 
@@ -109,7 +109,8 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | reputacija | reputation | corporate communications outcome | — |
 | augimas | growth | marketing comms outcome | „lead gen“ (per techninis) |
 | kasdienė veikla | day-to-day operations | LT vienaskaita; EN daugiskaita | LT „kasdienė operacija“ |
-| užklausos ir tęsinys | leads and nurturing | sales/marketing kontekste | LT „kontaktai ir sekimas“ (neaišku) |
+| užklausos ir tęstinumas | inquiries and continuity | marketing komunikacijos stulpelis | — |
+| dirbtinio intelekto įrankiai ir inovacijos | AI tools and innovation | kasdienės veiklos stulpelis | — |
 | komunikacijos konsultacija | communications consultation | el. laiško kontekste (`mailto` body) | — |
 
 **Užrakinti** (nesiliesti):
@@ -145,6 +146,9 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `finalCta.subtitle` | „...ar **tiksime** vieni kitiems...“ | „...ar **tinkame** vieni kitiems...“ |
 | `solution.pillars[2].name` | „Kasdienė **operacija**“ | „Kasdienė **veikla**“ |
 | `solution.pillars[1].points[1]` | „Kontaktai ir sekimas“ | „Užklausos ir tęsinys“ |
+| `solution.pillars[1].points[1]` (v2) | „Užklausos ir tęsinys“ | „Užklausos ir tęstinumas“ |
+| `solution.pillars[2].points[1]` | „Įrankiai ten, kur aiški atsakomybė“ | „Dirbtinio intelekto įrankiai ir inovacijos“ |
+| `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
 | `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovybei“ |
 | `proof.body` | „...**prieš/po** skaičiai...“ | „...**prieš / po** skaičius...“ + sakinio perfrazavimas |
 | `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
@@ -168,6 +172,9 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `trustedBy.hint` (visible) | … | „**←   →**“ (arrows only) |
 | `trustedBy.scrollAriaLabel` | — | „Client logos — scroll horizontally“ (`aria-label` on scroll region) |
 | `hero.diagram.systemStrip` | „Control and measurement“ | „Controlled outcomes“ |
+| `solution.pillars[1].points[1]` | „Leads and nurturing“ | „Inquiries and continuity“ |
+| `solution.pillars[2].points[1]` | „Tools only where ownership is clear“ | „AI tools and innovation“ |
+| `process.steps[2].detail` | „Teams onboard—with training and controls.“ | „Teams onboard—training, tools, and templates.“ |
 
 ---
 

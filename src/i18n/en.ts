@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'INTUIT — communications you can trust',
     description:
-      'Business communications for leaders: consistency, reputation, and growth—clearly, without chaos.',
+      'Hands-on communications support for growing teams—PR, marketing, and crisis moments—clearer and less chaos.',
     ogLocale: 'en_US',
   },
   nav: {
@@ -24,17 +24,20 @@ export const en = {
   },
   hero: {
     eyebrow: 'Business communications',
-    title: 'Less chaos. Better results.',
-    subtitle: 'Professional communications—from public relations to marketing.',
-    ctaPrimary: 'Book a call',
+    title: 'Less chaos. More clarity. Better results.',
+    subtitle:
+      'Practical guidance from PR and marketing through crisis communications. Want to talk?',
+    ctaPrimary: "Let's talk",
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',
     diagram: {
       svgTitle: 'Communications control diagram',
       svgDesc:
-        'Four steps: channels, narrative, execution, and metrics. Solid connectors show delivery left to right; the dashed path shows optimization from metrics back to the narrative.',
+        'Four equal steps left to right: channels, narrative, execution, and metrics. Solid connectors show the delivery sequence. The dashed orthogonal loop below routes metrics back into the narrative; a short label sits under the horizontal segment. On large screens the dash pattern animates subtly; on small screens it stays static.',
       systemStrip: 'Controlled outcomes',
-      diagramCaption: 'Metrics feed back into the narrative—a closed control loop.',
+      diagramCaption:
+        'One clear sequence; metrics close the loop by refining the narrative.',
+      loopPathLabel: 'Refine narrative',
       legendForward: 'Delivery sequence',
       legendLoop: 'Tune from metrics',
       nodeHint1: 'Where audiences meet you',
@@ -48,7 +51,8 @@ export const en = {
     },
   },
   trustedBy: {
-    title: 'Clients who trust us',
+    /** Copy adapts to logo replacing spelled brand name; not literal LT translation. */
+    titleBefore: 'Clients who trust',
     hint: '←   →',
     scrollAriaLabel: 'Client logos — scroll horizontally',
     logos: [
@@ -102,12 +106,12 @@ export const en = {
       {
         name: 'Marketing communications',
         outcome: 'Steady demand',
-        points: ['Content and campaigns', 'Leads and nurturing'],
+        points: ['Content and campaigns', 'Inquiries and continuity'],
       },
       {
         name: 'Day-to-day operations',
         outcome: 'Scale without chaos',
-        points: ['Approved templates and rituals', 'Tools only where ownership is clear'],
+        points: ['Approved templates and rituals', 'AI tools and innovation'],
       },
     ],
   },
@@ -116,7 +120,7 @@ export const en = {
     steps: [
       { name: 'Review', detail: 'What exists now: audiences, risks, habits.' },
       { name: 'Plan', detail: 'Channels, metrics, content direction.' },
-      { name: 'Rollout', detail: 'Teams onboard—with training and controls.' },
+      { name: 'Rollout', detail: 'Teams onboard—training, tools, and templates.' },
       { name: 'Improve', detail: 'Measure, adjust, next steps to scale.' },
     ],
   },
@@ -132,6 +136,8 @@ export const en = {
     ],
     demoLabel: 'Sample',
     demoNote: 'Illustrative methodology—real figures only with your consent.',
+    methodologyIllustrationAlt:
+      'Sample methodology infographic: communication system, media share by brand and market, themes, tone, and strategic direction',
   },
   offers: {
     title: 'Choose the depth',
@@ -142,7 +148,7 @@ export const en = {
         tag: 'Review and plan',
         price: 'Custom',
         bullets: ['Communications review', '90-day plan'],
-        cta: 'Book a call',
+        cta: "Let's talk",
       },
       {
         name: 'Delivery',
@@ -172,6 +178,7 @@ export const en = {
     title: 'A conversation and clear next steps',
     subtitle: 'Short call to confirm fit and define next steps.',
     cta: 'Book a consultation',
+    contactPhotoAlt: 'Nerijus Mikalajūnas, Managing Director, Intuit Communications',
     companyName: 'Intuit Communications, MB',
     contactName: 'Nerijus Mikalajūnas',
     contactRole: 'Managing Director',

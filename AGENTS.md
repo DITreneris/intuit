@@ -5,7 +5,7 @@ Trumpa orientacija, kad AI pakeitimai atitiktų **dabartinį** kodą ir dokument
 ## Prieš didesnius pakeitimus perskaitykite
 
 1. [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) — sekcijų eilė, funnel, tonas (pasitikėjimas pirmiau).
-2. [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — DS v1.4: tokenai, mygtukai (`src/components/ui/`), kortelių akcentas (ikona neprivaloma), checklist.
+2. [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — DS v1.5: tokenai, mygtukai (`src/components/ui/`), kortelių akcentas (ikona neprivaloma), checklist.
 3. [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc) — stackas, failų struktūra, Tailwind tokenai, sitemap (`intuit-sitemap`), a11y.
 4. [README.md](README.md) — paleidimas, env, Vercel, sitemap patikra.
 5. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — redaguojant **viešą tekstą** LT/EN: §**Agentams** (LT pirminė kalba; EN — **adaptacija**, ne vertimas).

@@ -25,6 +25,12 @@
     --ds-diagram-loop: theme('colors.diagramLoop');
     --ds-success-soft: theme('colors.successSoft');
     --ds-accent-teal: theme('colors.accentTeal');
+    /**
+     * Inline diagramų (ChaosVsSystem ir kt.) stroke — sinchronas su Hero DS (storio jausmas).
+     * Mazgų spinduliai SVG <circle r> palikti skaitiniais (geresnis naršyklių suderinamumas).
+     */
+    --ds-diagram-stroke-lg: 3.5;
+    --ds-diagram-stroke-grid: 1;
   }
 
   html {
@@ -111,9 +117,14 @@
     @apply flex flex-col rounded-xl border border-accent bg-surface p-6 shadow-soft md:-translate-y-1 md:ring-1 md:ring-accent/20;
   }
 
-  /** Hero diagram — subtilus feedback loop judesys (išjungia prefers-reduced-motion bazėje) */
-  .hero-diagram-dash-animate {
-    animation: hero-diagram-dash 14s linear infinite;
+  /**
+   * Hero diagram — punktyrinės kilpos „pulse“ tik desktop (md+); mobile lieka statiška.
+   * prefers-reduced-motion: reduce — sutrumpina animacijas @layer base bloke.
+   */
+  @media (min-width: 768px) {
+    .hero-diagram-dash-animate {
+      animation: hero-diagram-dash 20s linear infinite;
+    }
   }
 
   @keyframes hero-diagram-dash {

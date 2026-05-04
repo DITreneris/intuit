@@ -11,6 +11,7 @@ const t = messages.trustedBy;
 const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const brandLogoUrl = `${basePath}brand/logo-light.jpg`;
 ---
 
 <section
@@ -20,8 +21,20 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
 >
   <div class="mx-auto max-w-content px-4 py-10 md:px-6 md:py-12">
     <div class="mb-6 text-center">
-      <h2 id="trusted-by-heading" class="text-sm font-semibold uppercase tracking-[0.18em] text-muted">
-        {t.title}
+      <h2
+        id="trusted-by-heading"
+        class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-semibold uppercase tracking-[0.18em] text-muted"
+      >
+        <span>{t.titleBefore}</span>
+        <img
+          src={brandLogoUrl}
+          alt={messages.hero.logoAlt}
+          width="1000"
+          height="978"
+          class="h-6 w-auto shrink-0 md:h-7"
+          loading="lazy"
+          decoding="async"
+        />
       </h2>
       <p class="mt-2 text-2xs text-muted/90 md:text-xs">{t.hint}</p>
     </div>
@@ -46,15 +59,19 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
           t.logos.map((logo) => (
             <div
               role="listitem"
-              class="flex h-14 min-w-[8.5rem] shrink-0 snap-start items-center justify-center rounded-xl border border-line/60 bg-surface px-4 shadow-softSm md:h-16 md:min-w-[10.5rem]"
+              class="flex h-14 min-w-[8.5rem] shrink-0 snap-start items-center justify-center rounded-xl border border-line/60 bg-surface px-3 shadow-softSm md:h-16 md:min-w-[10.5rem] md:px-4"
             >
-              <img
-                src={`${basePath}${logo.src}`}
-                alt={logo.alt}
-                class="max-h-10 w-auto max-w-[9rem] object-contain object-center md:max-h-12"
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="flex h-10 w-[7.25rem] items-center justify-center md:h-12 md:w-[9rem]">
+                <img
+                  src={`${basePath}${logo.src}`}
+                  alt={logo.alt}
+                  class="max-h-full max-w-full object-contain object-center"
+                  width="180"
+                  height="72"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           ))
         }

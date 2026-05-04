@@ -34,45 +34,63 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
       </div>
 
       <div class="rounded-xl border border-white/15 bg-white/10 p-6 backdrop-blur">
-        <img
-          src={`${basePath}brand/logo-dark.jpg`}
-          alt=""
-          width="1000"
-          height="978"
-          class="mb-4 h-10 w-auto opacity-95 md:h-11"
-          loading="lazy"
-          decoding="async"
-        />
+        <div class="mb-6 flex flex-col gap-5 sm:flex-row sm:items-start">
+          <picture class="mx-auto shrink-0 sm:mx-0">
+            <source srcset={`${basePath}brand/contact-nerijus.webp`} type="image/webp" />
+            <img
+              src={`${basePath}brand/contact-nerijus.jpg`}
+              alt={messages.finalCta.contactPhotoAlt}
+              width="480"
+              height="480"
+              class="h-28 w-28 rounded-xl object-cover ring-1 ring-white/20 md:h-32 md:w-32"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
 
-        <p class="mb-6 text-xs font-medium uppercase tracking-wide text-white/55">
-          {messages.finalCta.companyName}
-        </p>
+          <div class="min-w-0 flex-1 space-y-4">
+            <img
+              src={`${basePath}brand/logo-dark.jpg`}
+              alt=""
+              aria-hidden="true"
+              width="1000"
+              height="978"
+              class="h-10 w-auto opacity-95 md:h-11"
+              loading="lazy"
+              decoding="async"
+            />
 
-        <div class="mb-6 space-y-2 text-sm">
-          <p class="font-semibold text-white">
-            {messages.finalCta.contactName}
-            <span class="font-normal text-white/65"> · {messages.finalCta.contactRole}</span>
-          </p>
-          <a
-            href={mapsHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
-          >
-            {messages.finalCta.addressLine}
-          </a>
-          <a
-            href={telHref}
-            class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
-          >
-            {messages.finalCta.contactPhone}
-          </a>
-          <a
-            href={mailHref}
-            class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
-          >
-            {email}
-          </a>
+            <p class="text-xs font-medium uppercase tracking-wide text-white/55">
+              {messages.finalCta.companyName}
+            </p>
+
+            <div class="space-y-2 text-sm">
+              <p class="font-semibold text-white">
+                {messages.finalCta.contactName}
+                <span class="font-normal text-white/65"> · {messages.finalCta.contactRole}</span>
+              </p>
+              <a
+                href={mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
+              >
+                {messages.finalCta.addressLine}
+              </a>
+              <a
+                href={telHref}
+                class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
+              >
+                {messages.finalCta.contactPhone}
+              </a>
+              <a
+                href={mailHref}
+                class="block text-white/75 underline-offset-2 transition hover:text-white hover:underline"
+              >
+                {email}
+              </a>
+            </div>
+          </div>
         </div>
 
         <ButtonPrimary href={mailHref} variant="onDark" class="w-full">

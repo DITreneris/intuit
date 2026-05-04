@@ -10,7 +10,7 @@ alwaysApply: false
 ## Šaltiniai ir kalbos
 
 - **Produkto tiesa:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (įskaitant pasitikėjimo pirmumo pozicionavimą v1.1+).
-- **Design System v1.4:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, kortelių akcentas (ikona neprivaloma), checklist.
+- **Design System v1.5:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, kortelių akcentas (ikona neprivaloma), TrustedBy juosta, Proof iliustracija (WebP), checklist.
 - **Publikus copy:** [src/i18n/lt.ts](src/i18n/lt.ts) (LT), [src/i18n/en.ts](src/i18n/en.ts) (EN); bendras tipas — [src/i18n/types.ts](src/i18n/types.ts) (`SiteMessages` iš LT formos).
 - **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`en/` po `base`).
 - **LT / EN copy (privaloma agentams):**
