@@ -1,54 +1,100 @@
 ---
+
 import type { SiteMessages } from '../../i18n/types';
 
+
+
 interface Props {
+
   messages: SiteMessages;
+
 }
+
+
 
 const { messages } = Astro.props;
 
+
+
 const basePath = import.meta.env.BASE_URL.endsWith('/')
+
   ? import.meta.env.BASE_URL
+
   : `${import.meta.env.BASE_URL}/`;
+
 ---
 
+
+
 <section id="proof" class="scroll-mt-28 border-b border-line bg-paper">
-  <div class="mx-auto max-w-content space-y-10 px-4 py-16 md:px-6 md:py-20">
+
+  <div class="section-shell space-y-10">
+
     <div class="max-w-3xl space-y-4">
+
       <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.proof.title}</h2>
-      <p class="text-base text-muted md:text-lg">{messages.proof.body}</p>
+
     </div>
+
+
 
     <div class="grid gap-4 md:grid-cols-3">
+
       {messages.proof.metrics.map((m) => (
+
         <div class="card-muted p-6">
+
           <div>
+
             <div class="flex items-baseline gap-2">
+
               <span class="text-3xl font-semibold text-ink">{m.value}</span>
+
               <span class="text-sm font-medium text-muted">{m.label}</span>
+
             </div>
+
             <p class="mt-2 text-sm text-muted">{m.hint}</p>
+
           </div>
+
         </div>
+
       ))}
+
     </div>
 
-    <div class="rounded-xl border border-dashed border-accent/25 bg-aiSoft/40 p-6 shadow-softSm md:p-8">
-      <p class="mb-4 text-xs font-semibold uppercase tracking-wide text-muted">{messages.proof.demoLabel}</p>
-      <div class="overflow-hidden rounded-xl border border-line/60 bg-surface p-4 shadow-inner">
-        <picture>
-          <source srcset={`${basePath}illustration_method.webp`} type="image/webp" />
-          <img
-            src={`${basePath}illustration_method.png`}
-            alt={messages.proof.methodologyIllustrationAlt}
-            class="h-auto w-full"
-            width={2752}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-      </div>
+
+
+    <div class="overflow-hidden rounded-2xl bg-ink ring-1 ring-white/10">
+
+      <p class="px-6 pb-4 pt-6 text-xs font-semibold uppercase tracking-wide text-paper/70 md:px-8 md:pt-8">
+
+        {messages.proof.brandLabel}
+
+      </p>
+
+      <img
+
+        src={`${basePath}brand/logo-pattern-inverse.jpg`}
+
+        alt={messages.proof.brandPatternAlt}
+
+        class="block h-auto w-full"
+
+        width={1000}
+
+        height={978}
+
+        loading="lazy"
+
+        decoding="async"
+
+      />
+
     </div>
+
   </div>
+
 </section>
+

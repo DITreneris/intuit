@@ -117,22 +117,20 @@ export const en = {
     steps: [
       { name: 'Review', detail: 'What exists now: audiences, risks, habits.' },
       { name: 'Plan', detail: 'Channels, metrics, content direction.' },
-      { name: 'Rollout', detail: 'Teams onboard—training, tools, and templates.' },
+      { name: 'Launch', detail: 'Teams onboard—training, tools, and templates.' },
       { name: 'Improve', detail: 'Measure, adjust, next steps to scale.' },
     ],
   },
   proof: {
     title: 'Metrics leaders can act on',
-    body:
-      'We add concrete before / after numbers once you’ve approved them. Until then—a transparent methodology sample, not vanity KPIs.',
     metrics: [
       { label: 'Clarity', value: '↑', hint: 'one narrative' },
       { label: 'Speed', value: '↑', hint: 'repeatable templates' },
       { label: 'Control', value: '↑', hint: 'visible metrics' },
     ],
-    demoLabel: 'Sample',
-    methodologyIllustrationAlt:
-      'Sample leadership dashboard—communications, channels, themes, and strategy in one view',
+    brandLabel: 'Brand mark',
+    brandPatternAlt:
+      'Monochrome INTUIT wordmark with geometric chevron pattern—stylized brand lockup',
   },
   offers: {
     title: 'Choose the depth',

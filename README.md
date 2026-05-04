@@ -69,7 +69,7 @@ Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 
 ## Brand
 
-- `public/brand/`: `logo-light.jpg`, `logo-dark.jpg`, `logo-pattern-light.jpg`, `logo-pattern-dark.jpg` (šaltiniai ir pastabos — [docs/BRAND.md](docs/BRAND.md)).
+- `public/brand/`: `logo-light.jpg`, `logo-dark.jpg`, `logo-pattern-light.jpg`, `logo-pattern-dark.jpg`, `logo-pattern-inverse.jpg` (Proof brand blokas; šaltiniai ir pastabos — [docs/BRAND.md](docs/BRAND.md)).
 - Šriftas: **Inter** (`@fontsource/inter`). Larsseit žr. [docs/BRAND.md](docs/BRAND.md).
 
 ## Sitemap

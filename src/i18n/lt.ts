@@ -120,22 +120,20 @@ export const lt = {
     steps: [
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
       { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis.' },
-      { name: 'Paleidimas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
+      { name: 'Startas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
       { name: 'Tobulinimas', detail: 'Matavimas, koregavimai, augimo žingsniai.' },
     ],
   },
   proof: {
     title: 'Rodikliai, kuriuos pristatote vadovams',
-    body:
-      'Konkrečius prieš / po skaičius pridėsime gavę jūsų sutikimą. Kol renkame — skaidrus metodikos pavyzdys, be dirbtinių KPI.',
     metrics: [
       { label: 'Aiškumas', value: '↑', hint: 'viena žinutė' },
       { label: 'Greitis', value: '↑', hint: 'kartojami šablonai' },
       { label: 'Kontrolė', value: '↑', hint: 'matomi rodikliai' },
     ],
-    demoLabel: 'Pavyzdys',
-    methodologyIllustrationAlt:
-      'Pavyzdinė vadovų suvestinė — komunikacija, kanalai, temos ir strategija viename vaizde',
+    brandLabel: 'Ženklas',
+    brandPatternAlt:
+      'Monochromas INTUIT ženklas su geometriniu chevron raštu — stilizuotas žodžio ženklas',
   },
   offers: {
     title: 'Pasirinkite gylį',

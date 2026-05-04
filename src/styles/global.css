@@ -117,4 +117,18 @@
     @apply flex flex-col rounded-xl border border-accent bg-surface p-6 shadow-soft md:-translate-y-1 md:ring-1 md:ring-accent/20;
   }
 
+  /** Sekcijų konteineris — sutampa su DS checklist (max-w-content + horizontal / vertical padding) */
+  .section-shell {
+    @apply mx-auto max-w-content px-4 py-16 md:px-6 md:py-20;
+  }
+
+  /** TrustedBy ir kompaktiškos „strip“ sekcijos */
+  .section-shell--tight {
+    @apply mx-auto max-w-content px-4 py-10 md:px-6 md:py-12;
+  }
+
+  /** Hero eyebrow ir panašios šviesios etiketės (ne spalvotos Chaos antraštės) */
+  .label-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted;
+  }
 }

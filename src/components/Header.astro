@@ -39,7 +39,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
         alt={messages.hero.logoAlt}
         width="1000"
         height="978"
-        class="h-8 w-auto shrink-0 md:h-9"
+        class="h-10 w-auto shrink-0 md:h-11"
         fetchpriority="high"
       />
       <span class="sr-only">{messages.nav.brand}</span>
@@ -59,7 +59,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
     <div class="flex shrink-0 items-center gap-1.5 md:gap-2">
       <a
         href={otherHref}
-        class="rounded-md border border-line px-2 py-1 text-xs font-semibold uppercase tracking-wide text-muted transition hover:border-ink hover:text-ink"
+        class="inline-flex min-h-11 items-center justify-center rounded-md border border-line px-3 text-xs font-semibold uppercase tracking-wide text-muted transition hover:border-ink hover:text-ink"
         hreflang={lang === 'lt' ? 'en' : 'lt'}
         aria-label={lang === 'lt' ? messages.nav.langSwitchToEn : messages.nav.langSwitchToLt}
       >
@@ -68,7 +68,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
 
       <details class="relative md:hidden">
         <summary
-          class="cursor-pointer list-none rounded-md border border-line px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted hover:border-ink hover:text-ink [&::-webkit-details-marker]:hidden"
+          class="inline-flex min-h-11 cursor-pointer list-none items-center rounded-md border border-line px-3 text-xs font-semibold uppercase tracking-wide text-muted hover:border-ink hover:text-ink [&::-webkit-details-marker]:hidden"
         >
           {menuLabel}
         </summary>
@@ -78,7 +78,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
         >
           <nav class="flex flex-col gap-1 text-sm font-medium text-muted" aria-label="Mobile">
             {links.map((l) => (
-              <a class="rounded-md px-3 py-2 hover:bg-paper hover:text-ink" href={l.href}>
+              <a class="flex min-h-11 items-center rounded-md px-3 py-2.5 hover:bg-paper hover:text-ink" href={l.href}>
                 {l.label}
               </a>
             ))}

@@ -9,15 +9,15 @@ const { messages } = Astro.props;
 const c = messages.chaosVsSystem;
 ---
 
-<section aria-labelledby="chaos-system-heading" class="border-b border-line bg-warm">
-  <div class="mx-auto max-w-content px-4 py-16 md:px-6 md:py-20">
+<section aria-labelledby="chaos-system-heading" class="scroll-mt-28 border-b border-line bg-warm">
+  <div class="section-shell">
     <h2 id="chaos-system-heading" class="sr-only">
       {c.chaosTitle} / {c.systemTitle}
     </h2>
     <div class="grid gap-6 md:grid-cols-2">
       <div class="card-muted border-danger/25 bg-dangerSoft/50 p-6 ring-1 ring-danger/10">
         <div class="mb-4 flex items-center justify-between gap-3">
-          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-danger">
+          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-danger">
             <span class="flex h-8 w-8 items-center justify-center rounded-lg border border-danger/20 bg-white/60 text-danger" aria-hidden="true">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                 <path d="M4 18 8 6l4 8 4-8 4 12" />
@@ -45,7 +45,7 @@ const c = messages.chaosVsSystem;
 
       <div class="card border-accentTeal/30 bg-successSoft/40 p-6 shadow-soft ring-1 ring-accent/15 md:-translate-y-0.5">
         <div class="mb-4 flex items-center justify-between gap-3">
-          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-accentTeal">
+          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accentTeal">
             <span class="flex h-8 w-8 items-center justify-center rounded-lg border border-accent/15 bg-white/70 text-accent" aria-hidden="true">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round" />

@@ -150,8 +150,8 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `solution.pillars[2].points[1]` | „Įrankiai ten, kur aiški atsakomybė“ | „Dirbtinio intelekto įrankiai ir inovacijos“ |
 | `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
 | `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovams“ |
-| `proof.body` | „...**prieš/po** skaičiai...“ | „...**prieš / po** skaičius...“ + sakinio perfrazavimas |
-| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta (dubliavo `proof.body`); demobloku lieka `demoLabel` + iliustracija. |
+| `proof.body` | (buvo) | **Pašalinta** — sekcijoje lieka antraštė, metrikos, brand blokas. |
+| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta anksčiau; apačioje — `brandLabel` + inverse ženklo paveikslas (`brandPatternAlt`). |
 | `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
 | `trustedBy.scrollAriaLabel` | — | „Klientų logotipai — slinkite horizontaliai“ (slankiojančios srities `aria-label`) |
 | `hero.diagram.systemStrip` | „Kontrolė ir matavimas“ | „Valdomas rezultatas“ (diagrama — vertė, ne procesas) |
@@ -165,7 +165,7 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `hero.ctaPrimary` | „Get a communications insight“ | „Book a consultation“ |
 | `chaosVsSystem.chaosBadge` | „Reactive“ | „Reactive“ (LT pusė pasivyja: „Reaktyviai“) |
 | `proof.title` | „Outcomes leadership can read“ | „Metrics leaders can act on“ |
-| `proof.body` | „...with your approval...“ | „...once you’ve approved them...“ (natūraliau) |
+| `proof.body` | (buvo) | Pašalinta |
 | `offers.tiers[2].tag` | … | LT „Šablonai ir kokybė“; EN „Playbooks and quality“ |
 | `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Plan the delivery“ / „Discuss growth“ |
 | `finalCta.cta` | „Request a communications review“ | „Book a consultation“ |

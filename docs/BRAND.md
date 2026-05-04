@@ -7,8 +7,10 @@
   - `logo-dark.jpg` — tamsiam blokui / kontaktams (šaltinis: `INTUIT_LOGO/jpg/INTUIT_LOGO_INVERSE.jpg`).
   - `logo-pattern-light.jpg` — chevron raštas ant šviesaus (Hero dekoracija, žema opacity).
   - `logo-pattern-dark.jpg` — chevron atvirkštinis (pasiruošęs; ant `bg-ink` naudoti atsargiai dėl JPEG fono).
+  - `logo-pattern-inverse.jpg` — pilnas žodžio ženklas ir chevron raštas, tamsus (inverse) fonas; Proof sekcijos brand blokas (šaltinis: `INTUIT LOGO/jpg/INTUIT_LOGO_PATTERN_INVERSE.jpg`).
   - `contact-nerijus.webp` / `contact-nerijus.jpg` — kontaktų kortelės portretas (`FinalCta`), kvadratas 480×480 eksportas iš šaltinio nuotraukos.
 - **Matmenys:** oficialūs JPG ~**1000×978 px** (beveik kvadratas su laukais); `<img>` naudoti tikrus `width` / `height` dėl CLS (`Header`, `FinalCta`).
+- **Web dydžių hierarchija:** header ir kontaktų kortelė (`FinalCta`) naudoja panašią ženklo aukščio skalę; TrustedBy inline ženklas mažesnis; Proof — pilno pločio inverse blokas. Lentelė — [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) poskyris „Prekės ženklas (raster, JPG)“.
 - **Larsseit:** komercinis šriftas; prieš `@font-face` įsitikinkite **webfont licencija**. Kol licencija nepatvirtinta, svetainė naudoja **Inter** (`@fontsource/inter`).
 - **UI:** daug whitespace, griežtas grid, santūrus radius — dera su geometriniu ženklu. Implementacija: Tailwind tokenai ir `.card` / `.card-muted` — [tailwind.config.mjs](../tailwind.config.mjs), [src/styles/global.css](../src/styles/global.css); turinio plotis dažnai `max-w-content` (1180px).
 - **Web spalvos ir diagramos:** pagrindinis akcentas lieka gilus mėlynas (`accent`); antriniai diagramų akcentai (`diagramElectric`, `diagramLoop`) ir švelnus `bg-diagram-glow` sustiprina skaitomumą nekeičiant šviesaus „trust“ režimo (PRD §5.2).

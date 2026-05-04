@@ -9,7 +9,7 @@ const { messages } = Astro.props;
 ---
 
 <section id="process" class="scroll-mt-28 border-b border-line bg-surface">
-  <div class="mx-auto max-w-content space-y-10 px-4 py-16 md:px-6 md:py-20">
+  <div class="section-shell space-y-10">
     <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.process.title}</h2>
 
     <div class="relative grid gap-8 md:grid-cols-4 md:gap-6" role="list">
@@ -18,7 +18,7 @@ const { messages } = Astro.props;
         aria-hidden="true"
       />
       {messages.process.steps.map((step, idx) => (
-        <div class="card relative flex flex-col gap-4 border-accent/10 p-5 pt-6 shadow-softSm" role="listitem">
+        <div class="card relative flex flex-col gap-4 border-accent/10 p-6 shadow-softSm" role="listitem">
           <div class="flex flex-wrap items-center gap-2">
             <span class="flex h-7 min-w-[1.75rem] items-center justify-center rounded-full bg-accent px-2 text-xs font-semibold text-white ring-2 ring-accent/15 ring-offset-2 ring-offset-surface">
               {idx + 1}

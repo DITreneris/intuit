@@ -83,7 +83,7 @@ Trumpas mapping vadovams:
 | 2 | **Problema (reality check)** | Atpažinimas; „tai apie mus“ | 3–4 punktai: fragmentacija, PR kaip reakcija, marketing ≠ reputacija, ad hoc įrankiai be proceso |
 | 3 | **Chaos vs system (vizualinė metafora)** | Before/after; tiltas į sprendimą | Viena aiški vizualinė schema ar palyginimas (žr. §5.2), ne teksto perkrova |
 | 4 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
-| 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai (LT: Apžvalga → Planas → Paleidimas → Tobulinimas; EN: Review → Plan → Rollout → Improve); schema > ilgas tekstas |
+| 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai (LT: Apžvalga → Planas → Startas → Tobulinimas; EN: Review → Plan → Launch → Improve); schema > ilgas tekstas |
 | 6 | **Proof** | Pasitikėjimas | Case(s): Before/After, skaičiai; jei nėra — framework demo / simuliacija (aiškiai pažymėta) |
 | 7 | **Pasiūlymas (offers)** | Konversija | 3 paketai (LT: Startas / Įgyvendinimas / Mastelis; EN: Starter / Delivery / Scale) — **rezultatai**, trumpi punktai, ne ilgas feature sąrašas |
 | 8 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |

@@ -7,6 +7,26 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
+- **Design system — micro polish (v1.5, be turinio / struktūros keitimo):**
+  - [`src/styles/global.css`](src/styles/global.css): `.section-shell`, `.section-shell--tight`, `.label-eyebrow`.
+  - Sekcijų konteineriai per shell utility: Hero (grid), ChaosVsSystem, Problem, Solution, Process, Proof, Offers, About, FinalCta; TrustedBy — tik `.section-shell--tight` (kompaktiškas vertikalus ritmas; žr. [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)).
+  - [`src/components/sections/Problem.astro`](src/components/sections/Problem.astro): kortelės `p-6`, blokas `space-y-10`, caption `text-base text-muted`.
+  - [`src/components/sections/About.astro`](src/components/sections/About.astro), [`FinalCta.astro`](src/components/sections/FinalCta.astro): `space-y-10`.
+  - [`src/components/sections/Process.astro`](src/components/sections/Process.astro): žingsnių kortelės `p-6`.
+  - [`src/components/sections/Hero.astro`](src/components/sections/Hero.astro): eyebrow klasė `.label-eyebrow`.
+  - [`src/components/sections/ChaosVsSystem.astro`](src/components/sections/ChaosVsSystem.astro): etiketėms `tracking-[0.2em]`, sekcijai `scroll-mt-28`.
+  - [`src/components/Header.astro`](src/components/Header.astro): mobile kalbos jungiklis, meniu `summary` ir dropdown nuorodos su `min-h-11` (didinamas palietimo plotas).
+  - [`src/components/Footer.astro`](src/components/Footer.astro): `py-12` (buvo `py-10`).
+  - [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md): layout utilities, ikonų slotų lentelė, TrustedBy tight, checklist atnaujinimai.
+
+- **Ženklo matmenys (nav / TrustedBy):** [`Header.astro`](src/components/Header.astro) `logo-light` — `h-10 md:h-11`; [`TrustedBy.astro`](src/components/sections/TrustedBy.astro) inline ženklas — `h-7 md:h-8`; dokumentacija [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) („Prekės ženklas (raster, JPG)“), [docs/BRAND.md](docs/BRAND.md) (hierarchija).
+
+- **Proof — brand momentas (inverse):** metodikos rasteriai pašalinti; vietoje jų [`public/brand/logo-pattern-inverse.jpg`](public/brand/logo-pattern-inverse.jpg) tamsiame skydelyje ([`src/components/sections/Proof.astro`](src/components/sections/Proof.astro)); i18n `brandLabel` / `brandPatternAlt` (LT/EN) vietoje `demoLabel` / `methodologyIllustrationAlt`; [docs/BRAND.md](docs/BRAND.md), [README.md](README.md), [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md).
+
+- **Proof:** pašalintas `proof.body` (LT/EN) ir antrinis pastraipos blokas [`Proof.astro`](src/components/sections/Proof.astro); lieka H2, metrikų kortelės, papildomas vizualinis blokas ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md)).
+
+- **Procesas (`process.steps`):** trečio žingsnio pavadinimas LT „Paleidimas“ → „Startas“; EN „Rollout“ → „Launch“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)); PRD lentelė sinchronizuota ([`docs/PRD-one-page-PR-AI.md`](docs/PRD-one-page-PR-AI.md)).
+
 - **Hero `subtitle` (LT/EN):** LT — „Profesionalios konsultacijos: nuo viešųjų ryšių iki rinkodaros ar krizių valdymo. Reikia pagalbos? Pasikalbam.“; EN — „Professional consulting: from public relations to marketing and crisis support. Need help? Let's talk.“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)).
 
 - **Offers paketų punktai (LT/EN):** Įgyvendinimas — „Kampanijų organizavimas ir viešųjų ryšių ciklai“ / „Campaign operations and PR cycles“; Mastelis — „Turinio automatizavimas ir kokybės kontrolė“ / „Content automation and quality control“ ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)).
