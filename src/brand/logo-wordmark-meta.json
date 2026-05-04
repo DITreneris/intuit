@@ -1,0 +1,12 @@
+{
+  "logoWordmarkLight": {
+    "width": 623,
+    "height": 147,
+    "srcJpg": "brand/logo-wordmark-light.jpg"
+  },
+  "logoWordmarkDark": {
+    "width": 623,
+    "height": 147,
+    "srcJpg": "brand/logo-wordmark-dark.jpg"
+  }
+}

@@ -5,6 +5,9 @@ export default {
     extend: {
       colors: {
         ink: '#0a0a0a',
+        /** Hero inverse panel — neišdarko globalaus `ink`; minkštas vertikalus gradientas */
+        heroInkFrom: '#1a1a1a',
+        heroInkTo: '#0f0f0f',
         /** Warm section alt — PRD / premium palette */
         paper: '#fafafa',
         warm: '#f7f4ef',

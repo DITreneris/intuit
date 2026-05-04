@@ -3,15 +3,15 @@
 - **Šaltiniai:** aplankas `INTUIT LOGO/` — vektorius (`ai/`), peržiūra (`pdf/`), raster (`jpg/`), šriftai (`_font/Larsseit/`).
 - **Ženklas:** monochromas žodžio ženklas su `/` — tech/system nuojauta; šviesus fonas + juodas ženklas pagal nutylėjimą.
 - **Web assetai (`public/brand/`):**
-  - `logo-light.svg` — monochromas žodžio ženklas šviesiam fonui (masteliui / LCP; žr. `public/favicon.svg` tą patį path stem); naudojamas su `<picture>` ir `logo-light.jpg` fallback.
-  - `logo-light.jpg` — šviesiam fonui (šaltinis: `INTUIT LOGO/jpg/INTUIT_LOGO_.jpg`); fallback, jei SVG neįkeliamas.
-  - `logo-dark.jpg` — tamsiam blokui / kontaktams (šaltinis: `INTUIT_LOGO/jpg/INTUIT_LOGO_INVERSE.jpg`).
+  - `logo-light.svg` — 32×32 monograma (tai pats path stem kaip `public/favicon.svg`); pagrindiniam UI wordmark **nenaudojama**.
+  - `logo-light.jpg` / `logo-dark.jpg` — kanoniniai pilni ženklai su laukais (~1000×978); šaltiniai kopijuojami iš `INTUIT LOGO/jpg/`. Iš jų generuojami horizontalesni wordmark rasteriai (žemiau).
+  - `logo-wordmark-light.{jpg,webp}` / `logo-wordmark-dark.{jpg,webp}` — **UI ir OG:** `npm run gen:wordmark` ([`scripts/export-wordmark-raster.mjs`](../scripts/export-wordmark-raster.mjs)) — `trim` nuo kanoninių JPG; tipinė išvestis ~**623×147**. Komponentas [`IntuitWordmark.astro`](../src/components/IntuitWordmark.astro); matmenys — [`src/brand/logo-wordmark-meta.json`](../src/brand/logo-wordmark-meta.json).
   - `logo-pattern-light.jpg` — chevron raštas ant šviesaus (Hero dekoracija, žema opacity).
   - `logo-pattern-dark.jpg` — chevron atvirkštinis (pasiruošęs; ant `bg-ink` naudoti atsargiai dėl JPEG fono).
-  - `logo-pattern-inverse.jpg` — pilnas žodžio ženklas ir chevron raštas, tamsus (inverse) fonas; **Hero** dešinė per [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) (i18n: `proof.brandLabel` / `brandPatternAlt`); šaltinis: `INTUIT LOGO/jpg/INTUIT_LOGO_PATTERN_INVERSE.jpg`.
+  - `logo-pattern-inverse.jpg` — pilnas žodžio ženklas ir chevron raštas, tamsus (inverse) fonas; **Hero** dešinė per [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) (i18n: `proof.brandPatternAlt` `<img alt>`; Tailwind `heroInkFrom` / `heroInkTo` + apatinis gradientinis nutildymas); šaltinis: `INTUIT LOGO/jpg/INTUIT_LOGO_PATTERN_INVERSE.jpg`.
   - `contact-nerijus.webp` / `contact-nerijus.jpg` — kontaktų kortelės portretas (`FinalCta`), kvadratas 480×480 eksportas iš šaltinio nuotraukos.
-- **Matmenys:** oficialūs JPG ~**1000×978 px** (beveik kvadratas su laukais); `<img>` naudoti tikrus `width` / `height` dėl CLS (`Header`, `FinalCta`).
-- **Web dydžių hierarchija:** header ir `FinalCta` — `logo-light` / `logo-dark` apie `h-10 md:h-11`; TrustedBy inline `logo-light` **vienas žingsnis žemiau** (`h-9 md:h-10`), kad juostos antraštėje ženklas būtų skaitomas, bet lipni juosta liktų pirmuoju prekės ženklu. **Hero** — pilno pločio inverse plakatas (`BrandPatternPanel`); Proof sekcijoje inverse rasterio nėra. Lentelė — [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) poskyris „Prekės ženklas (raster + SVG)“.
+- **Matmenys:** kanoniniai JPG ~**1000×978 px**; wordmark UI — žr. `logo-wordmark-meta.json`. OG / social: [`Layout.astro`](../src/layouts/Layout.astro) — `brand/logo-wordmark-light.jpg`.
+- **Web dydžių hierarchija:** header ir `FinalCta` — wordmark `h-11 md:h-12`; TrustedBy inline **vienas žingsnis žemiau** (`h-10 md:h-11`). Plotis ekrane didesnis nei su kvadratiniu JPG tame pačiame aukštyje. **Hero** — inverse plakatas (`BrandPatternPanel`) iki `28rem` pločio. Lentelė — [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) poskyris „Prekės ženklas“.
 - **Larsseit:** komercinis šriftas; prieš `@font-face` įsitikinkite **webfont licencija**. Kol licencija nepatvirtinta, svetainė naudoja **Inter** (`@fontsource/inter`).
 - **UI:** daug whitespace, griežtas grid, santūrus radius — dera su geometriniu ženklu. Implementacija: Tailwind tokenai ir `.card` / `.card-muted` — [tailwind.config.mjs](../tailwind.config.mjs), [src/styles/global.css](../src/styles/global.css); turinio plotis dažnai `max-w-content` (1180px).
 - **Web spalvos ir diagramos:** pagrindinis akcentas lieka gilus mėlynas (`accent`); antriniai diagramų akcentai (`diagramElectric`, `diagramLoop`) ir švelnus `bg-diagram-glow` sustiprina skaitomumą nekeičiant šviesaus „trust“ režimo (PRD §5.2).

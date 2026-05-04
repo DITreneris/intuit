@@ -8,6 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "gen:favicon": "node scripts/gen-favicon-png.mjs",
+    "gen:wordmark": "node scripts/export-wordmark-raster.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -18,6 +20,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@resvg/resvg-js": "^2.6.2",
+    "sharp": "^0.34.5",
     "typescript": "^5.8.3"
   }
 }

@@ -1,7 +1,7 @@
 ---
 /**
  * Du atskiri SVG (desktop / mobile) — bet koks mazgo ar kilpos keitimas turi būti atliktas abiejuose.
- * Antraštė ir caption — HTML (LT/EN iš messages.hero.diagram).
+ * Antraštė, caption ir kilpos etiketė — HTML (LT/EN iš messages.hero.diagram).
  */
 import type { SiteMessages } from '../i18n/types';
 
@@ -14,16 +14,16 @@ const d = messages.hero.diagram;
 ---
 
 <div
-  class="relative min-h-[220px] overflow-visible rounded-xl border border-line bg-surface px-4 py-5 shadow-softSm md:min-h-[300px] md:px-6 md:py-6"
+  class="hero-system-diagram relative min-h-[220px] overflow-visible rounded-xl border border-line/50 bg-paper px-4 py-5 shadow-soft ring-1 ring-line/30 transition-shadow hover:ring-accent/15 md:min-h-[300px] md:px-6 md:py-6"
   role="group"
   aria-labelledby="hero-diagram-strip"
-  aria-describedby="hero-diagram-caption hero-diagram-sr-desc"
+  aria-describedby="hero-diagram-caption hero-diagram-loop-label hero-diagram-sr-desc"
 >
   <p id="hero-diagram-sr-desc" class="sr-only">{d.svgDesc}</p>
-  <div class="pointer-events-none absolute inset-0 bg-diagram-radial opacity-80 md:opacity-100" aria-hidden="true"></div>
-  <div class="pointer-events-none absolute inset-0 hidden bg-diagram-glow md:block" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-0 rounded-xl bg-diagram-radial opacity-80 md:opacity-100" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-0 hidden rounded-xl bg-diagram-glow md:block" aria-hidden="true"></div>
 
-  <div class="relative z-10 mx-auto max-w-[620px] space-y-1 px-0 text-center">
+  <div class="relative z-10 mx-auto max-w-[620px] space-y-1.5 px-0 text-center">
     <p
       id="hero-diagram-strip"
       class="text-xs font-semibold uppercase tracking-[0.06em] text-ink md:text-2xs"
@@ -36,91 +36,114 @@ const d = messages.hero.diagram;
     >
       {d.diagramCaption}
     </p>
+    <p
+      id="hero-diagram-loop-label"
+      class="text-2xs font-medium uppercase tracking-[0.12em] text-muted2"
+    >
+      {d.diagramLoopLabel}
+    </p>
   </div>
 
-  <!-- Desktop: keturi vienodi mazgai, kilpa apačioje be kirtimo per korteles -->
+  <!-- Desktop: 2 žingsnis platesnis + akcentas; bazinė linija; stipresnės rodyklės; trumpesnė kilpa -->
   <svg
     class="relative z-10 mx-auto mt-3 hidden h-auto w-full max-h-[360px] md:mt-4 md:block"
-    viewBox="0 0 640 200"
+    viewBox="0 0 612 200"
     aria-hidden="true"
   >
     <title>{d.svgTitle}</title>
     <defs>
       <marker
         id="hero-flow-arrow"
-        markerUnits="strokeWidth"
-        markerWidth="5"
-        markerHeight="5"
-        refX="4"
-        refY="2.5"
+        markerUnits="userSpaceOnUse"
+        markerWidth="10"
+        markerHeight="10"
+        refX="9"
+        refY="5"
         orient="auto"
       >
-        <path d="M0,0 L5,2.5 L0,5 z" fill="var(--ds-accent)"></path>
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--ds-accent)"></path>
       </marker>
       <marker
         id="hero-feedback-arrow"
-        markerUnits="strokeWidth"
-        markerWidth="5"
-        markerHeight="5"
-        refX="4"
-        refY="2.5"
+        markerUnits="userSpaceOnUse"
+        markerWidth="9"
+        markerHeight="9"
+        refX="8"
+        refY="4.5"
         orient="auto"
       >
-        <path d="M0,0 L5,2.5 L0,5 z" fill="var(--ds-diagram-electric)"></path>
+        <path d="M0,0 L9,4.5 L0,9 z" fill="var(--ds-diagram-electric)"></path>
       </marker>
     </defs>
 
-    <!-- 1 Kanalai — cx=81 -->
+    <!-- Bazinė linija (už mazgais — piešiama pirma) -->
+    <path
+      class="hero-diagram-flow-baseline"
+      d="M 24 68 L 588 68"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      opacity="0.22"
+    ></path>
+
+    <!-- Švelni glow plėvelė už 2 žingsnio -->
+    <rect
+      x="146"
+      y="24"
+      width="184"
+      height="88"
+      rx="15"
+      fill="var(--ds-accent)"
+      opacity="0.07"></rect>
+
+    <!-- 1 Kanalai -->
     <g>
       <rect
-        x="8"
+        x="14"
         y="28"
-        width="146"
+        width="128"
         height="80"
         rx="13"
-        fill="var(--ds-paper)"
+        fill="var(--ds-surface)"
         stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="16"
-        y="36"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        stroke-width="1"
+        opacity="0.9"></rect>
+      <rect x="24" y="36" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.12"></rect>
       <text
-        x="27"
+        x="35"
         y="47"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="11"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">1</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        1
+      </text>
       <rect
-        x="48"
+        x="58"
         y="38"
-        width="30"
-        height="30"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
         stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(51 41)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M12 20h.01M8.5 16.43a4 4 0 0 1 7 0M5 12.86a9 9 0 0 1 14 0"></path>
+        stroke-width="1"
+        opacity="0.85"></rect>
+      <g transform="translate(61 41)" class="text-muted" aria-hidden="true">
+        <path
+          d="M11 17h.01M7.5 13.5a5 5 0 0 1 7 0M4 10a9 9 0 0 1 14 0"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
-        x="81"
-        y="80"
+        x="78"
+        y="82"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
@@ -131,8 +154,8 @@ const d = messages.hero.diagram;
         {d.layerInputs}
       </text>
       <text
-        x="81"
-        y="94"
+        x="78"
+        y="96"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -144,69 +167,65 @@ const d = messages.hero.diagram;
       </text>
     </g>
 
-    <!-- 2 Žinutė — tas pats kortelės stilius kaip 1/3/4 (kilpa semantiškai caption / svgDesc) -->
+    <!-- 2 Žinutė — hero -->
     <g>
       <rect
-        x="162"
+        x="150"
         y="28"
-        width="146"
+        width="176"
         height="80"
         rx="13"
-        fill="var(--ds-paper)"
-        stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="170"
-        y="36"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        fill="var(--ds-surface)"
+        stroke="var(--ds-accent)"
+        stroke-width="1.75"
+        opacity="0.98"></rect>
+      <rect x="160" y="36" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.18"></rect>
       <text
-        x="181"
+        x="171"
         y="47"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="11"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">2</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        2
+      </text>
       <rect
-        x="202"
+        x="194"
         y="38"
-        width="30"
-        height="30"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
-        stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(205 41)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        stroke="var(--ds-accent)"
+        stroke-width="1"
+        opacity="0.95"></rect>
+      <g transform="translate(197 41)" class="text-muted" aria-hidden="true">
+        <path
+          d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
-        x="235"
-        y="80"
+        x="238"
+        y="82"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
-        font-size="11"
-        font-weight="600"
+        font-size="12"
+        font-weight="700"
         font-family="Inter, ui-sans-serif, system-ui, sans-serif"
       >
         {d.layerStrategy}
       </text>
       <text
-        x="235"
-        y="94"
+        x="238"
+        y="96"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -218,57 +237,53 @@ const d = messages.hero.diagram;
       </text>
     </g>
 
-    <!-- 3 Vykdymas — cx=389 -->
+    <!-- 3 Vykdymas -->
     <g>
       <rect
-        x="316"
+        x="334"
         y="28"
-        width="146"
+        width="128"
         height="80"
         rx="13"
-        fill="var(--ds-paper)"
+        fill="var(--ds-surface)"
         stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="324"
-        y="36"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        stroke-width="1"
+        opacity="0.9"></rect>
+      <rect x="344" y="36" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.12"></rect>
       <text
-        x="335"
+        x="355"
         y="47"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="11"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">3</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        3
+      </text>
       <rect
-        x="356"
+        x="378"
         y="38"
-        width="30"
-        height="30"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
         stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(359 41)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M5 17 L10 12 L14 15 L21 7"></path>
+        stroke-width="1"
+        opacity="0.85"></rect>
+      <g transform="translate(381 41)" class="text-muted" aria-hidden="true">
+        <path
+          d="M4 16 L9 11 L13 14 L20 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
-        x="389"
-        y="80"
+        x="398"
+        y="82"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
@@ -279,8 +294,8 @@ const d = messages.hero.diagram;
         {d.layerAi}
       </text>
       <text
-        x="389"
-        y="94"
+        x="398"
+        y="96"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -292,56 +307,53 @@ const d = messages.hero.diagram;
       </text>
     </g>
 
-    <!-- 4 Rodikliai — cx=543 -->
+    <!-- 4 Rodikliai -->
     <g>
       <rect
         x="470"
         y="28"
-        width="146"
+        width="128"
         height="80"
         rx="13"
-        fill="var(--ds-paper)"
+        fill="var(--ds-surface)"
         stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="478"
-        y="36"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        stroke-width="1"
+        opacity="0.9"></rect>
+      <rect x="480" y="36" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.12"></rect>
       <text
-        x="489"
+        x="491"
         y="47"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="11"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">4</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        4
+      </text>
       <rect
-        x="510"
+        x="514"
         y="38"
-        width="30"
-        height="30"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
         stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(513 41)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-      >
-        <path d="M7 18V11M12 18V7M17 18V13"></path>
+        stroke-width="1"
+        opacity="0.85"></rect>
+      <g transform="translate(517 41)" class="text-muted" aria-hidden="true">
+        <path
+          d="M6 17V9M11 17V5M16 17v-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
-        x="543"
-        y="80"
+        x="534"
+        y="82"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
@@ -352,8 +364,8 @@ const d = messages.hero.diagram;
         {d.layerOutputs}
       </text>
       <text
-        x="543"
-        y="94"
+        x="534"
+        y="96"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -365,76 +377,95 @@ const d = messages.hero.diagram;
       </text>
     </g>
 
-    <!-- Nuoseklumas: centras y=68 -->
+    <!-- Pagrindinis srautas (virš bazės) -->
     <path
-      d="M154 68 H162"
+      d="M 142 68 L 150 68"
       fill="none"
       stroke="var(--ds-accent)"
-      stroke-width="2.5"
+      stroke-width="3"
       stroke-linecap="round"
-      opacity="0.95"
+      opacity="0.98"
       marker-end="url(#hero-flow-arrow)"></path>
     <path
-      d="M308 68 H316"
+      d="M 326 68 L 334 68"
       fill="none"
       stroke="var(--ds-accent)"
-      stroke-width="2.5"
+      stroke-width="3"
       stroke-linecap="round"
-      opacity="0.95"
+      opacity="0.98"
       marker-end="url(#hero-flow-arrow)"></path>
     <path
-      d="M462 68 H470"
+      d="M 462 68 L 470 68"
       fill="none"
       stroke="var(--ds-accent)"
-      stroke-width="2.5"
+      stroke-width="3"
       stroke-linecap="round"
-      opacity="0.95"
+      opacity="0.98"
       marker-end="url(#hero-flow-arrow)"></path>
 
-    <!-- Kilpa: ortogonalus H-V-H kanalas — antrinė vizualinė masė, statiška -->
+    <!-- Trumpesnė kilpa -->
     <path
-      d="M 543 108 L 543 142 L 235 142 L 235 108"
+      d="M 534 108 L 534 116 L 238 116 L 238 108"
       fill="none"
       stroke="var(--ds-diagram-electric)"
       stroke-width="1.75"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-dasharray="7 6"
-      opacity="0.52"
+      stroke-dasharray="6 5"
+      opacity="0.58"
       marker-end="url(#hero-feedback-arrow)"></path>
   </svg>
 
-  <!-- Mobile: ta pati logika — keturi vienodi žingsniai, kilpa į 2 -->
+  <!-- Mobile: 2 žingsnis aukštesnis; tie patys ikonų stiliai -->
   <svg
-    class="relative z-10 mx-auto mt-3 h-auto w-full max-h-[min(72vh,460px)] md:hidden"
-    viewBox="0 0 300 400"
+    class="relative z-10 mx-auto mt-3 h-auto w-full max-h-[min(72vh,480px)] md:hidden"
+    viewBox="0 0 300 372"
     aria-hidden="true"
   >
     <title>{d.svgTitle}</title>
     <defs>
       <marker
         id="hero-flow-arrow-m"
-        markerUnits="strokeWidth"
-        markerWidth="5"
-        markerHeight="5"
-        refX="4"
-        refY="2.5"
+        markerUnits="userSpaceOnUse"
+        markerWidth="10"
+        markerHeight="10"
+        refX="9"
+        refY="5"
         orient="auto"
       >
-        <path d="M0,0 L5,2.5 L0,5 z" fill="var(--ds-accent)"></path>
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--ds-accent)"></path>
       </marker>
       <marker
         id="hero-feedback-arrow-m"
-        markerUnits="strokeWidth"
-        markerWidth="5"
-        markerHeight="5"
-        refX="4"
-        refY="2.5"
+        markerUnits="userSpaceOnUse"
+        markerWidth="9"
+        markerHeight="9"
+        refX="8"
+        refY="4.5"
         orient="auto"
       >
-        <path d="M0,0 L5,2.5 L0,5 z" fill="var(--ds-diagram-electric)"></path>
+        <path d="M0,0 L9,4.5 L0,9 z" fill="var(--ds-diagram-electric)"></path>
       </marker>
     </defs>
+
+    <path
+      class="hero-diagram-flow-baseline-m"
+      d="M 150 46 L 150 324"
+      fill="none"
+      stroke="var(--ds-accent)"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      opacity="0.2"
+    ></path>
+
+    <rect
+      x="14"
+      y="86"
+      width="272"
+      height="104"
+      rx="16"
+      fill="var(--ds-accent)"
+      opacity="0.06"></rect>
 
     <!-- 1 Kanalai -->
     <g>
@@ -444,17 +475,11 @@ const d = messages.hero.diagram;
         width="260"
         height="76"
         rx="13"
-        fill="var(--ds-paper)"
+        fill="var(--ds-surface)"
         stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="28"
-        y="16"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        stroke-width="1"
+        opacity="0.9"></rect>
+      <rect x="28" y="16" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.12"></rect>
       <text
         x="39"
         y="27"
@@ -463,26 +488,28 @@ const d = messages.hero.diagram;
         fill="var(--ds-accent)"
         font-size="12"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">1</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        1
+      </text>
       <rect
-        x="60"
+        x="66"
         y="18"
-        width="30"
-        height="30"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
         stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(63 21)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M12 20h.01M8.5 16.43a4 4 0 0 1 7 0M5 12.86a9 9 0 0 1 14 0"></path>
+        stroke-width="1"
+        opacity="0.85"></rect>
+      <g transform="translate(69 21)" class="text-muted" aria-hidden="true">
+        <path
+          d="M11 17h.01M7.5 13.5a5 5 0 0 1 7 0M4 10a9 9 0 0 1 14 0"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
         x="150"
@@ -511,77 +538,73 @@ const d = messages.hero.diagram;
     </g>
 
     <path
-      d="M150 84 V96"
+      d="M150 84 L150 92"
       fill="none"
       stroke="var(--ds-accent)"
-      stroke-width="2.5"
+      stroke-width="3"
       stroke-linecap="round"
-      opacity="0.95"
+      opacity="0.98"
       marker-end="url(#hero-flow-arrow-m)"></path>
 
-    <!-- 2 Žinutė -->
+    <!-- 2 Žinutė — hero aukštis -->
     <g>
       <rect
-        x="20"
-        y="96"
-        width="260"
-        height="76"
+        x="18"
+        y="92"
+        width="264"
+        height="92"
         rx="13"
-        fill="var(--ds-paper)"
-        stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="28"
-        y="104"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        fill="var(--ds-surface)"
+        stroke="var(--ds-accent)"
+        stroke-width="1.75"
+        opacity="0.98"></rect>
+      <rect x="28" y="102" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.18"></rect>
       <text
         x="39"
-        y="115"
+        y="113"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="12"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">2</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        2
+      </text>
       <rect
-        x="60"
-        y="106"
-        width="30"
-        height="30"
+        x="66"
+        y="104"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
-        stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(63 109)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        stroke="var(--ds-accent)"
+        stroke-width="1"
+        opacity="0.95"></rect>
+      <g transform="translate(69 107)" class="text-muted" aria-hidden="true">
+        <path
+          d="M17 14a2 2 0 0 1-2 2H7l-3 3V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
         x="150"
-        y="146"
+        y="152"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
-        font-size="12"
-        font-weight="600"
+        font-size="13"
+        font-weight="700"
         font-family="Inter, ui-sans-serif, system-ui, sans-serif"
       >
         {d.layerStrategy}
       </text>
       <text
         x="150"
-        y="160"
+        y="168"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -594,65 +617,61 @@ const d = messages.hero.diagram;
     </g>
 
     <path
-      d="M150 172 V184"
+      d="M150 184 L150 192"
       fill="none"
       stroke="var(--ds-accent)"
-      stroke-width="2.5"
+      stroke-width="3"
       stroke-linecap="round"
-      opacity="0.95"
+      opacity="0.98"
       marker-end="url(#hero-flow-arrow-m)"></path>
 
     <!-- 3 Vykdymas -->
     <g>
       <rect
         x="20"
-        y="184"
+        y="192"
         width="260"
         height="76"
         rx="13"
-        fill="var(--ds-paper)"
+        fill="var(--ds-surface)"
         stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="28"
-        y="192"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        stroke-width="1"
+        opacity="0.9"></rect>
+      <rect x="28" y="200" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.12"></rect>
       <text
         x="39"
-        y="203"
+        y="211"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="12"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">3</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        3
+      </text>
       <rect
-        x="60"
-        y="194"
-        width="30"
-        height="30"
+        x="66"
+        y="202"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
         stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(63 197)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M5 17 L10 12 L14 15 L21 7"></path>
+        stroke-width="1"
+        opacity="0.85"></rect>
+      <g transform="translate(69 205)" class="text-muted" aria-hidden="true">
+        <path
+          d="M4 16 L9 11 L13 14 L20 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
         x="150"
-        y="234"
+        y="242"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
@@ -664,7 +683,7 @@ const d = messages.hero.diagram;
       </text>
       <text
         x="150"
-        y="248"
+        y="256"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -677,64 +696,61 @@ const d = messages.hero.diagram;
     </g>
 
     <path
-      d="M150 260 V272"
+      d="M150 268 L150 276"
       fill="none"
       stroke="var(--ds-accent)"
-      stroke-width="2.5"
+      stroke-width="3"
       stroke-linecap="round"
-      opacity="0.95"
+      opacity="0.98"
       marker-end="url(#hero-flow-arrow-m)"></path>
 
     <!-- 4 Rodikliai -->
     <g>
       <rect
         x="20"
-        y="272"
+        y="276"
         width="260"
         height="76"
         rx="13"
-        fill="var(--ds-paper)"
+        fill="var(--ds-surface)"
         stroke="var(--ds-line)"
-        stroke-width="1.25"></rect>
-      <rect
-        x="28"
-        y="280"
-        width="22"
-        height="22"
-        rx="7"
-        fill="var(--ds-accent)"
-        opacity="0.12"></rect>
+        stroke-width="1"
+        opacity="0.9"></rect>
+      <rect x="28" y="284" width="22" height="22" rx="7" fill="var(--ds-accent)" opacity="0.12"></rect>
       <text
         x="39"
-        y="291"
+        y="295"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-accent)"
         font-size="12"
         font-weight="700"
-        font-family="Inter, ui-sans-serif, system-ui, sans-serif">4</text>
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+      >
+        4
+      </text>
       <rect
-        x="60"
-        y="282"
-        width="30"
-        height="30"
+        x="66"
+        y="286"
+        width="28"
+        height="28"
         rx="8"
         fill="var(--ds-paper)"
         stroke="var(--ds-line)"
-        stroke-width="1"></rect>
-      <g
-        transform="translate(63 285)"
-        class="text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-      >
-        <path d="M7 18V11M12 18V7M17 18V13"></path>
+        stroke-width="1"
+        opacity="0.85"></rect>
+      <g transform="translate(69 289)" class="text-muted" aria-hidden="true">
+        <path
+          d="M6 17V9M11 17V5M16 17v-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
       </g>
       <text
         x="150"
-        y="322"
+        y="326"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-ink)"
@@ -746,7 +762,7 @@ const d = messages.hero.diagram;
       </text>
       <text
         x="150"
-        y="336"
+        y="340"
         dominant-baseline="central"
         text-anchor="middle"
         fill="var(--ds-muted)"
@@ -758,16 +774,41 @@ const d = messages.hero.diagram;
       </text>
     </g>
 
-    <!-- Kilpa: kairysis kraštas (x 16) — nekerta kortelių -->
     <path
-      d="M 280 348 V 372 H 16 V 172 H 150"
+      d="M 150 352 V 362 H 24 V 184 H 150"
       fill="none"
       stroke="var(--ds-diagram-electric)"
       stroke-width="1.75"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-dasharray="7 6"
-      opacity="0.52"
+      stroke-dasharray="6 5"
+      opacity="0.58"
       marker-end="url(#hero-feedback-arrow-m)"></path>
   </svg>
 </div>
+
+<style>
+  @keyframes hero-diagram-dash {
+    to {
+      stroke-dashoffset: -32;
+    }
+  }
+
+  .hero-diagram-flow-baseline {
+    stroke-dasharray: 8 6;
+    animation: hero-diagram-dash 3.5s linear infinite;
+  }
+
+  .hero-diagram-flow-baseline-m {
+    stroke-dasharray: 7 6;
+    animation: hero-diagram-dash 3.5s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-diagram-flow-baseline,
+    .hero-diagram-flow-baseline-m {
+      animation: none;
+      stroke-dasharray: none;
+    }
+  }
+</style>

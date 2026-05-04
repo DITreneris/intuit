@@ -149,9 +149,9 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `solution.pillars[1].points[1]` (v2) | „Užklausos ir tęsinys“ | „Užklausos ir tęstinumas“ |
 | `solution.pillars[2].points[1]` | „Įrankiai ten, kur aiški atsakomybė“ | „Dirbtinio intelekto įrankiai ir inovacijos“ |
 | `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
-| `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovams“ |
-| `proof.body` | (buvo) | **Pašalinta** — lieka H2, metrikos, po jų valdymo diagrama (`HeroSystemDiagram`). Inverse plakatas — **Hero** (`BrandPatternPanel`; tie patys `brandLabel` / `brandPatternAlt`). |
-| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta anksčiau; `brandLabel` / inverse `alt` (`brandPatternAlt`) naudojami Hero plakatui, ne Proof apačioje. |
+| `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos kontroliuojame“ |
+| `proof.body` | (buvo) | **Pašalinta** — lieka H2, metrikos, po jų valdymo diagrama (`HeroSystemDiagram`). Inverse plakatas — **Hero** (`BrandPatternPanel`; `brandPatternAlt` — `<img alt>`). |
+| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta anksčiau; inverse `alt` (`brandPatternAlt`) naudojamas Hero plakatui, ne Proof apačioje. |
 | `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
 | `trustedBy.scrollAriaLabel` | — | „Klientų logotipai — slinkite horizontaliai“ (slankiojančios srities `aria-label`) |
 | `hero.diagram.systemStrip` | „Kontrolė ir matavimas“ | „Valdomas rezultatas“ (diagrama — vertė, ne procesas) |
@@ -164,7 +164,7 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 |-------|------|-----|
 | `hero.ctaPrimary` | „Get a communications insight“ | „Book a consultation“ |
 | `chaosVsSystem.chaosBadge` | „Reactive“ | „Reactive“ (LT pusė pasivyja: „Reaktyviai“) |
-| `proof.title` | „Outcomes leadership can read“ | „Metrics leaders can act on“ |
+| `proof.title` | „Outcomes leadership can read“ | „Metrics we control“ |
 | `proof.body` | (buvo) | Pašalinta |
 | `offers.tiers[2].tag` | … | LT „Šablonai ir kokybė“; EN „Playbooks and quality“ |
 | `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Plan the delivery“ / „Discuss growth“ |

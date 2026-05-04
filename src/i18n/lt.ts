@@ -25,23 +25,28 @@ export const lt = {
   hero: {
     eyebrow: 'Verslo komunikacija',
     title: 'Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
-    subtitle:
-      'Profesionalios konsultacijos: nuo viešųjų ryšių iki rinkodaros ar krizių valdymo. Reikia pagalbos? Pasikalbam.',
+    subtitleLead: 'Profesionalios konsultacijos:',
+    subtitleBullets: [
+      'nuo viešųjų ryšių iki rinkodaros',
+      'renginiai, socialiniai tinklai, krizių valdymas',
+      'turinio valdymas ir automatizavimas',
+    ],
+    subtitleClosing: 'Reikia pagalbos? Pasikalbam.',
     ctaPrimary: 'Gauti konsultaciją',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
     diagram: {
       svgTitle: 'Komunikacijos valdymo schema',
       svgDesc:
-        'Keturi vienodo dydžio žingsniai iš kairės į dešinę: kanalai, žinutė, vykdymas, rodikliai. Tvirtos linijos su rodyklėmis — nuoseklus vykdymas. Punktyrinė ortogonalinė kilpa apačioje rodo korekciją iš rodiklių atgal į žinutę; linija statiška ir silpnesnė nei pagrindinis srautas. Matomos legendos nėra — paaiškinimas virš diagramos.',
-      systemStrip: 'Valdomas rezultatas',
-      /** Trumpa matoma eilutė po antrašte — kilpos prasmė */
-      diagramCaption:
-        'Vienas nuoseklus kelias; rodikliai grąžina korekcijas į žinutę — uždara valdymo kilpa.',
+        'Keturi žingsniai iš kairės į dešinę: kanalai, žinutė (antras žingsnis vizualiai pabrėžtas), vykdymas, rodikliai. Horizontali bazinė linija jungia seką; storesnės rodyklės rodo vykdymo kryptį. Trumpa punktyrinė kilpa apačioje — iš rodiklių atgal į žinutę; žemiau etiketė „Iteracija“. Subtili bazinės linijos animacija neįjungta sumažinto judesio režime.',
+      systemStrip: 'Nuo žinutės iki matomų rodiklių',
+      diagramCaption: 'Keturi žingsniai vienu srautu; rodikliai grąžina korekcijas į žinutę.',
+      /** Matoma antrinė etiketė — kilpos prasmė be ilgo caption */
+      diagramLoopLabel: 'Iteracija: rodikliai → žinutė',
       nodeHint1: 'Pasiekiamumas',
-      nodeHint2: 'Vienas pasakojimas',
-      nodeHint3: 'Pagal planą',
-      nodeHint4: 'Vadovams matomi',
+      nodeHint2: 'Vieninga žinutė',
+      nodeHint3: 'Vykdymas pagal planą',
+      nodeHint4: 'Matomi KPI',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
       layerAi: 'Vykdymas',
@@ -70,7 +75,7 @@ export const lt = {
     bullets: [
       {
         signal: 'Skirtingos žinutės klientui',
-        detail: 'Komandos kalba nevienodai — pasitikėjimas krenta.',
+        detail: 'Komandos kalba skirtingai — pasitikėjimas krenta.',
       },
       {
         signal: 'Komunikacija tik reaguoja',
@@ -78,11 +83,11 @@ export const lt = {
       },
       {
         signal: 'Kanalai neveikia kartu',
-        detail: 'Marketingas ir reputacija nesusijungia.',
+        detail: 'Reputacija neatitinka lūkesčių.',
       },
       {
         signal: 'Įrankiai be sistemos',
-        detail: 'Daugiau triukšmo, mažiau rezultato.',
+        detail: 'Daug komunikacinio triukšmo, mažai rezultatų.',
       },
     ],
     caption: 'Skirtingos žinutės, chaotiški kanalai ir nuspėjamo rezultato nebuvimas.',
@@ -95,11 +100,11 @@ export const lt = {
     chaosBadge: 'Reaktyviai',
     systemBadge: 'Ritmingai',
     chaosCaption: 'Nėra vienos linijos — tik kampanijos ir įvykiai.',
-    systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma vadovams.',
+    systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma ir apskaičiuojama.',
   },
   solution: {
     title: 'Trys kryptys, vienas planas',
-    intro: 'Reputacija, augimas ir kasdienis darbas — susieti taip, kad eiga ir rezultatas būtų matomi.',
+    intro: 'Reputacija, augimas, tęstinumas — stebime ir koreguojame.',
     pillars: [
       {
         name: 'Verslo komunikacija',
@@ -122,13 +127,13 @@ export const lt = {
     title: 'Kaip dirbame',
     steps: [
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
-      { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis.' },
+      { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis ir pozicionavimas.' },
       { name: 'Startas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
       { name: 'Tobulinimas', detail: 'Matavimas, koregavimai, augimo žingsniai.' },
     ],
   },
   proof: {
-    title: 'Rodikliai, kuriuos pristatote vadovams',
+    title: 'Rodikliai, kuriuos kontroliuojame',
     metrics: [
       { label: 'Aiškumas', value: '↑', hint: 'viena žinutė' },
       { label: 'Greitis', value: '↑', hint: 'kartojami šablonai' },

@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { messages } = Astro.props;
+const heroCopy = messages.hero;
 
 const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
@@ -26,14 +27,22 @@ const patternLightUrl = `${basePath}brand/logo-pattern-light.jpg`;
     class="section-shell relative grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)] md:items-start md:gap-12"
   >
     <div class="space-y-6">
-      <p class="label-eyebrow">{messages.hero.eyebrow}</p>
+      <p class="label-eyebrow">{heroCopy.eyebrow}</p>
       <h1 class="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-        {messages.hero.title}
+        {heroCopy.title}
       </h1>
-      <p class="max-w-measure text-lg text-muted">{messages.hero.subtitle}</p>
+      <div class="max-w-measure space-y-3 text-lg">
+        <p class="font-medium text-ink">{heroCopy.subtitleLead}</p>
+        <ul class="list-disc space-y-1.5 pl-5 text-muted">
+          {heroCopy.subtitleBullets.map((line) => (
+            <li>{line}</li>
+          ))}
+        </ul>
+        <p class="font-semibold text-ink">{heroCopy.subtitleClosing}</p>
+      </div>
       <div class="flex flex-wrap gap-3">
-        <ButtonPrimary href="#contact">{messages.hero.ctaPrimary}</ButtonPrimary>
-        <ButtonSecondary href="#process">{messages.hero.ctaSecondary}</ButtonSecondary>
+        <ButtonPrimary href="#contact">{heroCopy.ctaPrimary}</ButtonPrimary>
+        <ButtonSecondary href="#process">{heroCopy.ctaSecondary}</ButtonSecondary>
       </div>
     </div>
     <div class="flex min-w-0 justify-center md:justify-end md:pt-8">

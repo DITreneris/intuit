@@ -1,5 +1,6 @@
 ---
 import ButtonPrimary from '../ui/ButtonPrimary.astro';
+import IntuitWordmark from '../IntuitWordmark.astro';
 import type { SiteMessages } from '../../i18n/types';
 
 interface Props {
@@ -53,15 +54,12 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
           </div>
 
           <div class="min-w-0 flex-1 space-y-4">
-            <img
-              src={`${basePath}brand/logo-dark.jpg`}
+            <IntuitWordmark
+              variant="dark"
               alt=""
-              aria-hidden="true"
-              width="1000"
-              height="978"
-              class="h-10 w-auto opacity-95 md:h-11"
+              decorative
+              imgClass="h-11 w-auto opacity-95 md:h-12"
               loading="lazy"
-              decoding="async"
             />
 
             <p class="text-xs font-medium uppercase tracking-wide text-white/55">

@@ -25,22 +25,27 @@ export const en = {
   hero: {
     eyebrow: 'Business communications',
     title: 'Less chaos. More clarity. Better results.',
-    subtitle:
-      'Professional consulting: from public relations to marketing and crisis support. Need help? Let\'s talk.',
+    subtitleLead: 'Professional consulting:',
+    subtitleBullets: [
+      'From PR through marketing',
+      'Events, social, and crisis response',
+      'Content systems and light automation',
+    ],
+    subtitleClosing: 'Need an extra pair of hands? Let’s talk.',
     ctaPrimary: 'Book a consultation',
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',
     diagram: {
       svgTitle: 'Communications control diagram',
       svgDesc:
-        'Four equal steps left to right: channels, narrative, execution, and metrics. Solid arrows show the delivery sequence. A subtle dashed orthogonal loop under the row routes metrics back into the narrative; it is lower contrast than the main flow and does not animate. There is no visible legend—the caption above the diagram explains the idea.',
-      systemStrip: 'Controlled outcomes',
-      diagramCaption:
-        'One clear sequence; metrics close the loop by refining the narrative.',
+        'Four steps left to right: channels, narrative (second step visually emphasized), execution, and metrics. A horizontal baseline ties the sequence; thicker arrows show direction. A short dashed loop under the row routes metrics back into the narrative, with an “Iteration” label below. Baseline motion is subtle and disabled when reduced motion is preferred.',
+      systemStrip: 'From narrative to visible KPIs',
+      diagramCaption: 'Four steps in one flow; metrics feed corrections back into the narrative.',
+      diagramLoopLabel: 'Iteration: metrics → narrative',
       nodeHint1: 'Reach',
-      nodeHint2: 'One story',
-      nodeHint3: 'On plan',
-      nodeHint4: 'Leaders can act',
+      nodeHint2: 'One aligned message',
+      nodeHint3: 'Execution on plan',
+      nodeHint4: 'Visible KPIs',
       layerInputs: 'Channels',
       layerStrategy: 'Narrative',
       layerAi: 'Execution',
@@ -67,7 +72,7 @@ export const en = {
     bullets: [
       {
         signal: 'Inconsistent messaging for buyers',
-        detail: 'Teams tell different stories—trust drops.',
+        detail: 'Teams don’t speak with one voice—trust drops.',
       },
       {
         signal: 'Comms that only react',
@@ -75,11 +80,11 @@ export const en = {
       },
       {
         signal: 'Channels that never sync',
-        detail: 'Marketing and reputation stay disconnected.',
+        detail: 'Reputation doesn’t match expectations.',
       },
       {
         signal: 'Tools without a system',
-        detail: 'More noise, less to show for it.',
+        detail: 'Plenty of comms noise—few real outcomes.',
       },
     ],
     caption: 'Mixed messages, chaotic channels, and no predictable outcomes.',
@@ -91,11 +96,11 @@ export const en = {
     chaosBadge: 'Reactive',
     systemBadge: 'Rhythm',
     chaosCaption: 'No single line—just campaigns and incidents.',
-    systemCaption: 'One path: standards, metrics, and repetition—visible to leadership.',
+    systemCaption: 'One path: standards, metrics, and repetition—visible and measurable.',
   },
   solution: {
     title: 'Three directions, one plan',
-    intro: 'Reputation, growth, and day-to-day work—connected so the flow and the outcome stay visible.',
+    intro: 'Reputation, growth, continuity—we monitor and adjust.',
     pillars: [
       {
         name: 'Business communications',
@@ -118,13 +123,13 @@ export const en = {
     title: 'How we work',
     steps: [
       { name: 'Review', detail: 'What exists now: audiences, risks, habits.' },
-      { name: 'Plan', detail: 'Channels, metrics, content direction.' },
+      { name: 'Plan', detail: 'Channels, metrics, content direction, and positioning.' },
       { name: 'Launch', detail: 'Teams onboard—training, tools, and templates.' },
       { name: 'Improve', detail: 'Measure, adjust, next steps to scale.' },
     ],
   },
   proof: {
-    title: 'Metrics leaders can act on',
+    title: 'Metrics we control',
     metrics: [
       { label: 'Clarity', value: '↑', hint: 'one narrative' },
       { label: 'Speed', value: '↑', hint: 'repeatable templates' },
