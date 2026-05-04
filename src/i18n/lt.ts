@@ -38,8 +38,8 @@ export const lt = {
     diagram: {
       svgTitle: 'Komunikacijos valdymo schema',
       svgDesc:
-        'Keturi žingsniai iš kairės į dešinę: kanalai, žinutė (antras žingsnis vizualiai pabrėžtas), vykdymas, rodikliai. Horizontali bazinė linija jungia seką; storesnės rodyklės rodo vykdymo kryptį. Trumpa punktyrinė kilpa apačioje — iš rodiklių atgal į žinutę; žemiau etiketė „Iteracija“. Subtili bazinės linijos animacija neįjungta sumažinto judesio režime.',
-      systemStrip: 'Nuo žinutės iki matomų rodiklių',
+        'Keturi žingsniai iš kairės į dešinę: kanalai, žinutė (antras žingsnis pabrėžtas), vykdymas, rodikliai. Viena horizontali vykdymo linija po kortelėmis jungia seką; iteracija (rodikliai grįžta į žinutę) paaiškinta tekstu po schema. Subtili linijos animacija išjungta sumažinto judesio režime.',
+      systemStrip: 'Nuo žinutės iki KPI',
       diagramCaption: 'Keturi žingsniai vienu srautu; rodikliai grąžina korekcijas į žinutę.',
       /** Matoma antrinė etiketė — kilpos prasmė be ilgo caption */
       diagramLoopLabel: 'Iteracija: rodikliai → žinutė',

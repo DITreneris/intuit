@@ -109,12 +109,12 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 
 ## Hero diagrama (product vizualinė kalba)
 
-- **Hierarchija:** pagrindinis signalas — horizontalus **forward** srautas (1→4); feedback kilpa — **tertinė** (žemiau kontrasto nei forward).
-- **Forward (1→4):** `accent`, storesnis stroke (~2.5) — pagrindinis vykdymo srautas.
-- **Feedback (rodikliai → žinutė):** `diagramElectric`, plonesnis stroke (~1.75), mažesnė matoma masė (`opacity` ~0.52), **statiška** punktyra (be animacijos), **ortogonalus** kelias (H/V, `stroke-linejoin: round`).
-- **Mazgų kortelės:** vienodas `paper` / `line` stilius visiems keturiems žingsniams; kilpos „centras“ semantiškai — caption ir `svgDesc`, ne atskiras išryškinimas.
+- **Hierarchija:** pagrindinis signalas — **viena vientisa spine linija** (`accent`, storesnis stroke; desktop — horizontaliai per žingsnių centrus; mobile — vertikaliai per centrą), piešiama **po** mazgais DOM tvarka, kad būtų matoma tarpų ruožuose; subtili **juostinė animacija** ant spine (`stroke-dashoffset`; išjungiama `prefers-reduced-motion`).
+- **Forward (1→4):** ta pati spine + rodyklės markeris gale; tarpinių „connector“ segmentų atskirai nėra.
+- **Feedback (rodikliai → žinutė):** **ne** atskiras SVG kelias — iteracija aiškinama **`hero.diagram.diagramLoopLabel`** + caption + `svgDesc`; galimas mažas dekoratyvus ženklas HTML šalia etiketės (pvz. ↺), ne ilga punktyrinė diagramos linija.
+- **Mazgų kortelės:** antriniai žingsniai — `surface` / `line`; **žingsnis 2 („Žinutė“)** — `accent` kontūras + švelnus **tint** už kortelės (`accent` fill žema opacity); ikonos — **24×24 loginė erdvė**, `stroke-width` **1.5**, be papildomo ikonos „mini-kortelės“ rėmo.
 - **Matoma legenda:** nenaudoti — aiškinimas caption + `hero.diagram.svgDesc` (ekrano skaityklėms).
-- **Konteineris:** `bg-diagram-radial` visada; `bg-diagram-glow` tik **md+**; mobile radial šiek tiek prislopinta (`opacity-80`); išorėje `overflow-visible` ir horizontalus padding, kad SVG nesikirstų su apvaliais kampais.
+- **Konteineris:** `bg-diagram-radial` visada; `bg-diagram-glow` tik **md+**; mobile radial šiek tiek prislopinta (`opacity-80`); išorėje `overflow-visible` ir horizontalus padding, kad SVG nesikirstų su apvaliais kampais; išorinis blokas — **vienas** aiškus kontūras (be `shadow-soft` + `ring` dubliavimo su `border` — žr. dabartinę implementaciją).
 
 Žr. implementaciją: [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro).
 

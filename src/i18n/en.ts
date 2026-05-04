@@ -38,8 +38,8 @@ export const en = {
     diagram: {
       svgTitle: 'Communications control diagram',
       svgDesc:
-        'Four steps left to right: channels, narrative (second step visually emphasized), execution, and metrics. A horizontal baseline ties the sequence; thicker arrows show direction. A short dashed loop under the row routes metrics back into the narrative, with an “Iteration” label below. Baseline motion is subtle and disabled when reduced motion is preferred.',
-      systemStrip: 'From narrative to visible KPIs',
+        'Four steps left to right: channels, narrative (second step emphasized), execution, and metrics. One horizontal flow spine runs beneath the cards; how metrics feed back into the narrative is explained in text below the diagram. Subtle line motion is disabled when reduced motion is preferred.',
+      systemStrip: 'From message to KPIs',
       diagramCaption: 'Four steps in one flow; metrics feed corrections back into the narrative.',
       diagramLoopLabel: 'Iteration: metrics → narrative',
       nodeHint1: 'Reach',
