@@ -37,8 +37,8 @@ npm run preview
 Žr. [.env.example](.env.example).
 
 - `PUBLIC_CONTACT_EMAIL` — rodomas `mailto:` kontaktinėje sekcijoje.
-- `PUBLIC_SITE_URL` — kanoninis **domenas** (pvz. `https://ditreneris.github.io`), be repo kelio; OG, `hreflang`, sitemap.
-- `ASTRO_BASE` — Astro `base`: GitHub projektui **`/intuit`** (numatytasis faile); Vercel šakninei URL reikės **`/`**.
+- `PUBLIC_SITE_URL` — kanoninis **domenas** (pvz. `https://ditreneris.github.io`), be repo kelio; OG, `hreflang`, sitemap. Jei nenurodyta Vercel build’e, naudojamas `https://$VERCEL_URL` (Vercel pats nustato).
+- `ASTRO_BASE` — Astro `base`: GitHub projektui **`/intuit`** (numatytasis, kai kintamasis nenurodytas ir ne Vercel). Vercel build be šio kintamojo naudoja šaknį **`/`** automatiškai; rankinis **`ASTRO_BASE=/`** vis dar leidžiamas.
 
 ## GitHub Pages
 
@@ -54,11 +54,11 @@ Po sėkmingo deploy: **`https://ditreneris.github.io/intuit/`**, **`…/intuit/e
 - Patikrinkite kalbos jungiklį, hero paveikslus, **`/intuit/sitemap.xml`**.
 - **SVG ženklas:** [`public/brand/logo-light.svg`](public/brand/logo-light.svg) per `<picture>` su JPG fallback (`Header`, `TrustedBy`). Pilnas vektorinis eksportas iš `INTUIT LOGO/` vėliau gali pakeisti dabartinį stem (sinchronizuota su `favicon.svg`).
 
-## Vercel (vėliau)
+## Vercel
 
 1. Importuokite repo į [Vercel](https://vercel.com).
 2. **Build Command** `npm run build`; **Output** `dist`.
-3. Aplinkos kintamieji: **`PUBLIC_SITE_URL`** = pilnas jūsų domenas (pvz. `https://xxx.vercel.app`), **`ASTRO_BASE=/`** (privaloma — kitaip liktų `/intuit` prefiksas iš numatytojo).
+3. Be papildomų kintamųjų Vercel build automatiškai naudoja **`base: /`** (kad CSS ir statiniai keliai sutaptų su šaknine URL) ir kanoninį domeną iš **`VERCEL_URL`**. Jei naudojate **asmeninį domenį**, nustatykite **`PUBLIC_SITE_URL`** (pilnas `https://…`) kanoniniams URL ir OG.
 
 Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 

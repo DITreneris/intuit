@@ -4,22 +4,30 @@ import tailwind from '@astrojs/tailwind';
 
 /** Kanoninis domenas (be repo kelio). GitHub Pages: `https://<user>.github.io`; Vercel: `https://<projektas>.vercel.app` */
 const defaultSite = 'https://ditreneris.github.io';
-const site =
-  process.env.PUBLIC_SITE_URL?.trim() || process.env.SITE_URL?.trim() || defaultSite;
+const publicTrim = process.env.PUBLIC_SITE_URL?.trim();
+const siteUrlTrim = process.env.SITE_URL?.trim();
+const vercelUrl = process.env.VERCEL_URL?.trim();
+const vercelDerivedSite =
+  process.env.VERCEL === '1' && vercelUrl ? `https://${vercelUrl}` : '';
+const site = publicTrim || siteUrlTrim || vercelDerivedSite || defaultSite;
 
 /**
- * GitHub Pages projektas: `/repo` (be trailing slash, kaip Astro docs).
- * Vercel šakninis deploy: `ASTRO_BASE=/` arba `ASTRO_BASE=` (tuščia → `/`).
+ * Kai `ASTRO_BASE` nenurodytas: GitHub Pages projektas → `/intuit`; Vercel build (`VERCEL=1`) → `/`.
+ * Kai `ASTRO_BASE` nustatytas (įskaitant tuščią eilutę iš env): normalizuojama žemiau (tuščia → `/intuit`).
  */
-const baseRaw = process.env.ASTRO_BASE?.trim();
+function normalizeExplicitBase(baseRaw) {
+  const b = baseRaw.trim();
+  if (b === '') return '/intuit';
+  if (b === '/') return '/';
+  return b.startsWith('/') ? b.replace(/\/$/, '') || '/' : `/${b.replace(/\/$/, '')}`;
+}
+
 const base =
-  baseRaw === '' || baseRaw === undefined
-    ? '/intuit'
-    : baseRaw === '/'
+  process.env.ASTRO_BASE === undefined
+    ? process.env.VERCEL === '1'
       ? '/'
-      : baseRaw.startsWith('/')
-        ? baseRaw.replace(/\/$/, '') || '/'
-        : `/${baseRaw.replace(/\/$/, '')}`;
+      : '/intuit'
+    : normalizeExplicitBase(process.env.ASTRO_BASE);
 
 /** Statiniam build generuoja `dist/sitemap.xml` pagal `site` + `base` */
 function intuitSitemap({ siteOrigin, basePath }) {
