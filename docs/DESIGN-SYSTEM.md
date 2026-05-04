@@ -32,7 +32,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 - Body sekcijose: dažnai `text-base md:text-lg` ilgesniam paaiškinimui; kortelėse — `text-sm` su `leading-relaxed`.
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
-- **Hero diagrama ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)):** antraštė, caption ir HTML legenda — **`text-2xs`**; SVG viduje `<text>` etiketes laikyti **mikro skale** (`font-size` 10–11, atitinka `text-2xs`), **ne** įvedinėti vidutinio body dydžio šrifto.
+- **Hero diagrama ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)):** antraštė ir caption — **`text-2xs`**; matomos HTML legendos nėra. SVG viduje `<text>` etiketes laikyti **mikro skale** (`font-size` 10–11, atitinka `text-2xs`), **ne** įvedinėti vidutinio body dydžio šrifto.
 - **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`** (ta pati radius kalba kaip `.card` ir diagramų konteineriai).
 
 ## Šešėliai
@@ -57,12 +57,14 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 
 ## Hero diagrama (product vizualinė kalba)
 
+- **Hierarchija:** pagrindinis signalas — horizontalus **forward** srautas (1→4); feedback kilpa — **tertinė** (žemiau kontrasto nei forward).
 - **Forward (1→4):** `accent`, storesnis stroke (~2.5) — pagrindinis vykdymo srautas.
-- **Feedback (rodikliai → žinutė):** `diagramElectric`, plonesnis stroke (~2.25), žemesnė matoma masė (`opacity` ~0.88), **ortogonalus** kelias (H/V, `stroke-linejoin: round`), ne Bezier „ovalas“.
-- **Konteineris:** `bg-diagram-radial` visada; `bg-diagram-glow` tik **md+**; mobile radial šiek tiek prislopinta (`opacity-80`), mažiau konkurencijos su kortelėmis.
-- **Animacija:** punktyrinės kilpos judesys tik **desktop (md+)** per `.hero-diagram-dash-animate` (~20s); mobile kilpa statiška. `prefers-reduced-motion` toliau sutrumpina animacijas globaliai.
+- **Feedback (rodikliai → žinutė):** `diagramElectric`, plonesnis stroke (~1.75), mažesnė matoma masė (`opacity` ~0.52), **statiška** punktyra (be animacijos), **ortogonalus** kelias (H/V, `stroke-linejoin: round`).
+- **Mazgų kortelės:** vienodas `paper` / `line` stilius visiems keturiems žingsniams; kilpos „centras“ semantiškai — caption ir `svgDesc`, ne atskiras išryškinimas.
+- **Matoma legenda:** nenaudoti — aiškinimas caption + `hero.diagram.svgDesc` (ekrano skaityklėms).
+- **Konteineris:** `bg-diagram-radial` visada; `bg-diagram-glow` tik **md+**; mobile radial šiek tiek prislopinta (`opacity-80`); išorėje `overflow-visible` ir horizontalus padding, kad SVG nesikirstų su apvaliais kampais.
 
-Žr. implementaciją: [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro), animacija — [`global.css`](../src/styles/global.css) `@keyframes hero-diagram-dash`.
+Žr. implementaciją: [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro).
 
 ## `:root` kintamieji (`--ds-*`)
 
@@ -97,5 +99,5 @@ Keičiant brand spalvas — pirmiausia `tailwind.config.mjs`, tada patikrinti `g
 
 ## Raster iliustracijos (Proof)
 
-- Metodikos blokas: [`Proof.astro`](../src/components/sections/Proof.astro) — `<picture>` su **`illustration_method.webp`** (`type="image/webp"`) ir PNG atsarginiu [`public/illustration_method.png`](../public/illustration_method.png); `width` / `height` atitinka šaltinio matmenis (mažinti LCP ir CLS).
+- Metodikos blokas: [`Proof.astro`](../src/components/sections/Proof.astro) — virš vaizdo tik **`messages.proof.demoLabel`** (viena etiketė, be antrinio paaiškinimo šone arba atskiro antraštės eilutės ant paveikslo); `<picture>` su **`illustration_method.webp`** (`type="image/webp"`) ir PNG atsarginiu [`public/illustration_method.png`](../public/illustration_method.png); `width` / `height` atitinka šaltinio matmenis (mažinti LCP ir CLS).
 - Bloką juosia dashed rėmelis ir `bg-aiSoft/40`, kad iliustracija būtų aiškiai atskirta nuo metrikų kortelių aukščiau.

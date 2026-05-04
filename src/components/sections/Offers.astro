@@ -8,6 +8,9 @@ interface Props {
 }
 
 const { messages } = Astro.props;
+
+const isHighlighted = (tier: (typeof messages.offers.tiers)[number]) =>
+  'highlighted' in tier && tier.highlighted === true;
 ---
 
 <section id="offers" class="scroll-mt-28 border-b border-line bg-surface">
@@ -19,7 +22,7 @@ const { messages } = Astro.props;
 
     <div class="grid gap-6 md:grid-cols-3">
       {messages.offers.tiers.map((tier) => (
-        <article class:list={[tier.highlighted ? 'card-featured' : 'card flex flex-col p-6']}>
+        <article class:list={[isHighlighted(tier) ? 'card-featured' : 'card flex flex-col p-6']}>
           <div class="flex items-start justify-between gap-3">
             <div>
               <h3 class="text-xl font-semibold leading-snug">{tier.name}</h3>
@@ -35,7 +38,7 @@ const { messages } = Astro.props;
               </li>
             ))}
           </ul>
-          {tier.highlighted ? (
+          {isHighlighted(tier) ? (
             <ButtonPrimary href="#contact" class="mt-8 w-full">
               {tier.cta}
             </ButtonPrimary>

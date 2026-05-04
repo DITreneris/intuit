@@ -29,17 +29,17 @@
 
 ## 2. Pagrindinis CTA (trumpa etiketė viršuje / ilgesnis apačioje)
 
-**Trumpas tekstas** Hero ir Header (bei Offers `Starter` mygtukas) — draugiškesnis SME B2B tonas; **ilgesnis** galinio bloko mygtukas ir `mailto:` `subject` šiek tiek formalesnis (pirmas kontaktas → konsultacija).
+**Trumpas tekstas** Hero ir Header (bei Offers `Starter` mygtukas) — aiški konsultacijos nuoroda; **ilgesnis** galinio bloko mygtukas ir `mailto:` `subject` išlieka formalesni (užsakymas / tema laiške).
 
 | Vieta | LT | EN (US) |
 |-------|----|---------|
-| Hero (`hero.ctaPrimary`) | **Užsukam pokalbį** | **Let’s talk** |
-| Header primary (= hero) | Užsukam pokalbį | Let’s talk |
-| Offers `Starter` (`tiers[0].cta`) | Užsukam pokalbį | Let’s talk |
+| Hero (`hero.ctaPrimary`) | **Gauti konsultaciją** | **Book a consultation** |
+| Header primary (= hero) | Gauti konsultaciją | Book a consultation |
+| Offers `Starter` (`tiers[0].cta`) | Gauti konsultaciją | Book a consultation |
 | Final CTA (`finalCta.cta`) ir `mailto:` subject | **Užsisakyti konsultaciją** | **Book a consultation** |
 | Secondary (`hero.ctaSecondary`) | 4 žingsniai | Four steps |
 
-**Komentaras:** viršuje — **trumpa** pokalbio etiketė; apačioje ir el. laiške — **pilnesnis** pažadas (konsultacija). Paketo `Starter` bullet’uose toliau aišku, kas įeina (apžvalga, planas).
+**Komentaras:** Hero / Header / Starter — **trumpas** konsultacijos kvietimas; galiniame bloke ir el. laiške — **pilnesnė** užsakymo formulė. Paketo `Starter` bullet’uose toliau aišku, kas įeina (apžvalga, planas).
 
 ---
 
@@ -49,7 +49,7 @@ Paraleli struktūra — visi veiksmažodžio inicijuoti, vienodas „svoris“:
 
 | Paketas | LT cta | EN cta |
 |---------|--------|--------|
-| Startas / Starter | **Užsukam pokalbį** | **Let’s talk** |
+| Startas / Starter | **Gauti konsultaciją** | **Book a consultation** |
 | Įgyvendinimas / Delivery (`highlighted`) | **Aptarti įgyvendinimą** | **Plan the delivery** |
 | Mastelis / Scale | **Aptarti mastelį** | **Discuss scale** |
 
@@ -74,7 +74,7 @@ Viena semantinė linija — **reaktyvumas vs ritmas** (sutampa su `problem.bulle
 | Laukas | LT | EN |
 |--------|----|----|
 | `chaosBadge` | **Reaktyviai** | **Reactive** |
-| `systemBadge` | Ritmu | Rhythm |
+| `systemBadge` | Ritmingai | Cadence |
 | `chaosTitle` | Chaosas | Chaos |
 | `systemTitle` | Tvarka | Order |
 
@@ -151,6 +151,7 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
 | `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovybei“ |
 | `proof.body` | „...**prieš/po** skaičiai...“ | „...**prieš / po** skaičius...“ + sakinio perfrazavimas |
+| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta (dubliavo `proof.body`); demobloku lieka `demoLabel` + iliustracija. |
 | `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
 | `trustedBy.scrollAriaLabel` | — | „Klientų logotipai — slinkite horizontaliai“ (slankiojančios srities `aria-label`) |
 | `hero.diagram.systemStrip` | „Kontrolė ir matavimas“ | „Valdomas rezultatas“ (diagrama — vertė, ne procesas) |

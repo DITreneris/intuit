@@ -27,23 +27,20 @@ export const en = {
     title: 'Less chaos. More clarity. Better results.',
     subtitle:
       'Practical guidance from PR and marketing through crisis communications. Want to talk?',
-    ctaPrimary: "Let's talk",
+    ctaPrimary: 'Book a consultation',
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',
     diagram: {
       svgTitle: 'Communications control diagram',
       svgDesc:
-        'Four equal steps left to right: channels, narrative, execution, and metrics. Solid connectors show the delivery sequence. The dashed orthogonal loop below routes metrics back into the narrative; a short label sits under the horizontal segment. On large screens the dash pattern animates subtly; on small screens it stays static.',
+        'Four equal steps left to right: channels, narrative, execution, and metrics. Solid arrows show the delivery sequence. A subtle dashed orthogonal loop under the row routes metrics back into the narrative; it is lower contrast than the main flow and does not animate. There is no visible legend—the caption above the diagram explains the idea.',
       systemStrip: 'Controlled outcomes',
       diagramCaption:
         'One clear sequence; metrics close the loop by refining the narrative.',
-      loopPathLabel: 'Refine narrative',
-      legendForward: 'Delivery sequence',
-      legendLoop: 'Tune from metrics',
-      nodeHint1: 'Where audiences meet you',
-      nodeHint2: 'One coherent story',
-      nodeHint3: 'Run to plan',
-      nodeHint4: 'Impact leadership can see',
+      nodeHint1: 'Reach',
+      nodeHint2: 'One story',
+      nodeHint3: 'On plan',
+      nodeHint4: 'Exec-ready',
       layerInputs: 'Channels',
       layerStrategy: 'Narrative',
       layerAi: 'Execution',
@@ -128,16 +125,14 @@ export const en = {
     title: 'Metrics leaders can act on',
     body:
       'We add concrete before / after numbers once you’ve approved them. Until then—a transparent methodology sample, not vanity KPIs.',
-    metricsIntro: 'Typical direction after rollout (illustrative):',
     metrics: [
       { label: 'Clarity', value: '↑', hint: 'one narrative' },
       { label: 'Speed', value: '↑', hint: 'repeatable templates' },
       { label: 'Control', value: '↑', hint: 'visible metrics' },
     ],
     demoLabel: 'Sample',
-    demoNote: 'Illustrative methodology—real figures only with your consent.',
     methodologyIllustrationAlt:
-      'Sample methodology infographic: communication system, media share by brand and market, themes, tone, and strategic direction',
+      'Sample leadership dashboard—communications, channels, themes, and strategy in one view',
   },
   offers: {
     title: 'Choose the depth',
@@ -148,7 +143,7 @@ export const en = {
         tag: 'Review and plan',
         price: 'Custom',
         bullets: ['Communications review', '90-day plan'],
-        cta: "Let's talk",
+        cta: 'Book a consultation',
       },
       {
         name: 'Delivery',

@@ -7,6 +7,12 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
+- **Hero diagrama — clarity pass (variantas C)** ([`src/components/HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro), [`src/styles/global.css`](src/styles/global.css), [`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md)): pašalinta matoma HTML legenda ir kilpos etiketė SVG; punktyrinė kilpa statiška, silpnesnė (~`opacity` 0.52, stroke ~1.75); pašalinta `.hero-diagram-dash-animate` ir `@keyframes hero-diagram-dash`; keturi mazgai vienodu kortelių stiliumi (be išskirto `aiSoft` 2 žingsnyje); suvienodintos linijinės ikonos (wifi / žinutė / tendencija / stulpeliai); sutrumpinti `nodeHint`; `svgDesc` atnaujintas; konteineris `overflow-visible` + horizontalus padding.
+
+- **Proof demoblokas** ([`src/components/sections/Proof.astro`](src/components/sections/Proof.astro), [`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)): pašalinti `metricsIntro` ir `demoNote` (dubliavo `proof.body`); viena kolona — `demoLabel` + iliustracija; sutrumpintas `methodologyIllustrationAlt`; [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) Raster skyrius.
+
+- **Copy:** LT Hero / Header / Offers Starter CTA → „Gauti konsultaciją“ (vietoje „Užsukam pokalbį“); `chaosVsSystem.systemBadge` LT „Ritmingai“, EN „Cadence“; EN Hero ir Starter CTA — „Book a consultation“. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md).
+
 - **Mikro vizualinė darna** ([`src/components/Header.astro`](src/components/Header.astro) — nav `text-2xs`; [`src/components/sections/FinalCta.astro`](src/components/sections/FinalCta.astro) — portretas `rounded-xl`; [`todo.md`](todo.md) — PRD/DS v1.5, UTF-8; [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) — Header / kontaktų portretas).
 
 - **Kontaktų kortelė — Nerijaus nuotrauka** ([`src/components/sections/FinalCta.astro`](src/components/sections/FinalCta.astro), [`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)): optimizuoti rasteriai [`public/brand/contact-nerijus.webp`](public/brand/contact-nerijus.webp) + [`contact-nerijus.jpg`](public/brand/contact-nerijus.jpg) (480×480, `cover`, šaltinis repo šaknis `nerijuss.jpg`); `finalCta.contactPhotoAlt`; `<picture>` blokelyje šalia ženklo ir kontaktų.

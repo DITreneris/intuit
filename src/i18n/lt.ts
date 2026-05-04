@@ -27,25 +27,21 @@ export const lt = {
     title: 'Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
     subtitle:
       'Profesionalios konsultacijos nuo viešųjų ryšių iki rinkodaros ir krizių valdymo. Pasikalbam?',
-    ctaPrimary: 'Užsukam pokalbį',
+    ctaPrimary: 'Gauti konsultaciją',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
     diagram: {
       svgTitle: 'Komunikacijos valdymo schema',
       svgDesc:
-        'Keturi vienodo dydžio žingsniai iš kairės į dešinę: kanalai, žinutė, vykdymas, rodikliai. Vientisa linija — nuoseklus vykdymas. Punktyrinė ortogonalinė kilpa apačioje (stačiakampis kanalas) rodo korekciją iš rodiklių atgal į žinutę; po horizontalia atkarpa — etiketė „Korekcija → žinutė“. Dideliame ekrane linija lengvai juda punktyrinį šabloną; mažame — statiška.',
+        'Keturi vienodo dydžio žingsniai iš kairės į dešinę: kanalai, žinutė, vykdymas, rodikliai. Tvirtos linijos su rodyklėmis — nuoseklus vykdymas. Punktyrinė ortogonalinė kilpa apačioje rodo korekciją iš rodiklių atgal į žinutę; linija statiška ir silpnesnė nei pagrindinis srautas. Matomos legendos nėra — paaiškinimas virš diagramos.',
       systemStrip: 'Valdomas rezultatas',
       /** Trumpa matoma eilutė po antrašte — kilpos prasmė */
       diagramCaption:
         'Vienas nuoseklus kelias; rodikliai grąžina korekcijas į žinutę — uždara valdymo kilpa.',
-      /** Trumpa etiketė ant feedback kilpos (savis paaiškinimas) */
-      loopPathLabel: 'Korekcija → žinutė',
-      legendForward: 'Nuoseklus vykdymas',
-      legendLoop: 'Korekcija pagal rodiklius',
-      nodeHint1: 'Kur pasiekiate auditoriją',
-      nodeHint2: 'Vieningas paaiškinimas',
-      nodeHint3: 'Darbas pagal planą',
-      nodeHint4: 'Matomas poveikis vadovybei',
+      nodeHint1: 'Pasiekiamumas',
+      nodeHint2: 'Vienas pasakojimas',
+      nodeHint3: 'Pagal planą',
+      nodeHint4: 'Vadovybei matomas',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
       layerAi: 'Vykdymas',
@@ -94,7 +90,7 @@ export const lt = {
     chaosTitle: 'Chaosas',
     systemTitle: 'Tvarka',
     chaosBadge: 'Reaktyviai',
-    systemBadge: 'Ritmu',
+    systemBadge: 'Ritmingai',
     chaosCaption: 'Nėra vienos linijos — tik kampanijos ir įvykiai.',
     systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma vadovybei.',
   },
@@ -132,16 +128,14 @@ export const lt = {
     title: 'Rodikliai, kuriuos pristatote vadovybei',
     body:
       'Konkrečius prieš / po skaičius pridėsime gavę jūsų sutikimą. Kol renkame — skaidrus metodikos pavyzdys, be dirbtinių KPI.',
-    metricsIntro: 'Tipinė kryptis po įvedimo (iliustracija):',
     metrics: [
       { label: 'Aiškumas', value: '↑', hint: 'viena žinutė' },
       { label: 'Greitis', value: '↑', hint: 'kartojami šablonai' },
       { label: 'Kontrolė', value: '↑', hint: 'matomi rodikliai' },
     ],
     demoLabel: 'Pavyzdys',
-    demoNote: 'Metodikos iliustracija — tikri skaičiai tik su sutikimu.',
     methodologyIllustrationAlt:
-      'Metodikos pavyzdžio infografika: komunikacijos sistema, žiniasklaidos dalis pagal prekės ženklą ir šalį, temos, tonas ir strateginė kryptis',
+      'Pavyzdinė vadovybės suvestinė — komunikacija, kanalai, temos ir strategija viename vaizde',
   },
   offers: {
     title: 'Pasirinkite gylį',
@@ -152,7 +146,7 @@ export const lt = {
         tag: 'Apžvalga ir planas',
         price: 'Pagal poreikį',
         bullets: ['Komunikacijos apžvalga', '90 dienų planas'],
-        cta: 'Užsukam pokalbį',
+        cta: 'Gauti konsultaciją',
       },
       {
         name: 'Įgyvendinimas',

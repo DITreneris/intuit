@@ -1,7 +1,7 @@
 ---
 /**
  * Du atskiri SVG (desktop / mobile) — bet koks mazgo ar kilpos keitimas turi būti atliktas abiejuose.
- * Antraštė, paaiškinimas ir legenda — HTML (LT/EN iš messages.hero.diagram).
+ * Antraštė ir caption — HTML (LT/EN iš messages.hero.diagram).
  */
 import type { SiteMessages } from '../i18n/types';
 
@@ -14,10 +14,10 @@ const d = messages.hero.diagram;
 ---
 
 <div
-  class="relative min-h-[220px] overflow-hidden rounded-xl border border-line bg-surface p-5 shadow-softSm md:min-h-[300px] md:p-6"
+  class="relative min-h-[220px] overflow-visible rounded-xl border border-line bg-surface px-4 py-5 shadow-softSm md:min-h-[300px] md:px-6 md:py-6"
   role="group"
   aria-labelledby="hero-diagram-strip"
-  aria-describedby="hero-diagram-caption hero-diagram-sr-desc hero-diagram-legend-fwd hero-diagram-legend-loop"
+  aria-describedby="hero-diagram-caption hero-diagram-sr-desc"
 >
   <p id="hero-diagram-sr-desc" class="sr-only">{d.svgDesc}</p>
   <div class="pointer-events-none absolute inset-0 bg-diagram-radial opacity-80 md:opacity-100" aria-hidden="true"></div>
@@ -113,7 +113,7 @@ const d = messages.hero.diagram;
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M4.5 12a7.5 7.5 0 0 1 15 0M8 12a4 4 0 0 1 8 0M10.5 12h3"></path>
+        <path d="M12 20h.01M8.5 16.43a4 4 0 0 1 7 0M5 12.86a9 9 0 0 1 14 0"></path>
       </g>
       <text
         x="81"
@@ -141,7 +141,7 @@ const d = messages.hero.diagram;
       </text>
     </g>
 
-    <!-- 2 Žinutė (kilpos centras — aiSoft) — cx=235 -->
+    <!-- 2 Žinutė — tas pats kortelės stilius kaip 1/3/4 (kilpa semantiškai caption / svgDesc) -->
     <g>
       <rect
         x="162"
@@ -149,8 +149,8 @@ const d = messages.hero.diagram;
         width="146"
         height="80"
         rx="13"
-        fill="var(--ds-ai-soft)"
-        stroke="var(--ds-accent)"
+        fill="var(--ds-paper)"
+        stroke="var(--ds-line)"
         stroke-width="1.25"></rect>
       <rect
         x="170"
@@ -159,7 +159,7 @@ const d = messages.hero.diagram;
         height="22"
         rx="7"
         fill="var(--ds-accent)"
-        opacity="0.16"></rect>
+        opacity="0.12"></rect>
       <text
         x="181"
         y="47"
@@ -175,13 +175,12 @@ const d = messages.hero.diagram;
         width="30"
         height="30"
         rx="8"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-accent)"
-        stroke-width="1"
-        opacity="0.95"></rect>
+        fill="var(--ds-paper)"
+        stroke="var(--ds-line)"
+        stroke-width="1"></rect>
       <g
         transform="translate(205 41)"
-        class="text-accent"
+        class="text-muted"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -262,7 +261,7 @@ const d = messages.hero.diagram;
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M9 11l3 3L22 4M7 20h10a2 2 0 0 0 2-2V9M7 16h6"></path>
+        <path d="M5 17 L10 12 L14 15 L21 7"></path>
       </g>
       <text
         x="389"
@@ -335,7 +334,7 @@ const d = messages.hero.diagram;
         stroke-width="2"
         stroke-linecap="round"
       >
-        <path d="M18 20V10M12 20V4M6 20v-4"></path>
+        <path d="M7 18V11M12 18V7M17 18V13"></path>
       </g>
       <text
         x="543"
@@ -389,31 +388,17 @@ const d = messages.hero.diagram;
       opacity="0.95"
       marker-end="url(#hero-flow-arrow)"></path>
 
-    <!-- Kilpa: ortogonalus H-V-H kanalas (product / flowchart) -->
+    <!-- Kilpa: ortogonalus H-V-H kanalas — antrinė vizualinė masė, statiška -->
     <path
-      class="hero-diagram-dash-animate"
       d="M 543 108 L 543 142 L 235 142 L 235 108"
       fill="none"
       stroke="var(--ds-diagram-electric)"
-      stroke-width="2.25"
+      stroke-width="1.75"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-dasharray="9 7"
-      opacity="0.88"
+      stroke-dasharray="7 6"
+      opacity="0.52"
       marker-end="url(#hero-feedback-arrow)"></path>
-    <text
-      x="389"
-      y="156"
-      dominant-baseline="central"
-      text-anchor="middle"
-      fill="var(--ds-muted)"
-      font-size="10"
-      font-weight="600"
-      font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      letter-spacing="0.02em"
-    >
-      {d.loopPathLabel}
-    </text>
   </svg>
 
   <!-- Mobile: ta pati logika — keturi vienodi žingsniai, kilpa į 2 -->
@@ -494,7 +479,7 @@ const d = messages.hero.diagram;
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M4.5 12a7.5 7.5 0 0 1 15 0M8 12a4 4 0 0 1 8 0M10.5 12h3"></path>
+        <path d="M12 20h.01M8.5 16.43a4 4 0 0 1 7 0M5 12.86a9 9 0 0 1 14 0"></path>
       </g>
       <text
         x="150"
@@ -539,8 +524,8 @@ const d = messages.hero.diagram;
         width="260"
         height="76"
         rx="13"
-        fill="var(--ds-ai-soft)"
-        stroke="var(--ds-accent)"
+        fill="var(--ds-paper)"
+        stroke="var(--ds-line)"
         stroke-width="1.25"></rect>
       <rect
         x="28"
@@ -549,7 +534,7 @@ const d = messages.hero.diagram;
         height="22"
         rx="7"
         fill="var(--ds-accent)"
-        opacity="0.16"></rect>
+        opacity="0.12"></rect>
       <text
         x="39"
         y="115"
@@ -565,13 +550,12 @@ const d = messages.hero.diagram;
         width="30"
         height="30"
         rx="8"
-        fill="var(--ds-surface)"
-        stroke="var(--ds-accent)"
-        stroke-width="1"
-        opacity="0.95"></rect>
+        fill="var(--ds-paper)"
+        stroke="var(--ds-line)"
+        stroke-width="1"></rect>
       <g
         transform="translate(63 109)"
-        class="text-accent"
+        class="text-muted"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -661,7 +645,7 @@ const d = messages.hero.diagram;
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M9 11l3 3L22 4M7 20h10a2 2 0 0 0 2-2V9M7 16h6"></path>
+        <path d="M5 17 L10 12 L14 15 L21 7"></path>
       </g>
       <text
         x="150"
@@ -743,7 +727,7 @@ const d = messages.hero.diagram;
         stroke-width="2"
         stroke-linecap="round"
       >
-        <path d="M18 20V10M12 20V4M6 20v-4"></path>
+        <path d="M7 18V11M12 18V7M17 18V13"></path>
       </g>
       <text
         x="150"
@@ -776,47 +760,11 @@ const d = messages.hero.diagram;
       d="M 280 348 V 372 H 16 V 172 H 150"
       fill="none"
       stroke="var(--ds-diagram-electric)"
-      stroke-width="2.25"
+      stroke-width="1.75"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-dasharray="9 7"
-      opacity="0.88"
+      stroke-dasharray="7 6"
+      opacity="0.52"
       marker-end="url(#hero-feedback-arrow-m)"></path>
-    <text
-      x="150"
-      y="382"
-      dominant-baseline="central"
-      text-anchor="middle"
-      fill="var(--ds-muted)"
-      font-size="10"
-      font-weight="600"
-      font-family="Inter, ui-sans-serif, system-ui, sans-serif"
-      letter-spacing="0.02em"
-    >
-      {d.loopPathLabel}
-    </text>
   </svg>
-
-  <!-- Legenda — bendra desktop / mobile -->
-  <div
-    class="relative z-10 mx-auto mt-3 flex max-w-[620px] flex-wrap items-center justify-center gap-x-6 gap-y-2 px-1 md:mt-4"
-  >
-    <span class="inline-flex items-center gap-2 text-2xs text-muted">
-      <span class="relative top-px h-0.5 w-7 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
-      <span id="hero-diagram-legend-fwd">{d.legendForward}</span>
-    </span>
-    <span class="inline-flex items-center gap-2 text-2xs text-muted">
-      <svg class="h-2 w-8 shrink-0 overflow-visible text-diagramElectric" viewBox="0 0 32 8" aria-hidden="true">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-dasharray="4 3"
-          stroke-linecap="round"
-          d="M1 4h30"></path>
-        <path fill="currentColor" d="M30 4 L26 2 L26 6 Z"></path>
-      </svg>
-      <span id="hero-diagram-legend-loop">{d.legendLoop}</span>
-    </span>
-  </div>
 </div>
