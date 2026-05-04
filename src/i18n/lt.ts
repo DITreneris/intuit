@@ -51,16 +51,17 @@ export const lt = {
   trustedBy: {
     /** Tekstas prieš INTUIT ženklą antraštėje (žodis INTUIT — inline logo). */
     titleBefore: 'Klientai, kurie pasitiki',
-    hint: '←   →',
+    hint: 'Slinkite į šoną — matysite visus logotipus.',
     /** Slankiojančios juostos sritis (ekrano skaityklėms) */
     scrollAriaLabel: 'Klientų logotipai — slinkite horizontaliai',
     /** Failai: `public/clients/`; `src` be BASE_URL. */
     logos: [
+      { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logotipas' },
+      { src: 'clients/montis-magia.png', alt: 'Montis Magia logotipas' },
+      { src: 'clients/phh-group.png', alt: 'PHH Group logotipas' },
       { src: 'clients/pigu.jpg', alt: 'Pigu.lt logotipas' },
       { src: 'clients/pikas.jpg', alt: 'Pikas logotipas' },
       { src: 'clients/sirin.jpg', alt: 'Sirin logotipas' },
-      { src: 'clients/phh-group.png', alt: 'PHH Group logotipas' },
-      { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logotipas' },
       { src: 'clients/tec.png', alt: 'TEC Consulting logotipas' },
     ],
   },
@@ -87,6 +88,8 @@ export const lt = {
     caption: 'Skirtingos žinutės, chaotiški kanalai ir nuspėjamo rezultato nebuvimas.',
   },
   chaosVsSystem: {
+    /** Matoma sekcijos H2 — tiltas nuo problemos prie sprendimo. */
+    sectionTitle: 'Nuo chaoso prie aiškios tvarkos',
     chaosTitle: 'Chaosas',
     systemTitle: 'Tvarka',
     chaosBadge: 'Reaktyviai',
@@ -131,7 +134,6 @@ export const lt = {
       { label: 'Greitis', value: '↑', hint: 'kartojami šablonai' },
       { label: 'Kontrolė', value: '↑', hint: 'matomi rodikliai' },
     ],
-    brandLabel: 'Ženklas',
     brandPatternAlt:
       'Monochromas INTUIT ženklas su geometriniu chevron raštu — stilizuotas žodžio ženklas',
   },

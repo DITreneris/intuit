@@ -23,7 +23,6 @@ const links = [
 const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
-const brandLogoSvg = `${basePath}brand/logo-light.svg`;
 const brandLogoRaster = `${basePath}brand/logo-light.jpg`;
 const otherHref = lang === 'lt' ? `${basePath}en/` : basePath;
 const otherLabel = lang === 'lt' ? messages.nav.langShortEn : messages.nav.langShortLt;
@@ -35,18 +34,15 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
   class="sticky top-0 z-50 border-b border-line/80 bg-warm/90 backdrop-blur-md supports-[backdrop-filter]:bg-warm/75"
 >
   <div class="mx-auto flex max-w-content items-center justify-between gap-2 px-4 py-2.5 md:gap-3 md:px-6">
-    <a href="#hero" class="flex min-w-0 items-center gap-3">
-      <picture>
-        <source srcset={brandLogoSvg} type="image/svg+xml" />
-        <img
-          src={brandLogoRaster}
-          alt={messages.hero.logoAlt}
-          width="1000"
-          height="978"
-          class="h-10 w-auto shrink-0 md:h-11"
-          fetchpriority="high"
-        />
-      </picture>
+    <a href="#hero" class="flex shrink-0 items-center gap-3">
+      <img
+        src={brandLogoRaster}
+        alt={messages.hero.logoAlt}
+        width="1000"
+        height="978"
+        class="h-10 w-auto md:h-11"
+        fetchpriority="high"
+      />
       <span class="sr-only">{messages.nav.brand}</span>
     </a>
 
@@ -80,6 +76,9 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
           role="presentation"
         >
           <nav class="flex flex-col gap-1 text-sm font-medium text-muted" aria-label="Mobile">
+            <ButtonPrimary href="#contact" size="sm" class="mb-1 w-full shrink-0 justify-center">
+              {messages.hero.ctaPrimary}
+            </ButtonPrimary>
             {links.map((l) => (
               <a class="flex min-h-11 items-center rounded-md px-3 py-2.5 hover:bg-paper hover:text-ink" href={l.href}>
                 {l.label}

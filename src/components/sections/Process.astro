@@ -12,7 +12,10 @@ const { messages } = Astro.props;
   <div class="section-shell space-y-10">
     <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.process.title}</h2>
 
-    <div class="relative grid gap-8 md:grid-cols-4 md:gap-6" role="list">
+    <div
+      class="relative grid gap-8 border-l-2 border-accent/20 pl-5 md:border-l-0 md:pl-0 md:grid-cols-4 md:gap-6"
+      role="list"
+    >
       <div
         class="pointer-events-none absolute left-0 right-0 top-[2.375rem] hidden h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent md:block"
         aria-hidden="true"

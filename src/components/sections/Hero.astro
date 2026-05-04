@@ -23,9 +23,9 @@ const patternLightUrl = `${basePath}brand/logo-pattern-light.jpg`;
     aria-hidden="true"
   />
   <div
-    class="section-shell relative grid gap-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.12fr)] md:items-center md:gap-12"
+    class="section-shell relative grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)] md:items-start md:gap-12"
   >
-    <div class="order-2 space-y-6 md:order-1">
+    <div class="space-y-6">
       <p class="label-eyebrow">{messages.hero.eyebrow}</p>
       <h1 class="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
         {messages.hero.title}
@@ -36,8 +36,10 @@ const patternLightUrl = `${basePath}brand/logo-pattern-light.jpg`;
         <ButtonSecondary href="#process">{messages.hero.ctaSecondary}</ButtonSecondary>
       </div>
     </div>
-    <div class="order-1 min-w-0 md:order-2">
-      <BrandPatternPanel messages={messages} />
+    <div class="flex min-w-0 justify-center md:justify-end md:pt-8">
+      <div class="w-full max-w-[min(100%,28rem)] shrink-0">
+        <BrandPatternPanel messages={messages} />
+      </div>
     </div>
   </div>
 </section>

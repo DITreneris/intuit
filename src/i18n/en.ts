@@ -50,14 +50,15 @@ export const en = {
   trustedBy: {
     /** Copy adapts to logo replacing spelled brand name; not literal LT translation. */
     titleBefore: 'Clients who trust',
-    hint: '←   →',
+    hint: 'Swipe sideways to see every logo.',
     scrollAriaLabel: 'Client logos — scroll horizontally',
     logos: [
+      { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logo' },
+      { src: 'clients/montis-magia.png', alt: 'Montis Magia logo' },
+      { src: 'clients/phh-group.png', alt: 'PHH GROUP logo' },
       { src: 'clients/pigu.jpg', alt: 'Pigu.lt logo' },
       { src: 'clients/pikas.jpg', alt: 'Pikas logo' },
       { src: 'clients/sirin.jpg', alt: 'Sirin logo' },
-      { src: 'clients/phh-group.png', alt: 'PHH GROUP logo' },
-      { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logo' },
       { src: 'clients/tec.png', alt: 'TEC Consulting logo' },
     ],
   },
@@ -84,6 +85,7 @@ export const en = {
     caption: 'Mixed messages, chaotic channels, and no predictable outcomes.',
   },
   chaosVsSystem: {
+    sectionTitle: 'From chaos to a clear operating rhythm',
     chaosTitle: 'Chaos',
     systemTitle: 'Order',
     chaosBadge: 'Reactive',
@@ -128,7 +130,6 @@ export const en = {
       { label: 'Speed', value: '↑', hint: 'repeatable templates' },
       { label: 'Control', value: '↑', hint: 'visible metrics' },
     ],
-    brandLabel: 'Brand mark',
     brandPatternAlt:
       'Monochrome INTUIT wordmark with geometric chevron pattern—stylized brand lockup',
   },
