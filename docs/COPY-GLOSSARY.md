@@ -51,7 +51,7 @@ Paraleli struktūra — visi veiksmažodžio inicijuoti, vienodas „svoris“:
 |---------|--------|--------|
 | Startas / Starter | **Gauti konsultaciją** | **Book a consultation** |
 | Įgyvendinimas / Delivery (`highlighted`) | **Aptarti įgyvendinimą** | **Plan the delivery** |
-| Mastelis / Scale | **Aptarti mastelį** | **Discuss scale** |
+| Mastelis / Scale | **Aptarti plėtrą** | **Discuss growth** |
 
 `Starter` kortelės CTA sutampa su **Hero / Header** trumpu CTA; galinis blokas naudoja `finalCta.cta` (ilgesnė etiketė + `mailto` subject).
 
@@ -63,7 +63,7 @@ Paraleli struktūra — visi veiksmažodžio inicijuoti, vienodas „svoris“:
 |---------|--------|--------|---------|
 | Startas / Starter | Apžvalga ir planas | Review and plan | Be santrumpos `&` LT pusėje. |
 | Įgyvendinimas / Delivery | Kartu su komanda | With your team | OK kaip yra. |
-| Mastelis / Scale | Mastelis su sistema | **Operating at scale** | EN buvo `More automated` — keičiame į neutraliau B2B; LT taip pat sušvelniname „daugiau automatizuota“. |
+| Mastelis / Scale | **Šablonai ir kokybė** | **Playbooks and quality** | Ženkliukas (`price`): LT „**Pagal apimtį**“, EN „**By scope**“. Tag atitinka sąrašo punktus (šablonų biblioteka, kokybės linija). |
 
 ---
 
@@ -166,8 +166,8 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `chaosVsSystem.chaosBadge` | „Reactive“ | „Reactive“ (LT pusė pasivyja: „Reaktyviai“) |
 | `proof.title` | „Outcomes leadership can read“ | „Metrics leaders can act on“ |
 | `proof.body` | „...with your approval...“ | „...once you’ve approved them...“ (natūraliau) |
-| `offers.tiers[2].tag` | „More automated“ | „Operating at scale“ |
-| `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Plan the delivery“ / „Discuss scale“ |
+| `offers.tiers[2].tag` | … | LT „Šablonai ir kokybė“; EN „Playbooks and quality“ |
+| `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Plan the delivery“ / „Discuss growth“ |
 | `finalCta.cta` | „Request a communications review“ | „Book a consultation“ |
 | `finalCta.subtitle` | „Short call—mutual fit and what to do next.“ | „Short call to confirm fit and define next steps.“ |
 | `trustedBy.hint` (visible) | … | „**←   →**“ (arrows only) |

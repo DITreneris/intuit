@@ -35,18 +35,22 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
       <div class="rounded-xl border border-white/15 bg-white/10 p-6 backdrop-blur">
         <div class="mb-6 flex flex-col gap-5 sm:flex-row sm:items-start">
-          <picture class="mx-auto shrink-0 sm:mx-0">
-            <source srcset={`${basePath}brand/contact-nerijus.webp`} type="image/webp" />
-            <img
-              src={`${basePath}brand/contact-nerijus.jpg`}
-              alt={messages.finalCta.contactPhotoAlt}
-              width="480"
-              height="480"
-              class="h-28 w-28 rounded-xl object-cover ring-1 ring-white/20 md:h-32 md:w-32"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
+          <div
+            class="relative mx-auto h-28 w-28 shrink-0 overflow-hidden rounded-xl ring-1 ring-white/20 sm:mx-0 md:h-32 md:w-32"
+          >
+            <picture class="block h-full w-full">
+              <source srcset={`${basePath}brand/contact-nerijus.webp`} type="image/webp" />
+              <img
+                src={`${basePath}brand/contact-nerijus.jpg`}
+                alt={messages.finalCta.contactPhotoAlt}
+                width="480"
+                height="480"
+                class="h-full w-full origin-[72%_38%] scale-[1.2] object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
 
           <div class="min-w-0 flex-1 space-y-4">
             <img

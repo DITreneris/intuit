@@ -33,7 +33,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
 - **Hero diagrama ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)):** antraštė ir caption — **`text-2xs`**; matomos HTML legendos nėra. SVG viduje `<text>` etiketes laikyti **mikro skale** (`font-size` 10–11, atitinka `text-2xs`), **ne** įvedinėti vidutinio body dydžio šrifto.
-- **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`** (ta pati radius kalba kaip `.card` ir diagramų konteineriai).
+- **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido.
 
 ## Šešėliai
 

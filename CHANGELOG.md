@@ -7,6 +7,10 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
+- **FinalCta portretas** ([`src/components/sections/FinalCta.astro`](src/components/sections/FinalCta.astro), [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)): asimetriškam 1:1 šaltiniui — `overflow-hidden` + `scale` / `origin` kad sumažėtų kairysis „tuščias“ laukas; rekomenduojama vėliau pakeisti `contact-nerijus` failus su centruota kompozicija.
+
+- **Offers — Mastelis / Scale paketas:** LT ženkliukas „Pagal apimtį“, tag „Šablonai ir kokybė“, CTA „Aptarti plėtrą“; EN „By scope“, „Playbooks and quality“, „Discuss growth“ — mažiau „mastelio“ / „scale“ kartojimo prieš pavadinimą ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md)).
+
 - **Hero diagrama — clarity pass (variantas C)** ([`src/components/HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro), [`src/styles/global.css`](src/styles/global.css), [`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md)): pašalinta matoma HTML legenda ir kilpos etiketė SVG; punktyrinė kilpa statiška, silpnesnė (~`opacity` 0.52, stroke ~1.75); pašalinta `.hero-diagram-dash-animate` ir `@keyframes hero-diagram-dash`; keturi mazgai vienodu kortelių stiliumi (be išskirto `aiSoft` 2 žingsnyje); suvienodintos linijinės ikonos (wifi / žinutė / tendencija / stulpeliai); sutrumpinti `nodeHint`; `svgDesc` atnaujintas; konteineris `overflow-visible` + horizontalus padding.
 
 - **Proof demoblokas** ([`src/components/sections/Proof.astro`](src/components/sections/Proof.astro), [`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts)): pašalinti `metricsIntro` ir `demoNote` (dubliavo `proof.body`); viena kolona — `demoLabel` + iliustracija; sutrumpintas `methodologyIllustrationAlt`; [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) Raster skyrius.

@@ -155,10 +155,10 @@ export const en = {
       },
       {
         name: 'Scale',
-        tag: 'Operating at scale',
-        price: 'Scale-based',
+        tag: 'Playbooks and quality',
+        price: 'By scope',
         bullets: ['Workflow template library', 'Content line with QA'],
-        cta: 'Discuss scale',
+        cta: 'Discuss growth',
       },
     ],
   },

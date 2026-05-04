@@ -158,10 +158,10 @@ export const lt = {
       },
       {
         name: 'Mastelis',
-        tag: 'Mastelis su sistema',
-        price: 'Pagal mastelį',
+        tag: 'Šablonai ir kokybė',
+        price: 'Pagal apimtį',
         bullets: ['Darbo šablonų biblioteka', 'Turinio linija su kokybe'],
-        cta: 'Aptarti mastelį',
+        cta: 'Aptarti plėtrą',
       },
     ],
   },
