@@ -32,8 +32,17 @@ export const lt = {
     diagram: {
       svgTitle: 'Komunikacijos valdymo schema',
       svgDesc:
-        'Valdomas komunikacijos rezultatas: kanalai, žinutė, vykdymas ir rodikliai; rodikliai grįžta į žinutę optimizacijos kilpa',
+        'Keturi žingsniai: kanalai, žinutė, vykdymas ir rodikliai. Nuoseklus vykdymas eina iš kairės į dešinę; punktyrinė linija rodo korekciją pagal rodiklius atgal į žinutę.',
       systemStrip: 'Valdomas rezultatas',
+      /** Trumpa matoma eilutė po antrašte — kilpos prasmė */
+      diagramCaption:
+        'Rodikliai grąžina korekcijas į žinutę — uždara valdymo kilpa.',
+      legendForward: 'Nuoseklus vykdymas',
+      legendLoop: 'Korekcija pagal rodiklius',
+      nodeHint1: 'Kur pasiekiate auditoriją',
+      nodeHint2: 'Vieningas paaiškinimas',
+      nodeHint3: 'Darbas pagal planą',
+      nodeHint4: 'Matomas poveikis vadovybei',
       layerInputs: 'Kanalai',
       layerStrategy: 'Žinutė',
       layerAi: 'Vykdymas',
@@ -50,29 +59,32 @@ export const lt = {
       { src: 'clients/pigu.jpg', alt: 'Pigu.lt logotipas' },
       { src: 'clients/pikas.jpg', alt: 'Pikas logotipas' },
       { src: 'clients/sirin.jpg', alt: 'Sirin logotipas' },
+      { src: 'clients/phh-group.png', alt: 'PHH Group logotipas' },
+      { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logotipas' },
+      { src: 'clients/tec.png', alt: 'TEC Consulting logotipas' },
     ],
   },
   problem: {
-    title: 'Kai viskas vyksta atskirai',
+    title: 'Kodėl jūsų komunikacija neveikia kaip sistema',
     bullets: [
       {
-        signal: 'Fragmentacija',
-        detail: 'Komandos ir kanalai nesutampa — viena žinia klientui.',
+        signal: 'Skirtingos žinutės klientui',
+        detail: 'Komandos kalba nevienodai — pasitikėjimas krenta.',
       },
       {
-        signal: 'Tik reakcija',
-        detail: 'PR tik į įvykius — nėra aiškaus ritmo.',
+        signal: 'Komunikacija tik reaguoja',
+        detail: 'Nėra strategijos — prarandamas kontrolės jausmas.',
       },
       {
-        signal: 'Atskirti kanalai',
-        detail: 'Rinkodara ir reputacija nedirba kartu.',
+        signal: 'Kanalai neveikia kartu',
+        detail: 'Marketingas ir reputacija nesusijungia.',
       },
       {
-        signal: 'Įrankiai be taisyklių',
-        detail: 'Nauji įrankiai be proceso — daugiau triukšmo ir rizikos.',
+        signal: 'Įrankiai be sistemos',
+        detail: 'Daugiau triukšmo, mažiau rezultato.',
       },
     ],
-    caption: 'Dažnas rezultatas: nepastovumas ir sunkiai paaiškinamas efektas vadovybei.',
+    caption: 'Skirtingos žinutės, chaotiški kanalai ir nuspėjamo rezultato nebuvimas.',
   },
   chaosVsSystem: {
     chaosTitle: 'Chaosas',

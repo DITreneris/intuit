@@ -8,12 +8,6 @@ interface Props {
 }
 
 const { messages } = Astro.props;
-
-const tierIcons = [
-  `<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`,
-  `<rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/>`,
-  `<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M23 6l-9.5 9.5-5-5L1 18M17 6h6v6"/>`,
-] as const;
 ---
 
 <section id="offers" class="scroll-mt-28 border-b border-line bg-surface">
@@ -24,14 +18,8 @@ const tierIcons = [
     </div>
 
     <div class="grid gap-6 md:grid-cols-3">
-      {messages.offers.tiers.map((tier, idx) => (
+      {messages.offers.tiers.map((tier) => (
         <article class:list={[tier.highlighted ? 'card-featured' : 'card flex flex-col p-6']}>
-          <span
-            class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-accent/15 bg-accent/5 text-accent"
-            aria-hidden="true"
-          >
-            <svg class="h-6 w-6" viewBox="0 0 24 24" set:html={tierIcons[idx] ?? tierIcons[0]} />
-          </span>
           <div class="flex items-start justify-between gap-3">
             <div>
               <h3 class="text-xl font-semibold leading-snug">{tier.name}</h3>

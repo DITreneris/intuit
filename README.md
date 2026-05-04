@@ -6,7 +6,7 @@ Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-pag
 
 - **[AGENTS.md](AGENTS.md)** — Cursor agentams: ką skaityti pirmiausia, pagrindiniai keliai, nuoroda į taisykles.
 - **[docs/README.md](docs/README.md)** — dokumentų rodyklė ir valdymo taisyklės (PRD, BRAND, DS, changelog, darbo planas).
-- **[docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)** — Design System v1.3 (tokenai, CTA, sekcijų ikonų šablonas, checklist).
+- **[docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)** — Design System v1.4 (tokenai, CTA, kortelių akcentas, checklist).
 - **[CHANGELOG.md](CHANGELOG.md)** — versijų istorija (Keep a Changelog).
 - **[todo.md](todo.md)** — vykdymo planas ir checklist.
 - **Cursor taisyklės:** [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc) (stackas, i18n, Tailwind, `intuit-sitemap`, komponentai).

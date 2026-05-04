@@ -69,7 +69,7 @@ Paraleli struktūra — visi veiksmažodžio inicijuoti, vienodas „svoris“:
 
 ## 5. `chaosVsSystem` badge porų suderinimas
 
-Viena semantinė linija — **reaktyvumas vs ritmas** (sutampa su `problem.bullets[1]` „Tik reakcija“).
+Viena semantinė linija — **reaktyvumas vs ritmas** (sutampa su `problem.bullets[1]` „Komunikacija tik reaguoja“).
 
 | Laukas | LT | EN |
 |--------|----|----|
@@ -141,7 +141,6 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 
 | Vieta | Buvo | Bus |
 |-------|------|-----|
-| `problem.bullets[2].detail` | „Rinkodara ir reputacija **ne dirba** kartu.“ | „Rinkodara ir reputacija **nedirba** kartu.“ |
 | `solution.intro` | „...kad **būtų matoma eigą ir rezultatą**.“ | „...kad **eiga ir rezultatas būtų matomi**.“ |
 | `finalCta.subtitle` | „...ar **tiksime** vieni kitiems...“ | „...ar **tinkame** vieni kitiems...“ |
 | `solution.pillars[2].name` | „Kasdienė **operacija**“ | „Kasdienė **veikla**“ |

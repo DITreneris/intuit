@@ -1,4 +1,4 @@
-# Design System v1.3 (INTUIT landing)
+# Design System v1.4 (INTUIT landing)
 
 Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD-one-page-PR-AI.md](PRD-one-page-PR-AI.md); ženklas / šriftas — [BRAND.md](BRAND.md).
 
@@ -44,12 +44,13 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 
 Nenaudoti naujų „pill“ `<a>` su ranka rašytomis klasėmis — tik UI komponentai arba PRD pagrindu atnaujinti komponentą.
 
-## Sekcijų šablonas: ikona virš teksto
+## Sekcijų šablonas: kortelės akcentas (ikona neprivaloma)
 
-- **Inline SVG** (be išorinės icon bibliotekos): `viewBox="0 0 24 24"`, `stroke-width="2"`, `stroke="currentColor"`, dažnai `h-6 w-6` konteineryje.
-- **Konteineris:** `flex h-12 w-12 items-center justify-center rounded-xl border border-accent/15 bg-accent/5 text-accent` (Problem chaos variantas — `danger*` tokenai).
-- **Eilė:** ikona → antraštė (`font-semibold`) → antrinis tekstas (`text-muted` kur tinka).
-- **Taikoma:** `Problem`, `Solution`, `Process`, `Proof`, `Offers`, `About`; `ChaosVsSystem` — maža ikona šalia etiketės.
+Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antraštės“ šabloną — vizualiai greitai **nusibosta**. Kur ikona **tikrai atskiria** blokus (pvz. skirtingi signalai), naudokite ją; kitur tinka **numeruota eiga**, maži taškai / varnelės sąraše, gryna antraštė ar **didelis skaičius** (metrikos).
+
+- **Kai naudojate ikoną:** inline SVG (be išorinės bibliotekos): `viewBox="0 0 24 24"`, `stroke-width="2"`, `stroke="currentColor"`, dažnai `h-6 w-6` konteineryje `flex h-12 w-12 … rounded-xl border border-accent/15 bg-accent/5 text-accent` (Problem „chaos“ kortelei — `danger*` tokenai).
+- **Alternatyvos:** žingsnių numeriai (`Process`), sąrašo taškai ar ✓ (`Solution`, `Offers`), tik tipografija (`About`), dominuojantis skaičius (`Proof`).
+- **Dabartinė praktika (landing):** didelės kortelių ikonos — **[`Problem`](../src/components/sections/Problem.astro)**; diagramos (ne kortelių dekoras) — **[`HeroSystemDiagram`](../src/components/HeroSystemDiagram.astro)**, **[`ChaosVsSystem`](../src/components/sections/ChaosVsSystem.astro)**. **`Solution`**, **`Process`**, **`Proof`**, **`Offers`**, **`About`** — be viršutinės ikonos kortelėje.
 
 ## `:root` kintamieji (`--ds-*`)
 
@@ -68,4 +69,4 @@ Naudojami **SVG** fill/stroke (`HeroSystemDiagram.astro`), sinchronizuoti su `th
 - [ ] Vienas matomas H2 (arba dokumentuotas `sr-only`).
 - [ ] Primary CTA tik per `ButtonPrimary`.
 - [ ] Kortelės: `.card` / `.card-muted` / `.card-featured`.
-- [ ] Jei kortelė su keliais laukais — apsvarstykite **ikoną virš antraštės** ir trumpą body (žr. skyrių „Sekcijų šablonas“).
+- [ ] Jei kortelė su keliais laukais — apsvarstykite akcentą (ikoną, numerį ar tipografiją) ir trumpą body (žr. skyrių „Sekcijų šablonas“).
