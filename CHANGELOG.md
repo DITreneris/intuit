@@ -7,6 +7,44 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 ### Changed
 
+- **Premium SaaS polish (P1–P3):** suvienodinta „eyebrow“ (`TrustedBy` — `.label-eyebrow`, `BrandPatternPanel` — `tracking-[0.2em]`); Proof metrikos — `tabular-nums`; [`public/brand/logo-light.svg`](public/brand/logo-light.svg) + `<picture>` JPG fallback ([`Header.astro`](src/components/Header.astro), [`TrustedBy.astro`](src/components/sections/TrustedBy.astro)); ChaosVsSystem — `surface` vietoj `bg-white/*`; Header — klasė `.header-toolbar-control`; [`global.css`](src/styles/global.css) — `transition-colors` ant `a`/`button`/`summary`, `.section-border-standard`; dokumentacija — [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md), [`docs/BRAND.md`](docs/BRAND.md), [`README.md`](README.md).
+
+## [0.2.0] — 2026-05-04
+
+### Added
+
+- [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — LT/EN copy glosarijus (nuo v1.2; v1.4 — §**Agentams**): trumpas Hero/Header CTA ir ilgesnis `finalCta` + `mailto`; EN adaptacijos taisyklės Cursor agentams; nuoroda iš [docs/README.md](docs/README.md).
+- `public/brand/`: `logo-pattern-light.jpg`, `logo-pattern-dark.jpg` (šaltinis `INTUIT LOGO/jpg/`); Hero — subtilus chevron fonas (`Hero.astro`, `mix-blend-multiply`).
+- Sekcijų kortelės su **linijinėmis ikonėlėmis virš antraštės** (inline SVG): `Solution`, `Process`, `Proof`, `Offers`, `About`; `Problem` — vertikalus blokas (ikona virš signalo); `ChaosVsSystem` — mažos ikonos prie etikečių.
+- Dokumentacija sinchronizuota su kodu: [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) **v1.4**; [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) **v1.3** (ikonų šablonas, i18n šaltinis lentelėje); [docs/BRAND.md](docs/BRAND.md) — pilnas `public/brand/` sąrašas ir JPG matmenys; [docs/README.md](docs/README.md), [README.md](README.md), [AGENTS.md](AGENTS.md), [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc).
+- Landing v2 diagramų tokenai: Tailwind `diagramElectric`, `diagramLoop`, `bg-diagram-glow`; [`global.css`](src/styles/global.css) `--ds-diagram-electric`, `--ds-diagram-loop`, `--ds-success-soft`, `--ds-accent-teal`; klasė `.hero-diagram-dash-animate`; i18n `hero.diagram.controlBadge`, `kpiLabel`.
+- GitHub Pages: [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) (build `dist`, `actions/deploy-pages`).
+- Astro [`astro.config.mjs`](astro.config.mjs): numatytasis `site` → `https://ditreneris.github.io`, `base` → `/intuit`; aplinkos kintamasis **`ASTRO_BASE`** Vercel šakninei (`/`).
+- Design System: [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) (v1.1 → **v1.2** su naujais diagramų tokenais); Tailwind `danger` / `dangerSoft`, `diagramStrokeAi`, `diagramLineSoft`, `fontSize` `2xs`, `boxShadow` `elevated`, `backgroundImage` `diagram-radial`; `:root` `--ds-*` SVG (`global.css`).
+- UI primitives: [src/components/ui/ButtonPrimary.astro](src/components/ui/ButtonPrimary.astro) (`size` md/sm, `variant` default/onDark), [ButtonSecondary.astro](src/components/ui/ButtonSecondary.astro); `@layer components` klasė `.card-featured` (Offers highlighted tier).
+- i18n: `nav.langSwitchToEn` / `nav.langSwitchToLt`; Header kalbos nuoroda su `aria-label` ekrano skaityklėms.
+- i18n: `finalCta.mailBodyTemplate` (LT/EN); kontaktinis CTA — `mailto:` su `subject` ir iš anksto užpildytu `body` (`URLSearchParams`, `FinalCta.astro`).
+- Tailwind dizaino tokenai: `warm`, `surface`, `accent`, `accentTeal`, `aiSoft`, `successSoft`, `muted2`, šešėliai `soft` / `softSm`, `max-w-content` (1180px), `bg-hero-premium`.
+- `@layer components` klasės `.card` ir `.card-muted` (`src/styles/global.css`).
+- `src/components/HeroSystemDiagram.astro` — komunikacijos sistemos SVG schema (desktop + mobile; v2 — storesnis flow, KPI, kontrolė).
+- Build metu generuojamas `dist/sitemap.xml` (`astro.config.mjs` — integracija `intuit-sitemap`).
+- `Layout.astro`: `<link rel="sitemap" …>` į `/sitemap.xml`.
+- i18n: `hero.diagram` ir `chaosVsSystem` (`lt.ts` / `en.ts`).
+- Prieinamumas: „Praleisti į pagrindinį turinį“ / „Skip to main content“ (`messages.a11y.skipToMain`), nuoroda į `#main` (`Layout.astro`); `<main id="main" tabindex="-1">` (`LandingPage.astro`).
+- `global.css`: matomas `:focus-visible` kontūras nuorodoms / `button` / `summary`; `.skip-to-main` paslėptas iki fokuso.
+
+### Changed
+
+- **Dokumentacija (sinchronas su kodu):** [README.md](README.md) — Hero vs Proof vizualai (diagrama Proof, inverse Hero); [docs/BRAND.md](docs/BRAND.md), [docs/README.md](docs/README.md), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — inverse ženklo vieta; [AGENTS.md](AGENTS.md) — aiški nuoroda į `src/i18n/types.ts`; [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc) — Tailwind tokenai (`diagramElectric`, `diagramLoop`, `bg-diagram-glow`).
+
+- **TrustedBy inline ženklas:** `logo-light.jpg` aukštis `h-7 md:h-8` → `h-9 md:h-10` (artėja prie Header, vienu žingsniu mažesnis); [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) lentelė ir hierarchija, [docs/BRAND.md](docs/BRAND.md) web skalė.
+
+- **Hero / Proof vizualų sukeitimas** (i18n nekeista — `proof.brandLabel` / `proof.brandPatternAlt`):
+  - Naujas [`src/components/BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro): juodas skydelis + [`public/brand/logo-pattern-inverse.jpg`](public/brand/logo-pattern-inverse.jpg).
+  - [`src/components/sections/Hero.astro`](src/components/sections/Hero.astro): dešinėje kolonoje `BrandPatternPanel` vietoj anksčiau buvusios valdymo diagramos.
+  - [`src/components/sections/Proof.astro`](src/components/sections/Proof.astro): po metrikų [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro); inverse plakatas iš Proof pašalintas (perkeltas į Hero).
+  - Dokumentacija: [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md), [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md), [README.md](README.md), [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc).
+
 - **Design system — micro polish (v1.5, be turinio / struktūros keitimo):**
   - [`src/styles/global.css`](src/styles/global.css): `.section-shell`, `.section-shell--tight`, `.label-eyebrow`.
   - Sekcijų konteineriai per shell utility: Hero (grid), ChaosVsSystem, Problem, Solution, Process, Proof, Offers, About, FinalCta; TrustedBy — tik `.section-shell--tight` (kompaktiškas vertikalus ritmas; žr. [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)).
@@ -21,7 +59,7 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 
 - **Ženklo matmenys (nav / TrustedBy):** [`Header.astro`](src/components/Header.astro) `logo-light` — `h-10 md:h-11`; [`TrustedBy.astro`](src/components/sections/TrustedBy.astro) inline ženklas — `h-7 md:h-8`; dokumentacija [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) („Prekės ženklas (raster, JPG)“), [docs/BRAND.md](docs/BRAND.md) (hierarchija).
 
-- **Proof — brand momentas (inverse):** metodikos rasteriai pašalinti; vietoje jų [`public/brand/logo-pattern-inverse.jpg`](public/brand/logo-pattern-inverse.jpg) tamsiame skydelyje ([`src/components/sections/Proof.astro`](src/components/sections/Proof.astro)); i18n `brandLabel` / `brandPatternAlt` (LT/EN) vietoje `demoLabel` / `methodologyIllustrationAlt`; [docs/BRAND.md](docs/BRAND.md), [README.md](README.md), [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md).
+- **Proof — brand momentas (inverse), istorija:** metodikos rasteriai pašalinti; įvesti [`public/brand/logo-pattern-inverse.jpg`](public/brand/logo-pattern-inverse.jpg) ir i18n `brandLabel` / `brandPatternAlt` (LT/EN) vietoje `demoLabel` / `methodologyIllustrationAlt`; [docs/BRAND.md](docs/BRAND.md), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md). *(Anksčiau inverse skydelis buvo Proof apačioje; dabartinė vieta Hero — žr. įrašą „Hero / Proof vizualų sukeitimas“.)*
 
 - **Proof:** pašalintas `proof.body` (LT/EN) ir antrinis pastraipos blokas [`Proof.astro`](src/components/sections/Proof.astro); lieka H2, metrikų kortelės, papildomas vizualinis blokas ([`src/i18n/lt.ts`](src/i18n/lt.ts), [`src/i18n/en.ts`](src/i18n/en.ts), [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md)).
 
@@ -64,30 +102,6 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 - **Hero diagrama (premium SaaS polish)** ([`src/components/HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro)): matoma antraštė + `diagramCaption`, žingsniai 1–4, kontūrinės ikonos (`<g>` + `<path>`), antrinės eilutės `nodeHint1–4`, HTML legenda (`legendForward` / `legendLoop`), švelnus `feDropShadow` ant akcentinių mazgų, tankesnis išdėstymas; [`src/i18n/lt.ts`](src/i18n/lt.ts) / [`src/i18n/en.ts`](src/i18n/en.ts) — nauji `hero.diagram` laukai ir atnaujintas `svgDesc`; konteineris `role="group"` su `aria-labelledby` / `aria-describedby` (įskaitant legendą); dekoratyvūs SVG su `aria-hidden`. Abu SVG (desktop / mobile) sinchronizuoti.
 
 - **EN adaptacija + agentų gairės:** [`src/i18n/en.ts`](src/i18n/en.ts) suderintas su LT „Verslo komunikacija“ ir atnaujintu hero (`meta`, `hero.eyebrow` / `title` / `subtitle`, `solution.pillars[0].name` — *Business communications*). [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) v1.4 — skiltis **Agentams** (LT pirminė, EN privaloma adaptacija, ne vertimas); [AGENTS.md](AGENTS.md) ir [`.cursor/rules/intuit-landing.mdc`](.cursor/rules/intuit-landing.mdc) — aiškus reikalavimas atnaujinti EN po LT pozicionavimo pakeitimų.
-
-### Added
-
-- [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) — LT/EN copy glosarijus (nuo v1.2; v1.4 — §**Agentams**): trumpas Hero/Header CTA ir ilgesnis `finalCta` + `mailto`; EN adaptacijos taisyklės Cursor agentams; nuoroda iš [docs/README.md](docs/README.md).
-- `public/brand/`: `logo-pattern-light.jpg`, `logo-pattern-dark.jpg` (šaltinis `INTUIT LOGO/jpg/`); Hero — subtilus chevron fonas (`Hero.astro`, `mix-blend-multiply`).
-- Sekcijų kortelės su **linijinėmis ikonėlėmis virš antraštės** (inline SVG): `Solution`, `Process`, `Proof`, `Offers`, `About`; `Problem` — vertikalus blokas (ikona virš signalo); `ChaosVsSystem` — mažos ikonos prie etikečių.
-- Dokumentacija sinchronizuota su kodu: [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) **v1.4**; [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) **v1.3** (ikonų šablonas, i18n šaltinis lentelėje); [docs/BRAND.md](docs/BRAND.md) — pilnas `public/brand/` sąrašas ir JPG matmenys; [docs/README.md](docs/README.md), [README.md](README.md), [AGENTS.md](AGENTS.md), [.cursor/rules/intuit-landing.mdc](.cursor/rules/intuit-landing.mdc).
-- Landing v2 diagramų tokenai: Tailwind `diagramElectric`, `diagramLoop`, `bg-diagram-glow`; [`global.css`](src/styles/global.css) `--ds-diagram-electric`, `--ds-diagram-loop`, `--ds-success-soft`, `--ds-accent-teal`; klasė `.hero-diagram-dash-animate`; i18n `hero.diagram.controlBadge`, `kpiLabel`.
-- GitHub Pages: [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) (build `dist`, `actions/deploy-pages`).
-- Astro [`astro.config.mjs`](astro.config.mjs): numatytasis `site` → `https://ditreneris.github.io`, `base` → `/intuit`; aplinkos kintamasis **`ASTRO_BASE`** Vercel šakninei (`/`).
-- Design System: [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) (v1.1 → **v1.2** su naujais diagramų tokenais); Tailwind `danger` / `dangerSoft`, `diagramStrokeAi`, `diagramLineSoft`, `fontSize` `2xs`, `boxShadow` `elevated`, `backgroundImage` `diagram-radial`; `:root` `--ds-*` SVG (`global.css`).
-- UI primitives: [src/components/ui/ButtonPrimary.astro](src/components/ui/ButtonPrimary.astro) (`size` md/sm, `variant` default/onDark), [ButtonSecondary.astro](src/components/ui/ButtonSecondary.astro); `@layer components` klasė `.card-featured` (Offers highlighted tier).
-- i18n: `nav.langSwitchToEn` / `nav.langSwitchToLt`; Header kalbos nuoroda su `aria-label` ekrano skaityklėms.
-- i18n: `finalCta.mailBodyTemplate` (LT/EN); kontaktinis CTA — `mailto:` su `subject` ir iš anksto užpildytu `body` (`URLSearchParams`, `FinalCta.astro`).
-- Tailwind dizaino tokenai: `warm`, `surface`, `accent`, `accentTeal`, `aiSoft`, `successSoft`, `muted2`, šešėliai `soft` / `softSm`, `max-w-content` (1180px), `bg-hero-premium`.
-- `@layer components` klasės `.card` ir `.card-muted` (`src/styles/global.css`).
-- `src/components/HeroSystemDiagram.astro` — komunikacijos sistemos SVG schema (desktop + mobile; v2 — storesnis flow, KPI, kontrolė).
-- Build metu generuojamas `dist/sitemap.xml` (`astro.config.mjs` — integracija `intuit-sitemap`).
-- `Layout.astro`: `<link rel="sitemap" …>` į `/sitemap.xml`.
-- i18n: `hero.diagram` ir `chaosVsSystem` (`lt.ts` / `en.ts`).
-- Prieinamumas: „Praleisti į pagrindinį turinį“ / „Skip to main content“ (`messages.a11y.skipToMain`), nuoroda į `#main` (`Layout.astro`); `<main id="main" tabindex="-1">` (`LandingPage.astro`).
-- `global.css`: matomas `:focus-visible` kontūras nuorodoms / `button` / `summary`; `.skip-to-main` paslėptas iki fokuso.
-
-### Changed
 
 - **Header, navigacija ir CTA sluoksniai** ([Header.astro](src/components/Header.astro), [src/i18n/lt.ts](src/i18n/lt.ts), [src/i18n/en.ts](src/i18n/en.ts)): kompaktiškesnė lipni juosta — mažesnis logotipas, `text-[11px]` nav, siauresni tarpai, primary CTA su `whitespace-nowrap`; iš desktop ir mobiliojo meniu pašalinta `#contact` nuoroda (į kontaktą veda primary CTA ir [Footer](src/components/Footer.astro)). **Trumpa** etiketė Hero / Header / Offers `Starter`: LT „**Gauti konsultaciją**“, EN „**Book a call**“; **ilgesnė** galiniame bloke ir `mailto:` `subject` (`finalCta.cta`): LT „**Užsisakyti konsultaciją**“, EN „**Book a consultation**“. Žr. [docs/COPY-GLOSSARY.md](docs/COPY-GLOSSARY.md) (dabartinė versija faile).
 

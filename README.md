@@ -1,6 +1,6 @@
 # 67_Intuit — vieno puslapio landing
 
-Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema, hero su diagrama ir pasirinktiniu brand raštu, logotipai iš `public/brand/`. **Numatytasis hostingas:** [GitHub Pages](https://pages.github.com/) (`https://ditreneris.github.io/intuit/`); statiniai keliai naudoja Astro `base` (`/intuit`).
+Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema. **Hero:** dešinėje inverse plakatas per [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + subtilus `logo-pattern-light` fonas; **Proof:** metrikos, tada valdymo diagrama [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro). Logotipai iš `public/brand/`. **Numatytasis hostingas:** [GitHub Pages](https://pages.github.com/) (`https://ditreneris.github.io/intuit/`); statiniai keliai naudoja Astro `base` (`/intuit`).
 
 ## Dokumentacija
 
@@ -52,7 +52,7 @@ Po sėkmingo deploy: **`https://ditreneris.github.io/intuit/`**, **`…/intuit/e
 
 - Pirmame deploy palaukite Actions žalios varnelės; kartais reikia atnaujinti puslapį po 1–2 min.
 - Patikrinkite kalbos jungiklį, hero paveikslus, **`/intuit/sitemap.xml`**.
-- **SVG logotipas** (iš `INTUIT LOGO/ai/`) — pasirinktinai vėliau vietoj JPG geresniam masteliui ir LCP; iki tol galioja `public/brand/*.jpg`.
+- **SVG ženklas:** [`public/brand/logo-light.svg`](public/brand/logo-light.svg) per `<picture>` su JPG fallback (`Header`, `TrustedBy`). Pilnas vektorinis eksportas iš `INTUIT LOGO/` vėliau gali pakeisti dabartinį stem (sinchronizuota su `favicon.svg`).
 
 ## Vercel (vėliau)
 
@@ -69,7 +69,7 @@ Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 
 ## Brand
 
-- `public/brand/`: `logo-light.jpg`, `logo-dark.jpg`, `logo-pattern-light.jpg`, `logo-pattern-dark.jpg`, `logo-pattern-inverse.jpg` (Proof brand blokas; šaltiniai ir pastabos — [docs/BRAND.md](docs/BRAND.md)).
+- `public/brand/`: `logo-light.jpg`, `logo-dark.jpg`, `logo-pattern-light.jpg`, `logo-pattern-dark.jpg`, `logo-pattern-inverse.jpg` (Hero inverse plakatas per [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro); šaltiniai — [docs/BRAND.md](docs/BRAND.md)).
 - Šriftas: **Inter** (`@fontsource/inter`). Larsseit žr. [docs/BRAND.md](docs/BRAND.md).
 
 ## Sitemap

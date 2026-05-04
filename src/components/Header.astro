@@ -23,6 +23,8 @@ const links = [
 const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const brandLogoSvg = `${basePath}brand/logo-light.svg`;
+const brandLogoRaster = `${basePath}brand/logo-light.jpg`;
 const otherHref = lang === 'lt' ? `${basePath}en/` : basePath;
 const otherLabel = lang === 'lt' ? messages.nav.langShortEn : messages.nav.langShortLt;
 
@@ -34,14 +36,17 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
 >
   <div class="mx-auto flex max-w-content items-center justify-between gap-2 px-4 py-2.5 md:gap-3 md:px-6">
     <a href="#hero" class="flex min-w-0 items-center gap-3">
-      <img
-        src={`${basePath}brand/logo-light.jpg`}
-        alt={messages.hero.logoAlt}
-        width="1000"
-        height="978"
-        class="h-10 w-auto shrink-0 md:h-11"
-        fetchpriority="high"
-      />
+      <picture>
+        <source srcset={brandLogoSvg} type="image/svg+xml" />
+        <img
+          src={brandLogoRaster}
+          alt={messages.hero.logoAlt}
+          width="1000"
+          height="978"
+          class="h-10 w-auto shrink-0 md:h-11"
+          fetchpriority="high"
+        />
+      </picture>
       <span class="sr-only">{messages.nav.brand}</span>
     </a>
 
@@ -50,7 +55,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
       aria-label="Primary"
     >
       {links.map((l) => (
-        <a class="transition hover:text-ink" href={l.href}>
+        <a class="hover:text-ink" href={l.href}>
           {l.label}
         </a>
       ))}
@@ -59,7 +64,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
     <div class="flex shrink-0 items-center gap-1.5 md:gap-2">
       <a
         href={otherHref}
-        class="inline-flex min-h-11 items-center justify-center rounded-md border border-line px-3 text-xs font-semibold uppercase tracking-wide text-muted transition hover:border-ink hover:text-ink"
+        class="header-toolbar-control"
         hreflang={lang === 'lt' ? 'en' : 'lt'}
         aria-label={lang === 'lt' ? messages.nav.langSwitchToEn : messages.nav.langSwitchToLt}
       >
@@ -67,9 +72,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
       </a>
 
       <details class="relative md:hidden">
-        <summary
-          class="inline-flex min-h-11 cursor-pointer list-none items-center rounded-md border border-line px-3 text-xs font-semibold uppercase tracking-wide text-muted hover:border-ink hover:text-ink [&::-webkit-details-marker]:hidden"
-        >
+        <summary class="header-toolbar-control cursor-pointer list-none [&::-webkit-details-marker]:hidden">
           {menuLabel}
         </summary>
         <div

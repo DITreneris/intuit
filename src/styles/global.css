@@ -56,6 +56,13 @@
     font-feature-settings: 'liga' 1, 'kern' 1;
   }
 
+  /** Subtilus „product“ hover be perteklinės animacijos (`prefers-reduced-motion` sutrumpina per bazės bloką). */
+  a,
+  button,
+  summary {
+    @apply transition-colors duration-150;
+  }
+
   /** Matomas fokusas klaviatūrai — accent iš theme */
   a:focus-visible:not(.skip-to-main),
   button:focus-visible,
@@ -130,5 +137,15 @@
   /** Hero eyebrow ir panašios šviesios etiketės (ne spalvotos Chaos antraštės) */
   .label-eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted;
+  }
+
+  /** Header: kalbos jungiklis ir mobile meniu summary — vienas vizualinis šablonas */
+  .header-toolbar-control {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-line px-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors duration-150 hover:border-ink hover:text-ink;
+  }
+
+  /** Pasirenkama standartinė sekcijos apatinė riba (naujos sekcijos); esamos gali likti su Tailwind inline */
+  .section-border-standard {
+    @apply border-b border-line;
   }
 }

@@ -9,8 +9,9 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 | Tailwind tokenai | [tailwind.config.mjs](../tailwind.config.mjs) |
 | Globalūs stiliai, `:root` CSS kintamieji diagramoms | [src/styles/global.css](../src/styles/global.css) |
 | Kortelės | `.card`, `.card-muted`, `.card-featured` (`global.css`) |
-| Sekcijų konteineriai, eyebrow | `.section-shell`, `.section-shell--tight`, `.label-eyebrow` ([`global.css`](../src/styles/global.css)) |
+| Sekcijų konteineriai, eyebrow, header kompaktiniai valdikliai | `.section-shell`, `.section-shell--tight`, `.label-eyebrow`, `.header-toolbar-control`, `.section-border-standard` ([`global.css`](../src/styles/global.css)) |
 | CTA komponentai | [src/components/ui/ButtonPrimary.astro](../src/components/ui/ButtonPrimary.astro), [ButtonSecondary.astro](../src/components/ui/ButtonSecondary.astro) |
+| Inverse ženklas Hero (`logo-pattern-inverse`) | [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) |
 | Viešas copy (LT / EN) | [src/i18n/lt.ts](../src/i18n/lt.ts), [src/i18n/en.ts](../src/i18n/en.ts) (`SiteMessages` — [types.ts](../src/i18n/types.ts)) |
 
 ## Spalvos (semantic)
@@ -33,7 +34,24 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 |--------|-----------|------|
 | `.section-shell` | `mx-auto max-w-content` + `px-4 py-16 md:px-6 md:py-20` | Standartinės sekcijos; papildomai: `space-y-10`, grid ir kt. |
 | `.section-shell--tight` | Tas pats horizontaliai + **`py-10 md:py-12`** | Tik **TrustedBy** (logotipų juosta — kompaktiškas vertikalus ritmas). |
-| `.label-eyebrow` | `text-xs font-semibold uppercase tracking-[0.2em] text-muted` | Hero eyebrow. Spalvotos etiketės (ChaosVsSystem `text-danger` / `text-accentTeal`) — ta pati `tracking-[0.2em]`, spalvos vietoje `text-muted`. |
+| `.label-eyebrow` | `text-xs font-semibold uppercase tracking-[0.2em] text-muted` | Hero eyebrow; **TrustedBy** inline H2 (`flex` + ženklas) — ta pati klasė layoutui antraštėje. Spalvotos etiketės (ChaosVsSystem `text-danger` / `text-accentTeal`) — ta pati `tracking-[0.2em]`, spalvos vietoje `text-muted`. |
+| `.header-toolbar-control` | `rounded-lg`, `border-line`, `min-h-11`, uppercase `tracking-[0.2em]`, hover į `ink` | Tik **[`Header.astro`](../src/components/Header.astro)** kalbos nuoroda ir mobile meniu `summary` — bendras šablonas ([`global.css`](../src/styles/global.css)). |
+| `.section-border-standard` *(pasirinktinai naujoms sekcijoms)* | `border-b border-line` | Standartinė sekcijos apačia (žr. „Sekcijų ribos“). Esamos sekcijos gali likti su tiesioginiu Tailwind — refactor neprivalomas. |
+
+### Radius scale (kampų sutartis)
+
+| Rolė | Tailwind | Kur |
+|------|-----------|-----|
+| Pill CTA | `rounded-full` | [`ButtonPrimary`](../src/components/ui/ButtonPrimary.astro), [`ButtonSecondary`](../src/components/ui/ButtonSecondary.astro) |
+| Kortelės, diagramos blokas, TrustedBy slotai | `rounded-xl` | `.card` / `.card-muted`, [`HeroSystemDiagram`](../src/components/HeroSystemDiagram.astro), [`TrustedBy`](../src/components/sections/TrustedBy.astro) |
+| Hero inverse plakatas | `rounded-2xl` | [`BrandPatternPanel`](../src/components/BrandPatternPanel.astro) |
+| Header kompaktiniai valdikliai | `rounded-lg` | `.header-toolbar-control` |
+| ChaosVsSystem mažos ikonų dėžutės | `rounded-lg` | [`ChaosVsSystem`](../src/components/sections/ChaosVsSystem.astro) |
+
+### Sekcijų ribos (separatoriai)
+
+- **Standartinė turinio sekcija:** apatinė riba **`border-b border-line`** (dauguma [`sections/*.astro`](../src/components/sections/)).
+- **Sticky chrome (header):** **`border-b border-line/80`** — šiek tiek silpnesnis nei pilnas `line`, kad lipni juosta atrodytų lengvesnė už „pilną“ sekciją.
 
 **ChaosVsSystem** sekcija: `scroll-mt-28` (sticky header offset), kaip kitose ankerinėse sekcijose.
 
@@ -50,21 +68,22 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 - Body sekcijose: dažnai `text-base md:text-lg` ilgesniam paaiškinimui; kortelėse — `text-sm` su `leading-relaxed`.
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
-- **Hero diagrama ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)):** antraštė ir caption — **`text-2xs`**; matomos HTML legendos nėra. SVG viduje `<text>` etiketes laikyti **mikro skale** (`font-size` 10–11, atitinka `text-2xs`), **ne** įvedinėti vidutinio body dydžio šrifto.
+- **Proof metrikos:** skaičiaus reikšmė (`m.value`) — **`tabular-nums`**, kad skaitmenys nesijudintų keičiant turinį.
+- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — šiuo metu įdėta į [`Proof.astro`](../src/components/sections/Proof.astro) po metrikų:** antraštė ir caption — **`text-2xs`**; matomos HTML legendos nėra. SVG viduje `<text>` etiketes laikyti **mikro skale** (`font-size` 10–11, atitinka `text-2xs`), **ne** įvedinėti vidutinio body dydžio šrifto.
 - **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido.
 
-## Prekės ženklas (raster, JPG)
+## Prekės ženklas (raster + SVG)
 
-Ant **šviesaus** fono — [`public/brand/logo-light.jpg`](../public/brand/logo-light.jpg); ant **`bg-ink`** — [`logo-dark.jpg`](../public/brand/logo-dark.jpg); pilnas inverse ženklas + raštas Proof — [`logo-pattern-inverse.jpg`](../public/brand/logo-pattern-inverse.jpg) ([BRAND.md](BRAND.md)).
+Ant **šviesaus** fono — pageidautina **vektorius** [`public/brand/logo-light.svg`](../public/brand/logo-light.svg) (žodžio ženklas, `ink` `#0a0a0a`; šaltinio kelias sinchronizuotas su [`public/favicon.svg`](../public/favicon.svg) stem); fallback — [`logo-light.jpg`](../public/brand/logo-light.jpg) per `<picture>`. Ant **`bg-ink`** — [`logo-dark.jpg`](../public/brand/logo-dark.jpg); pilnas inverse ženklas + raštas — [`logo-pattern-inverse.jpg`](../public/brand/logo-pattern-inverse.jpg) ([BRAND.md](BRAND.md)); Hero dešinėje — [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) (`messages.proof.brandLabel` / `brandPatternAlt`).
 
 | Kontekstas | Failas | Aukštis (`class`) | Komponentas |
 |------------|--------|-------------------|-------------|
-| Sticky header (nav) | `logo-light.jpg` | `h-10 md:h-11` | [`Header.astro`](../src/components/Header.astro) |
-| TrustedBy H2 inline su tekstu | `logo-light.jpg` | `h-7 md:h-8` | [`TrustedBy.astro`](../src/components/sections/TrustedBy.astro) |
+| Sticky header (nav) | `logo-light.svg` (+ jpg fallback) | `h-10 md:h-11` | [`Header.astro`](../src/components/Header.astro) |
+| TrustedBy H2 inline su tekstu | `logo-light.svg` (+ jpg fallback) | `h-9 md:h-10` | [`TrustedBy.astro`](../src/components/sections/TrustedBy.astro) |
 | Kontaktų kortelė ant `bg-ink` | `logo-dark.jpg` | `h-10 md:h-11` | [`FinalCta.astro`](../src/components/sections/FinalCta.astro) |
-| Proof brand blokas | `logo-pattern-inverse.jpg` | pilnas plotis (`w-full`), šaltinis 1000×978 | [`Proof.astro`](../src/components/sections/Proof.astro) |
+| Hero dešinė (inverse plakatas) | `logo-pattern-inverse.jpg` | pilnas plotis (`w-full`), šaltinis 1000×978 | [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) (įterpta [`Hero.astro`](../src/components/sections/Hero.astro)) |
 
-**Hierarchija:** nav ir Final Cta ženklas ~ta pačia raster skale; TrustedBy mažesnis (inline antraštė). Proof — atskiras „plakato“ naudojimas, ne maišyti su header.
+**Hierarchija:** nav ir Final Cta ženklas `h-10 md:h-11`; TrustedBy vienu Tailwind žingsniu žemiau (`h-9 md:h-10`) — skaitomas prekės ženklas, bet lipni juosta lieka pirmuoju akcentu. Hero inverse plakatas — atskiras „plakato“ naudojimas dešinėje, ne maišyti su header.
 
 ## Šešėliai
 
@@ -84,7 +103,7 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 
 - **Kai naudojate ikoną:** inline SVG (be išorinės bibliotekos): `viewBox="0 0 24 24"`, `stroke-width="2"`, `stroke="currentColor"`, dažnai `h-6 w-6` konteineryje `flex h-12 w-12 … rounded-xl border border-accent/15 bg-accent/5 text-accent` (Problem „chaos“ kortelei — `danger*` tokenai).
 - **Alternatyvos:** žingsnių numeriai (`Process`), sąrašo taškai ar ✓ (`Solution`, `Offers`), tik tipografija (`About`), dominuojantis skaičius (`Proof`).
-- **Dabartinė praktika (landing):** didelės kortelių ikonos — **[`Problem`](../src/components/sections/Problem.astro)**; diagramos (ne kortelių dekoras) — **[`HeroSystemDiagram`](../src/components/HeroSystemDiagram.astro)**, **[`ChaosVsSystem`](../src/components/sections/ChaosVsSystem.astro)**. **`Solution`**, **`Process`**, **`Proof`**, **`Offers`**, **`About`** — be viršutinės ikonos kortelėje.
+- **Dabartinė praktika (landing):** didelės kortelių ikonos — **[`Problem`](../src/components/sections/Problem.astro)**; diagramos (ne kortelių dekoras) — **`HeroSystemDiagram`** (Proof sekcijoje po metrikų), **[`ChaosVsSystem`](../src/components/sections/ChaosVsSystem.astro)**. **`Solution`**, **`Process`**, **`Offers`**, **`About`** — be viršutinės ikonos kortelėje.
 
 ## Hero diagrama (product vizualinė kalba)
 
@@ -110,6 +129,7 @@ Keičiant brand spalvas — pirmiausia `tailwind.config.mjs`, tada patikrinti `g
 - Tailwind default `red-*`, `gray-*` semantic reikšmėms — naudoti DS tokenus.
 - Atsitiktinis `shadow-lg` ar **savivalis „micro“ šriftas be `text-2xs`** (ne per DS tokeną).
 - Naujos sekcijos be `max-w-content` + `px-4 md:px-6` horizontalios ritmikos (preferuoti **`.section-shell`**).
+- **`bg-white/xx`** ant Chaos/System ikonų ir badge — naudoti **`surface` / `paper` + opacity** (žr. [`ChaosVsSystem.astro`](../src/components/sections/ChaosVsSystem.astro)).
 
 ## Checklist naujai sekcijai
 
@@ -123,7 +143,7 @@ Keičiant brand spalvas — pirmiausia `tailwind.config.mjs`, tada patikrinti `g
 ## Logotipų juosta (TrustedBy)
 
 - **Vertikalus ritmas:** wrapper klasė **`.section-shell--tight`** (ne standartinis `.section-shell`), kad juosta liktų vizualiai „strip“.
-- **H2 antraštė:** `messages.trustedBy.titleBefore` + inline **INTUIT** ženklas (`public/brand/logo-light.jpg`, tie patys matmenys / `alt` kaip [Header](../src/components/Header.astro) per `messages.hero.logoAlt`); lanksčias išdėstymas `flex` + `flex-wrap`, kad tekstas ir logotipas centruotųsi ir mažuose plotiuose susilankstytų.
+- **H2 antraštė:** `messages.trustedBy.titleBefore` + inline **INTUIT** ženklas (`logo-light.svg` su jpg fallback, kaip [Header](../src/components/Header.astro)); tas pats `alt` per `messages.hero.logoAlt`; aukštis pagal „Prekės ženklas“ lentelę TrustedBy — vienu `h-*` žingsniu mažesnis už nav; lanksčias išdėstymas `flex` + `flex-wrap`, kad tekstas ir logotipas centruotųsi ir mažuose plotiuose susilankstytų.
 - Sekcija: [`TrustedBy.astro`](../src/components/sections/TrustedBy.astro), **`id="clients"`** (ankerinė nuoroda `#clients`), sąrašas iš **`messages.trustedBy.logos`** ([`lt.ts`](../src/i18n/lt.ts) / [`en.ts`](../src/i18n/en.ts)) — „slotų“ šablonas: `src`, `alt`, vienas kartojamas markup kiekvienam įrašui.
 - Horizontalus slenkstis (`overflow-x-auto`, `snap-x`), kraštų gradientai `from-paper`, fokusuojamai juostai **`focus-visible`** kontūras (prieinamumas).
 - Logotipo konteineryje fiksuoti **`max-h` / `max-w` + `object-contain`**; failai viešinti po [`public/clients/`](../public/clients/) (kelias i18n be leading `/`).
@@ -131,5 +151,7 @@ Keičiant brand spalvas — pirmiausia `tailwind.config.mjs`, tada patikrinti `g
 
 ## Raster iliustracijos (Proof)
 
-- Brand blokas: [`Proof.astro`](../src/components/sections/Proof.astro) — virš vaizdo tik **`messages.proof.brandLabel`** (viena etiketė, šviesus mikrotekstas ant `bg-ink`); monochromas inverse ženklas + raštas — [`public/brand/logo-pattern-inverse.jpg`](../public/brand/logo-pattern-inverse.jpg) (1000×978, `alt` — `messages.proof.brandPatternAlt`); tamsus skydelis `rounded-2xl`, `ring-1 ring-white/10`, be vidinio dubliuoto rėmelio.
-- Metrikų kortelės lieka šviesiame (`bg-paper`) fone aukščiau; brand blokas vizualiai atskirtas tonu, ne dashed rėmeliu.
+- **Metrikos:** šviesios kortelės (`bg-paper`) po H2.
+- **Valdymo schema:** po metrikų — [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro) (ta pati komunikacijos valdymo diagrama; tekstai iš `messages.hero.diagram`).
+- Inverse ženklas (`logo-pattern-inverse`) perkeltas į Hero — [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro); etiketė ir `alt` vis dar iš **`messages.proof.brandLabel`** / **`brandPatternAlt`**.
+- **Papildomas rasteris** (jei vėliau grįš iliustracija ar metodikos vaizdas šalia diagramos): neutralus fonas (`paper` / `surface`), **`rounded-xl`**, vizualas neturi konkuruoti su diagramų stroke hierarchija; klientų logotipų spalvų politika — [BRAND.md](BRAND.md).

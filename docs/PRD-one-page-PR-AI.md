@@ -78,13 +78,13 @@ Trumpas mapping vadovams:
 
 | # | Sekcija | Tikslas | Privalomas turinys |
 |---|---------|---------|---------------------|
-| 1 | **Hero** | 2 s aiškumas; pozicionavimas + CTA | LT/EN antraštės, vienas primary CTA, vienas secondary |
+| 1 | **Hero** | 2 s aiškumas; pozicionavimas + CTA | LT/EN antraštės; dešinėje inverse ženklas / raštas (`BrandPatternPanel`); vienas primary CTA, vienas secondary |
 | 1b | **Klientų juosta (trusted by)** | Socialinis įrodymas iškart po hero | Horizontaliai slenkanti logotipų eilė (`#clients`); placeholderiai iki tikrų assetų |
 | 2 | **Problema (reality check)** | Atpažinimas; „tai apie mus“ | 3–4 punktai: fragmentacija, PR kaip reakcija, marketing ≠ reputacija, ad hoc įrankiai be proceso |
 | 3 | **Chaos vs system (vizualinė metafora)** | Before/after; tiltas į sprendimą | Viena aiški vizualinė schema ar palyginimas (žr. §5.2), ne teksto perkrova |
 | 4 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
 | 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai (LT: Apžvalga → Planas → Startas → Tobulinimas; EN: Review → Plan → Launch → Improve); schema > ilgas tekstas |
-| 6 | **Proof** | Pasitikėjimas | Case(s): Before/After, skaičiai; jei nėra — framework demo / simuliacija (aiškiai pažymėta) |
+| 6 | **Proof** | Pasitikėjimas | Metrikos (skaičiai) + po jų valdymo diagrama (`HeroSystemDiagram`); case kai yra — Before/After; jei nėra — framework aiškiai pažymėtas |
 | 7 | **Pasiūlymas (offers)** | Konversija | 3 paketai (LT: Startas / Įgyvendinimas / Mastelis; EN: Starter / Delivery / Scale) — **rezultatai**, trumpi punktai, ne ilgas feature sąrašas |
 | 8 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |
 | 9 | **Final CTA** | Uždarymas | Viena stipri žinutė + primary CTA |
@@ -134,7 +134,7 @@ Vienas primary visame fold’e; secondary ne konkuruoja vizualiai su primary.
 | Problema / sprendimas | Before/after: chaos vs tvarka (viena aiški vizualinė metafora) |
 | Procesas | Linija / 4 žingsniai — **schematiškai**, ne ilgas paragrafas |
 | Sekcijų kortelės | Kur tinka: **linijinė ikona virš antraštės** (inline SVG, 24×24), tada trumpas pavadinimas ir body — mažiau teksto, daugiau skaitomumo |
-| Hero fonas | Pasirinktinai: subtilus brand **chevron** raštas (`logo-pattern-light`, žema opacity, blend) — ne konkuruoja su diagrama |
+| Hero fonas | Pasirinktinai: subtilus brand **chevron** raštas (`logo-pattern-light`, žema opacity, blend) — ne konkuruoja su dešiniu **inverse ženklu** (plakatas) |
 
 ### 5.3 Prieinamumas ir technika (minimaliai)
 

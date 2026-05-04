@@ -1,6 +1,6 @@
 # Copy glosarijus — LT / EN (US)
 
-**Versija:** 1.4  
+**Versija:** 1.5  
 **Data:** 2026-05-04  
 **Šaltinis:** [PRD-one-page-PR-AI.md](PRD-one-page-PR-AI.md) §5.1 (tonas), §4.4 (CTA hierarchija).  
 **Vienintelis tiesos šaltinis** redakcinėms LT ([src/i18n/lt.ts](../src/i18n/lt.ts)) ir EN ([src/i18n/en.ts](../src/i18n/en.ts)) atnaujinimui.
@@ -150,8 +150,8 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `solution.pillars[2].points[1]` | „Įrankiai ten, kur aiški atsakomybė“ | „Dirbtinio intelekto įrankiai ir inovacijos“ |
 | `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
 | `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos pristatote vadovams“ |
-| `proof.body` | (buvo) | **Pašalinta** — sekcijoje lieka antraštė, metrikos, brand blokas. |
-| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta anksčiau; apačioje — `brandLabel` + inverse ženklo paveikslas (`brandPatternAlt`). |
+| `proof.body` | (buvo) | **Pašalinta** — lieka H2, metrikos, po jų valdymo diagrama (`HeroSystemDiagram`). Inverse plakatas — **Hero** (`BrandPatternPanel`; tie patys `brandLabel` / `brandPatternAlt`). |
+| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta anksčiau; `brandLabel` / inverse `alt` (`brandPatternAlt`) naudojami Hero plakatui, ne Proof apačioje. |
 | `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
 | `trustedBy.scrollAriaLabel` | — | „Klientų logotipai — slinkite horizontaliai“ (slankiojančios srities `aria-label`) |
 | `hero.diagram.systemStrip` | „Kontrolė ir matavimas“ | „Valdomas rezultatas“ (diagrama — vertė, ne procesas) |
