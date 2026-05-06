@@ -27,6 +27,57 @@ const faviconHref = new URL('favicon.svg', baseRoot).pathname;
 const faviconPngHref = new URL('favicon-32x32.png', baseRoot).pathname;
 const appleTouchIconHref = new URL('apple-touch-icon.png', baseRoot).pathname;
 const sitemapHref = new URL('sitemap.xml', baseRoot).href;
+
+const orgId = `${baseRoot.href}#organization`;
+const websiteId = `${baseRoot.href}#website`;
+const webpageId = `${canonicalURL.href}#webpage`;
+
+const addressLine = messages.finalCta.addressLine;
+const addressParts = addressLine.split(',').map((p) => p.trim()).filter(Boolean);
+const streetAddress = addressParts[0] ?? addressLine;
+const localityPostal = addressParts.slice(1).join(', ');
+const postalMatch = localityPostal.match(/\bLT-\d{5}\b/);
+const postalCode = postalMatch?.[0];
+const addressLocality = localityPostal.replace(/\bLT-\d{5}\b/, '').trim() || undefined;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: messages.finalCta.companyName,
+      url: baseRoot.href,
+      email: messages.finalCta.contactEmail,
+      telephone: messages.finalCta.contactPhone,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress,
+        postalCode,
+        addressLocality,
+        addressCountry: 'LT',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: baseRoot.href,
+      name: messages.nav.brand,
+      inLanguage: lang,
+      publisher: { '@id': orgId },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': webpageId,
+      url: canonicalURL.href,
+      name: messages.meta.title,
+      description: messages.meta.description,
+      inLanguage: lang,
+      isPartOf: { '@id': websiteId },
+      about: { '@id': orgId },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -60,6 +111,7 @@ const sitemapHref = new URL('sitemap.xml', baseRoot).href;
     <meta name="twitter:description" content={messages.meta.description} />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="min-h-dvh bg-warm text-ink">
     <a class="skip-to-main" href="#main">{messages.a11y.skipToMain}</a>

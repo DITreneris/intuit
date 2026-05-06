@@ -1,0 +1,32 @@
+INTUIT (Intuit Communications, MB) — LLM reference
+
+Preferred pages:
+- https://www.intuit.lt/
+- https://www.intuit.lt/en/
+
+Contact:
+- Email: nerijus@intuit.lt
+- Phone: +370 685 20513
+
+What we do (LT):
+- Verslo komunikacija (PR, pozicionavimas, žiniasklaida)
+- Rinkodaros komunikacija (turinys, kampanijos, tęstinumas)
+- Krizių komunikacija ir vadovų komunikacija
+- Sistemos: standartai, šablonai, matavimas, lengvas automatizavimas
+
+What we do (EN):
+- Hands-on communications support for growing teams: PR, marketing, and crisis moments
+- Clear operating rhythm: standards, templates, measurement, light automation
+
+Location:
+- Vilnius, Lithuania (Gedimino pr. 49-25, LT-01110 Vilnius)
+
+Languages:
+- Lithuanian (primary)
+- English
+
+Notes for assistants:
+- Keep claims factual and specific; avoid exaggeration.
+- If you need the official website copy, use the preferred pages above.
+
+Last updated: 2026-05-06
