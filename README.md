@@ -1,6 +1,6 @@
 # 67_Intuit — vieno puslapio landing
 
-Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema. **Hero:** dešinėje inverse plakatas per [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + subtilus `logo-pattern-light` fonas; taip pat **valdymo diagrama** per [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro). **Proof:** metrikos + ta pati diagrama. Logotipai iš `public/brand/`. **Produkcinis domenas:** `https://www.intuit.lt/` (deploy šaknyje, `base: /`).
+Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema. **Hero:** dešinėje inverse plakatas per [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + subtilus `logo-pattern-light` fonas; antrinis CTA „4 žingsniai“ veda į eigą (`#process`) — **ne** pilna valdymo diagrama čia. **Proof:** metrikos + komunikacijos valdymo diagrama [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro) (`size="proof"`). Logotipai iš `public/brand/`. **Produkcinis domenas:** `https://www.intuit.lt/` (deploy šaknyje, `base: /`).
 
 ## Dokumentacija
 

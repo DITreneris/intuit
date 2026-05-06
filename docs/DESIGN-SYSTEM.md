@@ -12,6 +12,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 | Sekcijų konteineriai, eyebrow, header kompaktiniai valdikliai | `.section-shell`, `.section-shell--tight`, `.label-eyebrow`, `.header-toolbar-control`, `.section-border-standard` ([`global.css`](../src/styles/global.css)) |
 | CTA komponentai | [src/components/ui/ButtonPrimary.astro](../src/components/ui/ButtonPrimary.astro), [ButtonSecondary.astro](../src/components/ui/ButtonSecondary.astro) |
 | Inverse ženklas Hero (`logo-pattern-inverse`) | [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) |
+| Valdymo diagrama (tik Proof; tekstai `hero.diagram`) | [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro) → [`Proof.astro`](../src/components/sections/Proof.astro) |
 | Viešas copy (LT / EN) | [src/i18n/lt.ts](../src/i18n/lt.ts), [src/i18n/en.ts](../src/i18n/en.ts) (`SiteMessages` — [types.ts](../src/i18n/types.ts)) |
 
 ## Spalvos (semantic)
@@ -71,7 +72,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
 - **Proof metrikos:** skaičiaus reikšmė (`m.value`) — **`tabular-nums`**, kad skaitmenys nesijudintų keičiant turinį.
-- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — naudojama Hero ir Proof:** virš SVG — HTML blokas (**strip** `text-sm` / `md:text-base`, **caption** `text-sm`, **kilpos etiketė** `text-2xs`). SVG viduje `<text>` pakeltas iki aiškesnės mikro skales (desktop `font-size` ~11–12); matomos HTML legendos nėra. `size="hero" | "proof"` parenka plotį ir „svorį“ embed’ui ([`Hero.astro`](../src/components/sections/Hero.astro), [`Proof.astro`](../src/components/sections/Proof.astro)).
+- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — viešai tik Proof:** virš SVG — HTML blokas (**strip** `text-sm` / `md:text-base`, **caption** `text-sm`, **kilpos etiketė** `text-2xs`). SVG viduje `<text>` pakeltas iki aiškesnės mikro skales (desktop `font-size` ~11–12); matomos HTML legendos nėra. Prop `size="hero" | "proof"` parenka plotį ir „svorį“; **įterpimas** — tik [`Proof.astro`](../src/components/sections/Proof.astro) su `size="proof"` (Hero dubliavimas pašalintas).
 - **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido.
 
 ## Prekės ženklas (raster + SVG)
@@ -107,7 +108,9 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 - **Alternatyvos:** žingsnių numeriai (`Process`), sąrašo taškai ar ✓ (`Solution`, `Offers`), tik tipografija (`About`), dominuojantis skaičius (`Proof`).
 - **Dabartinė praktika (landing):** didelės kortelių ikonos — **[`Problem`](../src/components/sections/Problem.astro)**; diagramos (ne kortelių dekoras) — **`HeroSystemDiagram`** (Proof sekcijoje po metrikų), **[`ChaosVsSystem`](../src/components/sections/ChaosVsSystem.astro)**. **`Solution`**, **`Process`**, **`Offers`**, **`About`** — be viršutinės ikonos kortelėje.
 
-## Hero diagrama (product vizualinė kalba)
+## Komunikacijos valdymo diagrama (`HeroSystemDiagram`, product vizualinė kalba)
+
+Įterpta **tik Proof** sekcijoje (po metrikų); i18n tekstai lieka namespace `messages.hero.diagram`.
 
 - **Forward (1→4):** kortelės — SVG, jungtys — **HTML overlay** (`.hsd-connectors`) su CSS kintamaisiais (`--cx-start/--cx-end/--cy` desktop, `--cy-start/--cy-end/--cx` mobile). Linija — **1.5 px** per `color-mix(in srgb, var(--ds-accent) 70%, transparent)`; galvutė — plonas **chevron** iš `border-top + border-right` po **2 px** (color-mix 80 %), be filled triangle. Per komponento prop `connectorVariant: 'chevron' | 'line'` (default `chevron`) galima išjungti chevron — tada kryptis aiški per kortelių numerius **1–4**. Tarpas nuo kortelės **≥ 6 px** kiekvienoje pusėje (desktop 28 vnt. tarpai viewBox, mobile 24 vnt.) — connectoriai **niekada** neliečia kortelės bordurai. Linija lygiuojama **per ikonų centrus** (desktop `--cy: 21%` viewBox 612×220), ne per geometrinį kortelės centrą. **Be** punktyrinės animacijos.
 - **Numerių badge'ai (hierarchija):** pasyvūs žingsniai (1, 3, 4) — `outline` (`fill=none`, `stroke=accent` su `stroke-opacity 0.35`, numeris `fill=muted` weight 600); aktyvus žingsnis (2) — `solid` (`fill=accent` opacity 1, numeris `fill=#ffffff` weight 700). Active dot 4×4 px virš anchor kortelės top edge'o. `rx=6` badge'ams, `rx=12` kortelėms, `rx=16` anchor tint — 3 lygmenų radius scale.

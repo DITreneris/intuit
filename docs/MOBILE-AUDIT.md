@@ -52,7 +52,7 @@
 | M3 | Primary CTA kelias: Header mobilusis meniu + Hero + Offers highlighted + FinalCta | OK | [Header.astro](../src/components/Header.astro), [Offers.astro](../src/components/sections/Offers.astro) |
 | M4 | Ink `#contact`: `mailto:` su `URLSearchParams`, `tel:` be tarpų | OK | [FinalCta.astro](../src/components/sections/FinalCta.astro) |
 | M5 | Išorinės nuorodos (Maps): `rel="noopener noreferrer"` | OK | FinalCta |
-| M6 | Hero diagrama: atskiras mobilusis SVG (`md:hidden`) ir desktop (`md:block`) | OK | [HeroSystemDiagram.astro](../src/components/HeroSystemDiagram.astro) |
+| M6 | Proof valdymo diagrama: atskiras mobilusis SVG (`md:hidden`) ir desktop (`md:block`) | OK | [HeroSystemDiagram.astro](../src/components/HeroSystemDiagram.astro) |
 | M7 | `:focus-visible`, skip nuoroda, `prefers-reduced-motion` | OK | [global.css](../src/styles/global.css), [Layout.astro](../src/layouts/Layout.astro) |
 | M8 | Sekcijos `scroll-mt-28` lipniam headeriui | OK | Sekcijų failai |
 | M9 | Kontrastas ant `bg-ink` (nuorodos `text-white/75` ir kt.) | **Stebėti** paleidus — patvirtinti axe / kontrasto skaičiuokle prie `#0a0a0a` | FinalCta |
@@ -65,7 +65,7 @@
 | S2 | Touch 44×44 pt: `ButtonPrimary` `md` dydis — `py-3` ≈ 40 px aukštis | Prireikus `min-h-11` arba šiek tiek didesnis `py` ant primary | [ButtonPrimary.astro](../src/components/ui/ButtonPrimary.astro) |
 | S3 | Footer kontaktas — tik tekstinė nuoroda | Padidinti paspaudimo zoną (`inline-block py-2` arba `min-h-11 flex items-center`) | [Footer.astro](../src/components/Footer.astro) |
 | S4 | TrustedBy: slankantis konteineris su `tabindex="0"` | Palikti; UX: vartotojui parodyti, kad juosta slankioja (gradientai j yra) | [TrustedBy.astro](../src/components/sections/TrustedBy.astro) |
-| S5 | Hero diagrama mobiliajame: `max-h-[min(72vh,480px)]` | Trumpuose ekranuose diagrama užima daug vertikalės — priimtina; jei bounce didėja, svarstykite `max-h` mažinimą | HeroSystemDiagram |
+| S5 | Valdymo diagrama (Proof) mobiliajame: `max-h-[min(72vh,480px)]` | Trumpuose ekranuose diagrama užima daug vertikalės — priimtina; jei bounce didėja, svarstykite `max-h` mažinimą | HeroSystemDiagram |
 | S6 | Offers/Solution: viena kolona `< md` | OK; ilgi antraščių žodžiai — stebėti LT/EN realiu tekstu | Offers, Solution |
 
 ### 2.3 Want

@@ -23,7 +23,7 @@
 
 | Sritis | Būsena |
 |--------|--------|
-| Kodas | Astro 4, LT `/`, EN `/en/`, `src/i18n/`, sekcijos `src/components/sections/`, Hero diagrama (SVG), Chaos vs tvarka, ikonos virš kortelių, Hero chevron fonas. |
+| Kodas | Astro 4, LT `/`, EN `/en/`, `src/i18n/`, sekcijos `src/components/sections/`, Proof valdymo diagrama (`HeroSystemDiagram`), Chaos vs tvarka, ikonos virš kortelių, Hero chevron fonas. |
 | Dokumentai | PRD v1.5, DS v1.5, BRAND, README, AGENTS, Cursor taisyklės, šis `todo.md`. |
 | Deploy | GitHub Pages workflow + Vercel instrukcijos README; `intuit-sitemap` → `dist/sitemap.xml`. |
 
@@ -70,7 +70,7 @@
 
 ---
 
-## Hero diagram — micro UX polish backlog
+## Valdymo diagrama (`HeroSystemDiagram`) — micro UX polish backlog
 
 Likučiai iš `v5.1` polish bangos (žr. [CHANGELOG.md](CHANGELOG.md)). Kiekvienas punktas — atskiras commit'as / PR'as, kad bangos liktų reviewable. Komponentas: [`src/components/HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro).
 
