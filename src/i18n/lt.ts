@@ -4,6 +4,7 @@ export const lt = {
     description:
       'Profesionalios konsultacijos augančioms įmonėms: PR, rinkodara ir krizių komunikacija — aiškiau, be perteklinio chaoso.',
     ogLocale: 'lt_LT',
+    ogImageAlt: 'INTUIT — komunikacija, kuria galima pasitikėti. Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
   },
   nav: {
     brand: 'INTUIT',

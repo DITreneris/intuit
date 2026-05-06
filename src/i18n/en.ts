@@ -4,6 +4,7 @@ export const en = {
     description:
       'Hands-on communications support for growing teams—PR, marketing, and crisis moments—clearer and less chaos.',
     ogLocale: 'en_US',
+    ogImageAlt: 'INTUIT — communications you can trust. Less chaos. More clarity. Better results.',
   },
   nav: {
     brand: 'INTUIT',
