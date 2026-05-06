@@ -1,6 +1,6 @@
 # 67_Intuit — vieno puslapio landing
 
-Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema. **Hero:** dešinėje inverse plakatas per [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + subtilus `logo-pattern-light` fonas; **Proof:** metrikos, tada valdymo diagrama [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro). Logotipai iš `public/brand/`. **Numatytasis hostingas:** [GitHub Pages](https://pages.github.com/) (`https://ditreneris.github.io/intuit/`); statiniai keliai naudoja Astro `base` (`/intuit`).
+Statinė **Astro** svetainė pagal [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (dabartinė doc versija faile): LT pagrindinis, EN (`en/`), šviesi tema. **Hero:** dešinėje inverse plakatas per [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + subtilus `logo-pattern-light` fonas; taip pat **valdymo diagrama** per [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro). **Proof:** metrikos + ta pati diagrama. Logotipai iš `public/brand/`. **Produkcinis domenas:** `https://www.intuit.lt/` (deploy šaknyje, `base: /`).
 
 ## Dokumentacija
 
@@ -25,6 +25,8 @@ npm run dev
 
 Lokalus dev su numatytuoju GitHub Pages `base`: atidarykite **`http://localhost:4321/intuit/`** (ne šaknį `/`).
 
+Lokalus dev produkcijos režimu (šaknis): nustatykite `ASTRO_BASE=/` ir atidarykite **`http://localhost:4321/`**.
+
 Build:
 
 ```bash
@@ -37,14 +39,14 @@ npm run preview
 Žr. [.env.example](.env.example).
 
 - `PUBLIC_CONTACT_EMAIL` — rodomas `mailto:` kontaktinėje sekcijoje.
-- `PUBLIC_SITE_URL` — kanoninis **domenas** (pvz. `https://ditreneris.github.io`), be repo kelio; OG, `hreflang`, sitemap. Jei nenurodyta Vercel build’e, naudojamas `https://$VERCEL_URL` (Vercel pats nustato).
-- `ASTRO_BASE` — Astro `base`: GitHub projektui **`/intuit`** (numatytasis, kai kintamasis nenurodytas ir ne Vercel). Vercel build be šio kintamojo naudoja šaknį **`/`** automatiškai; rankinis **`ASTRO_BASE=/`** vis dar leidžiamas.
+- `PUBLIC_SITE_URL` — kanoninis **domenas** (pvz. `https://www.intuit.lt`), be kelio; OG, `hreflang`, sitemap. Jei nenurodyta Vercel build’e, naudojamas `https://$VERCEL_URL` (Vercel pats nustato).
+- `ASTRO_BASE` — Astro `base`: produkcijoje domeno šaknyje **`/`**; GitHub Pages projektui naudojamas **`/intuit`** (tik jei deploy’inate po subpath).
 
-## GitHub Pages
+## GitHub Pages (pasirinktinai)
 
 1. Repozitorijoje: **Settings → Pages → Build and deployment → Source: GitHub Actions** (vieną kartą).
 2. Push į `master` arba `main` paleidžia [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml): `npm ci` → `npm run build` → įkelia `dist`.
-3. Workflow jau nustato `PUBLIC_SITE_URL=https://ditreneris.github.io` ir `ASTRO_BASE=/intuit` (sutampa su [`astro.config.mjs`](astro.config.mjs) numatytaisiais).
+3. Workflow gali nustatyti `PUBLIC_SITE_URL=https://ditreneris.github.io` ir `ASTRO_BASE=/intuit` (deploy po subpath).
 
 Po sėkmingo deploy: **`https://ditreneris.github.io/intuit/`**, **`…/intuit/en/`**, **`…/intuit/sitemap.xml`**.
 
@@ -54,11 +56,11 @@ Po sėkmingo deploy: **`https://ditreneris.github.io/intuit/`**, **`…/intuit/e
 - Patikrinkite kalbos jungiklį, hero paveikslus, **`/intuit/sitemap.xml`**.
 - **SVG ženklas:** [`public/brand/logo-light.svg`](public/brand/logo-light.svg) per `<picture>` su JPG fallback (`Header`, `TrustedBy`). Pilnas vektorinis eksportas iš `INTUIT LOGO/` vėliau gali pakeisti dabartinį stem (sinchronizuota su `favicon.svg`).
 
-## Vercel
+## Vercel / custom domenas (produkcinis)
 
 1. Importuokite repo į [Vercel](https://vercel.com).
 2. **Build Command** `npm run build`; **Output** `dist`.
-3. Be papildomų kintamųjų Vercel build automatiškai naudoja **`base: /`** (kad CSS ir statiniai keliai sutaptų su šaknine URL) ir kanoninį domeną iš **`VERCEL_URL`**. Jei naudojate **asmeninį domenį**, nustatykite **`PUBLIC_SITE_URL`** (pilnas `https://…`) kanoniniams URL ir OG.
+3. Nustatykite **`PUBLIC_SITE_URL=https://www.intuit.lt`** kanoniniams URL, OG, `hreflang` ir sitemap. Be papildomų kintamųjų Vercel build automatiškai naudoja **`base: /`** (šaknis).
 
 Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 
@@ -74,7 +76,7 @@ Projekte yra [vercel.json](vercel.json) su build/output nuorodomis.
 
 ## Sitemap
 
-Build metu [`astro.config.mjs`](astro.config.mjs) integracija **`intuit-sitemap`** įrašo `dist/sitemap.xml` su LT ir EN URL pagal `site` + `base` (GitHub Pages: `…/intuit/` ir `…/intuit/en/`). Po deploy tikrinkite pilną sitemap URL savo domene.
+Build metu [`astro.config.mjs`](astro.config.mjs) integracija **`intuit-sitemap`** įrašo `dist/sitemap.xml` su LT ir EN URL pagal `site` + `base`. Produkcijoje: `https://www.intuit.lt/sitemap.xml`.
 
 Alternatyva ateityje: oficiali `@astrojs/sitemap` integracija po Astro versijos atnaujinimo.
 

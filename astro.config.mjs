@@ -2,8 +2,8 @@ import { writeFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-/** Kanoninis domenas (be repo kelio). GitHub Pages: `https://<user>.github.io`; Vercel: `https://<projektas>.vercel.app` */
-const defaultSite = 'https://ditreneris.github.io';
+/** Kanoninis domenas (be kelio). Produkcija: `https://www.intuit.lt`; Vercel preview: `https://<projektas>.vercel.app` */
+const defaultSite = 'https://www.intuit.lt';
 const publicTrim = process.env.PUBLIC_SITE_URL?.trim();
 const siteUrlTrim = process.env.SITE_URL?.trim();
 const vercelUrl = process.env.VERCEL_URL?.trim();

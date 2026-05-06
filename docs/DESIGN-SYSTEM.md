@@ -71,7 +71,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
 - **Proof metrikos:** skaičiaus reikšmė (`m.value`) — **`tabular-nums`**, kad skaitmenys nesijudintų keičiant turinį.
-- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — įdėta į [`Proof.astro`](../src/components/sections/Proof.astro) po metrikų:** matomas HTML blokas virš SVG — **strip** `text-sm` / `md:text-base`, **caption** `text-sm`, **kilpos etiketė** `text-xs` (aiški trijų lygių hierarchija). SVG viduje `<text>` lieka **mikro skale** (`font-size` 10–11). Matomos HTML legendos nėra.
+- **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)) — naudojama Hero ir Proof:** virš SVG — HTML blokas (**strip** `text-sm` / `md:text-base`, **caption** `text-sm`, **kilpos etiketė** `text-2xs`). SVG viduje `<text>` pakeltas iki aiškesnės mikro skales (desktop `font-size` ~11–12); matomos HTML legendos nėra. `size="hero" | "proof"` parenka plotį ir „svorį“ embed’ui ([`Hero.astro`](../src/components/sections/Hero.astro), [`Proof.astro`](../src/components/sections/Proof.astro)).
 - **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido.
 
 ## Prekės ženklas (raster + SVG)

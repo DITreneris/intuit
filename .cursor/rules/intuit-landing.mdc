@@ -21,7 +21,7 @@ alwaysApply: false
 
 ## Stackas (dabartinė būsena)
 
-- **Astro 4**, `output: 'static'`, `site` + **`base`** ([astro.config.mjs](astro.config.mjs)): numatytai GitHub Pages `https://ditreneris.github.io` + `/intuit`; Vercel build — automatiškai `base: /` ir `site` iš `VERCEL_URL`, jei nenurodytas `PUBLIC_SITE_URL`.
+- **Astro 4**, `output: 'static'`, `site` + **`base`** ([astro.config.mjs](astro.config.mjs)): produkcija `https://www.intuit.lt` (`base: /` per deploy šaknyje); GitHub Pages alternatyviai gali naudoti `https://ditreneris.github.io` + `/intuit`. Jei nenurodytas `PUBLIC_SITE_URL`, Vercel build kanoninį `site` pasiima iš `VERCEL_URL`.
 - TypeScript strict (`tsconfig.json` → `astro/tsconfigs/strict`).
 - **Tailwind 3** per `@astrojs/tailwind` (`applyBaseStyles: false`); dizaino tokenai — [tailwind.config.mjs](tailwind.config.mjs): `ink`, `paper`, `warm`, `surface`, `muted`, `muted2`, `line`, `accent`, `accentTeal`, `aiSoft`, `successSoft`, `danger` / `dangerSoft`, `diagramStrokeAi`, `diagramLineSoft`, `diagramElectric`, `diagramLoop`, šešėliai `soft` / `softSm` / `elevated`, `fontSize` `2xs`, `max-w-content` (1180px), `max-w-measure`, `bg-hero-premium`, `bg-diagram-radial`, `bg-diagram-glow`.
 - **Globalūs stiliai:** [src/styles/global.css](src/styles/global.css) — Inter importai, `@layer base` `:root` `--ds-*` (SVG diagramos), subtilus `transition-colors` ant `a`/`button`/`summary`; `@layer components`: `.card`, `.card-muted`, `.card-featured`, `.section-shell`, `.section-shell--tight`, `.label-eyebrow`, `.header-toolbar-control`, `.section-border-standard`; `.skip-to-main`; `:focus-visible` (`theme('colors.accent')` ir kt.).

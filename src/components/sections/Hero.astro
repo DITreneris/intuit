@@ -1,5 +1,6 @@
 ---
 import BrandPatternPanel from '../BrandPatternPanel.astro';
+import HeroSystemDiagram from '../HeroSystemDiagram.astro';
 import ButtonPrimary from '../ui/ButtonPrimary.astro';
 import ButtonSecondary from '../ui/ButtonSecondary.astro';
 import type { SiteMessages } from '../../i18n/types';
@@ -23,32 +24,34 @@ const patternLightUrl = `${basePath}brand/logo-pattern-light.jpg`;
     style={`background-image: url('${patternLightUrl}')`}
     aria-hidden="true"
   />
-  <div
-    class="section-shell relative grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)] md:items-start md:gap-12"
-  >
-    <div class="space-y-6">
-      <p class="label-eyebrow">{heroCopy.eyebrow}</p>
-      <h1 class="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-        {heroCopy.title}
-      </h1>
-      <div class="max-w-measure space-y-3 text-lg">
-        <p class="font-medium text-ink">{heroCopy.subtitleLead}</p>
-        <ul class="list-disc space-y-1.5 pl-5 text-muted">
-          {heroCopy.subtitleBullets.map((line) => (
-            <li>{line}</li>
-          ))}
-        </ul>
-        <p class="font-semibold text-ink">{heroCopy.subtitleClosing}</p>
+  <div class="section-shell relative space-y-10 md:space-y-12">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)] md:items-start md:gap-12">
+      <div class="space-y-6">
+        <p class="label-eyebrow">{heroCopy.eyebrow}</p>
+        <h1 class="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+          {heroCopy.title}
+        </h1>
+        <div class="max-w-measure space-y-3 text-lg">
+          <p class="font-medium text-ink">{heroCopy.subtitleLead}</p>
+          <ul class="list-disc space-y-1.5 pl-5 text-muted">
+            {heroCopy.subtitleBullets.map((line) => (
+              <li>{line}</li>
+            ))}
+          </ul>
+          <p class="font-semibold text-ink">{heroCopy.subtitleClosing}</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <ButtonPrimary href="#contact">{heroCopy.ctaPrimary}</ButtonPrimary>
+          <ButtonSecondary href="#process">{heroCopy.ctaSecondary}</ButtonSecondary>
+        </div>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <ButtonPrimary href="#contact">{heroCopy.ctaPrimary}</ButtonPrimary>
-        <ButtonSecondary href="#process">{heroCopy.ctaSecondary}</ButtonSecondary>
+      <div class="flex min-w-0 justify-center md:justify-end md:pt-8">
+        <div class="w-full max-w-[min(100%,28rem)] shrink-0">
+          <BrandPatternPanel messages={messages} />
+        </div>
       </div>
     </div>
-    <div class="flex min-w-0 justify-center md:justify-end md:pt-8">
-      <div class="w-full max-w-[min(100%,28rem)] shrink-0">
-        <BrandPatternPanel messages={messages} />
-      </div>
-    </div>
+
+    <HeroSystemDiagram messages={messages} size="hero" />
   </div>
 </section>
