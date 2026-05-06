@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import type { SiteMessages } from '../i18n/types';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   messages: SiteMessages;
@@ -54,5 +55,6 @@ const sitemapHref = new URL('sitemap.xml', baseRoot).href;
   <body class="min-h-dvh bg-warm text-ink">
     <a class="skip-to-main" href="#main">{messages.a11y.skipToMain}</a>
     <slot />
+    <Analytics />
   </body>
 </html>

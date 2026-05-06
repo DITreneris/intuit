@@ -10,6 +10,7 @@ Formatas remiasi [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versi
 - [docs/MOBILE-AUDIT.md](docs/MOBILE-AUDIT.md) — mobiliojo UI/UX audito metodika (įrenginių matrica, įrankiai, LT+EN smoke), Takas A (Must/Should/Want su kodinėmis nuorodomis), Takas B (el. parašas), prioritizuotas backlogas; indeksas — [docs/README.md](docs/README.md).
 - **TrustedBy — Montis Magia:** [`public/clients/montis-magia.png`](public/clients/montis-magia.png) (permatomas PNG, brand mėlyna iš šaltinio); paruošimas — [`scripts/prep-montis-logo.py`](scripts/prep-montis-logo.py) (įvestis `INTUIT LOGO/client_logo/montis_magia.png`). i18n [`src/i18n/lt.ts`](src/i18n/lt.ts) / [`src/i18n/en.ts`](src/i18n/en.ts): `trustedBy.logos` — naujas įrašas ir **abėcėlinė** eilė (MasterKey → Montis Magia → PHH → Pigu → Pikas → Sirin → TEC).
 - **Favicon PNG / Apple touch:** [`public/favicon-32x32.png`](public/favicon-32x32.png), [`public/apple-touch-icon.png`](public/apple-touch-icon.png); generavimas: `npm run gen:favicon` → [`scripts/gen-favicon-png.mjs`](scripts/gen-favicon-png.mjs) (`@resvg/resvg-js`, [`package.json`](package.json)); [`Layout.astro`](src/layouts/Layout.astro) — papildomi `rel="icon"` (PNG) ir `apple-touch-icon` su `base`, šalia esamo `favicon.svg`.
+- **Vercel Analytics (pageview):** pridėtas `@vercel/analytics` ([`package.json`](package.json)); `Layout.astro` ([`src/layouts/Layout.astro`](src/layouts/Layout.astro)) įdėtas `<Analytics />`, kad analitika būtų įkelta visuose puslapiuose.
 
 ### Changed
 
