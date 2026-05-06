@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Explicit allow (social preview crawlers)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+Sitemap: https://www.intuit.lt/sitemap.xml
+
