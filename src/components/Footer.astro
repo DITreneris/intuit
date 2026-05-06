@@ -14,13 +14,8 @@ const { messages } = Astro.props;
       <p>{messages.footer.rights}</p>
       <p class="max-w-xl text-xs leading-relaxed text-muted/90">{messages.footer.legalLine}</p>
     </div>
-    <nav class="flex flex-wrap gap-x-5 gap-y-2 md:justify-end" aria-label="Secondary">
-      <a class="underline-offset-4 hover:text-ink hover:underline" href="#about">
-        {messages.nav.about}
-      </a>
-      <a class="underline-offset-4 hover:text-ink hover:underline" href="#contact">
-        {messages.nav.contact}
-      </a>
-    </nav>
+    <a class="underline-offset-4 hover:text-ink hover:underline md:self-start" href="#contact">
+      {messages.nav.contact}
+    </a>
   </div>
 </footer>

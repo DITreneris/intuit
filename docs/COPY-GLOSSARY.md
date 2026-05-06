@@ -90,10 +90,10 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `nav.process` | Eiga | Flow | OK. |
 | `nav.proof` | Rodikliai | Metrics | Sutampa su Proof sekcijos rodiklių kalba. |
 | `nav.offers` | Planai | Plans | OK. |
-| `nav.about` | Apie | About | Tik **Footer** nuoroda į `#about` — ne Header nav (mažiau punkų lipnioje juostoje). |
+| `nav.about` | Apie | About | Rezervuota (sekcija `#about` lieka); **ne** Header ir **ne** Footer nuoroda — tik mažiau triukšmo juostoje. |
 | Kiti | nepakeisti | nepakeisti | |
 
-**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav **be** „Kontaktas“ / „Contact“ ir **be** „Apie“ / „About“ — į `#contact` veda primary CTA, į `#about` — [Footer.astro](../src/components/Footer.astro) (`nav.about` + `nav.contact`). Nav nuorodų stilius: mažesnis šriftas (`text-2xs` / ankstesnis `text-[11px]`), glaudesni tarpai.
+**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav **be** „Kontaktas“ / „Contact“ ir **be** „Apie“ / „About“ — į `#contact` veda primary CTA ir [Footer.astro](../src/components/Footer.astro) (`nav.contact` vienintelė antrinė nuoroda apačioje). Nav nuorodų stilius: mažesnis šriftas (`text-2xs` / ankstesnis `text-[11px]`), glaudesni tarpai.
 
 ---
 

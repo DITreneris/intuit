@@ -11,7 +11,7 @@ interface Props {
 const { messages, lang } = Astro.props;
 
 /** Anchor navigacija — etiketės ir href sutampa su `messages.nav` ir sekcijų `id` puslapyje. */
-/** Be `#contact` / `#about` — kontaktas per primary CTA ir Footer; „Apie“ tik Footer. */
+/** Be `#contact` — į `#contact` veda primary CTA ir Footer antrinė nuoroda. */
 const links = [
   { href: '#problem', label: messages.nav.problem },
   { href: '#solution', label: messages.nav.solution },
