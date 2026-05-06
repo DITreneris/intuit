@@ -8,3 +8,9 @@ dist/
 *.log
 .DS_Store
 __MACOSX/
+
+# Local source assets (not part of site build)
+INTUIT LOGO/
+illustration_method.png
+nerijus.jfif
+nerijuss.jpg
