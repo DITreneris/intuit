@@ -9,9 +9,9 @@ export const en = {
   nav: {
     brand: 'INTUIT',
     problem: 'Problem',
-    solution: 'Approach',
+    solution: 'Method',
     process: 'Flow',
-    proof: 'Outcomes',
+    proof: 'Metrics',
     offers: 'Plans',
     about: 'About',
     contact: 'Contact',
@@ -186,6 +186,8 @@ export const en = {
     contactEmail: 'nerijus@intuit.lt',
     addressLine: 'Gedimino pr. 49-25, LT-01110 Vilnius',
     footnote: 'We reply within 24 hours. The first call is obligation-free.',
+    /** Attribution link to Prompt Anatomy. */
+    madeWithPaLabel: 'Made with PA',
     mailBodyTemplate:
       'Hello,\n\nI would like to book a consultation on communications:\n\n• Company / organization:\n• Current goal:\n',
   },

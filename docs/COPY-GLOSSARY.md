@@ -86,13 +86,14 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 
 | Raktas | LT | EN | Komentaras |
 |--------|----|----|------------|
-| `nav.solution` | Sprendimas | Approach | Sąmoninga adaptacija (EN „Solution“ skamba per konsultaciškai). |
+| `nav.solution` | Metodas | Method | Trumpa juostos etiketė; sekcijos H2 lieka „Sprendimas“ pozicionavimo kalba (žr. PRD). |
 | `nav.process` | Eiga | Flow | OK. |
-| `nav.proof` | Rezultatai | Outcomes | OK. |
+| `nav.proof` | Rodikliai | Metrics | Sutampa su Proof sekcijos rodiklių kalba. |
 | `nav.offers` | Planai | Plans | OK. |
+| `nav.about` | Apie | About | Tik **Footer** nuoroda į `#about` — ne Header nav (mažiau punkų lipnioje juostoje). |
 | Kiti | nepakeisti | nepakeisti | |
 
-**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav **be** atskiros „Kontaktas“ / „Contact“ nuorodos — į `#contact` veda primary CTA ir [Footer.astro](../src/components/Footer.astro) antrinė nuoroda (`nav.contact`); sumažinama horizontali apkrova. Nav nuorodų stilius: mažesnis šriftas (`text-[11px]`), glaudesni tarpai.
+**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav **be** „Kontaktas“ / „Contact“ ir **be** „Apie“ / „About“ — į `#contact` veda primary CTA, į `#about` — [Footer.astro](../src/components/Footer.astro) (`nav.about` + `nav.contact`). Nav nuorodų stilius: mažesnis šriftas (`text-2xs` / ankstesnis `text-[11px]`), glaudesni tarpai.
 
 ---
 

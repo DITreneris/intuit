@@ -9,9 +9,9 @@ export const lt = {
   nav: {
     brand: 'INTUIT',
     problem: 'Problema',
-    solution: 'Sprendimas',
+    solution: 'Metodas',
     process: 'Eiga',
-    proof: 'Rezultatai',
+    proof: 'Rodikliai',
     offers: 'Planai',
     about: 'Apie',
     contact: 'Kontaktas',
@@ -194,6 +194,8 @@ export const lt = {
     contactEmail: 'nerijus@intuit.lt',
     addressLine: 'Gedimino pr. 49-25, LT-01110 Vilnius',
     footnote: 'Atsakome per 24 val. Pirmas pokalbis be įsipareigojimų.',
+    /** Kreditas — nuoroda į Prompt Anatomy (viešas attribution). */
+    madeWithPaLabel: 'Made with PA',
     mailBodyTemplate:
       'Sveiki,\n\nNorėčiau užsisakyti konsultaciją dėl komunikacijos:\n\n• Įmonė / organizacija:\n• Tikslas dabar:\n',
   },
