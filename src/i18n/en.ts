@@ -91,6 +91,8 @@ export const en = {
   },
   process: {
     title: 'How we work',
+    intro:
+      'A clear sequence—from where you are today to steady refinement. Below are the four stages of how we work together.',
     steps: [
       { name: 'Overview', detail: 'What exists now: audiences, risks, and habits.' },
       { name: 'Plan', detail: 'Channels, metrics, narrative direction, and positioning.' },

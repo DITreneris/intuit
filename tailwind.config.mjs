@@ -25,8 +25,8 @@ export default {
         /** Hero diagram SVG — sinchronizuota su theme (žr. global.css :root) */
         diagramStrokeAi: '#c7d2fe',
         diagramLineSoft: '#9ca3af',
-        /** Diagramų akcentai — kontrolės žiedas, feedback loop (DS v1.1+) */
-        diagramElectric: '#2563eb',
+        /** Diagramų akcentai — ta pati hue kaip `accent` (viena „brand“ mėlyna) */
+        diagramElectric: '#1e3a8a',
         diagramLoop: '#475569',
       },
       fontFamily: {
@@ -47,20 +47,21 @@ export default {
         content: '1180px',
       },
       boxShadow: {
-        soft: '0 24px 48px -12px rgba(10, 10, 10, 0.06)',
-        softSm: '0 8px 24px -8px rgba(10, 10, 10, 0.08)',
+        soft: '0 24px 52px -12px rgba(10, 10, 10, 0.075)',
+        softSm: '0 8px 20px -10px rgba(10, 10, 10, 0.065)',
         /** Dropdown / elevated panels — tarp softSm ir generic lg */
         elevated: '0 12px 32px -8px rgba(10, 10, 10, 0.12)',
       },
       backgroundImage: {
+        /** Šiltas → baltas; pabaiga — labai silpnas `accent` tint (be atskiros indigo) */
         'hero-premium':
-          'linear-gradient(135deg, #f7f4ef 0%, #ffffff 45%, #eef2ff 100%)',
+          'linear-gradient(135deg, #f7f4ef 0%, #ffffff 52%, rgb(30 58 138 / 0.045) 100%)',
         /** Hero diagram wrapper — accent / 6% */
         'diagram-radial':
           'radial-gradient(circle at 30% 15%, rgb(30 58 138 / 0.06), transparent 55%)',
-        /** Švelnus „glow“ tik diagramos kortelei (pasitikėjimo tonas, ne hype) */
+        /** Švelnus „glow“ — tas pats accent RGB kaip diagram-radial */
         'diagram-glow':
-          'radial-gradient(ellipse 85% 70% at 52% 0%, rgb(37 99 235 / 0.07), transparent 52%)',
+          'radial-gradient(ellipse 85% 70% at 52% 0%, rgb(30 58 138 / 0.075), transparent 52%)',
       },
     },
   },

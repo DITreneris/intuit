@@ -9,7 +9,7 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 | Tailwind tokenai | [tailwind.config.mjs](../tailwind.config.mjs) |
 | Globalūs stiliai, `:root` CSS kintamieji diagramoms | [src/styles/global.css](../src/styles/global.css) |
 | Kortelės | `.card`, `.card-muted`, `.card-featured` (`global.css`) |
-| Sekcijų konteineriai, eyebrow, header kompaktiniai valdikliai | `.section-shell`, `.section-shell--tight`, `.label-eyebrow`, `.header-toolbar-control`, `.section-border-standard` ([`global.css`](../src/styles/global.css)) |
+| Sekcijų konteineriai, eyebrow, header kompaktiniai valdikliai | `.section-shell`, `.section-shell--tight`, `.label-eyebrow`, `.section-intro`, `.card-title`, `.header-toolbar-control`, `.section-border-standard` ([`global.css`](../src/styles/global.css)) |
 | CTA komponentai | [src/components/ui/ButtonPrimary.astro](../src/components/ui/ButtonPrimary.astro), [ButtonSecondary.astro](../src/components/ui/ButtonSecondary.astro) |
 | Inverse ženklas Hero (`logo-pattern-inverse`) | [`BrandPatternPanel.astro`](../src/components/BrandPatternPanel.astro) |
 | Komunikacijos valdymo diagrama (`HeroSystemDiagram`; tekstai `messages.hero.diagram`) | [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro) — komponentas repozitorijoje; **dabartinėje** landing versijoje **neįterptas** ([`LandingPage.astro`](../src/components/LandingPage.astro)) |
@@ -27,18 +27,24 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 | `danger`, `dangerSoft` | rizikos / chaos badge (ne Tailwind default `red-*`) |
 | `aiSoft` | AI susiję paviršiai |
 | `diagramStrokeAi`, `diagramLineSoft` | diagramų stroke (SVG per `--ds-*`) |
-| `diagramElectric`, `diagramLoop` | hero diagramos: kontrolės akcentas, feedback loop |
+| `diagramElectric`, `diagramLoop` | `diagramElectric` — **ta pati hex** kaip `accent`; `diagramLoop` — neutralus feedback loop |
 | `bg-diagram-glow` | švelnus diagramos fonas (kartu su `bg-diagram-radial`) |
 
 ## Layout utilities (sekcijų shell, etiketė)
 
 | Klasė | Aprašymas | Kada |
 |--------|-----------|------|
-| `.section-shell` | `mx-auto max-w-content` + `px-4 py-16 md:px-6 md:py-20` | Standartinės sekcijos; papildomai: `space-y-10`, grid ir kt. |
+| `.section-shell` | `mx-auto max-w-content` + `px-4 py-16 md:px-6 md:py-20 lg:py-24` | Standartinės sekcijos; papildomai: `space-y-10`, grid ir kt. |
 | `.section-shell--tight` | Tas pats horizontaliai + **`py-10 md:py-12`** | Tik **TrustedBy** (logotipų juosta — kompaktiškas vertikalus ritmas). |
 | `.label-eyebrow` | `text-xs font-semibold uppercase tracking-[0.2em] text-muted` | Hero eyebrow; **TrustedBy** inline H2 (`flex` + ženklas) — ta pati klasė layoutui antraštėje. Kitur — ta pati `tracking-[0.2em]` su spalvos akcentu tik kur PRD/DS pagrįsta. |
+| `.section-intro` | `max-w-measure` + `text-base md:text-lg` + `text-muted` + `leading-relaxed` | Įžanga po H2 (Solution, Offers, Process, About pastraipos ir pan.) |
+| `.card-title` | `text-lg font-semibold text-ink` + `tracking-tight` | Kortelės / proceso žingsnio / paketo pavadinimas |
 | `.header-toolbar-control` | `rounded-lg`, `border-line`, `min-h-11`, uppercase `tracking-[0.2em]`, hover į `ink` | Tik **[`Header.astro`](../src/components/Header.astro)** kalbos nuoroda ir mobile meniu `summary` — bendras šablonas ([`global.css`](../src/styles/global.css)). |
-| `.section-border-standard` *(pasirinktinai naujoms sekcijoms)* | `border-b border-line` | Standartinė sekcijos apačia (žr. „Sekcijų ribos“). Esamos sekcijos gali likti su tiesioginiu Tailwind — refactor neprivalomas. |
+| `.section-border-standard` *(pasirinktinai naujoms sekcijoms)* | `border-b border-line` | Standartinė sekcijos apačia (žr. „Sekcijų ribos“). Esamos sekcijos gali likti su Tailwind inline — refactor neprivalomas. |
+
+### Dekoratyvus sekcijų fonas (viena vieta)
+
+- **Solution (`#solution`):** ant `bg-paper` — absoliutus sluoksnis `bg-diagram-glow` + `opacity-40` (`pointer-events-none`), sekcija `relative overflow-hidden`. Kitur `bg-diagram-glow` **nedėti** dubliuojančiai be PRD pagrindo.
 
 ### Radius scale (kampų sutartis)
 
@@ -63,13 +69,15 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 ## Tipografija
 
 - Antraštės: Tailwind `text-3xl md:text-4xl` (H2), `text-4xl md:text-5xl` (H1 Hero).
-- **Hero** supporting copy ([`Hero.astro`](../src/components/sections/Hero.astro)): po H1 — `messages.hero.subtitleLead` (**`font-medium text-ink`**), punktai **`subtitleBullets`** (`<ul class="list-disc …">`, **`text-muted`**), uždarymas **`subtitleClosing`** (**`font-semibold text-ink`**); konteineris `max-w-measure space-y-3 text-lg` (kortelės fono šiam blokui nenaudojame, nebent atskirai apsispręsite).
-- Body sekcijose: dažnai `text-base md:text-lg` ilgesniam paaiškinimui; kortelėse — `text-sm` su `leading-relaxed`.
+- **Hero H1** ([`Hero.astro`](../src/components/sections/Hero.astro)): `text-balance`, **`max-w-[20ch] md:max-w-[24ch]`** (numatomi lūžiai), **`leading-tight md:leading-snug`**.
+- **Hero** supporting copy ([`Hero.astro`](../src/components/sections/Hero.astro)): po H1 — blokas `max-w-measure space-y-3 text-base md:text-lg leading-relaxed`; `subtitleLead` — **`font-medium text-ink`**; punktai **`subtitleBullets`** (`list-disc`, **`text-muted`**); **`subtitleClosing`** — **`font-semibold text-ink`**.
+- **Sekcijų įžangos ir kortelių antraštės:** naudoti **`.section-intro`** ir **`.card-title`** iš [`global.css`](../src/styles/global.css) — vienoda skalė su Hero body (įskaitant **Process** po H2).
+- Ilgesnis sąrašinis / paaiškinamasis tekstas kortelėse: **`text-base leading-relaxed`** (Process žingsnis, Solution / Offers punktai).
 - Micro badge: `text-2xs` (11px) — žr. `theme.extend.fontSize` confige.
 - **Header** desktop `nav` ([`Header.astro`](../src/components/Header.astro)): **`text-2xs`**, ne savavalis `text-[11px]`.
 - **Metrikų kortelės (jei būtų skaičiai viešame bloke):** reikšmėms tinka **`tabular-nums`**, kad skaitmenys nesijudintų keičiant turinį.
 - **Valdymo schema ([`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro)):** virš SVG — HTML blokas (**strip** `text-sm` / `md:text-base`, **caption** `text-sm`, **kilpos etiketė** `text-2xs`). SVG viduje `<text>` mikro skalė (desktop ~11–12); matomos HTML legendos nėra. Prop `size="hero" | "proof"` parenka plotį ir „svorį“. Žr. skyrių „Komunikacijos valdymo diagrama“.
-- **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido.
+- **Kontaktų kortelė** ([`FinalCta.astro`](../src/components/sections/FinalCta.astro)): portreto nuotrauka — **`rounded-xl`**, `overflow-hidden` dėžutė; jei 1:1 šaltinyje subjektas ne centruotas, naudojamas subtilus **`scale` + `origin-[x%_y%]`** (ne keisti be vizualinės patikros). Ilgalaikei — perexportuoti `public/brand/contact-nerijus.{webp,jpg}` su centru ant veido. Stiklo blokas: **`border-white/12`**, **`p-6 md:p-7`**, `backdrop-blur`.
 
 ## Prekės ženklas (raster + SVG)
 
@@ -86,7 +94,7 @@ Ant **šviesaus** fono — **Header** ir **TrustedBy** inline ženklui: [`Intuit
 
 ## Šešėliai
 
-- `shadow-soft`, `shadow-softSm` — kortelės, primary CTA.
+- `shadow-soft`, `shadow-softSm` — kortelės, primary CTA. Konkretūs blur / alpha — [`tailwind.config.mjs`](../tailwind.config.mjs): **`softSm`** lengvesnis numatytosioms kortelėms; **`soft`** šiek tiek aiškesnis „pakeltam“ sluoksniui (`.card-featured`, didesnis CTA šešėlis).
 - `shadow-elevated` — mobile dropdown / pakeltas panelis (Header).
 
 ## Mygtukai (CTA)
@@ -137,7 +145,7 @@ Keičiant brand spalvas — pirmiausia `tailwind.config.mjs`, tada patikrinti `g
 ## Checklist naujai sekcijai
 
 - [ ] Fonas iš leistinų: `surface` / `paper` / `warm` / `hero-premium` / `ink`.
-- [ ] Konteineris: preferuoti **`.section-shell`** (arba ekvivalentas `mx-auto max-w-content px-4 md:px-6` + `py-16 md:py-20`); vertikalus padding sutampa su kitomis sekcijomis, nebent PRD „compact“ išimtis — tada **`.section-shell--tight`** (tik įrodytas atvejis, pvz. TrustedBy tipo juosta).
+- [ ] Konteineris: preferuoti **`.section-shell`** (arba ekvivalentas `mx-auto max-w-content px-4 md:px-6` + `py-16 md:py-20 lg:py-24`); vertikalus padding sutampa su kitomis sekcijomis, nebent PRD „compact“ išimtis — tada **`.section-shell--tight`** (tik įrodytas atvejis, pvz. TrustedBy tipo juosta).
 - [ ] Vienas matomas H2 (arba dokumentuotas `sr-only`).
 - [ ] Primary CTA tik per `ButtonPrimary`.
 - [ ] Kortelės: `.card` / `.card-muted` / `.card-featured`.

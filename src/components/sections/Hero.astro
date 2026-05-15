@@ -19,18 +19,20 @@ const patternLightUrl = `${basePath}brand/logo-pattern-light.jpg`;
 
 <section id="hero" class="relative scroll-mt-28 overflow-hidden border-b border-line bg-hero-premium">
   <div
-    class="pointer-events-none absolute -right-10 top-0 h-full w-[min(72vw,22rem)] bg-cover bg-[0%_50%] opacity-[0.04] mix-blend-multiply md:-right-14 md:w-[min(52vw,30rem)] md:opacity-[0.055]"
+    class="pointer-events-none absolute -right-10 top-0 h-full w-[min(72vw,22rem)] bg-cover bg-[0%_50%] opacity-[0.032] mix-blend-multiply md:-right-14 md:w-[min(52vw,30rem)] md:opacity-[0.045]"
     style={`background-image: url('${patternLightUrl}')`}
     aria-hidden="true"
   />
   <div class="section-shell relative space-y-10 md:space-y-12">
     <div class="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)] md:items-start md:gap-12">
-      <div class="space-y-6">
+      <div class="space-y-7 md:space-y-8">
         <p class="label-eyebrow">{heroCopy.eyebrow}</p>
-        <h1 class="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+        <h1
+          class="max-w-[20ch] text-balance text-4xl font-semibold leading-tight tracking-tight md:max-w-[24ch] md:text-5xl md:leading-snug"
+        >
           {heroCopy.title}
         </h1>
-        <div class="max-w-measure space-y-3 text-lg">
+        <div class="max-w-measure space-y-3 text-base leading-relaxed md:text-lg">
           <p class="font-medium text-ink">{heroCopy.subtitleLead}</p>
           {heroCopy.subtitleBullets.length > 0 ? (
             <ul class="list-disc space-y-1.5 pl-5 text-muted">

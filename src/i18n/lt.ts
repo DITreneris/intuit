@@ -93,6 +93,8 @@ export const lt = {
   },
   process: {
     title: 'Kaip dirbame',
+    intro:
+      'Aiškūs etapai — nuo dabartinės situacijos iki nuolatinio tobulinimo. Žemiau keturi žingsniai, kaip dirbame kartu.',
     steps: [
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
       { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis ir pozicionavimas.' },

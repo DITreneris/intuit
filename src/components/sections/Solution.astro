@@ -8,19 +8,23 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<section id="solution" class="scroll-mt-28 border-b border-line bg-paper">
-  <div class="section-shell space-y-10">
-    <div class="max-w-3xl space-y-4">
+<section id="solution" class="relative scroll-mt-28 overflow-hidden border-b border-line bg-paper">
+  <div
+    class="pointer-events-none absolute inset-0 bg-diagram-glow bg-no-repeat opacity-40"
+    aria-hidden="true"
+  />
+  <div class="section-shell relative space-y-10 md:space-y-12">
+    <div class="max-w-measure space-y-4">
       <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.solution.title}</h2>
-      <p class="text-base text-muted md:text-lg">{messages.solution.intro}</p>
+      <p class="section-intro">{messages.solution.intro}</p>
     </div>
 
     <div class="grid gap-6 md:grid-cols-3 md:items-stretch">
       {messages.solution.pillars.map((pillar) => (
         <article class="card flex h-full flex-col p-6">
-          <h3 class="text-lg font-semibold leading-snug">{pillar.name}</h3>
-          <p class="mt-2 text-sm font-semibold text-accentTeal">{pillar.outcome}</p>
-          <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink">
+          <h3 class="card-title">{pillar.name}</h3>
+          <p class="mt-2 text-sm font-semibold text-accent">{pillar.outcome}</p>
+          <ul class="mt-4 space-y-2.5 text-base leading-relaxed text-ink">
             {pillar.points.map((p) => (
               <li class="flex gap-2">
                 <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />

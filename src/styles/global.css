@@ -126,7 +126,7 @@
 
   /** Sekcijų konteineris — sutampa su DS checklist (max-w-content + horizontal / vertical padding) */
   .section-shell {
-    @apply mx-auto max-w-content px-4 py-16 md:px-6 md:py-20;
+    @apply mx-auto max-w-content px-4 py-16 md:px-6 md:py-20 lg:py-24;
   }
 
   /** TrustedBy ir kompaktiškos „strip“ sekcijos */
@@ -137,6 +137,16 @@
   /** Hero eyebrow ir panašios šviesios etiketės (ne spalvotos Chaos antraštės) */
   .label-eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted;
+  }
+
+  /** Vienoda sekcijos įžanga po H2 (plotis + šriftas) */
+  .section-intro {
+    @apply max-w-measure text-base font-normal leading-relaxed text-muted md:text-lg;
+  }
+
+  /** Kortelės / žingsnio / paketo antraštė — vienas dydis visame landing'e */
+  .card-title {
+    @apply text-lg font-semibold leading-snug tracking-tight text-ink;
   }
 
   /** Header: kalbos jungiklis ir mobile meniu summary — vienas vizualinis šablonas */
