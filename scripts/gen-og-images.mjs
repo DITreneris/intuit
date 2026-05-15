@@ -108,15 +108,16 @@ async function buildOg({ outName, title, subtitle }) {
   console.log(`Wrote ${path.relative(root, outPath)} (${W}×${H})`);
 }
 
+/** Sinchronizuota su `src/i18n/lt.ts` / `en.ts` → `meta.title` ir trumpa antra eilutė (telpa į 1200 px SVG). */
 await buildOg({
   outName: 'og-lt.jpg',
-  title: 'Komunikacija, kuria galima pasitikėti.',
-  subtitle: 'Intuicija nėra nuojauta — tai sukaupta patirtis.',
+  title: 'INTUIT — komunikacija, kuria galima pasitikėti',
+  subtitle: 'Konsultacijos, krizės ir strateginiai sprendimai.',
 });
 
 await buildOg({
   outName: 'og-en.jpg',
-  title: 'Communications you can trust.',
-  subtitle: "Intuition isn't a guess — it's earned judgment.",
+  title: 'INTUIT — communications you can trust',
+  subtitle: 'Consulting, crisis leadership, and strategic decisions.',
 });
 

@@ -1,7 +1,7 @@
 {
   "name": "67-intuit",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "gen:favicon": "node scripts/gen-favicon-png.mjs",
+    "gen:og": "node scripts/gen-og-images.mjs",
     "gen:wordmark": "node scripts/export-wordmark-raster.mjs",
     "astro": "astro"
   },
