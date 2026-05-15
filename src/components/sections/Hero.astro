@@ -32,12 +32,16 @@ const patternLightUrl = `${basePath}brand/logo-pattern-light.jpg`;
         </h1>
         <div class="max-w-measure space-y-3 text-lg">
           <p class="font-medium text-ink">{heroCopy.subtitleLead}</p>
-          <ul class="list-disc space-y-1.5 pl-5 text-muted">
-            {heroCopy.subtitleBullets.map((line) => (
-              <li>{line}</li>
-            ))}
-          </ul>
-          <p class="font-semibold text-ink">{heroCopy.subtitleClosing}</p>
+          {heroCopy.subtitleBullets.length > 0 ? (
+            <ul class="list-disc space-y-1.5 pl-5 text-muted">
+              {heroCopy.subtitleBullets.map((line) => (
+                <li>{line}</li>
+              ))}
+            </ul>
+          ) : null}
+          {heroCopy.subtitleClosing.trim() !== '' ? (
+            <p class="font-semibold text-ink">{heroCopy.subtitleClosing}</p>
+          ) : null}
         </div>
         <div class="flex flex-wrap gap-3">
           <ButtonPrimary href="#contact">{heroCopy.ctaPrimary}</ButtonPrimary>

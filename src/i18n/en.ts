@@ -2,9 +2,10 @@ export const en = {
   meta: {
     title: 'INTUIT — communications you can trust',
     description:
-      'Hands-on communications support for growing teams—PR, marketing, and crisis moments—clearer and less chaos.',
+      'Senior communications consulting, crisis leadership, and strategic decisions for growing teams—clear execution, less noise.',
     ogLocale: 'en_US',
-    ogImageAlt: 'INTUIT — communications you can trust. Less chaos. More clarity. Better results.',
+    ogImageAlt:
+      'INTUIT — communications you can trust. Intuition is earned judgment—not a guess. Consulting, crisis, and strategy.',
   },
   nav: {
     brand: 'INTUIT',
@@ -25,14 +26,10 @@ export const en = {
   },
   hero: {
     eyebrow: 'Business communications',
-    title: 'Less chaos. More clarity. Better results.',
-    subtitleLead: 'Professional consulting:',
-    subtitleBullets: [
-      'From PR through marketing',
-      'Events, social, and crisis response',
-      'Content systems and light automation',
-    ],
-    subtitleClosing: 'Need an extra pair of hands? Let’s talk.',
+    title: "Intuition isn't a gut feeling. It's judgment earned from experience.",
+    subtitleLead: 'Senior consulting on communications, crisis leadership, and strategic decisions.',
+    subtitleBullets: [],
+    subtitleClosing: '',
     ctaPrimary: 'Book a consultation',
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',

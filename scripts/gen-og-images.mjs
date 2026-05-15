@@ -111,12 +111,12 @@ async function buildOg({ outName, title, subtitle }) {
 await buildOg({
   outName: 'og-lt.jpg',
   title: 'Komunikacija, kuria galima pasitikėti.',
-  subtitle: 'Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
+  subtitle: 'Intuicija nėra nuojauta — tai sukaupta patirtis.',
 });
 
 await buildOg({
   outName: 'og-en.jpg',
   title: 'Communications you can trust.',
-  subtitle: 'Less chaos. More clarity. Better results.',
+  subtitle: "Intuition isn't a guess — it's earned judgment.",
 });
 

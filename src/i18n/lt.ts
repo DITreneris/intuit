@@ -2,9 +2,10 @@ export const lt = {
   meta: {
     title: 'INTUIT — komunikacija, kuria galima pasitikėti',
     description:
-      'Profesionalios konsultacijos augančioms įmonėms: PR, rinkodara ir krizių komunikacija — aiškiau, be perteklinio chaoso.',
+      'Profesionalios konsultacijos, krizių valdymas ir strateginiai sprendimai augančioms įmonėms — aiškiai ir be perteklinio chaoso.',
     ogLocale: 'lt_LT',
-    ogImageAlt: 'INTUIT — komunikacija, kuria galima pasitikėti. Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
+    ogImageAlt:
+      'INTUIT — komunikacija, kuria galima pasitikėti. Intuicija nėra nuojauta — tai sukaupta patirtis. Konsultacijos, krizės ir strateginiai sprendimai.',
   },
   nav: {
     brand: 'INTUIT',
@@ -25,14 +26,10 @@ export const lt = {
   },
   hero: {
     eyebrow: 'Verslo komunikacija',
-    title: 'Mažiau chaoso. Daugiau aiškumo. Geresni rezultatai.',
-    subtitleLead: 'Profesionalios konsultacijos:',
-    subtitleBullets: [
-      'nuo viešųjų ryšių iki rinkodaros',
-      'renginiai, socialiniai tinklai, krizių valdymas',
-      'turinio valdymas ir automatizavimas',
-    ],
-    subtitleClosing: 'Reikia pagalbos? Pasikalbam.',
+    title: 'Intuicija nėra nuojauta. Tai – sukauptos patirties visuma.',
+    subtitleLead: 'Profesionalios konsultacijos, krizių valdymas ir strateginiai sprendimai.',
+    subtitleBullets: [],
+    subtitleClosing: '',
     ctaPrimary: 'Gauti konsultaciją',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
