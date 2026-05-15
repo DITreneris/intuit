@@ -8,6 +8,7 @@ interface Props {
 
 const { messages } = Astro.props;
 const t = messages.trustedBy;
+const showHint = t.hint.trim() !== '';
 
 const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
@@ -33,54 +34,34 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
           loading="lazy"
         />
       </h2>
-      <p class="mt-2 text-xs text-muted/90">{t.hint}</p>
+      {
+        showHint ? (
+          <p class="mt-2 text-xs text-muted/90">{t.hint}</p>
+        ) : null
+      }
     </div>
 
-    <div class="relative">
-      <div
-        class="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-paper to-transparent md:w-12"
-        aria-hidden="true"
-      />
-      <div
-        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-paper to-transparent md:w-12"
-        aria-hidden="true"
-      />
-
-      <div
-        class="trusted-by-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain py-1 [-ms-overflow-style:none] [scrollbar-width:thin] md:gap-6 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-line [&::-webkit-scrollbar-track]:bg-transparent"
-        role="list"
-        tabindex="0"
-        aria-label={t.scrollAriaLabel}
-      >
-        {
-          t.logos.map((logo) => (
-            <div
-              role="listitem"
-              class="flex h-16 min-w-[10rem] shrink-0 snap-start items-center justify-center px-2 md:h-[4.5rem] md:min-w-[12rem] md:px-4"
-            >
-              <div class="flex h-12 w-full max-w-[11rem] items-center justify-center md:h-14 md:max-w-[13.5rem]">
-                <img
-                  src={`${basePath}${logo.src}`}
-                  alt={logo.alt}
-                  class="max-h-full max-w-full object-contain object-center"
-                  width="220"
-                  height="88"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+    <ul
+      class="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 sm:gap-x-6 md:grid-cols-4 md:gap-x-8 md:gap-y-8"
+      aria-label={t.logosRegionAriaLabel}
+    >
+      {
+        t.logos.map((logo) => (
+          <li class="flex min-h-[4.5rem] items-center justify-center px-2 py-2 md:min-h-[5rem] md:px-3">
+            <div class="flex h-12 w-full max-w-[11rem] items-center justify-center md:h-14 md:max-w-[13.5rem]">
+              <img
+                src={`${basePath}${logo.src}`}
+                alt={logo.alt}
+                class="max-h-full max-w-full object-contain object-center"
+                width="220"
+                height="88"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-          ))
-        }
-      </div>
-    </div>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
-
-<style>
-  .trusted-by-scroll:focus-visible {
-    outline: 2px solid theme('colors.accent');
-    outline-offset: 4px;
-    border-radius: 0.5rem;
-  }
-</style>

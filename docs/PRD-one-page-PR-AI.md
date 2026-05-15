@@ -17,7 +17,7 @@
 | Gražus išdėstymas be konversijos struktūros | „PowerPoint tinklalapis“ — vizualas be pardavimo logikos |
 | Per platus pozicionavimas („PR + marketing + viskas iš karto“) | Niekas per 2–3 s nesupranta, **ką konkrečiai** perkate |
 | „Komunikacija“ kaip tema be outcome | Sprendimų priėmėjams rūpi **rezultatas** (leads, reputacija, krizės kontrolė), ne etiketė |
-| Silpnas funnel (hero → proof → offer → CTA) | Aukštas bounce, mažai užklausų |
+| Silpnas funnel (hero → offers → CTA) | Aukštas bounce, mažai užklausų |
 | LT + EN atliktas atmestinai | Atrodo pigiai, mažėja pasitikėjimas |
 
 **Išvada:** kritinis kelias — **aiškus pasiūlymas (message–market fit)** ir **prognozuojami komunikacijos rezultatai**, ne dekoras.
@@ -49,14 +49,14 @@ Trumpas mapping vadovams:
 ### 2.2 Produkto (svetainės) tikslai
 
 - Vienas **aiškus primary CTA** visame puslapyje + antriniai CTA be konkurencijos su primary.
-- **Proof** sekcija privaloma prieš agresyvų pardavimą (paketai).
+- **Socialinis įrodymas** (klientų juosta, metodas, procesas) sutvirtina pasitikėjimą prieš agresyvų pardavimą (paketai).
 - LT tekstas — pilnas; EN — lygiavertė adaptacija (ne žodis į žodį „vertimas“).
 
 ### 2.3 KPI (pasiūlymas)
 
 | Metrika | Pavyzdinis taikinys (kalibruoti paleidus) |
 |---------|-------------------------------------------|
-| Scroll depth iki „Proof“ / „Offers“ | > X % |
+| Scroll depth iki „Offers“ | > X % |
 | Primary CTA paspaudimai / sesija | stebėti trendą |
 | Form submit / booked call | absoliutus skaičius + šaltinis |
 
@@ -79,24 +79,21 @@ Trumpas mapping vadovams:
 | # | Sekcija | Tikslas | Privalomas turinys |
 |---|---------|---------|---------------------|
 | 1 | **Hero** | 2 s aiškumas; pozicionavimas + CTA | LT/EN antraštės; dešinėje inverse ženklas / raštas (`BrandPatternPanel`); vienas primary CTA, vienas secondary |
-| 1b | **Klientų juosta (trusted by)** | Socialinis įrodymas iškart po hero | Horizontaliai slenkanti logotipų eilė (`#clients`); placeholderiai iki tikrų assetų |
-| 2 | **Problema (reality check)** | Atpažinimas; „tai apie mus“ | 3–4 punktai: fragmentacija, PR kaip reakcija, marketing ≠ reputacija, ad hoc įrankiai be proceso |
-| 3 | **Chaos vs system (vizualinė metafora)** | Before/after; tiltas į sprendimą | Viena aiški vizualinė schema ar palyginimas (žr. §5.2), ne teksto perkrova |
-| 4 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
-| 5 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai (LT: Apžvalga → Planas → Startas → Tobulinimas; EN: Review → Plan → Launch → Improve); schema > ilgas tekstas |
-| 6 | **Proof** | Pasitikėjimas | Metrikos (skaičiai) + po jų valdymo diagrama (`HeroSystemDiagram`); case kai yra — Before/After; jei nėra — framework aiškiai pažymėtas |
-| 7 | **Pasiūlymas (offers)** | Konversija | 3 paketai (LT: Startas / Įgyvendinimas / Mastelis; EN: Starter / Delivery / Scale) — **rezultatai**, trumpi punktai, ne ilgas feature sąrašas |
-| 8 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |
-| 9 | **Final CTA** | Uždarymas | Viena stipri žinutė + primary CTA |
+| 1b | **Klientų juosta (trusted by)** | Socialinis įrodymas iškart po hero | Responsive logotipų tinklas (`#clients`); placeholderiai iki tikrų assetų |
+| 2 | **Sprendimas (core system)** | Viena sistema, trys sluoksniai | Corporate / Marketing / mastelis ir operacija su **rezultatų** kalba |
+| 3 | **Kaip veikia (process)** | Sumažinti „paslaptingumo“ baimę | 4 žingsniai (LT: Apžvalga → Planas → Vykdymas → Tobulinimas; EN: Overview → Plan → Execution → Refinement); schema > ilgas tekstas |
+| 4 | **Pasiūlymas (offers)** | Konversija | 3 paslaugų paketai (LT: Startas / Palaikymas / Krizių valdymas; EN: Starter / Ongoing support / Crisis management) — **rezultatai**, trumpi punktai, ne ilgas feature sąrašas |
+| 5 | **Apie (trust)** | Žmogiškas patikimumas | Kas esate, patirtis, klientų tipai |
+| 6 | **Final CTA** | Uždarymas | Viena stipri žinutė + primary CTA |
 
 ### 4.2 Konversijos funnel (privaloma logika)
 
 ```
-Hero (aiškus „kas“ + CTA) → Klientų juosta → Problema (atpažinimas) → Chaos vs system (metafora)
-    → Sprendimas (sistema) → Procesas (kaip) → Proof (kodėl tikėti) → Offers (ką pirkti) → Trust → CTA
+Hero (aiškus „kas“ + CTA) → Klientų juosta → Sprendimas (sistema) → Procesas (kaip)
+    → Offers (ką pirkti) → Trust → CTA
 ```
 
-**Taisyklė:** Proof ir Offers negali būti prieš aiškų „sistema + procesas“, jei auditorija šalta — kitaip bounce iš Offers.
+**Taisyklė:** **Offers** negali būti prieš aiškų „sistema + procesas“, jei auditorija šalta — kitaip bounce iš paketų sekcijos.
 
 ### 4.3 Kalbos reikalavimai
 
@@ -131,7 +128,7 @@ Vienas primary visame fold’e; secondary ne konkuruoja vizualiai su primary.
 | Layout | Viena horizontali **flow** nuotaika, tinklelis (grid), didelis tarpai |
 | Tekstas | Minimalus; diagramos ir schema vietoj bullet perkrovos |
 | Spalva | Light mode kaip default („trust“); dark — tik jei brand reikalauja |
-| Problema / sprendimas | Before/after: chaos vs tvarka (viena aiški vizualinė metafora) |
+| Sprendimas | Aiški sistema ir planas vietoj ilgos „problemų“ perkrovos |
 | Procesas | Linija / 4 žingsniai — **schematiškai**, ne ilgas paragrafas |
 | Sekcijų kortelės | Kur tinka: **linijinė ikona virš antraštės** (inline SVG, 24×24), tada trumpas pavadinimas ir body — mažiau teksto, daugiau skaitomumo |
 | Hero fonas | Pasirinktinai: subtilus brand **chevron** raštas (`logo-pattern-light`, žema opacity, blend) — ne konkuruoja su dešiniu **inverse ženklu** (plakatas) |
@@ -148,7 +145,7 @@ Vienas primary visame fold’e; secondary ne konkuruoja vizualiai su primary.
 
 | Turinys | Statusas | Veiksmas |
 |---------|----------|----------|
-| Case study + skaičiai | Jei yra | į Proof |
+| Case study + skaičiai | Jei yra | į atskirą mediją / pardavimo medžiagą (ne šio puslapio sekcija) |
 | Be case | Privaloma alternatyva | Framework demo / simuliacija su aiškiu „tai metodikos pavyzdys“ |
 | Komanda / trust | Jei plona | pabrėžti patirtį, sektorius, tipinius klientus, ne CV ilgį |
 

@@ -10,7 +10,7 @@ alwaysApply: false
 ## Šaltiniai ir kalbos
 
 - **Produkto tiesa:** [docs/PRD-one-page-PR-AI.md](docs/PRD-one-page-PR-AI.md) (įskaitant pasitikėjimo pirmumo pozicionavimą v1.1+).
-- **Design System v1.5:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, kortelių akcentas (ikona neprivaloma), TrustedBy juosta, Hero inverse plakatas [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro), Proof valdymo diagrama [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro), checklist.
+- **Design System v1.5:** [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) — tokenai, CTA komponentai, kortelių akcentas (ikona neprivaloma), TrustedBy juosta, Hero inverse plakatas [`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro), checklist.
 - **Publikus copy:** [src/i18n/lt.ts](src/i18n/lt.ts) (LT), [src/i18n/en.ts](src/i18n/en.ts) (EN); bendras tipas — [src/i18n/types.ts](src/i18n/types.ts) (`SiteMessages` iš LT formos).
 - **Kalbos maršrutai:** LT — [src/pages/index.astro](src/pages/index.astro); EN — [src/pages/en/index.astro](src/pages/en/index.astro) (`en/` po `base`).
 - **LT / EN copy (privaloma agentams):**
@@ -32,10 +32,9 @@ alwaysApply: false
 
 - **Shell:** `Layout.astro` — `<html lang>`, meta, skip nuoroda (`messages.a11y.skipToMain` → `#main`).
 - **Puslapis:** [src/components/LandingPage.astro](src/components/LandingPage.astro) — `<main id="main" tabindex="-1">`, sekcijų eilė pagal PRD funnel.
-- **Sekcijos:** [src/components/sections/](src/components/sections/) — `Hero` ([`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + pasirinktinis `logo-pattern-light` fonas), `TrustedBy` (`#clients`, slenkanti logotipų juosta), `Problem`, `ChaosVsSystem`, `Solution`, `Process`, `Proof` (metrikos + [`HeroSystemDiagram.astro`](src/components/HeroSystemDiagram.astro)), `Offers`, `About`, `FinalCta`.
+- **Sekcijos:** [src/components/sections/](src/components/sections/) — `Hero` ([`BrandPatternPanel.astro`](src/components/BrandPatternPanel.astro) + pasirinktinis `logo-pattern-light` fonas), `TrustedBy` (`#clients`, responsive logotipų tinklas), `Solution`, `Process`, `Offers`, `About`, `FinalCta`.
 - **Antraštė / koja:** [Header.astro](src/components/Header.astro), [Footer.astro](src/components/Footer.astro).
 - **UI primitives:** [src/components/ui/](src/components/ui/) — `ButtonPrimary.astro` (`size`, `variant`), `ButtonSecondary.astro`; primary CTA visur per juos (Hero, Header, Offers, FinalCta).
-- **ChaosVsSystem:** tekstai iš `messages.chaosVsSystem` (ne atskiras `lang` prop).
 - **FinalCta:** tik `messages`; įmonė (`companyName`), kontaktas (`contactName`, `contactRole`, `contactPhone`, `contactEmail`, `addressLine` su Maps nuoroda); `mailto:` iš `PUBLIC_CONTACT_EMAIL` arba `contactEmail` + `URLSearchParams` (`subject`, `body` iš `finalCta`).
 - **Footer:** `rights`, `legalLine` (įm. / PVM kodai).
 

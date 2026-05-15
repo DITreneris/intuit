@@ -9,10 +9,8 @@ export const en = {
   },
   nav: {
     brand: 'INTUIT',
-    problem: 'Problem',
     solution: 'Method',
     process: 'Flow',
-    proof: 'Metrics',
     offers: 'Plans',
     about: 'About',
     contact: 'Contact',
@@ -33,6 +31,9 @@ export const en = {
     ctaPrimary: 'Book a consultation',
     ctaSecondary: 'Four steps',
     logoAlt: 'INTUIT logo',
+    /** Inverse panel image in Hero (`BrandPatternPanel`). */
+    brandPatternAlt:
+      'Monochrome INTUIT wordmark with geometric chevron pattern—stylized brand lockup',
     diagram: {
       svgTitle: 'Communications control diagram',
       svgDesc:
@@ -53,8 +54,10 @@ export const en = {
   trustedBy: {
     /** Copy adapts to logo replacing spelled brand name; not literal LT translation. */
     titleBefore: 'Clients who trust',
-    hint: 'Swipe sideways to see every logo.',
-    scrollAriaLabel: 'Client logos — scroll horizontally',
+    /** Leave empty to hide the line below the heading. */
+    hint: '',
+    /** Accessible name for the logo grid region. */
+    logosRegionAriaLabel: 'Client logos',
     logos: [
       { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logo' },
       { src: 'clients/montis-magia.png', alt: 'Montis Magia logo' },
@@ -64,37 +67,6 @@ export const en = {
       { src: 'clients/sirin.jpg', alt: 'Sirin logo' },
       { src: 'clients/tec.png', alt: 'TEC Consulting logo' },
     ],
-  },
-  problem: {
-    title: 'Why your communications don’t work as a system',
-    bullets: [
-      {
-        signal: 'Inconsistent messaging for buyers',
-        detail: 'Teams don’t speak with one voice—trust drops.',
-      },
-      {
-        signal: 'Comms that only react',
-        detail: 'No strategy—leadership loses the sense of control.',
-      },
-      {
-        signal: 'Channels that never sync',
-        detail: 'Reputation doesn’t match expectations.',
-      },
-      {
-        signal: 'Tools without a system',
-        detail: 'Plenty of comms noise—few real outcomes.',
-      },
-    ],
-    caption: 'Mixed messages, chaotic channels, and no predictable outcomes.',
-  },
-  chaosVsSystem: {
-    sectionTitle: 'From chaos to a clear operating rhythm',
-    chaosTitle: 'Chaos',
-    systemTitle: 'Order',
-    chaosBadge: 'Reactive',
-    systemBadge: 'Rhythm',
-    chaosCaption: 'No single line—just campaigns and incidents.',
-    systemCaption: 'One path: standards, metrics, and repetition—visible and measurable.',
   },
   solution: {
     title: 'Three directions, one plan',
@@ -120,47 +92,47 @@ export const en = {
   process: {
     title: 'How we work',
     steps: [
-      { name: 'Review', detail: 'What exists now: audiences, risks, habits.' },
-      { name: 'Plan', detail: 'Channels, metrics, content direction, and positioning.' },
-      { name: 'Launch', detail: 'Teams onboard—training, tools, and templates.' },
-      { name: 'Improve', detail: 'Measure, adjust, next steps to scale.' },
+      { name: 'Overview', detail: 'What exists now: audiences, risks, and habits.' },
+      { name: 'Plan', detail: 'Channels, metrics, narrative direction, and positioning.' },
+      { name: 'Execution', detail: 'Teams onboard—training, tools, and templates.' },
+      { name: 'Refinement', detail: 'Measurement, course corrections, and growth moves.' },
     ],
-  },
-  proof: {
-    title: 'Metrics we control',
-    metrics: [
-      { label: 'Clarity', value: '↑', hint: 'one narrative' },
-      { label: 'Speed', value: '↑', hint: 'repeatable templates' },
-      { label: 'Control', value: '↑', hint: 'visible metrics' },
-    ],
-    brandPatternAlt:
-      'Monochrome INTUIT wordmark with geometric chevron pattern—stylized brand lockup',
   },
   offers: {
-    title: 'Choose the depth',
-    subtitle: 'Clear outcomes—not a laundry list.',
+    title: 'Service packages',
+    subtitle: 'Three clear paths—from audit and planning through retained support to crisis leadership.',
     tiers: [
       {
         name: 'Starter',
-        tag: 'Review and plan',
+        tag: 'Kickoff',
         price: 'Custom',
-        bullets: ['Communications review', '90-day plan'],
+        bullets: ['Audit', 'Communications plan'],
         cta: 'Book a consultation',
       },
       {
-        name: 'Delivery',
-        tag: 'With your team',
-        price: 'Project-based',
-        bullets: ['Standards and content', 'Campaign operations and PR cycles'],
-        cta: 'Plan the delivery',
+        name: 'Ongoing support',
+        tag: 'Retained support',
+        price: 'By agreement',
+        bullets: [
+          'Audit',
+          'Communications plan',
+          'Press releases',
+          'Spokesperson coverage',
+          'Advisory sessions',
+        ],
+        cta: 'Discuss ongoing support',
         highlighted: true,
       },
       {
-        name: 'Scale',
-        tag: 'Playbooks and quality',
-        price: 'By scope',
-        bullets: ['Workflow template library', 'Content automation and quality control'],
-        cta: 'Discuss growth',
+        name: 'Crisis management',
+        tag: 'Rapid response',
+        price: 'Situation-based',
+        bullets: [
+          'Analysis',
+          'Communications and action plan',
+          'Execution and communications management',
+        ],
+        cta: 'Discuss crisis response',
       },
     ],
   },
@@ -168,7 +140,7 @@ export const en = {
     title: 'Who it’s for',
     paragraphs: [
       'Leaders who need clarity and control—not another slide deck.',
-      'Manufacturing, construction, technology, and services firms where reputation and growth opportunities both matter.',
+      'Businesses where reputation and growth opportunities matter.',
     ],
   },
   finalCta: {
@@ -182,7 +154,6 @@ export const en = {
     contactPhone: '+370 685 20513',
     contactEmail: 'nerijus@intuit.lt',
     addressLine: 'Gedimino pr. 49-25, LT-01110 Vilnius',
-    footnote: 'We reply within 24 hours. The first call is obligation-free.',
     mailBodyTemplate:
       'Hello,\n\nI would like to book a consultation on communications:\n\n• Company / organization:\n• Current goal:\n',
   },

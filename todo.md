@@ -23,7 +23,7 @@
 
 | Sritis | Būsena |
 |--------|--------|
-| Kodas | Astro 4, LT `/`, EN `/en/`, `src/i18n/`, sekcijos `src/components/sections/`, Proof valdymo diagrama (`HeroSystemDiagram`), Chaos vs tvarka, ikonos virš kortelių, Hero chevron fonas. |
+| Kodas | Astro 4, LT `/`, EN `/en/`, `src/i18n/`, sekcijos `src/components/sections/`, Hero chevron fonas. `HeroSystemDiagram` — komponentas repozitorijoje, landing'e neįterptas. |
 | Dokumentai | PRD v1.5, DS v1.5, BRAND, README, AGENTS, Cursor taisyklės, šis `todo.md`. |
 | Deploy | GitHub Pages workflow + Vercel instrukcijos README; `intuit-sitemap` → `dist/sitemap.xml`. |
 
@@ -50,7 +50,7 @@
 ## Faza 2–4 — turinys ir kalbos
 
 - [x] LT / EN skeletas ir copy (trumpesnis viešas tonas, žr. i18n + PRD §5.1).
-- [ ] Proof: tikri before/after skaičiai su kliento sutikimu (kol kas iliustracija + demo pastaba).
+- [ ] Case study / skaičiai: jei kada viešai — atskira medija ar kliento sutikimas (ne šio puslapio „proof“ blokas).
 - [ ] SEO / meta peržiūra po kiekvienos didesnės copy bangos.
 
 ---

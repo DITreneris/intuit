@@ -8,7 +8,7 @@
 |--------------|-----------|-------------------|
 | [PRD-one-page-PR-AI.md](PRD-one-page-PR-AI.md) | Produkto reikalavimai: sekcijos, funnel, LT/EN, CTA, a11y, vizualas (versija faile, pvz. v1.5) | Keičiasi pozicionavimas, sekcijų eilė, copy ar konversijos logika |
 | [BRAND.md](BRAND.md) | Logotipų keliai, Larsseit / Inter, UI gairės | Keičiasi brand failai, šriftų licencija ar naudojimas webui |
-| [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) | DS v1.5: Tailwind tokenai, CTA, kortelių akcentas (ikona neprivaloma), `--ds-*`, TrustedBy juosta, Hero inverse plakatas (`logo-pattern-inverse.jpg` / `BrandPatternPanel`), Proof diagrama, anti-patterns, checklist | Keičiasi vizualinė sistema, nauji UI primitive ar tokenai |
+| [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) | DS v1.5: Tailwind tokenai, CTA, kortelių akcentas (ikona neprivaloma), `--ds-*`, TrustedBy juosta, Hero inverse plakatas (`logo-pattern-inverse.jpg` / `BrandPatternPanel`), `HeroSystemDiagram` (komponentas, ne landing), anti-patterns, checklist | Keičiasi vizualinė sistema, nauji UI primitive ar tokenai |
 | [COPY-GLOSSARY.md](COPY-GLOSSARY.md) | LT/EN copy glosarijus: tonas, CTA, terminai, US anglų taisyklės, §**Agentams** (LT pirminė kalba; EN — privaloma **adaptacija**, ne vertimas); šaltinis [lt.ts](../src/i18n/lt.ts) / [en.ts](../src/i18n/en.ts) | Keičiasi terminologija, CTA, tonas ar agentų gairės |
 | [MOBILE-AUDIT.md](MOBILE-AUDIT.md) | Mobile UI/UX auditas: metodika (matrica, įrankiai, LT+EN smoke), Must/Should/Want, el. parašo takas, backlogas | Keičiasi responsive elgsena, mobilusis prioritetų sąrašas arba po reikšmingo UI pakeitimo |
 | [README.md](README.md) *(šis failas)* | Dokumentų valdymas: kas kur gyvena | Pridedate naują doc tipą ar taisykles |

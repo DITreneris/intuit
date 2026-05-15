@@ -13,10 +13,8 @@ const { messages, lang } = Astro.props;
 /** Anchor navigacija — etiketės ir href sutampa su `messages.nav` ir sekcijų `id` puslapyje. */
 /** Be `#contact` — į `#contact` veda primary CTA ir Footer antrinė nuoroda. */
 const links = [
-  { href: '#problem', label: messages.nav.problem },
   { href: '#solution', label: messages.nav.solution },
   { href: '#process', label: messages.nav.process },
-  { href: '#proof', label: messages.nav.proof },
   { href: '#offers', label: messages.nav.offers },
 ] as const;
 

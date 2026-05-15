@@ -26,7 +26,7 @@
     --ds-success-soft: theme('colors.successSoft');
     --ds-accent-teal: theme('colors.accentTeal');
     /**
-     * Inline diagramų (ChaosVsSystem ir kt.) stroke — sinchronas su Hero DS (storio jausmas).
+     * Inline diagramų (HeroSystemDiagram ir kt.) stroke — sinchronas su DS (storio jausmas).
      * Mazgų spinduliai SVG <circle r> palikti skaitiniais (geresnis naršyklių suderinamumas).
      */
     --ds-diagram-stroke-lg: 3.5;

@@ -9,10 +9,8 @@ export const lt = {
   },
   nav: {
     brand: 'INTUIT',
-    problem: 'Problema',
     solution: 'Metodas',
     process: 'Eiga',
-    proof: 'Rodikliai',
     offers: 'Planai',
     about: 'Apie',
     contact: 'Kontaktas',
@@ -33,6 +31,9 @@ export const lt = {
     ctaPrimary: 'Gauti konsultaciją',
     ctaSecondary: '4 žingsniai',
     logoAlt: 'INTUIT logotipas',
+    /** Inverse plakato paveikslas Hero (`BrandPatternPanel`). */
+    brandPatternAlt:
+      'Monochromas INTUIT ženklas su geometriniu chevron raštu — stilizuotas žodžio ženklas',
     diagram: {
       svgTitle: 'Komunikacijos valdymo schema',
       svgDesc:
@@ -54,9 +55,10 @@ export const lt = {
   trustedBy: {
     /** Tekstas prieš INTUIT ženklą antraštėje (žodis INTUIT — inline logo). */
     titleBefore: 'Klientai, kurie pasitiki',
-    hint: 'Slinkite į šoną — matysite visus logotipus.',
-    /** Slankiojančios juostos sritis (ekrano skaityklėms) */
-    scrollAriaLabel: 'Klientų logotipai — slinkite horizontaliai',
+    /** Palikite tuščią — hint eilutė po antrašte nerodoma. */
+    hint: '',
+    /** Logotipų tinklo sritis (ekrano skaityklėms). */
+    logosRegionAriaLabel: 'Klientų logotipai',
     /** Failai: `public/clients/`; `src` be BASE_URL. */
     logos: [
       { src: 'clients/masterkey-baltics.png', alt: 'MasterKey Baltics logotipas' },
@@ -67,38 +69,6 @@ export const lt = {
       { src: 'clients/sirin.jpg', alt: 'Sirin logotipas' },
       { src: 'clients/tec.png', alt: 'TEC Consulting logotipas' },
     ],
-  },
-  problem: {
-    title: 'Kodėl jūsų komunikacija neveikia kaip sistema',
-    bullets: [
-      {
-        signal: 'Skirtingos žinutės klientui',
-        detail: 'Komandos kalba skirtingai — pasitikėjimas krenta.',
-      },
-      {
-        signal: 'Komunikacija tik reaguoja',
-        detail: 'Nėra strategijos — prarandamas kontrolės jausmas.',
-      },
-      {
-        signal: 'Kanalai neveikia kartu',
-        detail: 'Reputacija neatitinka lūkesčių.',
-      },
-      {
-        signal: 'Įrankiai be sistemos',
-        detail: 'Daug komunikacinio triukšmo, mažai rezultatų.',
-      },
-    ],
-    caption: 'Skirtingos žinutės, chaotiški kanalai ir nuspėjamo rezultato nebuvimas.',
-  },
-  chaosVsSystem: {
-    /** Matoma sekcijos H2 — tiltas nuo problemos prie sprendimo. */
-    sectionTitle: 'Nuo chaoso prie aiškios tvarkos',
-    chaosTitle: 'Chaosas',
-    systemTitle: 'Tvarka',
-    chaosBadge: 'Reaktyviai',
-    systemBadge: 'Ritmingai',
-    chaosCaption: 'Nėra vienos linijos — tik kampanijos ir įvykiai.',
-    systemCaption: 'Vienas kelias: taisyklės, rodikliai, kartojimas — matoma ir apskaičiuojama.',
   },
   solution: {
     title: 'Trys kryptys, vienas planas',
@@ -126,48 +96,45 @@ export const lt = {
     steps: [
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
       { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis ir pozicionavimas.' },
-      { name: 'Startas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
+      { name: 'Vykdymas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
       { name: 'Tobulinimas', detail: 'Matavimas, koregavimai, augimo žingsniai.' },
     ],
   },
-  proof: {
-    title: 'Rodikliai, kuriuos kontroliuojame',
-    metrics: [
-      { label: 'Aiškumas', value: '↑', hint: 'viena žinutė' },
-      { label: 'Greitis', value: '↑', hint: 'kartojami šablonai' },
-      { label: 'Kontrolė', value: '↑', hint: 'matomi rodikliai' },
-    ],
-    brandPatternAlt:
-      'Monochromas INTUIT ženklas su geometriniu chevron raštu — stilizuotas žodžio ženklas',
-  },
   offers: {
-    title: 'Pasirinkite gylį',
-    subtitle: 'Aiškūs rezultatai — ne paslaugų sąrašas.',
+    title: 'Paslaugų paketai',
+    subtitle: 'Nuo audito ir plano iki kasdienio palaikymo ir krizių valdymo — trys aiškūs paketai.',
     tiers: [
       {
         name: 'Startas',
-        tag: 'Apžvalga ir planas',
+        tag: 'Įėjimas',
         price: 'Pagal poreikį',
-        bullets: ['Komunikacijos apžvalga', '90 dienų planas'],
+        bullets: ['Auditas', 'Komunikacijos planas'],
         cta: 'Gauti konsultaciją',
       },
       {
-        name: 'Įgyvendinimas',
-        tag: 'Kartu su komanda',
-        price: 'Pagal projektą',
+        name: 'Palaikymas',
+        tag: 'Kasdienė priežiūra',
+        price: 'Pagal sutartį',
         bullets: [
-          'Standartai ir turinys',
-          'Kampanijų organizavimas ir viešųjų ryšių ciklai',
+          'Auditas',
+          'Komunikacijos planas',
+          'Pranešimai spaudai',
+          'Atstovavimas',
+          'Konsultacijos',
         ],
-        cta: 'Aptarti įgyvendinimą',
+        cta: 'Aptarti palaikymą',
         highlighted: true,
       },
       {
-        name: 'Mastelis',
-        tag: 'Šablonai ir kokybė',
-        price: 'Pagal apimtį',
-        bullets: ['Darbo šablonų biblioteka', 'Turinio automatizavimas ir kokybės kontrolė'],
-        cta: 'Aptarti plėtrą',
+        name: 'Krizių valdymas',
+        tag: 'Įvykis ir rizika',
+        price: 'Pagal situaciją',
+        bullets: [
+          'Analizė',
+          'Komunikacijos ir veiksmų planas',
+          'Veiksmų įgyvendinimas ir komunikacijos valdymas',
+        ],
+        cta: 'Aptarti krizių valdymą',
       },
     ],
   },
@@ -175,7 +142,7 @@ export const lt = {
     title: 'Kam skirta',
     paragraphs: [
       'Vadovams, kuriems reikia aiškumo ir kontrolės — ne tik pristatymų.',
-      'Gamybos, statybos, technologijų ir paslaugų verslams, kuriems svarbu reputacija ir augimo galimybės.',
+      'Verslams, kuriems svarbu reputacija ir augimo galimybės.',
     ],
   },
   finalCta: {
@@ -190,7 +157,6 @@ export const lt = {
     contactPhone: '+370 685 20513',
     contactEmail: 'nerijus@intuit.lt',
     addressLine: 'Gedimino pr. 49-25, LT-01110 Vilnius',
-    footnote: 'Atsakome per 24 val. Pirmas pokalbis be įsipareigojimų.',
     mailBodyTemplate:
       'Sveiki,\n\nNorėčiau užsisakyti konsultaciją dėl komunikacijos:\n\n• Įmonė / organizacija:\n• Tikslas dabar:\n',
   },

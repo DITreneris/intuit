@@ -39,7 +39,7 @@
 | Final CTA (`finalCta.cta`) ir `mailto:` subject | **Užsisakyti konsultaciją** | **Book a consultation** |
 | Secondary (`hero.ctaSecondary`) | 4 žingsniai | Four steps |
 
-**Komentaras:** Hero / Header / Starter — **trumpas** konsultacijos kvietimas; galiniame bloke ir el. laiške — **pilnesnė** užsakymo formulė. Paketo `Starter` bullet’uose toliau aišku, kas įeina (apžvalga, planas).
+**Komentaras:** Hero / Header / pirmosios `offers.tiers[0]` (Startas / Starter) CTA — **trumpas** konsultacijos kvietimas; galiniame bloke ir el. laiške — **pilgesnė** užsakymo formulė. Starter kortelės bullet’uose aišku, kas įeina (auditas, komunikacijos planas).
 
 ---
 
@@ -49,36 +49,27 @@ Paraleli struktūra — visi veiksmažodžio inicijuoti, vienodas „svoris“:
 
 | Paketas | LT cta | EN cta |
 |---------|--------|--------|
-| Startas / Starter | **Gauti konsultaciją** | **Book a consultation** |
-| Įgyvendinimas / Delivery (`highlighted`) | **Aptarti įgyvendinimą** | **Plan the delivery** |
-| Mastelis / Scale | **Aptarti plėtrą** | **Discuss growth** |
+| Startas / Starter (`tiers[0]`) | **Gauti konsultaciją** | **Book a consultation** |
+| Palaikymas / Ongoing support (`highlighted`) | **Aptarti palaikymą** | **Discuss ongoing support** |
+| Krizių valdymas / Crisis management | **Aptarti krizių valdymą** | **Discuss crisis response** |
 
-`Starter` kortelės CTA sutampa su **Hero / Header** trumpu CTA; galinis blokas naudoja `finalCta.cta` (ilgesnė etiketė + `mailto` subject).
+`Starter` kortelės CTA sutampa su **Hero / Header** trumpu CTA; **primary** mygtukas Offers sekcijoje — antroji korta (`highlighted`: Palaikymas / Ongoing support). Galinis blokas naudoja `finalCta.cta` (ilgesnė etiketė + `mailto` subject).
 
 ---
 
 ## 4. Paketų etiketės (`tag`)
 
 | Paketas | LT tag | EN tag | Pastaba |
-|---------|--------|--------|---------|
-| Startas / Starter | Apžvalga ir planas | Review and plan | Be santrumpos `&` LT pusėje. |
-| Įgyvendinimas / Delivery | Kartu su komanda | With your team | OK kaip yra. |
-| Mastelis / Scale | **Šablonai ir kokybė** | **Playbooks and quality** | Ženkliukas (`price`): LT „**Pagal apimtį**“, EN „**By scope**“. Tag atitinka sąrašo punktus (šablonų biblioteka, kokybės linija). |
+|---------|--------|--------|----------|
+| Startas / Starter | Įėjimas | Kickoff | Ženkliukas (`price`): LT „Pagal poreikį“, EN „Custom“. |
+| Palaikymas / Ongoing support | Kasdienė priežiūra | Retained support | LT „Pagal sutartį“, EN „By agreement“; `highlighted` korta. |
+| Krizių valdymas / Crisis management | Įvykis ir rizika | Rapid response | LT „Pagal situaciją“, EN „Situation-based“. |
 
 ---
 
-## 5. `chaosVsSystem` badge porų suderinimas
+## 5. Archyvuota: `problem` ir `chaosVsSystem`
 
-Viena semantinė linija — **reaktyvumas vs ritmas** (sutampa su `problem.bullets[1]` „Komunikacija tik reaguoja“).
-
-| Laukas | LT | EN |
-|--------|----|----|
-| `chaosBadge` | **Reaktyviai** | **Reactive** |
-| `systemBadge` | Ritmingai | Cadence |
-| `chaosTitle` | Chaosas | Chaos |
-| `systemTitle` | Tvarka | Order |
-
-Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su EN „Reactive“ ir su problemos sekcija.
+Vieno puslapio versijoje **nebėra** sekcijų **Problema** ir **Chaos vs system**; atitinkami `messages` raktai pašalinti iš i18n. Anksčiau šiame skyriuje buvo `chaosVsSystem` badge porų suderinimo lentelė.
 
 ---
 
@@ -88,12 +79,11 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 |--------|----|----|------------|
 | `nav.solution` | Metodas | Method | Trumpa juostos etiketė; sekcijos H2 lieka „Sprendimas“ pozicionavimo kalba (žr. PRD). |
 | `nav.process` | Eiga | Flow | OK. |
-| `nav.proof` | Rodikliai | Metrics | Sutampa su Proof sekcijos rodiklių kalba. |
 | `nav.offers` | Planai | Plans | OK. |
 | `nav.about` | Apie | About | Rezervuota (sekcija `#about` lieka); **ne** Header ir **ne** Footer nuoroda — tik mažiau triukšmo juostoje. |
 | Kiti | nepakeisti | nepakeisti | |
 
-**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav **be** „Kontaktas“ / „Contact“ ir **be** „Apie“ / „About“ — į `#contact` veda primary CTA ir [Footer.astro](../src/components/Footer.astro) (`nav.contact` vienintelė antrinė nuoroda apačioje). Nav nuorodų stilius: mažesnis šriftas (`text-2xs` / ankstesnis `text-[11px]`), glaudesni tarpai.
+**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav — **trys** anchor nuorodos (`#solution`, `#process`, `#offers`); **be** „Kontaktas“ / „Contact“ ir **be** „Apie“ / „About“ — į `#contact` veda primary CTA ir [Footer.astro](../src/components/Footer.astro) (`nav.contact` vienintelė antrinė nuoroda apačioje). Nav nuorodų stilius: mažesnis šriftas (`text-2xs` / ankstesnis `text-[11px]`), glaudesni tarpai.
 
 ---
 
@@ -121,8 +111,8 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 - `+370 685 20513`, `nerijus@intuit.lt`
 - `Gedimino pr. 49-25, LT-01110 Vilnius`
 - `Įm. kodas 305723022 · PVM mokėtojo kodas LT100014758914` / `Company code 305723022 · VAT LT100014758914`
-- Paketų pavadinimai: `Startas / Įgyvendinimas / Mastelis` ↔ `Starter / Delivery / Scale`
-- Sekcijų ID: `#problem`, `#solution`, `#process`, `#proof`, `#offers`, `#about`, `#contact`, `#clients`, `#hero`.
+- Paketų pavadinimai: `Startas / Palaikymas / Krizių valdymas` ↔ `Starter / Ongoing support / Crisis management`
+- Sekcijų ID: `#solution`, `#process`, `#offers`, `#about`, `#contact`, `#clients`, `#hero`.
 
 ---
 
@@ -149,12 +139,11 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | `solution.pillars[1].points[1]` | „Kontaktai ir sekimas“ | „Užklausos ir tęsinys“ |
 | `solution.pillars[1].points[1]` (v2) | „Užklausos ir tęsinys“ | „Užklausos ir tęstinumas“ |
 | `solution.pillars[2].points[1]` | „Įrankiai ten, kur aiški atsakomybė“ | „Dirbtinio intelekto įrankiai ir inovacijos“ |
+| `process.steps[2].name` | „Startas“ | „Vykdymas“ (įsitraukimas — `detail` bloke). |
 | `process.steps[2].detail` | „Komandos įsitraukia — su mokymais ir kontrole.“ | „Komandos įsitraukia — mokymai, įrankiai, šablonai.“ |
-| `proof.title` | „Rodikliai, kuriuos **supras** vadovybė“ | „Rodikliai, kuriuos kontroliuojame“ |
-| `proof.body` | (buvo) | **Pašalinta** — lieka H2, metrikos, po jų valdymo diagrama (`HeroSystemDiagram`). Inverse plakatas — **Hero** (`BrandPatternPanel`; `brandPatternAlt` — `<img alt>`). |
-| `proof.metricsIntro` / `proof.demoNote` | — | Pašalinta anksčiau; inverse `alt` (`brandPatternAlt`) naudojamas Hero plakatui, ne Proof apačioje. |
-| `trustedBy.hint` (matoma) | … | „**←   →**“ (tik rodyklės) |
-| `trustedBy.scrollAriaLabel` | — | „Klientų logotipai — slinkite horizontaliai“ (slankiojančios srities `aria-label`) |
+| `proof.*` (buvusi sekcija) | — | **Sekcija pašalinta** iš landing'o; inverse plakato `alt` — `messages.hero.brandPatternAlt`. `messages.hero.diagram` lieka i18n dėl repo komponento [`HeroSystemDiagram.astro`](../src/components/HeroSystemDiagram.astro) (šiuo metu neįterpto į puslapį). |
+| `trustedBy.hint` (matoma) | Tuščia — nerodoma; ne tuščia — trumpas paaiškinimas po antrašte | (pasirinktinai) |
+| `trustedBy.logosRegionAriaLabel` | — | „Klientų logotipai“ (`aria-label` ant `<ul>` tinklo) |
 | `hero.diagram.systemStrip` | „Kontrolė ir matavimas“ | „Valdomas rezultatas“ (diagrama — vertė, ne procesas) |
 
 ---
@@ -164,18 +153,17 @@ Ankstesnė LT „Atsitiktinai“ keičiama į „Reaktyviai“ — derinasi su E
 | Vieta | Buvo | Bus |
 |-------|------|-----|
 | `hero.ctaPrimary` | „Get a communications insight“ | „Book a consultation“ |
-| `chaosVsSystem.chaosBadge` | „Reactive“ | „Reactive“ (LT pusė pasivyja: „Reaktyviai“) |
-| `proof.title` | „Outcomes leadership can read“ | „Metrics we control“ |
-| `proof.body` | (buvo) | Pašalinta |
-| `offers.tiers[2].tag` | … | LT „Šablonai ir kokybė“; EN „Playbooks and quality“ |
-| `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Plan the delivery“ / „Discuss growth“ |
+| `proof.*` (removed section) | — | Same as LT row above — section removed from one-page. |
+| `offers.tiers[1].tag` | … | LT „Kasdienė priežiūra“; EN „Retained support“ (`highlighted` paketas) |
+| `offers.tiers[*].cta` | mišrūs | „Book a consultation“ / „Discuss ongoing support“ / „Discuss crisis response“ |
 | `finalCta.cta` | „Request a communications review“ | „Book a consultation“ |
 | `finalCta.subtitle` | „Short call—mutual fit and what to do next.“ | „Short call to confirm fit and define next steps.“ |
-| `trustedBy.hint` (visible) | … | „**←   →**“ (arrows only) |
-| `trustedBy.scrollAriaLabel` | — | „Client logos — scroll horizontally“ (`aria-label` on scroll region) |
+| `trustedBy.hint` (visible) | Empty — hidden; otherwise one short line under the heading | (optional) |
+| `trustedBy.logosRegionAriaLabel` | — | „Client logos“ (`aria-label` on the logo `<ul>` grid) |
 | `hero.diagram.systemStrip` | „Control and measurement“ | „Controlled outcomes“ |
 | `solution.pillars[1].points[1]` | „Leads and nurturing“ | „Inquiries and continuity“ |
 | `solution.pillars[2].points[1]` | „Tools only where ownership is clear“ | „AI tools and innovation“ |
+| `process.steps[2].name` | „Launch“ | „Execution“ (onboarding stays in `detail`). |
 | `process.steps[2].detail` | „Teams onboard—with training and controls.“ | „Teams onboard—training, tools, and templates.“ |
 
 ---
@@ -209,7 +197,7 @@ I would like to book a consultation on communications:
 ## 12. Patikra prieš commit
 
 - [ ] `SiteMessages` raktai ir masyvų ilgiai nepakitę (TS strict būna „žalia“).
-- [ ] CTA: trumpa etiketė Hero = Header = Offers `Starter`; `finalCta.cta` = `mailto:` subject (gali būti ilgesnis už hero).
+- [ ] CTA: trumpa etiketė Hero = Header = Offers `tiers[0]` (Startas / Starter); **primary** Offers — `tiers[1]` (Palaikymas, `highlighted`); `finalCta.cta` = `mailto:` subject (gali būti ilgesnis už hero).
 - [ ] LT antraštės netampa per ilgos hero (`text-4xl md:text-5xl`) ir sekcijose (`text-3xl md:text-4xl`).
 - [ ] `pnpm build` praeina; `dist/sitemap.xml` generuojamas.
-- [ ] Vizualinis smoke: Hero, ChaosVsSystem badge’ai, Offers kortelės, FinalCta `mailto:` (subject + body).
+- [ ] Vizualinis smoke: Hero, Offers kortelės, FinalCta `mailto:` (subject + body).
