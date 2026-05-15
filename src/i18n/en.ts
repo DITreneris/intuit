@@ -111,7 +111,7 @@ export const en = {
   offers: {
     title: 'Service packages',
     subtitle:
-      'From audit and planning through day-to-day communications support to crisis-management strategies.',
+      'From audit and planning to the rhythm of everyday communications—or crisis-management strategies when you need them.',
     tiers: [
       {
         name: 'Starter',

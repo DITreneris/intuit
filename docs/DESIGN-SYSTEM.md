@@ -65,7 +65,8 @@ Techninė santrauka agentams ir kūrėjams. Strateginis tonas ir funnel — [PRD
 
 | Kontekstas | Konteineris | SVG (`viewBox 0 0 24 24`, stroke 2) |
 |------------|-------------|-------------------------------------|
-| Kortelių ikonos (kai naudojamos, pvz. Solution) | `h-12 w-12` + `rounded-xl` | `h-6 w-6` |
+| Kortelių ikonos (Solution — Lucide `@lucide/astro`) | `h-12 w-12` + `rounded-xl border border-accent/15 bg-accent/[0.06] text-accent` | `size={24}` (24×24 SVG, stroke 2) |
+| Kortelių ikonos (kitur — jei inline SVG be bibliotekos) | `h-12 w-12` + `rounded-xl border border-accent/15 bg-accent/5 text-accent` | `h-6 w-6` |
 
 ## Tipografija
 
@@ -112,7 +113,7 @@ Venkite **kiekvienoje** sekcijoje kartoti tą patį „h-12 ikona virš antrašt
 
 - **Kai naudojate ikoną:** inline SVG (be išorinės bibliotekos): `viewBox="0 0 24 24"`, `stroke-width="2"`, `stroke="currentColor"`, dažnai `h-6 w-6` konteineryje `flex h-12 w-12 … rounded-xl border border-accent/15 bg-accent/5 text-accent` (įspėjimo kortelėms — `danger*` tokenai).
 - **Alternatyvos:** žingsnių numeriai (`Process`), sąrašo taškai ar ✓ (`Solution`, `Offers`), tik tipografija (`About`), dominuojantis skaičius (jei kada būtų metrikų juosta).
-- **Dabartinė praktika (landing):** viešai **nenaudojame** pilno **`HeroSystemDiagram`** bloko (komponentas paliktas repozitorijoje). **`Solution`**, **`Process`**, **`Offers`**, **`About`** — be viršutinės ikonos kortelėje, nebent aiškiai atskiria bloką.
+- **Dabartinė praktika (landing):** viešai **nenaudojame** pilno **`HeroSystemDiagram`** bloko (komponentas paliktas repozitorijoje). **`Solution`** — trys stulpeliai su **Lucide** ikonomis per **`@lucide/astro`** (`Building2`, `Megaphone`, `Sparkles`), konteineryje **`h-12 w-12`** + **`rounded-xl border border-accent/15 bg-accent/[0.06] text-accent`**, viduje **`size={24}`**; kortelė — **`shadow-soft`**, **`ring-1 ring-ink/[0.04]`**, desktop **`hover:shadow-elevated`** + lengvas lift. **`Process`**, **`Offers`**, **`About`** — be viršutinės ikonos kortelėje, nebent aiškiai atskiria bloką.
 
 ## Komunikacijos valdymo diagrama (`HeroSystemDiagram`, product vizualinė kalba)
 

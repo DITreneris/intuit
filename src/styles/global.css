@@ -147,6 +147,11 @@
     @apply mx-auto max-w-content px-4 py-10 md:px-6 md:py-12;
   }
 
+  /** Hero — šiek tiek kompaktesnis vertikalus padding mobiliajame (mažiau „tuščios“ erdvės po lipniu headeriu) */
+  .section-shell--hero {
+    @apply mx-auto max-w-content px-4 py-12 md:px-6 md:py-20 lg:py-24;
+  }
+
   /** Hero eyebrow ir panašios šviesios etiketės (ne spalvotos Chaos antraštės) */
   .label-eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted;

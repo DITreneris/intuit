@@ -11,7 +11,7 @@ interface Props {
 const { href, size = 'md', class: className = '' } = Astro.props;
 
 const base =
-  'inline-flex items-center justify-center rounded-full border border-line bg-surface font-semibold text-ink transition hover:border-ink';
+  'inline-flex min-h-11 items-center justify-center rounded-full border border-line bg-surface font-semibold text-ink transition hover:border-ink';
 
 const sizeClasses = {
   md: 'px-5 py-3 text-sm',

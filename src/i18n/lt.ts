@@ -107,13 +107,13 @@ export const lt = {
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
       { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis ir pozicionavimas.' },
       { name: 'Vykdymas', detail: 'Komandos įsitraukia — mokymai, įrankiai, šablonai.' },
-      { name: 'Tobulinimas', detail: 'Matavimas, koregavimai, augimo žingsniai.' },
+      { name: 'Tobulinimas', detail: 'Matavimas, korekcijos, augimo žingsniai.' },
     ],
   },
   offers: {
     title: 'Paslaugų paketai',
     subtitle:
-      'Nuo audito ir plano iki kasdienio komunikacijos palaikymo ir krizių valdymo strategijų.',
+      'Nuo audito ir plano iki kasdienės komunikacijos rutinos ar krizių valdymo strategijų.',
     tiers: [
       {
         name: 'Startas',

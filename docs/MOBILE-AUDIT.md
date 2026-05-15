@@ -60,8 +60,8 @@
 | ID | Radinys | Rekomendacija | Vieta |
 |----|---------|---------------|-------|
 | S1 | Kontaktinė nuotrauka `< sm`: `mx-auto`, tekstas kairėje — dvi vizualinės ašys | Sulygiuoti nuotrauką su tekstu (`mx-0` ir vienoda kairė padding) arba sąmoningai centruoti visą kortelės turinį | [FinalCta.astro](../src/components/sections/FinalCta.astro) (≈38–40 eil.) |
-| S2 | Touch 44×44 pt: `ButtonPrimary` `md` dydis — `py-3` ≈ 40 px aukštis | Prireikus `min-h-11` arba šiek tiek didesnis `py` ant primary | [ButtonPrimary.astro](../src/components/ui/ButtonPrimary.astro) |
-| S3 | Footer kontaktas — tik tekstinė nuoroda | Padidinti paspaudimo zoną (`inline-block py-2` arba `min-h-11 flex items-center`) | [Footer.astro](../src/components/Footer.astro) |
+| S2 | Touch 44×44 pt: primary ir secondary CTA | **OK** — `min-h-11` + `items-center` bazėje ([ButtonPrimary.astro](../src/components/ui/ButtonPrimary.astro), [ButtonSecondary.astro](../src/components/ui/ButtonSecondary.astro)); po deploy patikrinti DevTools (aukštis ≥ 44 px). | ButtonPrimary, ButtonSecondary |
+| S3 | Footer kontaktas — tik tekstinė nuoroda | **OK** — `inline-flex min-h-11 items-center` ant nuorodos į `#contact` ([Footer.astro](../src/components/Footer.astro)). | Footer.astro |
 | S4 | TrustedBy: grid be horizontalaus slankiklio | Patikrinti 320 px: paskutinė eilutė (nepilnas stulpelių skaičius) vizualiai tvarkinga; kontrastas tarp logotipų ir `bg-paper` | [TrustedBy.astro](../src/components/sections/TrustedBy.astro) |
 | S5 | Offers/Solution: viena kolona `< md` | OK; ilgi antraščių žodžiai — stebėti LT/EN realiu tekstu | Offers, Solution |
 
@@ -95,9 +95,8 @@ Techninis pastebėjimas: svetainės FinalCta naudoja tą pačią logikos idėją
 |------|-----|----------|
 | 1 | M8 | Paleidus: axe + kontrastas FinalCta ant tikro `bg-ink` |
 | 2 | S1 | Spręsti FinalCta nuotraukos išlygiavimą `<640px` |
-| 3 | S2, S3 | Touch: primary mygtukai ir Footer `#contact` |
-| 4 | W1 | Safe-area ant header/footer kontaktų, jei matomas notch problema |
-| 5 | W3 | Lighthouse mobiliajam po production URL |
+| 3 | W1 | Safe-area ant header/footer kontaktų, jei matomas notch problema |
+| 4 | W3 | Lighthouse mobiliajam po production URL |
 
 ---
 
