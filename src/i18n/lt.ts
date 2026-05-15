@@ -9,9 +9,6 @@ export const lt = {
   },
   nav: {
     brand: 'INTUIT',
-    solution: 'Metodas',
-    process: 'Eiga',
-    offers: 'Planai',
     about: 'Apie',
     contact: 'Kontaktas',
     langShortLt: 'LT',
@@ -77,24 +74,35 @@ export const lt = {
       {
         name: 'Verslo komunikacija',
         outcome: 'Reputacija ir pasitikėjimas',
-        points: ['Krizės ir vadovų komunikacija', 'Žiniasklaida ir pozicija'],
+        points: [
+          'Plėtros ir verslo sėkmės komunikacija',
+          'Bendravimas su žiniasklaida ir pozicija',
+          'Krizių valdymas ir vadovų komunikacija',
+        ],
       },
       {
         name: 'Rinkodaros komunikacija',
         outcome: 'Augantis susidomėjimas',
-        points: ['Turinys ir kampanijos', 'Užklausos ir tęstinumas'],
+        points: [
+          'Turinys ir kampanijos',
+          'Naujų tikslinių grupių įtraukimas',
+          'Renginiai ir socialiniai tinklai',
+        ],
       },
       {
         name: 'Kasdienė veikla',
-        outcome: 'Augimas be chaoso',
-        points: ['Patvirtinti šablonai ir ritualai', 'Dirbtinio intelekto įrankiai ir inovacijos'],
+        outcome: 'Tvarus augimas',
+        points: [
+          'Patvirtinti šablonai ir ritualai',
+          'Organizacinė (vidinė) komunikacija',
+          'Dirbtinio intelekto įrankiai ir inovacijos',
+        ],
       },
     ],
   },
   process: {
     title: 'Kaip dirbame',
-    intro:
-      'Aiškūs etapai — nuo dabartinės situacijos iki nuolatinio tobulinimo. Žemiau keturi žingsniai, kaip dirbame kartu.',
+    intro: 'Aiškūs etapai — nuo dabartinės situacijos iki nuolatinio tobulinimo.',
     steps: [
       { name: 'Apžvalga', detail: 'Kas yra dabar: auditorijos, rizikos, įpročiai.' },
       { name: 'Planas', detail: 'Kanalai, rodikliai, turinio kryptis ir pozicionavimas.' },
@@ -104,7 +112,8 @@ export const lt = {
   },
   offers: {
     title: 'Paslaugų paketai',
-    subtitle: 'Nuo audito ir plano iki kasdienio palaikymo ir krizių valdymo — trys aiškūs paketai.',
+    subtitle:
+      'Nuo audito ir plano iki kasdienio komunikacijos palaikymo ir krizių valdymo strategijų.',
     tiers: [
       {
         name: 'Startas',

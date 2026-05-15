@@ -10,21 +10,11 @@ interface Props {
 
 const { messages, lang } = Astro.props;
 
-/** Anchor navigacija — etiketės ir href sutampa su `messages.nav` ir sekcijų `id` puslapyje. */
-/** Be `#contact` — į `#contact` veda primary CTA ir Footer antrinė nuoroda. */
-const links = [
-  { href: '#solution', label: messages.nav.solution },
-  { href: '#process', label: messages.nav.process },
-  { href: '#offers', label: messages.nav.offers },
-] as const;
-
 const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 const otherHref = lang === 'lt' ? `${basePath}en/` : basePath;
 const otherLabel = lang === 'lt' ? messages.nav.langShortEn : messages.nav.langShortLt;
-
-const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
 ---
 
 <header
@@ -42,17 +32,6 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
       <span class="sr-only">{messages.nav.brand}</span>
     </a>
 
-    <nav
-      class="hidden flex-wrap items-center justify-end gap-x-2 gap-y-1 text-2xs font-medium leading-none tracking-tight text-muted lg:gap-x-2.5 xl:gap-x-3 md:flex"
-      aria-label="Primary"
-    >
-      {links.map((l) => (
-        <a class="hover:text-ink" href={l.href}>
-          {l.label}
-        </a>
-      ))}
-    </nav>
-
     <div class="flex shrink-0 items-center gap-1.5 md:gap-2">
       <a
         href={otherHref}
@@ -63,28 +42,7 @@ const menuLabel = lang === 'lt' ? 'Meniu' : 'Menu';
         {otherLabel}
       </a>
 
-      <details class="relative md:hidden">
-        <summary class="header-toolbar-control cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-          {menuLabel}
-        </summary>
-        <div
-          class="absolute right-0 z-50 mt-2 max-h-[min(70vh,24rem)] w-64 max-w-[calc(100vw-2rem)] overflow-y-auto rounded-lg border border-line bg-surface p-2 shadow-elevated"
-          role="presentation"
-        >
-          <nav class="flex flex-col gap-1 text-sm font-medium text-muted" aria-label="Mobile">
-            <ButtonPrimary href="#contact" size="sm" class="mb-1 w-full shrink-0 justify-center">
-              {messages.hero.ctaPrimary}
-            </ButtonPrimary>
-            {links.map((l) => (
-              <a class="flex min-h-11 items-center rounded-md px-3 py-2.5 hover:bg-paper hover:text-ink" href={l.href}>
-                {l.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </details>
-
-      <ButtonPrimary href="#contact" size="sm" class="hidden whitespace-nowrap md:inline-flex">
+      <ButtonPrimary href="#contact" size="sm" class="whitespace-nowrap">
         {messages.hero.ctaPrimary}
       </ButtonPrimary>
     </div>

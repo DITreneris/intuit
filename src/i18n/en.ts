@@ -9,9 +9,6 @@ export const en = {
   },
   nav: {
     brand: 'INTUIT',
-    solution: 'Method',
-    process: 'Flow',
-    offers: 'Plans',
     about: 'About',
     contact: 'Contact',
     langShortLt: 'LT',
@@ -75,24 +72,35 @@ export const en = {
       {
         name: 'Business communications',
         outcome: 'Reputation and trust',
-        points: ['Crisis and executive comms', 'Media relations and positioning'],
+        points: [
+          'Growth and business-success communications',
+          'Media relations and positioning',
+          'Crisis management and leadership communications',
+        ],
       },
       {
         name: 'Marketing communications',
-        outcome: 'Steady demand',
-        points: ['Content and campaigns', 'Inquiries and continuity'],
+        outcome: 'Stronger engagement',
+        points: [
+          'Content and campaigns',
+          'Reaching new target audiences',
+          'Events and social media',
+        ],
       },
       {
         name: 'Day-to-day operations',
-        outcome: 'Scale without chaos',
-        points: ['Approved templates and rituals', 'AI tools and innovation'],
+        outcome: 'Sustainable growth',
+        points: [
+          'Approved templates and rituals',
+          'Organizational (internal) communications',
+          'AI tools and innovation',
+        ],
       },
     ],
   },
   process: {
     title: 'How we work',
-    intro:
-      'A clear sequence—from where you are today to steady refinement. Below are the four stages of how we work together.',
+    intro: 'A clear sequence—from where you are today to steady refinement.',
     steps: [
       { name: 'Overview', detail: 'What exists now: audiences, risks, and habits.' },
       { name: 'Plan', detail: 'Channels, metrics, narrative direction, and positioning.' },
@@ -102,7 +110,8 @@ export const en = {
   },
   offers: {
     title: 'Service packages',
-    subtitle: 'Three clear paths—from audit and planning through retained support to crisis leadership.',
+    subtitle:
+      'From audit and planning through day-to-day communications support to crisis-management strategies.',
     tiers: [
       {
         name: 'Starter',

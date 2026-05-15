@@ -77,13 +77,10 @@ Vieno puslapio versijoje **nebėra** sekcijų **Problema** ir **Chaos vs system*
 
 | Raktas | LT | EN | Komentaras |
 |--------|----|----|------------|
-| `nav.solution` | Metodas | Method | Trumpa juostos etiketė; sekcijos H2 lieka „Sprendimas“ pozicionavimo kalba (žr. PRD). |
-| `nav.process` | Eiga | Flow | OK. |
-| `nav.offers` | Planai | Plans | OK. |
 | `nav.about` | Apie | About | Rezervuota (sekcija `#about` lieka); **ne** Header ir **ne** Footer nuoroda — tik mažiau triukšmo juostoje. |
 | Kiti | nepakeisti | nepakeisti | |
 
-**Header juosta ([Header.astro](../src/components/Header.astro)):** desktop nav — **trys** anchor nuorodos (`#solution`, `#process`, `#offers`); **be** „Kontaktas“ / „Contact“ ir **be** „Apie“ / „About“ — į `#contact` veda primary CTA ir [Footer.astro](../src/components/Footer.astro) (`nav.contact` vienintelė antrinė nuoroda apačioje). Nav nuorodų stilius: mažesnis šriftas (`text-2xs` / ankstesnis `text-[11px]`), glaudesni tarpai.
+**Header juosta ([Header.astro](../src/components/Header.astro)):** **be** sekcijų anchor į `#solution` / `#process` / `#offers` — lieka ženklas (į `#hero`), kalbos jungiklis (`.header-toolbar-control`) ir primary CTA (`ButtonPrimary` į `#contact`; mobiliuoju — matomas inline, desktop — dešinėje). Į kontaktą taip pat veda [Footer.astro](../src/components/Footer.astro) (`nav.contact`).
 
 ---
 

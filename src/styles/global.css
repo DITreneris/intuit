@@ -115,13 +115,26 @@
     @apply rounded-xl border border-line bg-surface shadow-softSm;
   }
 
+  /**
+   * Opt-in: plona viršutinė accent juosta (Solution, Process, Offers).
+   * Kombinuoti su `.card` arba `.card-featured`; reikalauja `overflow-hidden` kad sutaptų su `rounded-xl`.
+   */
+  .card-brand {
+    @apply relative overflow-hidden;
+  }
+
+  .card-brand::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 z-[1] h-0.5 bg-accent/75;
+  }
+
   .card-muted {
     @apply rounded-xl border border-line bg-paper shadow-softSm;
   }
 
-  /** Offers — highlighted tier (accent border + lift) */
+  /** Offers — highlighted tier (accent border + švelnesnis lift) */
   .card-featured {
-    @apply flex flex-col rounded-xl border border-accent bg-surface p-6 shadow-soft md:-translate-y-1 md:ring-1 md:ring-accent/20;
+    @apply flex flex-col overflow-hidden rounded-xl border border-accent bg-surface p-6 shadow-soft md:-translate-y-0.5 md:ring-1 md:ring-accent/15;
   }
 
   /** Sekcijų konteineris — sutampa su DS checklist (max-w-content + horizontal / vertical padding) */

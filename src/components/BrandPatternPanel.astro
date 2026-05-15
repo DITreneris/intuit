@@ -17,13 +17,13 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
 ---
 
 <div
-  class="overflow-hidden rounded-2xl bg-gradient-to-b from-heroInkFrom to-heroInkTo shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] ring-1 ring-white/10"
+  class="overflow-hidden rounded-2xl bg-gradient-to-b from-heroInkFrom to-heroInkTo shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] ring-1 ring-white/6"
 >
   <div class="relative">
     <img
       src={`${basePath}brand/logo-pattern-inverse.jpg`}
       alt={messages.hero.brandPatternAlt}
-      class="relative z-0 block h-auto w-full"
+      class="relative z-0 block h-auto w-full opacity-[0.97]"
       width={1000}
       height={978}
       fetchpriority="high"
@@ -32,7 +32,7 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
     />
     <!-- Nutildo apatinį chevron raštą (tekstūra, ne kilimas); ženklas aukščiau lieka aiškus -->
     <div
-      class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[52%] bg-gradient-to-t from-heroInkTo via-heroInkTo/75 to-transparent"
+      class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[48%] bg-gradient-to-t from-heroInkTo via-heroInkTo/65 to-transparent"
       aria-hidden="true"
     />
   </div>

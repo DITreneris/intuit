@@ -33,7 +33,7 @@
 
 1. Atidaryti `/` (LT) ir `/en/` (EN).
 2. Hero: perskaityti `h1`, primary CTA (`#contact`), secondary (`#process`).
-3. Header: kalbos nuoroda LT ↔ EN; mobilusis „Meniu“ — primary CTA viršuje, anchor nuorodos į sekcijas.
+3. Header: kalbos nuoroda LT ↔ EN; primary CTA (`ButtonPrimary` į `#contact`) matomas juostoje; sekcijų anchor iš Header pašalinti.
 4. TrustedBy: logotipų tinklas (visi matomi, be horizontalaus slankiklio sekcijoje).
 5. Final CTA: kontaktinė kortelė — nuotrauka, žodinis ženklas, `tel:`, `mailto:`, primary mygtukas (pilnas plotis).
 6. Footer: nuoroda į `#contact`.
@@ -48,7 +48,7 @@
 |----|---------|--------|-------|
 | M1 | Vienas `h1` (Hero) | OK | [Hero.astro](../src/components/sections/Hero.astro) |
 | M2 | Sekcijos su `h2`, antrinės antraštės logiškos | OK | Solution, Process, Offers, About, FinalCta |
-| M3 | Primary CTA kelias: Header mobilusis meniu + Hero + Offers highlighted + FinalCta | OK | [Header.astro](../src/components/Header.astro), [Offers.astro](../src/components/sections/Offers.astro) |
+| M3 | Primary CTA kelias: Header CTA + Hero + Offers highlighted + FinalCta | OK | [Header.astro](../src/components/Header.astro), [Offers.astro](../src/components/sections/Offers.astro) |
 | M4 | Ink `#contact`: `mailto:` su `URLSearchParams`, `tel:` be tarpų | OK | [FinalCta.astro](../src/components/sections/FinalCta.astro) |
 | M5 | Išorinės nuorodos (Maps): `rel="noopener noreferrer"` | OK | FinalCta |
 | M6 | `:focus-visible`, skip nuoroda, `prefers-reduced-motion` | OK | [global.css](../src/styles/global.css), [Layout.astro](../src/layouts/Layout.astro) |

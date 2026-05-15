@@ -12,21 +12,20 @@ const { messages } = Astro.props;
   <div class="section-shell space-y-10 md:space-y-12">
     <div class="max-w-measure space-y-4">
       <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.process.title}</h2>
+      <div class="h-px w-12 bg-accent/20" aria-hidden="true"></div>
       <p class="section-intro">{messages.process.intro}</p>
     </div>
 
     <div
-      class="relative grid gap-8 border-l-2 border-accent/20 pl-5 md:border-l-0 md:pl-0 md:grid-cols-4 md:gap-8"
+      class="relative grid gap-8 border-l border-accent/25 pl-4 md:border-l-0 md:pl-0 md:grid-cols-4 md:gap-8"
       role="list"
     >
-      <div
-        class="pointer-events-none absolute left-0 right-0 top-[2.375rem] hidden h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent md:block"
-        aria-hidden="true"
-      />
       {messages.process.steps.map((step, idx) => (
-        <div class="card relative flex flex-col gap-4 border-accent/10 p-6 shadow-softSm" role="listitem">
+        <div class="card card-brand relative flex flex-col gap-4 p-6" role="listitem">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="flex h-7 min-w-[1.75rem] items-center justify-center rounded-full bg-accent px-2 text-xs font-semibold text-white ring-2 ring-accent/15 ring-offset-2 ring-offset-surface">
+            <span
+              class="flex h-6 min-w-[1.5rem] items-center justify-center rounded-full border border-accent/45 bg-surface px-1.5 text-2xs font-semibold tabular-nums text-accent"
+            >
               {idx + 1}
             </span>
             <h3 class="card-title">{step.name}</h3>

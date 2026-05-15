@@ -16,12 +16,13 @@ const { messages } = Astro.props;
   <div class="section-shell relative space-y-10 md:space-y-12">
     <div class="max-w-measure space-y-4">
       <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">{messages.solution.title}</h2>
+      <div class="h-px w-12 bg-accent/20" aria-hidden="true"></div>
       <p class="section-intro">{messages.solution.intro}</p>
     </div>
 
     <div class="grid gap-6 md:grid-cols-3 md:items-stretch">
       {messages.solution.pillars.map((pillar) => (
-        <article class="card flex h-full flex-col p-6">
+        <article class="card card-brand flex h-full flex-col p-6">
           <h3 class="card-title">{pillar.name}</h3>
           <p class="mt-2 text-sm font-semibold text-accent">{pillar.outcome}</p>
           <ul class="mt-4 space-y-2.5 text-base leading-relaxed text-ink">
